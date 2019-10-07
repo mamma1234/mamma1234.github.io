@@ -17,7 +17,7 @@ baseurl                  : "" # the subpath of your site, e.g. "/blog"
 
 # Owner/author information
 owner:
-  name:           Kiwoong Yeom
+  name:           mamma1234
   avatar:         hmfaysal.jpg
   email:          mamma1234@gmail.com
   # Use the coder's toolbox at http://coderstoolbox.net/string/#!encoding=xml&action=encode&charset=us_ascii to encode your description into XML string

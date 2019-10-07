@@ -1,8 +1,8 @@
 ---
 layout: page
 permalink: /about/index.html
-title: Kiwoong Yeom
-tags: [Kiwoong, Yeom, Newhiwoong]
+title: MAMMA1234
+tags: [mamma1234, parkdaekyu, dreamdae, pdkship]
 imagefeature: fourseasons.jpg
 chart: true
 ---
