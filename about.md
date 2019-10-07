@@ -2,7 +2,7 @@
 layout: page
 permalink: /about/index.html
 title: MAMMA1
-tags: [mamma1234, parkdaekyu, dreamdae, pdkship]
+tags: [mamma, mamma1234, parkdaekyu, dreamdae, pdkship]
 imagefeature: fourseasons.jpg
 chart: true
 ---
