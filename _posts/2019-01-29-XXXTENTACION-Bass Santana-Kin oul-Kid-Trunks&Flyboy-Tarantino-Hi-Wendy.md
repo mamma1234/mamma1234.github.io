@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "XXXTENTACION, Bass Santana, Kin$oul, Kid Trunks & Flyboy Tarantino - Hi Wendy! 가사 해석"
+title: "XXXTENTACION, Bass Santana, Kin oul, Kid Trunks & Flyboy Tarantino - Hi Wendy! 가사 해석"
 description: 
 headline: 
 modified: 2019-01-29
