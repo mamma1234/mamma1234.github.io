@@ -57,7 +57,7 @@ XXXX
 Python, JavaScript, C
 
 ### Framework
-Pandas, NumPy, scikit-learn, KoNLPy, Spark, [PyTorch](https://github.com/newhiwoong/PyTorch), [TensorFlow](https://github.com/newhiwoong/TensorFlow), [Keras](https://github.com/newhiwoong/Keras-Applications)
+Pandas, NumPy, scikit-learn, KoNLPy, Spark, [PyTorch](https://github.com/mamma1234/PyTorch), [TensorFlow](https://github.com/mamma1234/TensorFlow), [Keras](https://github.com/mamma1234/Keras-Applications)
 
 ### AI / ML
 오일석의 '[패턴인식](http://www.yes24.com/24/goods/3315437?scode=032&OzSrank=1)', 마이클 네그네빗스키의 ‘[인공지능 개론](http://www.yes24.com/24/Goods/9386454?Acode=101)’ 독학으로 전통적인 ML 분야 학습, Vision + NLP + Sequence Models - [Coursera 강의](https://www.coursera.org/learn/nlp-sequence-models) 수료 및 각종 프로젝트 진행, [강화학습](https://event-us.kr/modu/event/2016) + [Deep Generative](https://event-us.kr/modu/event/4648) 스터디를 통하여 학습 및 실습
