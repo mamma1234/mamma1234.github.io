@@ -25,7 +25,7 @@ layout: none
 {% for post in site.posts limit:20 %}
 <entry>
   <title type="html"><![CDATA[{{ post.title | cdata_escape }}]]></title>
-  <id>{{ site_url | cdata_escape }}{{ post.id | cdata_escape }}</id>
+  <id>{{ site_url }}{{ post.id }}</id>
   
 </entry>
 {% endfor %}
