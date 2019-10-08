@@ -33,5 +33,7 @@ layout: none
     <uri>{{ site_url }}</uri>
     <email>{{ site.owner.email }}</email>
   </author>
-
+  
+</entry>
+{% endfor %}
 </feed>
