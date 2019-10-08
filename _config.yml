@@ -18,7 +18,7 @@ baseurl                  : "" # the subpath of your site, e.g. "/blog"
 # Owner/author information
 owner:
   name:           mamma1234
-  avatar:         hmfaysal.jpg
+  avatar:         mamma1234.jpg
   email:          mamma1234@gmail.com
   # Use the coder's toolbox at http://coderstoolbox.net/string/#!encoding=xml&action=encode&charset=us_ascii to encode your description into XML string
   description:    A person longing for any dream for a long time  resembles that dream at last .
