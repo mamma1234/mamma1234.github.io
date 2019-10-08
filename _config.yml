@@ -31,8 +31,12 @@ owner:
   #google_plus:    https://plus.google.com/u/0/102602916593522619858
 
 # Analytics and webmaster tools stuff goes here
+# google_analytics:   UUA-133319432-1
 google_analytics:   UUA-133319432-1
 #google_verify:      
+
+google_tag: GTM-58K8LXF
+
 # https://ssl.bing.com/webmaster/configure/verify/ownership Option 2 content= goes here
 bing_verify:         
 
