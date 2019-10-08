@@ -7,11 +7,6 @@ imagefeature: fourseasons.jpg
 chart: true
 ---
 
-<figure>
-	<img src="{{ site.url }}/images/kywc.png" alt="북마크">
-	<figcaption>북마크</figcaption>
-</figure>
-
 {% assign total_words = 0 %}
 {% assign total_readtime = 0 %}
 {% assign featuredcount = 0 %}
