@@ -76,6 +76,10 @@
       CATEGORYS
     </a>
     <span> | </span>
+    <a href="https://mamma1234.github.io/bookmark/">
+      BOOKMARK
+    </a>
+    <span> | </span>
     <a href="https://mamma1234.github.io/about/">
       ABOUT
     </a>
