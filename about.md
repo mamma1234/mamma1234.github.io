@@ -32,12 +32,12 @@ This is my personal blog. It currently has {{ site.posts | size }} posts in {{ s
 -->
 
 <h1 align="center">
-<a href="">  </a>  
+<a href=""></a>  
 </h1>
 
 <figure>
   <img src="" alt="">
-  <figcaption>/figcaption>
+  <figcaption></figcaption>
 </figure>
 
 ## [INTRODUCTION]()
@@ -45,9 +45,9 @@ XXXX
 
 ## [EXPERIENCE]()
 ### 관련사이트  - *링크*
-<sub>[Github](https://github.com/mamma1234)</sub>
-<sub>[BLOG](http://mamma1234.egloos.com/)</sub>
-<sub>[CAFE](https://cafe.naver.com/mamma1234)</sub>
+- [Github](https://github.com/mamma1234)
+- [BLOG](http://mamma1234.egloos.com/)
+- [CAFE](https://cafe.naver.com/mamma1234)
 
 ### XXXX - *Team project*
 <sub>2018.10.07 - 12.20, [Github](https://github.com/mamma1234), [Report](https://bit.ly/mamma1234)</sub>
