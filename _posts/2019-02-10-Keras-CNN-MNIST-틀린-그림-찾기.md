@@ -11,6 +11,7 @@ mathjax:
 chart: 
 share: true
 comments: true
+disqus: true
 ---
 
 Keras로 간단한 [CNN을 구현](https://github.com/newhiwoong/Keras-Applications/blob/master/01_CNN_MNIST.ipynb)하여 MNIST를 진행하면 99% 이상의 성능을 발휘한다. 그럼 1% 미만이 틀린 MNIST는 어떤 그림일지 궁금했고 한 번 알아보려고 한다.

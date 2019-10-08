@@ -11,6 +11,7 @@ mathjax:
 chart: 
 share: true
 comments: true
+disqus: true
 ---
 
 Keras로 간단한 [text generator](https://github.com/newhiwoong/Keras-Applications/blob/master/12_Generation_text_with_lstm.ipynb)을 구현해보겠다. 이 예제는 [Keras examples code](https://github.com/keras-team/keras/blob/master/examples/lstm_text_generation.py)로 작성되었다. 그리고 post내용은 [케라스 창시자에게 배우는 딥러닝](https://github.com/rickiepark/deep-learning-with-python-notebooks)의 내용이다.

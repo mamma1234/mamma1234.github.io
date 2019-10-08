@@ -11,6 +11,7 @@ mathjax:
 chart: 
 share: true
 comments: true
+disqus: true
 ---
 
 RNN이나 CNN이 아닌 새로운 구조를 개척한 [Attention Is All You Need](https://arxiv.org/pdf/1706.03762.pdf)을 리뷰를 해보겠다. 

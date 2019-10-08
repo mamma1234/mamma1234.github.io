@@ -11,6 +11,7 @@ mathjax:
 chart: 
 share: true
 comments: true
+disqus: true
 ---
 
 attention 기법을 처음 적용하여 긴 문장의 NMT(Neural machine translation)에서 성능을 향상시킨 [NEURAL MACHINE TRANSLATION BY JOINTLY LEARNING TO ALIGN AND TRANSLATE](https://arxiv.org/pdf/1409.0473.pdf)을 리뷰를 해보겠다. 
