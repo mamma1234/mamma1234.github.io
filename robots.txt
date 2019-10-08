@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://newhiwoong.github.io/sitemap.xml
+Sitemap: https://mamma1234.github.io/sitemap.xml
