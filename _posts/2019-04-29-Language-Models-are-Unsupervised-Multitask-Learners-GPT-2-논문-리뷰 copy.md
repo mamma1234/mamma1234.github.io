@@ -11,6 +11,7 @@ mathjax:
 chart: 
 share: true
 comments: true
+disqus: true
 ---
 
 엄청난 퀄리티로 텍스트를 재생산하는 OpenAI에서 공개한 [Language Models are Unsupervised Multitask Learners](https://d4mucfpksywv.cloudfront.net/better-language-models/language_models_are_unsupervised_multitask_learners.pdf)을 리뷰를 해보겠다. 
