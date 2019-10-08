@@ -54,6 +54,8 @@ links:
     url: /tags
   - title: Categories
     url: /categories
+  - title: Bookmark
+    url: /bookmark
   - title: About
     url: /about
 
