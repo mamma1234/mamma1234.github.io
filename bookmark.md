@@ -1,6 +1,6 @@
 ---
 layout: page
-permalink: /about/index.html
+permalink: /bookmark/index.html
 title: MAMMA
 tags: [mamma, mamma1234, parkdaekyu, dreamdae, pdkship]
 imagefeature: fourseasons.jpg
