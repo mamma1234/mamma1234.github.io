@@ -25,3 +25,5 @@ CLI (Command Line Interface)
 ## 핵심 개념
 - Git Bash
 
+- WebPack CLI
+npm i -g webpack-cli
