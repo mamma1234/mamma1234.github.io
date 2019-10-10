@@ -28,8 +28,8 @@ This is my personal blog. It currently has {{ site.posts | size }} posts in {{ s
 
 
 ## [WebPack](https://webpack.js.org/)
-<sub>[ibrahimovic](https://ibrahimovic.tistory.com/48)</sub>
-<sub>[WebPack Document](https://webpack.js.org/configuration/)</sub>
+- <sub>[ibrahimovic](https://ibrahimovic.tistory.com/48)</sub>
+- <sub>[WebPack Document](https://webpack.js.org/configuration/)</sub>
 
 
 
