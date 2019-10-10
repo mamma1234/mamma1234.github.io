@@ -107,6 +107,14 @@ git commit -m "yyyy-mm-dd-commit-post"
 git push origin master
 ```
 
+{% highlight yaml %}
+git init
+git add *
+git commit -m "first commit"
+git remote add origin https://github.com/juliusds/juliuds.github.io.git
+git push -u origin master
+{% endhighlight %}
+
 ## 💫 Base Code 
 - [Blog Code를 사용한 Notepad](https://github.com/hmfaysal/Notepad)
 - [README.md를 참고한 Prettier](https://github.com/prettier/prettier)
