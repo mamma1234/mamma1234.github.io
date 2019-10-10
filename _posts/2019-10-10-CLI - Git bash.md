@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "Webpack"
+title: "CLI"
 description: 
 headline: 
-modified: 2019-10-08
+modified: 2019-10-10
 category: webdevelopment
 imagefeature: cover3.jpg
-tags: [Webpack]
+tags: [CLI]
 mathjax: 
 chart: 
 share: true
