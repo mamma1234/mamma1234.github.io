@@ -31,7 +31,7 @@ This is my personal blog. It currently has {{ site.posts | size }} posts in {{ s
 ## [Node JS](https://nodejs.org/ko/)
 
 ## [WebPack](https://webpack.js.org/)
-- <sub>[인프런-ytube 강좌]https://www.youtube.com/watch?v=8E0ogOVmpVQ&list=PLpkj8RKr48wY2RgNIvcnIWram82a0ZXa8&index=4</sub>
+- <sub>[인프런-ytube 강좌](https://www.youtube.com/watch?v=8E0ogOVmpVQ&list=PLpkj8RKr48wY2RgNIvcnIWram82a0ZXa8&index=4)</sub>
 - <sub>[ibrahimovic](https://ibrahimovic.tistory.com/48)</sub>
 - <sub>[WebPack Document](https://webpack.js.org/configuration/)</sub>
 
