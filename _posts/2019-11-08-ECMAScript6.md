@@ -34,5 +34,26 @@ console.log(ME); //{ name: 'ES7' }
 
 ### module import, export
 - import - 다른 스크립트의 특정 함수, 객체, primitives를 사용하기 위해 들여오는 키워드
+``` 
+import * as name from "module-name"; 
+import { member as alias } from "module-name"; 
+import { member1 , member2 } from "module-name"; 
+import { member1 , member2 as alias2 , [...] } from "module-name"; 
+import defaultMember, { member [ , [...] ] } from "module-name"; 
+import defaultMember, * as name from "module-name"; 
+import "module-name";
+``` 
+
 - export - 반대로 스크립트 내의 특정 함수, 객체, primitives를 내보내는 키워드
+``` 
+export { variable1 as name1, variable2 as name2, …, nameN };
+export let name1, name2, …, nameN; 
+export let name1 = …, name2 = …, …, nameN; 
+export { name1 as default, … }; 
+export * from …; export { name1, name2, …, nameN } from …;
+export { import1 as name1, import2 as name2, …, nameN } from …;
+``` 
+
 - default를 사용한 export와 import
+
+### arrow function
