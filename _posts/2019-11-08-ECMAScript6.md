@@ -270,9 +270,10 @@ const trip = new Vacation("칠레", 7);
 trip.print() // 칠레은(는) 7일 걸립니다.
 ```
 
-- extends를 이용한 클래스 확장 (상속)
+- extends를 이용한 클래스 확장
 
 ```
+//상속
 class Expedition extends Vacation {
   constructor(destination, length, gear) {
     super(destination, length);
