@@ -87,4 +87,4 @@ function phone(){
 - 역 따옴표(backticks)을 사용하여 문자열을 연결하거나 문자열 중간에 변수를 삽입하여 사용할 수 있다.
 또한 ${}에는 값을 만들어내는 자바스크립트 식이라면 어떤 것이든 들어갈 수 있다.
 
-let message = `Hello ${student.name} from ${student.city}`;
+let message = ``Hello ${student.name} from ${student.city}``;
