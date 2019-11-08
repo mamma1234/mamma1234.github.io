@@ -57,3 +57,28 @@ export { import1 as name1, import2 as name2, …, nameN } from …;
 - default를 사용한 export와 import
 
 ### arrow function
+- 기존의 function보다 빠르며 간결한 구문을 보여주는 함수이다.
+- 항상 익명함수이다.
+- 생성자를 사용할 수 없다.
+``` 
+var plus = function(a, b) { var result = a + b; return result; }
+let plus = (a, b) => { let result = a + b; return result; }
+``` 
+``` 
+var result = function(a, b) { return a * b; } 
+var result2 = (a, b) => a * b;
+``` 
+``` 
+function phone() { 
+    `var self = this,`
+    name = "Galaxy s", 
+    version = 6;             
+    versionUp = function() { console.log(this); `self.version++;` }; 
+}
+
+function phone(){ 
+    this.sName = "Galaxy s"; 
+    this.sVersion = 0; 
+    test => { console.log(this); `this.version++;` }; 
+}
+``` 
