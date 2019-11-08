@@ -139,7 +139,33 @@ console.log(...'Helllo');  // H e l l l o
 console.log(...new Map([['a', '1'], ['b', '2']]));  // [ 'a', '1' ] [ 'b', '2' ]
 console.log(...new Set([1, 2, 3]));  // 1 2 3
 ``` 
+- 함수의 파라미터로 사용하는 방법
+``` 
+// ES6
+function foo(x, y, z) {
+  console.log(x); // 1
+  console.log(y); // 2
+  console.log(z); // 3
+}
+const arr = [1, 2, 3];
+foo(...arr);// Array를 받아서 각 매개변수로 전달되었다.
+``` 
 
+``` 
+배열에서 사용하는 방법 (가독성UP)
+// ES6
+const arr = [1, 2, 3];
+// ...arr은 [1, 2, 3]을 개별 요소로 분리한다
+console.log([...arr, 4, 5, 6]); // [ 1, 2, 3, 4, 5, 6 ]
+
+// ES6
+const arr1 = [1, 2, 3];
+const arr2 = [4, 5, 6];
+ 
+// ...arr2는 [4, 5, 6]을 개별 요소로 분리한다
+arr1.push(...arr2); // == arr1.push(4, 5, 6);
+console.log(arr1); // [ 1, 2, 3, 4, 5, 6 ]
+``` 
 
 ### 프라미스 (Promise)
 - 비동기 프라미스 만들기
