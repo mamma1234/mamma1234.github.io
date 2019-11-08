@@ -45,14 +45,14 @@ import "module-name";
 ``` 
 
 - export - 반대로 스크립트 내의 특정 함수, 객체, primitives를 내보내는 키워드
-``` 
+```
 export { variable1 as name1, variable2 as name2, …, nameN };
 export let name1, name2, …, nameN; 
 export let name1 = …, name2 = …, …, nameN; 
 export { name1 as default, … }; 
 export * from …; export { name1, name2, …, nameN } from …;
 export { import1 as name1, import2 as name2, …, nameN } from …;
-``` 
+```
 
 - default를 사용한 export와 import
 
@@ -61,18 +61,19 @@ export { import1 as name1, import2 as name2, …, nameN } from …;
 - 한줄 코드인경우 return 구문없이 자동으로 반환된다
 - 항상 익명함수이다.
 - 생성자를 사용할 수 없다.
-``` 
+```
 var plus = function(a, b) { var result = a + b; return result; }
 let plus = (a, b) => { let result = a + b; return result; }
-``` 
-``` 
+```
+
+```
 var result = function(a, b) { return a * b; } 
 var result2 = (a, b) => a * b;
-``` 
+```
 
 - this 사용 범위
 - 화살표 함수의 this는 외부함수(부모함수)의 this를 상속받기 때문에 this는 항상 일정하다.
-``` 
+```
 function phone() { 
     var self = this,
     name = "Galaxy s", 
@@ -84,7 +85,7 @@ function phone(){
     this.sVersion = 0; 
     test => { console.log(this); this.version++; }; 
 }
-``` 
+```
 
 ### 템플릿 리터럴 (Template Literals)
 - 역 따옴표(backticks)을 사용하여 문자열을 연결하거나 문자열 중간에 변수를 삽입하여 사용할 수 있다.
@@ -94,7 +95,7 @@ let message = '`Hello ${student.name} from ${student.city}'`;
 
 
 ### 개선된 객체 리터럴 (Enhanced Object Literal)
-``` 
+```
 // ES5
 var skier = {
   name: name,
@@ -122,12 +123,12 @@ let skier = {
     console.log('속력(mph):', mph);
   }
 }
-``` 
+```
 
 ### 스프레드 연산자 Spread Operator
 - 스프레드 연산자는 ... 세개의 점으로 이루어진 연산자로, 몇 가지 다른 역할을 담당한다. 
 - Spread 연산자는 연산자의 대상 배열 또는 이터러블(iterable)을 "개별" 요소로 분리한다.
-``` 
+```
 개별 요소로 분리
 // 배열
 console.log(...[1, 2, 3]); // -> 1, 2, 3
@@ -136,10 +137,10 @@ console.log(...'Helllo');  // H e l l l o
 // Map과 Set
 console.log(...new Map([['a', '1'], ['b', '2']]));  // [ 'a', '1' ] [ 'b', '2' ]
 console.log(...new Set([1, 2, 3]));  // 1 2 3
-``` 
+```
 
 - 함수의 파라미터로 사용하는 방법
-``` 
+```
 // ES6
 function foo(x, y, z) {
   console.log(x); // 1
@@ -148,7 +149,8 @@ function foo(x, y, z) {
 }
 const arr = [1, 2, 3];
 foo(...arr);// Array를 받아서 각 매개변수로 전달되었다.
-``` 
+```
+
 - 배열에서 사용하는 방법
 ```
 가독성up
@@ -165,6 +167,7 @@ const arr2 = [4, 5, 6];
 arr1.push(...arr2); // == arr1.push(4, 5, 6);
 console.log(arr1); // [ 1, 2, 3, 4, 5, 6 ]
 ```
+
 - 객체에서 사용하기
 ```
 const o1 = { x: 1, y: 2 };
