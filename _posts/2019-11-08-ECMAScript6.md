@@ -150,7 +150,7 @@ const arr = [1, 2, 3];
 foo(...arr);// Array를 받아서 각 매개변수로 전달되었다.
 ``` 
 - 배열에서 사용하는 방법 (가독성UP)
-``` 
+```
 // ES6
 const arr = [1, 2, 3];
 // ...arr은 [1, 2, 3]을 개별 요소로 분리한다
@@ -163,7 +163,7 @@ const arr2 = [4, 5, 6];
 // ...arr2는 [4, 5, 6]을 개별 요소로 분리한다
 arr1.push(...arr2); // == arr1.push(4, 5, 6);
 console.log(arr1); // [ 1, 2, 3, 4, 5, 6 ]
-``` 
+```
 - 객체에서 사용하기
 ```
 const o1 = { x: 1, y: 2 };
@@ -175,7 +175,7 @@ const source = { z: 3 };
 // Object.assign를 사용하여도 동일한 작업을 할 수 있다.
 // Object.assign은 타깃 객체를 반환한다
 console.log(Object.assign(target, source)); // { x: 1, y: 2, z: 3 }
-``` 
+```
 
 ### 프라미스 Promise
 - 비동기 프라미스 만들기
