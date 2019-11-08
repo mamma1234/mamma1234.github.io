@@ -69,9 +69,10 @@ let plus = (a, b) => { let result = a + b; return result; }
 var result = function(a, b) { return a * b; } 
 var result2 = (a, b) => a * b;
 ``` 
-``` 
+
 - this 사용 범위
 - 화살표 함수의 this는 외부함수(부모함수)의 this를 상속받기 때문에 this는 항상 일정하다.
+``` 
 function phone() { 
     var self = this,
     name = "Galaxy s", 
@@ -89,7 +90,7 @@ function phone(){
 - 역 따옴표(backticks)을 사용하여 문자열을 연결하거나 문자열 중간에 변수를 삽입하여 사용할 수 있다.
 또한 ${}에는 값을 만들어내는 자바스크립트 식이라면 어떤 것이든 들어갈 수 있다.
 
-let message = ``Hello ${student.name} from ${student.city}``;
+let message = '`Hello ${student.name} from ${student.city}'`;
 
 
 ### 개선된 객체 리터럴 (Enhanced Object Literal)
