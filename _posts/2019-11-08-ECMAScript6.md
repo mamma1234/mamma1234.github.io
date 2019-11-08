@@ -88,7 +88,7 @@ function phone(){
 
 ### 템플릿 리터럴 (Template Literals)
 - 역 따옴표(backticks)을 사용하여 문자열을 연결하거나 문자열 중간에 변수를 삽입하여 사용할 수 있다.
-또한 ${}에는 값을 만들어내는 자바스크립트 식이라면 어떤 것이든 들어갈 수 있다.
+- 또한 ${}에는 값을 만들어내는 자바스크립트 식이라면 어떤 것이든 들어갈 수 있다.
 
 let message = '`Hello ${student.name} from ${student.city}'`;
 
@@ -149,9 +149,8 @@ function foo(x, y, z) {
 const arr = [1, 2, 3];
 foo(...arr);// Array를 받아서 각 매개변수로 전달되었다.
 ``` 
-
+- 배열에서 사용하는 방법 (가독성UP)
 ``` 
-배열에서 사용하는 방법 (가독성UP)
 // ES6
 const arr = [1, 2, 3];
 // ...arr은 [1, 2, 3]을 개별 요소로 분리한다
@@ -164,6 +163,18 @@ const arr2 = [4, 5, 6];
 // ...arr2는 [4, 5, 6]을 개별 요소로 분리한다
 arr1.push(...arr2); // == arr1.push(4, 5, 6);
 console.log(arr1); // [ 1, 2, 3, 4, 5, 6 ]
+``` 
+- 객체에서 사용하기
+```
+const o1 = { x: 1, y: 2 };
+const o2 = { ...o1, z: 3 };
+console.log(o2); // { x: 1, y: 2, z: 3 }
+ 
+const target = { x: 1, y: 2 };
+const source = { z: 3 };
+// Object.assign를 사용하여도 동일한 작업을 할 수 있다.
+// Object.assign은 타깃 객체를 반환한다
+console.log(Object.assign(target, source)); // { x: 1, y: 2, z: 3 }
 ``` 
 
 ### 프라미스 (Promise)
