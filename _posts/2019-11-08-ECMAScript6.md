@@ -173,6 +173,7 @@ fetch('https://jsonplaceholder.typicode.com/posts')
         console.log(data);
     });
 ``` 
+
 ### 클래스 (Class)
 - 이전 자바스크립트에는 공식적으로 클래스가 없어서 프로토타입을 사용해 구현하였지만, ES6에는 클래스 선언이 추가되었다.
 ```
