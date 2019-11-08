@@ -123,3 +123,103 @@ let skier = {
   }
 }
 ``` 
+
+### 스프레드 연산자 (Spread Operator)
+- 스프레드 연산자는 ... 세개의 점으로 이루어진 연산자로, 몇 가지 다른 역할을 담당한다. 
+
+### 프라미스 (Promise)
+- 비동기 프라미스 만들기
+``` 
+function myAsyncFunction(url) {
+  return new Promise((resolve, reject) => {
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", url);
+    xhr.onload = () => resolve(xhr.responseText);
+    xhr.onerror = () => reject(xhr.statusText);
+    xhr.send();
+  });
+}
+
+myAsyncFunction('https://jsonplaceholder.typicode.com/todos/1').then(
+  json => console.log(json),
+  err => console.log(new Error('조회 실패'))
+)
+``` 
+
+### Fetch API
+Fetch API를 이용하면 Request나 Resposne와 같은 HTTP의 파이프라인을 구성하는 요소를 조작하는것이 가능하다. 또한 fetch() 메서드를 이용하여 비동기 네트워크 통신을 알기쉽게 기술할 수 있다. fetch는 이전에 제공하던 XMLHttpRequest 대체제이다.
+``` 
+// Set up our HTTP request
+var xhr = new XMLHttpRequest();
+// Setup our listener to process compeleted requests
+xhr.onreadystatechange = function () {
+    // Only run if the request is complete
+    if (xhr.readyState !== 4) return;
+    // Process our return data
+    if (xhr.status >= 200 && xhr.status < 300) {
+        // What do when the request is successful
+        console.log(JSON.parse(xhr.responseText));
+    }
+};
+
+xhr.open('GET', 'https://jsonplaceholder.typicode.com/posts');
+xhr.send();
+
+fetch('https://jsonplaceholder.typicode.com/posts')
+    .then(function (response) {
+        return response.json();
+    })
+    .then(function (data) {
+        console.log(data);
+    });
+``` 
+### 클래스 (Class)
+이전 자바스크립트에는 공식적으로 클래스가 없어서 프로토타입을 사용해 구현하였지만, ES6에는 클래스 선언이 추가되었다.
+```
+// ES5 
+function Vacation(destination, length) {
+  this.destination = destination;
+  this.length = length;
+}
+
+Vacation.prototype.print = function() {
+  console.log(this.destination + "은(는) " + this.length + "일 걸립니다");
+}
+
+var trip = new Vacation("마우이", 7);
+trip.print() // 마우이은(는) 7일 걸립니다.
+
+// ES6 
+class Vacation() {
+  constructor(destination, length) {
+    this.destination = destination;
+    this.length = length;
+  }
+
+  print() {
+    console.log(this.destination + "은(는) " + this.length + "일 걸립니다");
+  }
+}
+
+const trip = new Vacation("칠레", 7);
+trip.print() // 칠레은(는) 7일 걸립니다.
+```
+- extends를 이용한 클래스 확장 (상속)
+```
+class Expedition extends Vacation {
+  constructor(destination, length, gear) {
+    super(destination, length);
+    this.gear = gear;
+  }
+
+  print() {
+    super.print();
+    console.log(`당신의 ${this.gear.join("와(과) 당신의 ")}를(을) 가져오십시오.`);
+  }
+}
+
+const trip = new Expedition("한라산", 3, ["선글라스", "배낭", "카메라"]);
+trip.print(); 
+// 한라산은(는) 3일 걸립니다.
+// 당신의 선글라스와(과) 당신의 배낭와(과) 당신의 카메라를(을) 가져오십시오.
+```
