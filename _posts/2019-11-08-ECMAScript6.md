@@ -152,6 +152,7 @@ foo(...arr);// Array를 받아서 각 매개변수로 전달되었다.
 ```
 
 - 배열에서 사용하는 방법
+
 ```
 가독성up
 // ES6
@@ -180,6 +181,8 @@ const source = { z: 3 };
 // Object.assign를 사용하여도 동일한 작업을 할 수 있다.
 // Object.assign은 타깃 객체를 반환한다
 console.log(Object.assign(target, source)); // { x: 1, y: 2, z: 3 }
+```
+
 
 ### 프라미스 Promise
 - 비동기 프라미스 만들기
@@ -202,6 +205,7 @@ myAsyncFunction('https://jsonplaceholder.typicode.com/todos/1').then(
 
 ### Fetch API
 - Fetch API를 이용하면 Request나 Resposne와 같은 HTTP의 파이프라인을 구성하는 요소를 조작하는것이 가능하다. 또한 fetch() 메서드를 이용하여 비동기 네트워크 통신을 알기쉽게 기술할 수 있다. fetch는 이전에 제공하던 XMLHttpRequest 대체제이다.
+
 ```
 var xhr = new XMLHttpRequest(); // Set up our HTTP request
 // Setup our listener to process compeleted requests
@@ -228,6 +232,7 @@ fetch('https://jsonplaceholder.typicode.com/posts')
 
 ### 클래스 (Class)
 - 이전 자바스크립트에는 공식적으로 클래스가 없어서 프로토타입을 사용해 구현하였지만, ES6에는 클래스 선언이 추가되었다.
+
 ```
 // ES5 
 function Vacation(destination, length) {
