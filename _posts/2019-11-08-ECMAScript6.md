@@ -159,7 +159,7 @@ console.log([...arr, 4, 5, 6]); // [ 1, 2, 3, 4, 5, 6 ]
 // ES6
 const arr1 = [1, 2, 3];
 const arr2 = [4, 5, 6];
- 
+
 // ...arr2는 [4, 5, 6]을 개별 요소로 분리한다
 arr1.push(...arr2); // == arr1.push(4, 5, 6);
 console.log(arr1); // [ 1, 2, 3, 4, 5, 6 ]
