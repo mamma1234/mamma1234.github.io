@@ -90,3 +90,35 @@ function phone(){
 또한 ${}에는 값을 만들어내는 자바스크립트 식이라면 어떤 것이든 들어갈 수 있다.
 
 let message = ``Hello ${student.name} from ${student.city}``;
+
+
+### 개선된 객체 리터럴 (Enhanced Object Literal)
+``` 
+// ES5
+var skier = {
+  name: name,
+  sound: sound,
+  powderYell: function() {
+    var yell = this.sound.toUpperCase();
+    console.log(yell + yell + yell + '!!!');
+  }
+  speed: function(mph) {
+    this.speed = mph;
+    console.log('속력(mph):', mph);
+  }
+}
+
+// ES6
+let skier = {
+  name,
+  sound,
+  powderYell() {
+    let yell = this.sound.toUpperCase();
+    console.log(`${yell} ${yell} ${yell}!!!`);
+  }
+  speed(mph) {
+    this.speed = mph;
+    console.log('속력(mph):', mph);
+  }
+}
+``` 
