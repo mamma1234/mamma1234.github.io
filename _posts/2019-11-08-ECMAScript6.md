@@ -206,6 +206,8 @@ myAsyncFunction('https://jsonplaceholder.typicode.com/todos/1').then(
 )
 ```
 
+
+
 ### Fetch API
 
 - Fetch API를 이용하면 Request나 Resposne와 같은 HTTP의 파이프라인을 구성하는 요소를 조작하는것이 가능하다. 또한 fetch() 메서드를 이용하여 비동기 네트워크 통신을 알기쉽게 기술할 수 있다. fetch는 이전에 제공하던 XMLHttpRequest 대체제이다.
