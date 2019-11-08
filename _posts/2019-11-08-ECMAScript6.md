@@ -128,7 +128,9 @@ let skier = {
 - 스프레드 연산자는 ... 세개의 점으로 이루어진 연산자로, 몇 가지 다른 역할을 담당한다. 
 
 - Spread 연산자는 연산자의 대상 배열 또는 이터러블(iterable)을 "개별" 요소로 분리한다.
+
 ``` 
+개별 요소로 분리
 // 배열
 console.log(...[1, 2, 3]); // -> 1, 2, 3
  
@@ -216,6 +218,7 @@ fetch('https://jsonplaceholder.typicode.com/posts')
 ### 클래스 (Class)
 - 이전 자바스크립트에는 공식적으로 클래스가 없어서 프로토타입을 사용해 구현하였지만, ES6에는 클래스 선언이 추가되었다.
 ```
+
 // ES5 
 function Vacation(destination, length) {
   this.destination = destination;
