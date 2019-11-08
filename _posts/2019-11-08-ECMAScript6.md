@@ -176,7 +176,7 @@ console.log(arr1); // [ 1, 2, 3, 4, 5, 6 ]
 const o1 = { x: 1, y: 2 };
 const o2 = { ...o1, z: 3 };
 console.log(o2); // { x: 1, y: 2, z: 3 }
- 
+
 const target = { x: 1, y: 2 };
 const source = { z: 3 };
 // Object.assign를 사용하여도 동일한 작업을 할 수 있다.
@@ -186,7 +186,9 @@ console.log(Object.assign(target, source)); // { x: 1, y: 2, z: 3 }
 
 
 ### 프라미스 Promise
+
 - 비동기 프라미스 만들기
+
 ```
 function myAsyncFunction(url) {
   return new Promise((resolve, reject) => {
@@ -205,6 +207,7 @@ myAsyncFunction('https://jsonplaceholder.typicode.com/todos/1').then(
 ```
 
 ### Fetch API
+
 - Fetch API를 이용하면 Request나 Resposne와 같은 HTTP의 파이프라인을 구성하는 요소를 조작하는것이 가능하다. 또한 fetch() 메서드를 이용하여 비동기 네트워크 통신을 알기쉽게 기술할 수 있다. fetch는 이전에 제공하던 XMLHttpRequest 대체제이다.
 
 ```
@@ -232,6 +235,7 @@ fetch('https://jsonplaceholder.typicode.com/posts')
 ```
 
 ### 클래스 (Class)
+
 - 이전 자바스크립트에는 공식적으로 클래스가 없어서 프로토타입을 사용해 구현하였지만, ES6에는 클래스 선언이 추가되었다.
 
 ```
@@ -263,6 +267,7 @@ class Vacation {
 const trip = new Vacation("칠레", 7);
 trip.print() // 칠레은(는) 7일 걸립니다.
 ```
+
 - extends를 이용한 클래스 확장 (상속)
 ```
 class Expedition extends Vacation {
