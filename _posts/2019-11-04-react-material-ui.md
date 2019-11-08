@@ -27,7 +27,6 @@ disqus:
 - npm install contentful
 - npm start
 - http://localhost:3000/
-- 
 - npm install @material-ui/icons
 
 ### next.js
@@ -35,7 +34,7 @@ disqus:
 - npm install --save react react-dom next@7.0.2 express
 - npm install --save-dev @babel/node @babel/preset-env
 - npm install --save @material-ui/core @material-ui/icons @material-ui/styles
-- 
+
 ```
 next // 내장되어 있는 webpack-dev-server로 기동
 next build // 프로젝트를 빌드하여 .next 폴더를 생성한다.
