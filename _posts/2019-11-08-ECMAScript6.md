@@ -58,6 +58,7 @@ export { import1 as name1, import2 as name2, …, nameN } from …;
 
 ### arrow function
 - 기존의 function보다 빠르며 간결한 구문을 보여주는 함수이다.
+- 한줄 코드인경우 return 구문없이 자동으로 반환된다
 - 항상 익명함수이다.
 - 생성자를 사용할 수 없다.
 ``` 
@@ -69,7 +70,8 @@ var result = function(a, b) { return a * b; }
 var result2 = (a, b) => a * b;
 ``` 
 ``` 
-this 사용 범위
+- this 사용 범위
+- 화살표 함수의 this는 외부함수(부모함수)의 this를 상속받기 때문에 this는 항상 일정하다.
 function phone() { 
     var self = this,
     name = "Galaxy s", 
