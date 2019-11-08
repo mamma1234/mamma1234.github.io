@@ -177,9 +177,8 @@ const source = { z: 3 };
 console.log(Object.assign(target, source)); // { x: 1, y: 2, z: 3 }
 ``` 
 
-### 프라미스 (Promise)
+### 프라미스 Promise
 - 비동기 프라미스 만들기
-
 ```
 function myAsyncFunction(url) {
   return new Promise((resolve, reject) => {
