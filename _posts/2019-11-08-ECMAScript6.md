@@ -190,7 +190,7 @@ var trip = new Vacation("마우이", 7);
 trip.print() // 마우이은(는) 7일 걸립니다.
 
 // ES6 
-class Vacation() {
+class Vacation {
   constructor(destination, length) {
     this.destination = destination;
     this.length = length;
