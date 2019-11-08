@@ -69,16 +69,16 @@ var result = function(a, b) { return a * b; }
 var result2 = (a, b) => a * b;
 ``` 
 ``` 
+this 사용 범위
 function phone() { 
-    `var self = this,`
+    var self = this,
     name = "Galaxy s", 
     version = 6;             
-    versionUp = function() { console.log(this); `self.version++;` }; 
+    versionUp = function() { console.log(this); self.version++; }; 
 }
-
 function phone(){ 
     this.sName = "Galaxy s"; 
     this.sVersion = 0; 
-    test => { console.log(this); `this.version++;` }; 
+    test => { console.log(this); this.version++; }; 
 }
 ``` 
