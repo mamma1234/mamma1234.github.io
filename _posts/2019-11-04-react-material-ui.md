@@ -6,7 +6,7 @@ headline:
 modified: 2019-11-14
 category: webdevelopment
 imagefeature: cover3.jpg
-tags: [React, Material]
+tags: [React, Next, Material]
 mathjax: 
 chart: 
 share: true
@@ -20,7 +20,7 @@ disqus:
 - 
 
 ## 설치
-### react.js
+### React.js
 - npx create-react-app react-material-ui
 - cd react-material-ui
 - npm install @material-ui/core
@@ -29,7 +29,7 @@ disqus:
 - http://localhost:3000/
 - npm install @material-ui/icons
 
-### next.js
+### Next.js
 - npm init
 - npm install --save react react-dom next@7.0.2 express
 - npm install --save-dev @babel/node @babel/preset-env
