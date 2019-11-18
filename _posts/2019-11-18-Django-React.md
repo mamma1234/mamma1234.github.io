@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "React"
+title: "Django React"
 description: 
 headline: 
-modified: 2019-11-14
+modified: 2019-11-18
 category: webdevelopment
 imagefeature: cover3.jpg
-tags: [React]
+tags: [Django, React]
 mathjax: 
 chart: 
 share: true
@@ -17,7 +17,7 @@ disqus:
 
 # Record
 ## 개념
-- python3.x + django + djangorestframework
+- React : A JavaScript library for building user interfaces
 
 ## 설명
 ### 선언형
