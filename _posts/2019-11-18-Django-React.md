@@ -69,26 +69,7 @@ sessions 클리어
 api를 통한 데이터의 접근제어를 위해 HTTP 접근제어 규약(CORS : Cross-Origin Resource Sharing)을 추가
 CORS_ORIGIN_WHITELIST = ['http://localhost:3000']
 
+### 참고 사이트
+[참고](https://this-programmer.com/entry/%EA%B0%84%EB%8B%A8%ED%95%9C-react-JS-Django-%EC%96%B4%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98-%EB%A7%8C%EB%93%A4%EA%B8%B0)
 
 
-
-선언형 뷰는 코드를 예측 가능하고 디버그하기 쉽게 만듭니다.
-
-### 컴포넌트 기반
-스스로 상태를 가지고 관리하는 캡슐화된 컴포넌트를 생성한 다음 복잡한 UI를 만들기 위해 구성합니다.
-
-컴포넌트 로직은 템플릿 대신 JavaScript로 작성되므로, 앱을 통해 풍부한 데이터를 쉽게 전달하고 DOM에서 상태를 유지할 수 있습니다.
-
-### 한번 배우고, 어디서나 작성한다
-기술 스택의 나머지 부분에 대해 가정하지 않으므로, 기존 코드를 다시 작성하지 않고 React에서 새로운 기능을 개발할 수 있습니다.
-
-React는 React Native를 이용하여 강력한 모바일앱을 만들거나 Node를 사용한 서버에서 렌더링할 수도 있습니다.
-
-#### React
-- JSX : JavaScript를 확장한 문법
-- props : props 는 부모 컴포넌트가 자식 컴포넌트에게 주는 값.  props 를 직접 수정 할 수 는 없습니다.
-- state : state 는 컴포넌트 내부에서 선언하며 내부에서 값을 변경 할 수 있습니다.
-- flow
-![]({{ site.url }}/images/react_flow.jpeg)
-- Life Cycle
-![]({{ site.url }}/images/react_lifecyle.png)
