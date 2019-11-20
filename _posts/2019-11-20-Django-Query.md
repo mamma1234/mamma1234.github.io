@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "Django React"
+title: "Django React Query"
 description: 
 headline: 
-modified: 2019-11-18
+modified: 2019-11-20
 category: webdevelopment
 imagefeature: cover3.jpg
-tags: [Django, React]
+tags: [Django, React, Query]
 mathjax: 
 chart: 
 share: true
