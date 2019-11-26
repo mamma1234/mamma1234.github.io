@@ -47,7 +47,7 @@ for index, name := range names {
 ```
 
 - break, continue, goto 문
-for 루프를 빠져나와 L1 레이블로 이동한 후, break가 있는 현재 for 루프를 건너뛰고 다음 문장인 println() 으로 이동
+* for 루프를 빠져나와 L1 레이블로 이동한 후, break가 있는 현재 for 루프를 건너뛰고 다음 문장인 println() 으로 이동
 ```
 package main
 
