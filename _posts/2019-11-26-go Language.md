@@ -528,4 +528,281 @@ func openFile(fn string) {
 - Go루틴(goroutine)은 Go 런타임이 관리하는 Lightweight 논리적 (혹은 가상적) 쓰레드
 ```
 goroutine은 OS 쓰레드보다 훨씬 가볍게 비동기 Concurrent 처리를 구현하기 위하여 만든 것으로, 기본적으로 Go 런타임이 자체 관리한다. Go 런타임 상에서 관리되는 작업단위인 여러 goroutine들은 종종 하나의 OS 쓰레드 1개로도 실행되곤 한다. 즉, Go루틴들은 OS 쓰레드와 1 대 1로 대응되지 않고, Multiplexing으로 훨씬 적은 OS 쓰레드를 사용한다. 메모리 측면에서도 OS 쓰레드가 1 메가바이트의 스택을 갖는 반면, goroutine은 이보다 훨씬 작은 몇 킬로바이트의 스택을 갖는다(필요시 동적으로 증가). Go 런타임은 Go루틴을 관리하면서 Go 채널을 통해 Go루틴 간의 통신을 쉽게 할 수 있도록 하였다.
+``` 
+
+```
+package main
+ 
+import (
+    "fmt"
+    "time"
+)
+ 
+func say(s string) {
+    for i := 0; i < 10; i++ {
+        fmt.Println(s, "***", i)
+    }
+}
+
+func main() {
+    // 함수를 동기적으로 실행
+    say("Sync")
+ 
+    // 함수를 비동기적으로 실행
+    go say("Async1")
+    go say("Async2")
+    go say("Async3")
+ 
+    // 3초 대기
+    time.Sleep(time.Second * 3)
+}
+```
+
+#### 익명함수 Go루틴
+```
+package main
+ 
+import (
+    "fmt"
+    "sync"
+)
+ 
+func main() {
+    // WaitGroup 생성. 2개의 Go루틴을 기다림.
+    // sync.WaitGroup을 사용하고 있는데, 이는 기본적으로 여러 Go루틴들이 끝날 때까지 기다리는 역활
+    var wait sync.WaitGroup
+    wait.Add(2)
+ 
+    // 익명함수를 사용한 goroutine
+    go func() {
+        defer wait.Done() //끝나면 .Done() 호출
+        fmt.Println("Hello")
+    }()
+ 
+    // 익명함수에 파라미터 전달
+    go func(msg string) {
+        defer wait.Done() //끝나면 .Done() 호출
+        fmt.Println(msg)
+    }("Hi")
+ 
+    wait.Wait() //Go루틴 모두 끝날 때까지 대기
+}
+```
+
+#### 다중 CPU 처리
+- Go 프로그램을 다중 CPU에서 병렬처리 (Parallel 처리)하게 할 수 있는데, 병렬처리를 위해서는 아래와 같이 runtime.GOMAXPROCS(CPU수) 함수를 호출하여야 한다
+
+```
+package main
+ 
+import (
+    "runtime"  
+)
+ 
+func main() {
+    // 4개의 CPU 사용
+    runtime.GOMAXPROCS(4)
+ 
+    //...
+}
+```
+
+#### Go 채널
+- Go 채널은 그 채널을 통하여 데이타를 주고 받는 통로라 볼 수 있는데, 채널은 make() 함수를 통해 미리 생성되어야 하며, 채널 연산자 <- 을 통해 데이타를 보내고 받는다. 채널은 흔히 goroutine들 사이 데이타를 주고 받는데 사용되는데, 상대편이 준비될 때까지 채널에서 대기함으로써 별도의 lock을 걸지 않고 데이타를 동기화하는데 사용된다.
+
+```
+package main
+ 
+func main() {
+  // 정수형 채널을 생성한다 
+  ch := make(chan int)
+ 
+  go func() {
+    ch <- 123   //채널에 123을 보낸다
+  }()
+ 
+  var i int
+  i = <- ch  // 채널로부터 123을 받는다
+  println(i)
+}
+```
+
+- Go 채널은 수신자와 송신자가 서로를 기다리는 속성때문에, 이를 이용하여 (다음 예제와 같이) Go루틴이 끝날 때까지 기다리는 기능을 구현할 수 있다.
+익명함수 Go 루틴에서 작업이 끝난 후, done채널에 true를 보내면, 수신자 메인루틴은 이를 받고 프로그램을 끝내게 된다.
+
+```
+package main
+ 
+import "fmt"
+ 
+func main() {
+    done := make(chan bool)
+    go func() {
+        for i := 0; i < 10; i++ {
+            fmt.Println(i)
+        }
+        done <- true
+    }()
+ 
+    // 위의 Go루틴이 끝날 때까지 대기
+    <-done
+}
+```
+
+#### Go 채널 버퍼링
+-  Buffered Channel을 사용하면 비록 수신자가 받을 준비가 되어 있지 않을 지라도 지정된 버퍼만큼 데이타를 보내고 계속 다른 일을 수행할 수 있다
+
+```
+package main
+ 
+import "fmt"
+ 
+func main() {
+  c := make(chan int)
+  c <- 1   //수신루틴이 없으므로 데드락 
+  fmt.Println(<-c) //코멘트해도 데드락 (별도의 Go루틴없기 때문)
+}
+
+
+package main
+ 
+import "fmt"
+ 
+func main() {
+    ch := make(chan int, 1)
+ 
+    //수신자가 없더라도 보낼 수 있다.
+    ch <- 101
+ 
+    fmt.Println(<-ch)
+}
+```
+
+#### 채널 파라미터
+- 특별히 해당 채널로 송신만 할 것인지 혹은 수신만할 것인지를 지정할 수도 있다
+
+```
+package main
+ 
+import "fmt"
+ 
+func main() {
+    ch := make(chan string, 1)
+    sendChan(ch)
+    receiveChan(ch)
+}
+ 
+func sendChan(ch chan<- string) {
+    ch <- "Data"
+    // x := <-ch // 에러발생
+}
+ 
+func receiveChan(ch <-chan string) {
+    data := <-ch
+    fmt.Println(data)
+}
+```
+
+#### 채널 닫기
+- 채널을 오픈한 후 데이타를 송신한 후, close()함수를 사용하여 채널을 닫을 수 있다. 채널을 닫게 되면, 해당 채널로는 더이상 송신을 할 수 없지만, 채널이 닫힌 이후에도 계속 수신은 가능하다
+
+```
+package main
+ 
+func main() {
+    ch := make(chan int, 2)
+     
+    // 채널에 송신
+    ch <- 1
+    ch <- 2
+     
+    // 채널을 닫는다
+    close(ch)
+ 
+    // 채널 수신
+    println(<-ch)
+    println(<-ch)
+     
+    if _, success := <-ch; !success {
+        println("더이상 데이타 없음.")
+    }
+}
+```
+
+#### 채널 range 문
+- 채널에서 송신자가 송신을 한 후, 채널을 닫을 수 있다. 그리고 수신자는 임의의 갯수의 데이타를 채널이 닫힐 때까지 계속 수신할 수 있다.
+채널 range문은 range 키워드 다음의 채널로부터 계속 수신하다가 채널이 닫힌 것을 감지하면 for 루프를 종료한다.
+
+```
+package main
+ 
+func main() {
+    ch := make(chan int, 2)
+ 
+    // 채널에 송신
+    ch <- 1
+    ch <- 2
+ 
+    // 채널을 닫는다
+    close(ch)
+ 
+    // 방법1
+    // 채널이 닫힌 것을 감지할 때까지 계속 수신
+    /*
+    for {
+        if i, success := <-ch; success {
+            println(i)
+        } else {
+            break
+        }
+    }
+    */
+ 
+    // 방법2
+    // 위 표현과 동일한 채널 range 문
+    for i := range ch {
+        println(i)
+    }
+}
+```
+
+#### 채널 select 문
+- Go의 select문은 복수 채널들을 기다리면서 준비된 (데이타를 보내온) 채널을 실행하는 기능을 제공한다
+
+```
+첫번째 run1()이 1초간 실행되고 done1 채널로부터 수신하여 해당 case를 실행하고, 다시 for 루프를 돈다. for루프를 다시 돌면서 다시 select문이 실행되는데, 다음 run2()가 2초후에 실행되고 done2 채널로부터 수신하여 해당 case를 실행하게 된다. done2 채널 case문에 break EXIT 이 있는데, 이 문장으로 인해 for 루프를 빠져나와 EXIT 레이블로 이동하게 된다
+
+package main
+ 
+import "time"
+ 
+func main() {
+    done1 := make(chan bool)
+    done2 := make(chan bool)
+ 
+    go run1(done1)
+    go run2(done2)
+ 
+EXIT:
+    for {
+        select {
+        case <-done1:
+            println("run1 완료")
+ 
+        case <-done2:
+            println("run2 완료")
+            break EXIT
+        }
+    }
+}
+ 
+func run1(done chan bool) {
+    time.Sleep(1 * time.Second)
+    done <- true
+}
+ 
+func run2(done chan bool) {
+    time.Sleep(2 * time.Second)
+    done <- true
+}
 ```
