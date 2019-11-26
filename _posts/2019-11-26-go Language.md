@@ -185,3 +185,103 @@ func main() {
     println(anotherNext()) // 2
 }
 ```
+#### 슬라이스(Slice)
+- 슬라이스의 길이(Length)와 용량(Capacity)
+```
+func main() {
+    s := make([]int, 5, 10)
+    println(len(s), cap(s)) // len 5, cap 10
+}
+```
+
+- 부분 슬라이스(Sub-slice)
+```
+s := []int{0, 1, 2, 3, 4, 5}
+s = s[2:5]     // 2, 3, 4
+s = s[1:]      // 3, 4
+fmt.Println(s) // 3, 4 출력
+```
+- 슬라이스 추가,병합(append)과 복사(copy)
+```
+package main
+ 
+import "fmt"
+ 
+func main() {
+    // len=0, cap=3 인 슬라이스
+    sliceA := make([]int, 0, 3)
+ 
+    // 계속 한 요소씩 추가
+    for i := 1; i <= 15; i++ {
+        sliceA = append(sliceA, i)
+        // 슬라이스 길이와 용량 확인
+        fmt.Println(len(sliceA), cap(sliceA))
+    }
+ 
+    fmt.Println(sliceA) // 1 부터 15 까지 숫자 출력 
+}
+
+func main() {
+    source := []int{0, 1, 2}
+    target := make([]int, len(source), cap(source)*2)
+    copy(target, source)
+    fmt.Println(target)  // [0 1 2 ] 출력
+    println(len(target), cap(target)) // 3, 6 출력
+}
+```
+
+#### Map 개요
+```
+tickers := map[string]string{
+    "GOOG": "Google Inc",
+    "MSFT": "Microsoft",
+    "FB":   "FaceBook",
+}
+
+package main
+ 
+func main() {
+    tickers := map[string]string{
+        "GOOG": "Google Inc",
+        "MSFT": "Microsoft",
+        "FB":   "FaceBook",
+        "AMZN": "Amazon",
+    }
+ 
+    // map 키 체크
+    val, exists := tickers["MSFT"]
+    if !exists {
+        println("No MSFT ticker")
+    }
+
+    for key, val := range tickers {
+        fmt.Println(key, val)
+    }    
+}
+
+```
+
+#### 패키지 init 함수와 alias
+```
+package testlib
+ 
+var pop map[string]string
+ 
+func init() {   // 패키지 로드시 map 초기화
+    pop = make(map[string]string)
+}
+
+package main
+import _ "other/xlib" //그 패키지 안의 init() 함수만을 호출하고자 하는 케이스
+
+// 패키지 alias를 사용해서 구분
+import (
+    mongo "other/mongo/db"
+    mysql "other/mysql/db"
+)
+func main() {
+    mondb := mongo.Get()
+    mydb := mysql.Get()
+    //...
+}
+```
