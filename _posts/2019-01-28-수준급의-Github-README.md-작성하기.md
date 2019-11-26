@@ -19,7 +19,7 @@ Github README.md를 예쁘게 만들고 싶을 것이다. 오늘은 [shields](ht
 
 ![]({{ site.url }}/images/readme1.JPG)  
 
-내가 만든 예쁜 [README.md](https://github.com/newhiwoong/National-Petition) 예시
+내가 만든 예쁜 [README.md](https://github.com/mamma1234/National-Petition) 예시
 
 
 
@@ -53,7 +53,7 @@ Eemoji는 우리가 잘 아는 이모티콘을 의미한다. 예로  👜🕶�
 
 shields는 무엇일까? 아래와 같이 자신의 Github를 소개하는 뱃지  정도라고 생각하면 될 것이다. license, web, version 등을 표시할 수 있다.
 
-[![Stargazers](https://img.shields.io/badge/National--Petition-Stargazers-yellow.svg)](https://github.com/newhiwoong/National-Petition/stargazers)
+[![Stargazers](https://img.shields.io/badge/National--Petition-Stargazers-yellow.svg)](https://github.com/mamma1234/National-Petition/stargazers)
 [![license](https://img.shields.io/badge/license-Apache%202.0-red.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 [![results](https://img.shields.io/badge/results-Report-blue.svg)](https://paper.dropbox.com/doc/National-Petition-Analysis--AWBChEBfGCjv1j~TH2oJMUKbAg-RYdzoQNc8lAHVcDucJu1K)
 [![data](https://img.shields.io/badge/data-web-brightgreen.svg)](https://www1.president.go.kr/petitions)
