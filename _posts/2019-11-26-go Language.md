@@ -194,7 +194,9 @@ func main() {
     println(len(s), cap(s)) // len 5, cap 10
 }
 
-// 슬라이스에 별도의 길이와 용량을 지정하지 않으면, 기본적으로 길이와 용량이 0 인 슬라이스를 만드는데, 이를 Nil Slice 라 하고, nil 과 비교하면 참을 리턴한다.
+// 슬라이스에 별도의 길이와 용량을 지정하지 않으면, 
+기본적으로 길이와 용량이 0 인 슬라이스를 만드는데, 
+이를 Nil Slice 라 하고, nil 과 비교하면 참을 리턴한다.
 
 func main() {
     var s []int
@@ -390,13 +392,19 @@ func (c Circle) perimeter() float64 {
 func Marshal(v interface{}) ([]byte, error);
  
 func Println(a ...interface{}) (n int, err error);
-// 인터페이스는 어떠한 타입도 담을 수 있는 컨테이너라고 볼 수 있으며, 여러 다른 언어에서 흔히 일컫는 Dynamic Type 이라고 볼 수 있다. (주: empty interface는 C#, Java 에서 object라 볼 수 있으며, C/C++ 에서는 void* 와 같다고 볼 수 있다)
+
+// 인터페이스는 어떠한 타입도 담을 수 있는 컨테이너라고 볼 수 있으며, 
+여러 다른 언어에서 흔히 일컫는 Dynamic Type 이라고 볼 수 있다. 
+(주: empty interface는 C#, Java 에서 object라 볼 수 있으며, 
+C/C++ 에서는 void* 와 같다고 볼 수 있다)
 ```
 
 - Type Assertion
 
 ```
-// Interface type의 x와 타입 T에 대하여 x.(T)로 표현했을 때, 이는 x가 nil이 아니며, x는 T 타입에 속한다는 점을 확인(assert)하는 것으로 이러한 표현을 "Type Assertion"이라 부른다.
+// Interface type의 x와 타입 T에 대하여 x.(T)로 표현했을 때, 
+이는 x가 nil이 아니며, x는 T 타입에 속한다는 점을 확인(assert)하는 것으로 
+이러한 표현을 "Type Assertion"이라 부른다.
 
 func main() {
     var a interface{} = 1
@@ -536,7 +544,15 @@ func openFile(fn string) {
 - Go루틴(goroutine)은 Go 런타임이 관리하는 Lightweight 논리적 (혹은 가상적) 쓰레드
 
 ```
-// goroutine은 OS 쓰레드보다 훨씬 가볍게 비동기 Concurrent 처리를 구현하기 위하여 만든 것으로, 기본적으로 Go 런타임이 자체 관리한다. Go 런타임 상에서 관리되는 작업단위인 여러 goroutine들은 종종 하나의 OS 쓰레드 1개로도 실행되곤 한다. 즉, Go루틴들은 OS 쓰레드와 1 대 1로 대응되지 않고, Multiplexing으로 훨씬 적은 OS 쓰레드를 사용한다. 메모리 측면에서도 OS 쓰레드가 1 메가바이트의 스택을 갖는 반면, goroutine은 이보다 훨씬 작은 몇 킬로바이트의 스택을 갖는다(필요시 동적으로 증가). Go 런타임은 Go루틴을 관리하면서 Go 채널을 통해 Go루틴 간의 통신을 쉽게 할 수 있도록 하였다.
+// goroutine은 OS 쓰레드보다 훨씬 가볍게 비동기 Concurrent 처리를 
+구현하기 위하여 만든 것으로, 기본적으로 Go 런타임이 자체 관리한다. 
+Go 런타임 상에서 관리되는 작업단위인 여러 goroutine들은 
+종종 하나의 OS 쓰레드 1개로도 실행되곤 한다. 
+즉, Go루틴들은 OS 쓰레드와 1 대 1로 대응되지 않고, 
+Multiplexing으로 훨씬 적은 OS 쓰레드를 사용한다. 
+메모리 측면에서도 OS 쓰레드가 1 메가바이트의 스택을 갖는 반면, 
+goroutine은 이보다 훨씬 작은 몇 킬로바이트의 스택을 갖는다(필요시 동적으로 증가). 
+Go 런타임은 Go루틴을 관리하면서 Go 채널을 통해 Go루틴 간의 통신을 쉽게 할 수 있도록 하였다.
 ``` 
 
 ```
@@ -578,7 +594,9 @@ import (
  
 func main() {
     // WaitGroup 생성. 2개의 Go루틴을 기다림.
-    // sync.WaitGroup을 사용하고 있는데, 이는 기본적으로 여러 Go루틴들이 끝날 때까지 기다리는 역활
+    // sync.WaitGroup을 사용하고 있는데, 
+    이는 기본적으로 여러 Go루틴들이 끝날 때까지 기다리는 역활
+
     var wait sync.WaitGroup
     wait.Add(2)
  
@@ -617,7 +635,11 @@ func main() {
 ```
 
 #### Go 채널
-- Go 채널은 그 채널을 통하여 데이타를 주고 받는 통로라 볼 수 있는데, 채널은 make() 함수를 통해 미리 생성되어야 하며, 채널 연산자 <- 을 통해 데이타를 보내고 받는다. 채널은 흔히 goroutine들 사이 데이타를 주고 받는데 사용되는데, 상대편이 준비될 때까지 채널에서 대기함으로써 별도의 lock을 걸지 않고 데이타를 동기화하는데 사용된다.
+- Go 채널은 그 채널을 통하여 데이타를 주고 받는 통로라 볼 수 있는데, 
+채널은 make() 함수를 통해 미리 생성되어야 하며, 
+채널 연산자 <- 을 통해 데이타를 보내고 받는다. 
+채널은 흔히 goroutine들 사이 데이타를 주고 받는데 사용되는데, 
+상대편이 준비될 때까지 채널에서 대기함으로써 별도의 lock을 걸지 않고 데이타를 동기화하는데 사용된다.
 
 ```
 package main
@@ -779,7 +801,12 @@ func main() {
 - Go의 select문은 복수 채널들을 기다리면서 준비된 (데이타를 보내온) 채널을 실행하는 기능을 제공한다
 
 ```
-첫번째 run1()이 1초간 실행되고 done1 채널로부터 수신하여 해당 case를 실행하고, 다시 for 루프를 돈다. for루프를 다시 돌면서 다시 select문이 실행되는데, 다음 run2()가 2초후에 실행되고 done2 채널로부터 수신하여 해당 case를 실행하게 된다. done2 채널 case문에 break EXIT 이 있는데, 이 문장으로 인해 for 루프를 빠져나와 EXIT 레이블로 이동하게 된다
+첫번째 run1()이 1초간 실행되고 done1 채널로부터 수신하여 해당 case를 실행하고, 
+다시 for 루프를 돈다. 
+for루프를 다시 돌면서 다시 select문이 실행되는데, 
+다음 run2()가 2초후에 실행되고 done2 채널로부터 수신하여 해당 case를 실행하게 된다. 
+done2 채널 case문에 break EXIT 이 있는데, 
+이 문장으로 인해 for 루프를 빠져나와 EXIT 레이블로 이동하게 된다
 
 package main
  
