@@ -66,7 +66,7 @@ L1:
 }
 ```
 
-- Variadic Function [가변인자함수]
+- Variadic Function 가변인자함수
 ```
 문자열 가변 파라미터를 나타내기 위해서 ...string 과 같이 표현
 package main
