@@ -381,7 +381,7 @@ func (c Circle) perimeter() float64 {
 ```
 
 #### 인터페이스 타입
--- 빈 interface는 interface{} 와 같이 표현한다.
+- 빈 interface는 interface{} 와 같이 표현한다.
 
 ```
 func Marshal(v interface{}) ([]byte, error);
@@ -390,7 +390,8 @@ func Println(a ...interface{}) (n int, err error);
  인터페이스는 어떠한 타입도 담을 수 있는 컨테이너라고 볼 수 있으며, 여러 다른 언어에서 흔히 일컫는 Dynamic Type 이라고 볼 수 있다. (주: empty interface는 C#, Java 에서 object라 볼 수 있으며, C/C++ 에서는 void* 와 같다고 볼 수 있다)
 ```
 
--- Type Assertion
+- Type Assertion
+
 ```
 Interface type의 x와 타입 T에 대하여 x.(T)로 표현했을 때, 이는 x가 nil이 아니며, x는 T 타입에 속한다는 점을 확인(assert)하는 것으로 이러한 표현을 "Type Assertion"이라 부른다.
 
@@ -433,7 +434,8 @@ func main() {
 }
 ```
 
--- error의 Type을 체크해서 에러 타입별로 별도의 에러 처리를 하는 방식
+- error의 Type을 체크해서 에러 타입별로 별도의 에러 처리를 하는 방식
+
 ```
 _, err := otherFunc()
 switch err.(type) {
@@ -448,6 +450,7 @@ case error:
 
 #### 지연실행 defer
 - 차후 문장에서 어떤 에러가 발생하더라도 항상 파일을 Close할 수 있도록 한다.
+
 ```
 package main
  
@@ -471,6 +474,7 @@ func main() {
 
 #### panic 함수
 - Go 내장함수인 panic()함수는 현재 함수를 즉시 멈추고 현재 함수에 defer 함수들을 모두 실행한 후 즉시 리턴한다.
+
 ```
 package main
  
@@ -493,6 +497,7 @@ func openFile(fn string) {
 
 #### recover 함수
 - Go 내장함수인 recover()함수는 panic 함수에 의한 패닉상태를 다시 정상상태로 되돌리는 함수이다
+
 ```
 package main
  
