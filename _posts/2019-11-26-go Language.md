@@ -192,6 +192,17 @@ func main() {
     s := make([]int, 5, 10)
     println(len(s), cap(s)) // len 5, cap 10
 }
+
+슬라이스에 별도의 길이와 용량을 지정하지 않으면, 기본적으로 길이와 용량이 0 인 슬라이스를 만드는데, 이를 Nil Slice 라 하고, nil 과 비교하면 참을 리턴한다.
+
+func main() {
+    var s []int
+ 
+    if s == nil {
+        println("Nil Slice")
+    }
+    println(len(s), cap(s)) // 모두 0
+}
 ```
 
 - 부분 슬라이스(Sub-slice)
@@ -201,6 +212,7 @@ s = s[2:5]     // 2, 3, 4
 s = s[1:]      // 3, 4
 fmt.Println(s) // 3, 4 출력
 ```
+
 - 슬라이스 추가,병합(append)과 복사(copy)
 ```
 package main
@@ -261,6 +273,9 @@ func main() {
 
 ```
 
+#### 패키지 Scope
+- 패키지 내에는 함수, 구조체, 인터페이스, 메서드 등이 존재하는데, 이들의 이름(Identifier)이 첫문자를 대문자로 시작하면 이는 public 으로 사용할 수 있다. 즉, 패키지 외부에서 이들을 호출하거나 사용할 수 있게 된다. 반면, 이름이 소문자로 시작하면 이는 non-public 으로 패키지 내부에서만 사용될 수 있다.
+
 #### 패키지 init 함수와 alias
 ```
 package testlib
@@ -284,4 +299,233 @@ func main() {
     mydb := mysql.Get()
     //...
 }
+```
+
+#### Struct (구조체)
+```
+package main
+ 
+import "fmt"
+ 
+// struct 정의
+type person struct {
+    name string
+    age  int
+}
+ 
+func main() {
+    // person 객체 생성
+    p := person{}
+     
+    // 필드값 설정
+    p.name = "Lee"
+    p.age = 10
+     
+    fmt.Println(p)
+}
+```
+
+#### Go 메서드(Method)
+```
+package main
+ 
+//Rect - struct 정의
+type Rect struct {
+    width, height int
+}
+ 
+//Rect의 area() 메소드
+func (r Rect) area() int {
+    return r.width * r.height   
+}
+ 
+func main() {
+    rect := Rect{10, 20}
+    area := rect.area() //메서드 호출
+    println(area)
+}
+```
+
+#### Go 인터페이스
+```
+type Shape interface {
+    area() float64
+    perimeter() float64
+}
+
+
+//Rect 정의
+type Rect struct {
+    width, height float64
+}
+ 
+//Circle 정의
+type Circle struct {
+    radius float64
+}
+ 
+//Rect 타입에 대한 Shape 인터페이스 구현 
+func (r Rect) area() float64 { return r.width * r.height }
+func (r Rect) perimeter() float64 {
+     return 2 * (r.width + r.height)
+}
+ 
+//Circle 타입에 대한 Shape 인터페이스 구현 
+func (c Circle) area() float64 { 
+    return math.Pi * c.radius * c.radius
+}
+func (c Circle) perimeter() float64 { 
+    return 2 * math.Pi * c.radius
+}
+
+```
+
+#### 인터페이스 타입
+-- 빈 interface는 interface{} 와 같이 표현한다.
+
+```
+func Marshal(v interface{}) ([]byte, error);
+ 
+func Println(a ...interface{}) (n int, err error);
+ 인터페이스는 어떠한 타입도 담을 수 있는 컨테이너라고 볼 수 있으며, 여러 다른 언어에서 흔히 일컫는 Dynamic Type 이라고 볼 수 있다. (주: empty interface는 C#, Java 에서 object라 볼 수 있으며, C/C++ 에서는 void* 와 같다고 볼 수 있다)
+```
+
+-- Type Assertion
+```
+Interface type의 x와 타입 T에 대하여 x.(T)로 표현했을 때, 이는 x가 nil이 아니며, x는 T 타입에 속한다는 점을 확인(assert)하는 것으로 이러한 표현을 "Type Assertion"이라 부른다.
+
+func main() {
+    var a interface{} = 1
+ 
+    i := a       // a와 i 는 dynamic type, 값은 1
+    j := a.(int) // j는 int 타입, 값은 1
+ 
+    println(i)  // 포인터주소 출력
+    println(j)  // 1 출력
+}
+```
+
+#### Go 에러
+- Go는 내장 타입으로 error 라는 interface 타입을 갖는다
+
+```
+type error interface {
+    Error() string
+}
+```
+
+- Go 함수가 결과와 에러를 함께 리턴한다면, 이 에러가 nil 인지를 체크해서 에러가 없는지를 체크할 수 있다
+
+```
+package main
+ 
+import (
+    "log"
+    "os"
+)
+ 
+func main() {
+    f, err := os.Open("C:\\temp\\1.txt")
+    if err != nil {
+        log.Fatal(err.Error())
+    }
+    println(f.Name())
+}
+```
+
+-- error의 Type을 체크해서 에러 타입별로 별도의 에러 처리를 하는 방식
+```
+_, err := otherFunc()
+switch err.(type) {
+default: // no error
+    println("ok")
+case MyError:
+    log.Print("Log my error")
+case error:
+    log.Fatal(err.Error())
+}
+```
+
+#### 지연실행 defer
+- 차후 문장에서 어떤 에러가 발생하더라도 항상 파일을 Close할 수 있도록 한다.
+```
+package main
+ 
+import "os"
+ 
+func main() {
+    f, err := os.Open("1.txt")
+    if err != nil {
+        panic(err)
+    }
+ 
+    // main 마지막에 파일 close 실행
+    defer f.Close()
+ 
+    // 파일 읽기
+    bytes := make([]byte, 1024)
+    f.Read(bytes)
+    println(len(bytes))
+}
+```
+
+#### panic 함수
+- Go 내장함수인 panic()함수는 현재 함수를 즉시 멈추고 현재 함수에 defer 함수들을 모두 실행한 후 즉시 리턴한다.
+```
+package main
+ 
+import "os"
+ 
+func main() {
+    openFile("Invalid.txt")
+    println("Done") //이 문장은 실행 안됨
+}
+ 
+func openFile(fn string) {
+    f, err := os.Open(fn)
+    if err != nil {
+        panic(err)
+    }
+    // 파일 close 실행됨
+    defer f.Close()
+}
+```
+
+#### recover 함수
+- Go 내장함수인 recover()함수는 panic 함수에 의한 패닉상태를 다시 정상상태로 되돌리는 함수이다
+```
+package main
+ 
+import (
+    "fmt"
+    "os"
+)
+ 
+func main() {
+    openFile("1.txt")
+    println("Done") // 이 문장 실행됨
+}
+ 
+func openFile(fn string) {
+    // defere 함수. panic 호출시 실행됨
+    defer func() {
+        if r := recover(); r != nil {
+            fmt.Println("OPEN ERROR", r)
+        }
+    }()
+ 
+    f, err := os.Open(fn)
+    if err != nil {
+        panic(err)
+    }
+ 
+    // 파일 close 실행됨
+    defer f.Close()
+}
+```
+
+#### Go루틴
+- Go루틴(goroutine)은 Go 런타임이 관리하는 Lightweight 논리적 (혹은 가상적) 쓰레드
+```
+goroutine은 OS 쓰레드보다 훨씬 가볍게 비동기 Concurrent 처리를 구현하기 위하여 만든 것으로, 기본적으로 Go 런타임이 자체 관리한다. Go 런타임 상에서 관리되는 작업단위인 여러 goroutine들은 종종 하나의 OS 쓰레드 1개로도 실행되곤 한다. 즉, Go루틴들은 OS 쓰레드와 1 대 1로 대응되지 않고, Multiplexing으로 훨씬 적은 OS 쓰레드를 사용한다. 메모리 측면에서도 OS 쓰레드가 1 메가바이트의 스택을 갖는 반면, goroutine은 이보다 훨씬 작은 몇 킬로바이트의 스택을 갖는다(필요시 동적으로 증가). Go 런타임은 Go루틴을 관리하면서 Go 채널을 통해 Go루틴 간의 통신을 쉽게 할 수 있도록 하였다.
 ```
