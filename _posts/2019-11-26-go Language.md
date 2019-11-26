@@ -47,10 +47,10 @@ for index, name := range names {
 ```
 
 - break, continue, goto 문
-```
 for 루프를 빠져나와 L1 레이블로 이동한 후, break가 있는 현재 for 루프를 건너뛰고 다음 문장인 println() 으로 이동
+```
 package main
- 
+
 func main() {
     i := 0
  
@@ -67,8 +67,8 @@ L1:
 ```
 
 - Variadic Function 가변인자함수
-```
 문자열 가변 파라미터를 나타내기 위해서 ...string 과 같이 표현
+```
 package main
 func main() {   
     say("This", "is", "a", "book")
@@ -143,8 +143,8 @@ func calc(f func(int, int) int, a int, b int) int {
 ```
 
 -  type문을 사용한 함수 원형 정의
-```
 이렇게 함수의 원형을 정의하고 함수를 타 메서드에 전달하고 리턴받는 기능을 타 언어에서 흔히 델리게이트(Delegate)라 부른다. Go는 이러한 Delegate 기능을 제공하고 있다
+```
 // 원형 정의
 type calculator func(int, int) int
  
@@ -152,5 +152,31 @@ type calculator func(int, int) int
 func calc(f calculator, a int, b int) int {
     result := f(a, b)
     return result
+}
+```
+
+- 클로저 (Closure)
+Go 언어에서 함수는 Closure로서 사용될 수도 있다. Closure는 함수 바깥에 있는 변수를 참조하는 함수값(function value)를 일컫는데, 이때의 함수는 바깥의 변수를 마치 함수 안으로 끌어들인 듯이 그 변수를 읽거나 쓸 수 있게 된다.
+```
+package main
+ 
+func nextValue() func() int {
+    i := 0
+    return func() int {
+        i++
+        return i
+    }
+}
+ 
+func main() {
+    next := nextValue()
+ 
+    println(next())  // 1
+    println(next())  // 2
+    println(next())  // 3
+ 
+    anotherNext := nextValue()
+    println(anotherNext()) // 1 다시 시작
+    println(anotherNext()) // 2
 }
 ```
