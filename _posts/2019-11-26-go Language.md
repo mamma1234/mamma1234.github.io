@@ -69,6 +69,7 @@ L1:
 
 #### Variadic Function 가변인자함수
 - 문자열 가변 파라미터를 나타내기 위해서 ...string 과 같이 표현
+
 ```
 package main
 func main() {   
@@ -118,6 +119,7 @@ func sum(nums ...int) (count int, total int) {
 
 #### 일급함수
 - Go 프로그래밍 언어에서 함수는 일급함수로서 Go의 기본 타입과 동일하게 취급되며, 따라서 다른 함수의 파라미터로 전달하거나 다른 함수의 리턴값으로도 사용될 수 있다
+
 ```
 package main
  
@@ -145,6 +147,7 @@ func calc(f func(int, int) int, a int, b int) int {
 
 ####  type문을 사용한 함수 원형 정의
 - 이렇게 함수의 원형을 정의하고 함수를 타 메서드에 전달하고 리턴받는 기능을 타 언어에서 흔히 델리게이트(Delegate)라 부른다. Go는 이러한 Delegate 기능을 제공하고 있다
+
 ```
 // 원형 정의
 type calculator func(int, int) int
@@ -158,6 +161,7 @@ func calc(f calculator, a int, b int) int {
 
 #### 클로저 (Closure)
 - Go 언어에서 함수는 Closure로서 사용될 수도 있다. Closure는 함수 바깥에 있는 변수를 참조하는 함수값(function value)를 일컫는데, 이때의 함수는 바깥의 변수를 마치 함수 안으로 끌어들인 듯이 그 변수를 읽거나 쓸 수 있게 된다.
+
 ```
 package main
  
