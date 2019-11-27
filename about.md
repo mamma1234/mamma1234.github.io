@@ -45,19 +45,9 @@ XXXX
 
 ## [EXPERIENCE]()
 ### 관련사이트  - *링크*
-- [Github](https://github.com/mamma1234)
-- [BLOG](http://mamma1234.egloos.com/)
-- [CAFE](https://cafe.naver.com/mamma1234)
-
-### XXXX - *Team project*
-<sub>2018.10.07 - 12.20, [Github](https://github.com/mamma1234), [Report](https://bit.ly/mamma1234)</sub>
-- 샘플 내용 1
-- 샘플 내용 2
-
-### XXXX - *Team project*
-<sub>2018.10.07 - 12.20, [Github](https://github.com/mamma1234), [Report](https://bit.ly/mamma1234)</sub>
-- 샘플 내용 1
-- 샘플 내용 2
+- [Github https://github.com/mamma1234](https://github.com/mamma1234)
+- [BLOG http://mamma1234.egloos.com/](http://mamma1234.egloos.com/)
+- [CAFE https://cafe.naver.com/mamma1234](https://cafe.naver.com/mamma1234)
 
 
 ## [EDUCATION]()
@@ -79,3 +69,14 @@ Pandas, NumPy, scikit-learn, KoNLPy, Spark, [PyTorch](https://github.com/mamma12
 <h2>Connect</h2>
 ✉️ [mamma1234@gmail.com]()  
 🌐 [https://github.com/mamma1234](https://github.com/mamma1234)
+
+
+### XXXX - *Team project*
+<sub>2018.10.07 - 12.20, [Github](https://github.com/mamma1234), [Report](https://bit.ly/mamma1234)</sub>
+- 샘플 내용 1
+- 샘플 내용 2
+
+### XXXX - *Team project*
+<sub>2018.10.07 - 12.20, [Github](https://github.com/mamma1234), [Report](https://bit.ly/mamma1234)</sub>
+- 샘플 내용 1
+- 샘플 내용 2
