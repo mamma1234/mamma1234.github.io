@@ -27,8 +27,8 @@ disqus:
 - Go는 표준 패키지 이외의 3rd Party 패키지나 사용자 정의 패키지들을 이 GOPATH 에서 찾는다. 복수 개의 경로를 지정한 경우, 3rd Party 패키지는 처음 경로에 설치된다.
 
 ### 주요 명령어
-go run src/hello.go
-go build test.go
+- go run src/hello.go
+- go build test.go
 
 ### 주요 문법
 #### 포인터연산자
