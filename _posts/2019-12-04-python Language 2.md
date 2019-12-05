@@ -87,9 +87,9 @@ if __name__ == '__main__':
 - 메모리에 담아 사용
 
 '''
->>> mylist = [x * x for x in range(3)]
->>> for i in mylist:
-        print(i)
+mylist = [x * x for x in range(3)]
+for i in mylist:
+    print(i)
 0
 1
 4
