@@ -89,7 +89,7 @@ if __name__ == '__main__':
 '''
 >>> mylist = [x * x for x in range(3)]
 >>> for i in mylist:
-...    print(i)
+        print(i)
 0
 1
 4
@@ -110,21 +110,52 @@ if __name__ == '__main__':
 '''
 
 #### Yield
+- 함수로부터 만들어진 제너레이터 객체가 for 루프를 통해 처음 실행될 때 Python은 함수 내에 있는 코드를 yield 키워드를 만나기 전까지 실행하고 첫 번째 루프의 값을 반환하게 됩니다. 다음 루프 때에는 yield 키워드 뒤에 있는 코드를 실행하고 다시 루프를 돌면서 반환할 값이 아예 없을 때까지 계속 같은 과정을 반복하게 됩니다.
 
 '''
->>> def createGenerator():
-...    mylist = range(3)
-...    for i in mylist:
-...        yield i * i
-...
->>> mygenerator = createGenerator() # 제너레이터 생성
->>> print(mygenerator) # mygenerator는 객체입니다.
+def number_generator():
+    yield 0
+    yield 1
+    yield 2
+ 
+for i in number_generator():
+    print(i)
+
+0
+1
+2    
+'''
+
+'''
+def createGenerator():
+    mylist = range(3)
+    for i in mylist:
+        yield i * i
+
+mygenerator = createGenerator() # 제너레이터 생성
+print(mygenerator) # mygenerator는 객체입니다.
 <generator object createGenerator at 0xb7555c34>
->>> for i in mygenerator:
-...     print(i)
+for i in mygenerator:
+    print(i)
+
 0
 1
 4
+'''
+
+'''
+def one_generator():
+    yield 1
+    return 'return에 지정한 값'
+ 
+try:
+    g = one_generator()
+    next(g)
+    next(g)
+except StopIteration as e:
+    print(e)    # return에 지정한 값
+
+>>> return에 지정한 값
 '''
 
 '''
