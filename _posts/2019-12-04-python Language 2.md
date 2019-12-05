@@ -54,8 +54,7 @@ threading에서 내장 모듈인 Thread를 상속받음.
 - join() 메소드를 통해 스레드가 끝날 때까지 기다림
 
 ### 단위 테스트 프레임워크(unittest)
-
-'''
+```
 import unittest
 
 class TestStringMethods(unittest.TestCase):
@@ -76,8 +75,7 @@ class TestStringMethods(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
-'''
-
+```
 - python -m unittest tests/test_something.py
 - python -m unittest -v tests/test_something.py
 
@@ -91,9 +89,9 @@ mylist = [x * x for x in range(3)]
 for i in mylist:
     print(i)
 
-0
-1
-4
+> 0
+> 1
+> 4
 '''
 
 #### 제너레이터(Generators)
@@ -106,9 +104,9 @@ mygenerator = (x * x for x in range(3))
 for i in mygenerator:
     print(i)
 
-0
-1
-4
+> 0
+> 1
+> 4
 '''
 
 #### Yield
@@ -123,9 +121,9 @@ def number_generator():
 for i in number_generator():
     print(i)
 
-0
-1
-2    
+> 0
+> 1
+> 2    
 '''
 
 '''
