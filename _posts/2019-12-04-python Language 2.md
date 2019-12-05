@@ -136,13 +136,13 @@ def createGenerator():
 
 mygenerator = createGenerator() # 제너레이터 생성
 print(mygenerator) # mygenerator는 객체입니다.
-<generator object createGenerator at 0xb7555c34>
+> <generator object createGenerator at 0xb7555c34>
 for i in mygenerator:
     print(i)
 
-0
-1
-4
+> 0
+> 1
+> 4
 '''
 
 '''
@@ -157,7 +157,7 @@ try:
 except StopIteration as e:
     print(e)    # return에 지정한 값
 
-return에 지정한 값
+> return에 지정한 값
 '''
 
 '''
