@@ -80,3 +80,86 @@ if __name__ == '__main__':
 
 - python -m unittest tests/test_something.py
 - python -m unittest -v tests/test_something.py
+
+
+### yield 
+#### 이터러블(Iterables)
+- 메모리에 담아 사용
+
+'''
+>>> mylist = [x * x for x in range(3)]
+>>> for i in mylist:
+...    print(i)
+0
+1
+4
+'''
+
+#### 제너레이터(Generators)
+- 메모리에 담고 있지 않고 그때그때 값을 생성(generator)해서 반환
+- [] 대신 ()를 사용
+- for i in mygenerator 코드를 두 번 실행할 수는 없습니다. 제너레이터는 한 번만 사용될 수 있기 때문입니다: 제너레이터는 0을 계산해서 반환한 후 0에 대해서는 아예 잊습니다, 그리고 1을 계산하고 한 번에 하나씩 처리해가며 순환을 종료
+
+'''
+>>> mygenerator = (x * x for x in range(3))
+>>> for i in mygenerator:
+...    print(i)
+0
+1
+4
+'''
+
+#### Yield
+
+'''
+>>> def createGenerator():
+...    mylist = range(3)
+...    for i in mylist:
+...        yield i * i
+...
+>>> mygenerator = createGenerator() # 제너레이터 생성
+>>> print(mygenerator) # mygenerator는 객체입니다.
+<generator object createGenerator at 0xb7555c34>
+>>> for i in mygenerator:
+...     print(i)
+0
+1
+4
+'''
+
+'''
+>>> class Bank(): # 은행을 만들고 ATM도 만듭시다.
+...    crisis = False
+...    def create_atm(self):
+...        while not self.crisis:
+...            yield "$100"
+>>> hsbc = Bank() # 아무 문제 없다면 ATM은 원하는 만큼 줄겁니다.
+>>> corner_street_atm = hsbc.create_atm()
+>>> print(corner_street_atm.next())
+$100
+>>> print(corner_street_atm.next())
+$100
+>>> print([corner_street_atm.next() for cash in range(5)])
+['$100', '$100', '$100', '$100', '$100']
+>>> hsbc.crisis = True # 경제 공황이 오고 있습니다, 돈이 더 없겠네요!
+>>> print(corner_street_atm.next())
+<type 'exceptions.StopIteration'>
+>>> wall_street_atm = hsbc.create_atm() # 새로운 ATM을 만들어도 마찬가지입니다.
+>>> print(wall_street_atm.next())
+<type 'exceptions.StopIteration'>
+>>> hsbc.crisis = False # 경제 공황이 끝났음에도 ATM은 모두 비어있습니다.
+>>> print(corner_street_atm.next())
+<type 'exceptions.StopIteration'>
+>>> brand_new_atm = hsbc.create_atm() # 다시 일상으로 돌아가기 위해 새로운 ATM을 만듭니다.
+>>> for cash in brand_new_atm:
+...    print(cash)
+$100
+$100
+$100
+$100
+$100
+$100
+$100
+$100
+$100
+'''
