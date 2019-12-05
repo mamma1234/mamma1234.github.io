@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Python develop language"
+title: "Python develop language 2"
 description: 
 headline: 
 modified: 2019-12-04
@@ -54,7 +54,7 @@ threading에서 내장 모듈인 Thread를 상속받음.
 - join() 메소드를 통해 스레드가 끝날 때까지 기다림
 
 ### 단위 테스트 프레임워크(unittest)
-```
+<pre><code>
 import unittest
 
 class TestStringMethods(unittest.TestCase):
@@ -75,7 +75,8 @@ class TestStringMethods(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
-```
+</code></pre>
+
 - python -m unittest tests/test_something.py
 - python -m unittest -v tests/test_something.py
 
