@@ -84,8 +84,7 @@ if __name__ == '__main__':
 ### yield 
 #### 이터러블(Iterables)
 - 메모리에 담아 사용
-
-'''
+<pre><code>
 mylist = [x * x for x in range(3)]
 for i in mylist:
     print(i)
@@ -93,14 +92,13 @@ for i in mylist:
 > 0
 > 1
 > 4
-'''
+</code></pre>
 
 #### 제너레이터(Generators)
 - 메모리에 담고 있지 않고 그때그때 값을 생성(generator)해서 반환
 - [] 대신 ()를 사용
 - for i in mygenerator 코드를 두 번 실행할 수는 없습니다. 제너레이터는 한 번만 사용될 수 있기 때문입니다: 제너레이터는 0을 계산해서 반환한 후 0에 대해서는 아예 잊습니다, 그리고 1을 계산하고 한 번에 하나씩 처리해가며 순환을 종료
-
-'''
+<pre><code>
 mygenerator = (x * x for x in range(3))
 for i in mygenerator:
     print(i)
@@ -108,12 +106,12 @@ for i in mygenerator:
 > 0
 > 1
 > 4
-'''
+</code></pre>
 
 #### Yield
 - 함수로부터 만들어진 제너레이터 객체가 for 루프를 통해 처음 실행될 때 Python은 함수 내에 있는 코드를 yield 키워드를 만나기 전까지 실행하고 첫 번째 루프의 값을 반환하게 됩니다. 다음 루프 때에는 yield 키워드 뒤에 있는 코드를 실행하고 다시 루프를 돌면서 반환할 값이 아예 없을 때까지 계속 같은 과정을 반복하게 됩니다.
 
-'''
+<pre><code>
 def number_generator():
     yield 0
     yield 1
@@ -125,9 +123,9 @@ for i in number_generator():
 > 0
 > 1
 > 2    
-'''
+</code></pre>
 
-'''
+<pre><code>
 def createGenerator():
     mylist = range(3)
     for i in mylist:
@@ -142,9 +140,9 @@ for i in mygenerator:
 > 0
 > 1
 > 4
-'''
+</code></pre>
 
-'''
+<pre><code>
 def one_generator():
     yield 1
     return 'return에 지정한 값'
@@ -157,9 +155,9 @@ except StopIteration as e:
     print(e)    # return에 지정한 값
 
 > return에 지정한 값
-'''
+</code></pre>
 
-'''
+<pre><code>
 class Bank(): # 은행을 만들고 ATM도 만듭시다.
     crisis = False
     def create_atm(self):
@@ -195,4 +193,4 @@ for cash in brand_new_atm:
 > $100
 > $100
 > $100
-'''
+</code></pre>
