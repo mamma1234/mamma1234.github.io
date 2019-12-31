@@ -102,7 +102,7 @@ tsc student --watch
 ### 타입 추론
 - 약 타입 선언을 생략하면 값이 할당되는 과정에서 동적으로 타입이 결정된다. 이를 타입 추론(Type Inference)이라 한다.
 
-<code>
+<pre><code>
 ```
 // 변수 foo는 string 타입이다.
 let foo: string = 'hello';
@@ -192,7 +192,7 @@ function error(message: string): never {
   throw new Error(message);
 }
 ```
-</code>
+</code></pre>
 
 
 
@@ -203,6 +203,7 @@ function error(message: string): never {
 Typescript 클래스는 클래스 몸체에 클래스 프로퍼티를 사전 선언하여야 한다.
 
 <code>
+```
 // ES6
 class Person {
   constructor(name) {
@@ -229,6 +230,7 @@ class Person {
     console.log(`${this.name} is walking.`);
   }
 }
+```
 </code>
 
 ### 접근 제한자
