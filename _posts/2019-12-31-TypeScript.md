@@ -290,6 +290,8 @@ console.log(foo.x); // Hello
 
 
 ### readonly 
+- Typescript는 readonly 키워드를 사용할 수 있다. readonly가 선언된 클래스 프로퍼티는 선언 시 또는 생성자 내부에서만 값을 할당할 수 있다. 그 외의 경우에는 값을 할당할 수 없고 오직 읽기만 가능한 상태가 된다. 이를 이용하여 상수의 선언에 사용한다.
+
 <code>
 class Foo {
   private readonly MAX_LEN: number = 5;
@@ -311,3 +313,8 @@ class Foo {
 
 new Foo().log();
 </code>
+
+### static  
+
+- ES6 클래스에서 static 키워드는 클래스의 정적(static) 메소드를 정의한다. 정적 메소드는 클래스의 인스턴스가 아닌 클래스 이름으로 호출한다. 따라서 클래스의 인스턴스를 생성하지 않아도 호출할 수 있다.
+Typescript에서는 static 키워드를 클래스 프로퍼티에도 사용할 수 있다. 정적 메소드와 마찬가지로 정적 클래스 프로퍼티는 인스턴스가 아닌 클래스 이름으로 호출하며 클래스의 인스턴스를 생성하지 않아도 호출할 수 있다.
