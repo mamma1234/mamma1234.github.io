@@ -368,3 +368,126 @@ const myDog = new Dog();
 myDog.makeSound();
 myDog.move();
 ```
+
+
+## 인터페이스
+### 변수와 인터페이스
+
+```
+// 인터페이스의 정의
+interface Todo {
+  id: number;
+  content: string;
+  completed: boolean;
+}
+
+// 변수 todo의 타입으로 Todo 인터페이스를 선언하였다.
+let todo: Todo;
+
+// 변수 todo는 Todo 인터페이스를 준수하여야 한다.
+todo = { id: 1, content: 'typescript', completed: false };
+```
+
+### 함수와 인터페이스
+
+```
+// 함수 인터페이스의 정의
+interface SquareFunc {
+  (num: number): number;
+}
+
+// 함수 인테페이스를 구현하는 함수는 인터페이스를 준수하여야 한다.
+const squareFunc: SquareFunc = function (num: number) {
+  return num * num;
+}
+
+console.log(squareFunc(10)); // 100
+```
+
+### 클래스와 인터페이스
+
+```
+// 인터페이스의 정의
+interface IPerson {
+  name: string;
+  sayHello(): void;
+}
+
+/*
+인터페이스를 구현하는 클래스는 인터페이스에서 정의한 프로퍼티와 추상 메소드를 반드시 구현하여야 한다.
+*/
+class Person implements IPerson {
+  // 인터페이스에서 정의한 프로퍼티의 구현
+  constructor(public name: string) {}
+
+  // 인터페이스에서 정의한 추상 메소드의 구현
+  sayHello() {
+    console.log(`Hello ${this.name}`);
+  }
+}
+
+function greeter(person: IPerson): void {
+  person.sayHello();
+}
+
+const me = new Person('Lee');
+greeter(me); // Hello Lee
+```
+
+### 덕 타이핑 (Duck typing)
+
+```
+interface IDuck { // 1
+  quack(): void;
+}
+
+class MallardDuck implements IDuck { // 3
+  quack() {
+    console.log('Quack!');
+  }
+}
+
+class RedheadDuck { // 4
+  quack() {
+    console.log('q~uack!');
+  }
+}
+
+function makeNoise(duck: IDuck): void { // 2
+  duck.quack();
+}
+
+makeNoise(new MallardDuck()); // Quack!
+makeNoise(new RedheadDuck()); // q~uack! // 5
+
+(1) 인터페이스 IDuck은 quack 메소드를 정의하였다.
+
+(2) makeNoise 함수는 인터페이스 IDuck을 구현한 클래스의 인스턴스 duck을 인자로 전달받는다.
+
+(3) 클래스 MallardDuck은 인터페이스 IDuck을 구현하였다.
+
+(4) 클래스 RedheadDuck은 인터페이스 IDuck을 구현하지는 않았지만 quack 메소드를 갖는다.
+
+(5) makeNoise 함수에 인터페이스 IDuck을 구현하지 않은 클래스 RedheadDuck의 인스턴스를 인자로 전달하여도 에러 없이 처리된다.
+
+TypeScript는 해당 인터페이스에서 정의한 프로퍼티나 메소드를 가지고 있다면 그 인터페이스를 구현한 것으로 인정한다. 이것을 덕 타이핑(duck typing) 또는 구조적 타이핑(structural typing)이라 한다.
+
+인터페이스를 변수에 사용할 경우에도 덕 타이핑은 적용된다.
+
+
+interface IPerson {
+  name: string;
+}
+
+function sayHello(person: IPerson): void {
+  console.log(`Hello ${person.name}`);
+}
+
+const me = { name: 'Lee', age: 18 };
+sayHello(me); // He
+
+변수 me는 인터페이스 IPerson과 일치하지는 않는다. 하지만 IPerson의 name 프로퍼티를 가지고 있으면 인터페이스에 부합하는 것으로 인정된다.
+
+```
+
+### 선택적 프로퍼티
