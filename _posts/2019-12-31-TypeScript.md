@@ -145,7 +145,7 @@ const obj: object = {};
 // array
 let list1: any[] = [1, 'two', true];
 let list2: number[] = [1, 2, 3];
-let list3: Array<number> = [1, 2, 3]; // 제네릭 배열 타입
+
 
 // tuple : 고정된 요소수 만큼의 타입을 미리 선언후 배열을 표현
 let tuple: [string, number];
@@ -203,7 +203,7 @@ function error(message: string): never {
 Typescript 클래스는 클래스 몸체에 클래스 프로퍼티를 사전 선언하여야 한다.
 
 <pre><code>
-```
+
 // ES6
 class Person {
   constructor(name) {
@@ -230,7 +230,7 @@ class Person {
     console.log(`${this.name} is walking.`);
   }
 }
-```
+
 </code></pre>
 
 ### 접근 제한자
