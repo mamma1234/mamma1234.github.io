@@ -101,7 +101,8 @@ tsc student --watch
 - 자바스크립트는 동적 타입(dynamic typed) 언어 혹은 느슨한 타입(loosely typed) 언어이다. 이것은 변수의 타입 선언 없이 값이 할당되는 과정에서 동적으로 타입을 추론(Type Inference)한다는 의미이다. 동적 타입 언어는 타입 추론에 의해 변수의 타입이 결정된 후에도 같은 변수에 여러 타입의 값을 교차하여 할당할 수 있다
 ### 타입 추론
 - 약 타입 선언을 생략하면 값이 할당되는 과정에서 동적으로 타입이 결정된다. 이를 타입 추론(Type Inference)이라 한다.
-```
+
+<code>
 // 변수 foo는 string 타입이다.
 let foo: string = 'hello';
 let bar: number = 1;
@@ -189,7 +190,7 @@ function infiniteLoop(): never {
 function error(message: string): never {
   throw new Error(message);
 }
-```
+</code>
 
 
 
@@ -199,7 +200,7 @@ function error(message: string): never {
 
 Typescript 클래스는 클래스 몸체에 클래스 프로퍼티를 사전 선언하여야 한다.
 
-```
+<code>
 // ES6
 class Person {
   constructor(name) {
@@ -226,4 +227,4 @@ class Person {
     console.log(`${this.name} is walking.`);
   }
 }
-```
+</code>
