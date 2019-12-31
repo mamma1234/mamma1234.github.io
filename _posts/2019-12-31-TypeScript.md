@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "TypeScript (미완성)"
+title: "TypeScript"
 description: 
 headline: 
 modified: 2019-12-31
@@ -512,6 +512,7 @@ const userInfo: UserInfo = {
 
 console.log(userInfo);
 ```
+
 
 
 ## 제네릭 (Generic)
