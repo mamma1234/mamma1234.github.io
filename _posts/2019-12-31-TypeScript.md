@@ -318,3 +318,50 @@ new Foo().log();
 
 - ES6 클래스에서 static 키워드는 클래스의 정적(static) 메소드를 정의한다. 정적 메소드는 클래스의 인스턴스가 아닌 클래스 이름으로 호출한다. 따라서 클래스의 인스턴스를 생성하지 않아도 호출할 수 있다.
 Typescript에서는 static 키워드를 클래스 프로퍼티에도 사용할 수 있다. 정적 메소드와 마찬가지로 정적 클래스 프로퍼티는 인스턴스가 아닌 클래스 이름으로 호출하며 클래스의 인스턴스를 생성하지 않아도 호출할 수 있다.
+
+```
+class Foo {
+  // 생성된 인스턴스의 갯수
+  static instanceCounter = 0;
+  constructor() {
+    // 생성자가 호출될 때마다 카운터를 1씩 증가시킨다.
+    Foo.instanceCounter++;
+  }
+}
+
+var foo1 = new Foo();
+var foo2 = new Foo();
+
+console.log(Foo.instanceCounter);  // 2
+console.log(foo2.instanceCounter); // error TS2339: Property 'instanceCounter' does not exist on type 'Foo'.
+```
+
+
+### 추상 클래스  
+- 추상 클래스(abstract class)는 하나 이상의 추상 메소드를 포함하며 일반 메소드도 포함할 수 있다. 추상 메소드는 내용이 없이 메소드 이름과 타입만이 선언된 메소드를 말하며 선언할 때 abstract 키워드를 사용한다. 추상 클래스를 정의할 때는 abstract 키워드를 사용하며, 직접 인스턴스를 생성할 수 없고 상속만을 위해 사용된다. 추상 클래스를 상속한 클래스는 추상 클래스의 추상 메소드를 반드시 구현하여야 한다.
+
+```
+abstract class Animal {
+  // 추상 메소드
+  abstract makeSound(): void;
+  // 일반 메소드
+  move(): void {
+    console.log('roaming the earth...');
+  }
+}
+
+// 직접 인스턴스를 생성할 수 없다.
+// new Animal();
+// error TS2511: Cannot create an instance of the abstract class 'Animal'.
+
+class Dog extends Animal {
+  // 추상 클래스를 상속한 클래스는 추상 클래스의 추상 메소드를 반드시 구현하여야 한다
+  makeSound() {
+    console.log('bowwow~~');
+  }
+}
+
+const myDog = new Dog();
+myDog.makeSound();
+myDog.move();
+```
