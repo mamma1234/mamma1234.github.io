@@ -232,7 +232,9 @@ class Person {
 </code>
 
 ### 접근 제한자
+
 <code>
+```
 class Foo {
   public x: string;
   protected y: string;
@@ -286,6 +288,7 @@ class Foo {
 const foo = new Foo('Hello');
 console.log(foo);   // Foo { x: 'Hello' }
 console.log(foo.x); // Hello
+```
 </code>
 
 
