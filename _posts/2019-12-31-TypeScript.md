@@ -102,7 +102,7 @@ tsc student --watch
 ### 타입 추론
 - 약 타입 선언을 생략하면 값이 할당되는 과정에서 동적으로 타입이 결정된다. 이를 타입 추론(Type Inference)이라 한다.
 
-<pre><code>
+<code>
 ```
 // 변수 foo는 string 타입이다.
 let foo: string = 'hello';
@@ -192,7 +192,7 @@ function error(message: string): never {
   throw new Error(message);
 }
 ```
-</code></pre>
+</code>
 
 
 
@@ -274,4 +274,40 @@ class Bar extends Foo {
     // error TS2341: Property 'z' is private and only accessible within class 'Foo'.
   }
 }
+
+class Foo {
+  /*
+  접근 제한자가 선언된 생성자 파라미터 x는 클래스 프로퍼티로 선언되고 지동으로 초기화된다.
+  public이 선언되었으므로 x는 클래스 외부에서도 참조가 가능하다.
+  */
+  constructor(public x: string) { }
+}
+
+const foo = new Foo('Hello');
+console.log(foo);   // Foo { x: 'Hello' }
+console.log(foo.x); // Hello
+</code>
+
+
+### readonly 
+<code>
+class Foo {
+  private readonly MAX_LEN: number = 5;
+  private readonly MSG: string;
+
+  constructor() {
+    this.MSG = 'hello';
+  }
+
+  log() {
+    // readonly가 선언된 프로퍼티는 재할당이 금지된다.
+    this.MAX_LEN = 10; // Cannot assign to 'MAX_LEN' because it is a constant or a read-only property.
+    this.MSG = 'Hi'; // Cannot assign to 'MSG' because it is a constant or a read-only property.
+
+    console.log(`MAX_LEN: ${this.MAX_LEN}`); // MAX_LEN: 5
+    console.log(`MSG: ${this.MSG}`); // MSG: hello
+  }
+}
+
+new Foo().log();
 </code>
