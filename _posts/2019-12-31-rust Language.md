@@ -35,7 +35,7 @@ disqus:
 ## Rust 컴파일
 - rustc main.rs
 
-## Rust Cargo 프로젝트 생성
+## Rust 패키지 매니저 Cargo 프로젝트 생성
 - cargo new RustApp --bin
 - cargo build
 
