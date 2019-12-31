@@ -491,3 +491,20 @@ sayHello(me); // He
 ```
 
 ### 선택적 프로퍼티
+- 인터페이스의 프로퍼티는 반드시 구현되어야 한다. 하지만 인터페이스의 프로퍼티가 선택적으로 필요한 경우가 있을 수 있다. 선택적 프로퍼티(Optional Property)는 프로퍼티명 뒤에 ?를 붙이며 생략하여도 에러가 발생하지 않는다.
+
+```
+interface UserInfo {
+  username: string;
+  password: string;
+  age?    : number;
+  address?: string;
+}
+
+const userInfo: UserInfo = {
+  username: 'ungmo2@gmail.com',
+  password: '123456'
+}
+
+console.log(userInfo);
+```
