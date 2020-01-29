@@ -35,6 +35,14 @@ Typescript Compile Option을 설정할 수 있다.
 - target
     - ts file을 js file로 compile할 때 어떤 버전의 js 스펙을 적용할 지 ex) es3, es5
     - default: es3
+- lib
+    - 기본 type definition 라이브러리를 어떤 것을 사용할 지
+    - lib 지정안할 경우,
+        - target = es3, default로 lib.d.ts
+        - target = es5, default로 dom,es5,scripthost
+        - target = es6, default로 dom,es6,dom.iterable,scripthost
+    - lib를 지정하면 그 lib 배열로만 라이브러리를 사용한다.
+        - 빈 [] => 'no definition found 샬라샬라'
 
 ## compileOptions: outDir, outFile
 
