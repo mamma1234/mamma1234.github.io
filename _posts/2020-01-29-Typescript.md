@@ -41,12 +41,65 @@ disqus:
 ### Angular
 
 ## 설치
-```
+```JavaScript
     $ npm install -g typescript
     $ tsc -v
     Version 2.8.3
 ```
 - TypeScript 컴파일러(tsc)는 TypeScript 파일(.ts)을 자바스크립트 파일로 트랜스파일링한다.
+이때 트랜스파일링된 person.js의 자바스크립트 버전은 ES3이다. 이는 TypeScript 컴파일 타겟 자바스크립트 기본 버전이 ES3이기 때문이다.
+
+```JavaScript
+    // person.ts
+    class Person {
+    private name: string;
+
+    constructor(name: string) {
+        this.name = name;
+    }
+
+    sayHello() {
+        return "Hello, " + this.name;
+    }
+    }
+
+    const person = new Person('Lee');
+
+    console.log(person.sayHello());
+
+
+    $ tsc person
+
+    // person.js - ES3
+    var Person = /** @class */ (function () {
+        function Person(name) {
+            this.name = name;
+        }
+        Person.prototype.sayHello = function () {
+            return "Hello, " + this.name;
+        };
+        return Person;
+    }());
+    var person = new Person('Lee');
+    console.log(person.sayHello());
+```
+- 만약, 자바스크립트 버전을 변경하려면 컴파일 옵션에 --target 또는 -t를 사용한다. 현재 tsc가 지원하는 자바스크립트 버전은 ‘ES3’(default), ‘ES5’, ‘ES2015’, ‘ES2016’, ‘ES2017’, ‘ES2018’, ‘ES2019’, ‘ESNEXT’이다. 예를 들어, ES6 버전으로 트랜스파일링을 실행하려면 아래와 같이 옵션을 추가한다.
+```JavaScript
+    $ tsc person -t ES2015
+
+    // person.js
+    class Person {
+        constructor(name) {
+            this.name = name;
+        }
+        sayHello() {
+            return "Hello, " + this.name;
+        }
+    }
+    const person = new Person('Lee');
+    console.log(person.sayHello());
+```
+
 
 
 ## Traditional Compiled Langauge
