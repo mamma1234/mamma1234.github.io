@@ -22,6 +22,33 @@ disqus:
 ## Introduction
 
 
+## 장점
+### 정적타입
+- TypeScript를 사용하는 가장 큰 이유 중 하나는 정적 타입을 지원한다는 것
+```
+    function sum(a: number, b: number) {
+    return a + b;
+    }
+
+    sum('x', 'y');
+    // error TS2345: Argument of type '"x"' is not assignable to parameter of type 'number'.
+```
+
+### 도구의 지원
+### 강력한 객체지향 프로그래밍 지원
+- 인터페이스, 제네릭 등과 같은 강력한 객체지향 프로그래밍 지원은 크고 복잡한 프로젝트의 코드 기반을 쉽게 구성할 수 있도록 도우며, Java, C# 등의 클래스 기반 객체지향 언어에 익숙한 개발자가 자바스크립트 프로젝트를 수행하는 데 진입 장벽을 낮추는 효과도 있다.
+### ES6 / ES Next 지원
+### Angular
+
+## 설치
+```
+    $ npm install -g typescript
+    $ tsc -v
+    Version 2.8.3
+```
+- TypeScript 컴파일러(tsc)는 TypeScript 파일(.ts)을 자바스크립트 파일로 트랜스파일링한다.
+
+
 ## Traditional Compiled Langauge
 
 
