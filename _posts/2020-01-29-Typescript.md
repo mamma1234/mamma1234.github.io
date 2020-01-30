@@ -20,7 +20,8 @@ disqus:
 
 
 ## Introduction
-
+-  TypeScript는 컴파일하면 JavaScript가 되는(compile-to-JavaScript) 언어이며, 컴파일 시점에 타입 체크를 하고, 전통적인 객체기반 프로그래밍 패턴을 도입하는 것 이외에도 강력한 기능들을 JavaScript 에 추가한다.
+- "JavaScript는 특이한 점이 좀 있는데, 컴파일러에게 이런 것들을 알려주고 전부 체크하기만 하면 된다." - Anders Hejlsberg
 
 ## 장점
 ### 정적타입
@@ -48,6 +49,8 @@ disqus:
     $ npm install -g typescript
     $ tsc -v
     Version 2.8.3
+
+    yarn global add typescript
 ```
 
 ## 기초 사용
@@ -57,15 +60,15 @@ disqus:
 ```JavaScript
     // person.ts
     class Person {
-    private name: string;
+        private name: string;
 
-    constructor(name: string) {
-        this.name = name;
-    }
+        constructor(name: string) {
+            this.name = name;
+        }
 
-    sayHello() {
-        return "Hello, " + this.name;
-    }
+        sayHello() {
+            return "Hello, " + this.name;
+        }
     }
 
     const person = new Person('Lee');
@@ -139,6 +142,11 @@ tsc 명령어 뒤에 파일명을 지정하면 tsconfig.json이 무시되므로 
     [오전 12:40:06] File change detected. Starting incremental compilation...
 
     [오전 12:40:07] Found 0 errors. Watching for file changes.
+
+
+    yarn add tsc-watch --dev
+    이후 바로 yarn add typescript를 해준다
+    tsc-watch가 global패키지를 읽지 못하는 듯하다. 그래서 새로 설치한다.
 ```
 
 
@@ -190,3 +198,12 @@ tsc 명령어 뒤에 파일명을 지정하면 tsconfig.json이 무시되므로 
 - **Interface 와의 차이점
     - Type Alias는 실제 Type이 새로 정의된 것이 아닌 해당 Type에 대한 refer인 반면, Interface는 새로 정의한 Type이다.
     - Type Alias는 Type Alias끼리 상속 불가능.
+
+## 문법
+@ 는 this 를 대신한다. 그러므로 this.user 는 @user 이다.
+함수는 => 나 -> 로 선언되고 function 키워드는 사용하지 않는다.
+? 옵션
+
+
+## interface
+## class
