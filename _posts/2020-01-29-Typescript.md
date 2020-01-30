@@ -35,9 +35,12 @@ disqus:
 ```
 
 ### 도구의 지원
+
 ### 강력한 객체지향 프로그래밍 지원
 - 인터페이스, 제네릭 등과 같은 강력한 객체지향 프로그래밍 지원은 크고 복잡한 프로젝트의 코드 기반을 쉽게 구성할 수 있도록 도우며, Java, C# 등의 클래스 기반 객체지향 언어에 익숙한 개발자가 자바스크립트 프로젝트를 수행하는 데 진입 장벽을 낮추는 효과도 있다.
+
 ### ES6 / ES Next 지원
+
 ### Angular
 
 ## 설치
@@ -46,6 +49,8 @@ disqus:
     $ tsc -v
     Version 2.8.3
 ```
+
+## 기초 사용
 - TypeScript 컴파일러(tsc)는 TypeScript 파일(.ts)을 자바스크립트 파일로 트랜스파일링한다.
 이때 트랜스파일링된 person.js의 자바스크립트 버전은 ES3이다. 이는 TypeScript 컴파일 타겟 자바스크립트 기본 버전이 ES3이기 때문이다.
 
@@ -100,13 +105,48 @@ disqus:
     console.log(person.sayHello());
 ```
 
-
-
-## Traditional Compiled Langauge
-
-
 ## tsconfig
-Typescript Compile Option을 설정할 수 있다.
+- 매번 옵션을 지정하는 것은 번거로우므로 tsc 옵션 설정 파일을 생성하도록 하자.
+tsc 명령어 뒤에 파일명을 지정하면 tsconfig.json이 무시되므로 주의하기 바란다.
+```JavaScript
+    $ tsc --init
+    message TS6071: Successfully created a tsconfig.json file.
+
+    {
+    "compilerOptions": {
+        /* Basic Options */
+        // "incremental": true,                   /* Enable incremental compilation */
+        "target": "es5",                          /* Specify ECMAScript target version: 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017', 'ES2018', 'ES2019' or 'ESNEXT'. */
+        "module": "commonjs",                     /* Specify module code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', or 'ESNext'. */
+        // "lib": [],
+
+    $ tsc person //tsconfig.json이 무시된다.
+
+    $ tsc //파일명을 지정하지 않으면 프로젝트 폴더 내의 모든 TypeScript 파일이 모두 트랜스파일링된
+```
+ 
+```JavaScript
+    --watch 또는 -w 옵션을 사용하면 트랜스파일링 대상 파일의 내용이 변경되었을 때 이를 감지하여 자동으로 트랜스파일링이 실행된다.
+    $ tsc --watch
+    21:23:30 - Compilation complete. Watching for file changes.
+
+    //tsconfig.json에 watch 옵션을 추가
+    {
+        // ...
+        "watch": true
+    }
+
+    [오전 12:40:06] File change detected. Starting incremental compilation...
+
+    [오전 12:40:07] Found 0 errors. Watching for file changes.
+```
+
+
+
+
+
+
+## Typescript Compile Option을 설정할 수 있다.
 - files > exlucde > include
 
 ## @types
