@@ -247,6 +247,14 @@ tsc 명령어 뒤에 파일명을 지정하면 tsconfig.json이 무시되므로 
     name: '김수한무' 
     };
 ```
+- readonly 키워드를 붙여 해당 속성의 재할당을 막을 수 있다. readonly 키워드가 붙은 속성은 const 키워드를 이용한 변수의 정의와 비슷하게 동작한다.
+```JavaScript
+const user: { 
+  readonly name: string; 
+  height: numer; 
+} = { name: '안희종', height: 176 };
+user.name = '종희안'; // error TS2540: Cannot assign to 'name' because it is a constant or a read-only property.
+```
 
 
 @ 는 this 를 대신한다. 그러므로 this.user 는 @user 이다.
