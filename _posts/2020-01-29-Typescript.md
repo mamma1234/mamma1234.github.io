@@ -256,6 +256,20 @@ const user: {
 user.name = '종희안'; // error TS2540: Cannot assign to 'name' because it is a constant or a read-only property.
 ```
 
+### 타입 별칭
+- 타입 별칭(type alias)을 이용해 이미 존재하는 타입에 다른 이름을 붙여 복잡한 타입을 간단하게 쓸 수 있다
+```JavaScript
+type NewType = Type;
+type UUID = string;
+type Height = number;
+type AnotherUUID = UUID;
+type Animals = Animal[];
+type User = {
+  name: string;
+  height: number;
+};
+```
+
 
 @ 는 this 를 대신한다. 그러므로 this.user 는 @user 이다.
 함수는 => 나 -> 로 선언되고 function 키워드는 사용하지 않는다.
