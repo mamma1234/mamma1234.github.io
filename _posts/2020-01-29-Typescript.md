@@ -200,9 +200,59 @@ tsc 명령어 뒤에 파일명을 지정하면 tsconfig.json이 무시되므로 
     - Type Alias는 Type Alias끼리 상속 불가능.
 
 ## 문법
+### 타입 표기 (Type Annotation)
+- value: type 의 형태로 표기
+```JavaScript
+    const areYouCool: boolean = true;
+    const hasType: Object = {
+    TypeScript: true,
+    JavaScript: false
+    };
+```
+
+### 기본 타입
+- boolean, number, string, null, undefined, any, void (null, undefined), never
+```JavaScript
+    let bool: any = true;
+    bool = 3;
+    bool = 'whatever';
+    bool = {};
+
+    function alwaysThrow(): never {
+    throw new Error(`I'm a wicked function!`);
+    }
+```
+
+### 배열과 튜플
+```JavaScript
+    const pibonacci: number[] = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55];
+    const myFavoriteBeers: string[] = ['Imperial Stout', 'India Pale Ale', 'Weizenbock'];
+    const pibonacci: Array<number> = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55];
+    const myFavoriteBeers: Array<string> = ['Imperial Stout', 'India Pale Ale', 'Weizenbock'];
+```
+```JavaScript
+    const nameAndHeight: [string, number] = ['안희종', 176]
+    nameAndHeight.push(42); // no error
+```
+
+### 객체
+- 자바스크립트의 오브젝트 리터럴을 정의하듯 중괄호({})를 이용해 객체 타입(object type)을 표현할 수 있다. 
+```JavaScript
+    const user: { name: string; height: number; } = { name: '안희종', height: 176 };
+```
+- 구분자로 콤마(,) 뿐만 아니라 세미콜론(;)을 사용할 수 있다.
+- 물음표(?)를 붙여 해당 속성이 존재하지 않을 수도 있음을 표현
+```JavaScript
+    const userWithUnknownHeight: { name: string; height?: number; } = { 
+    name: '김수한무' 
+    };
+```
+
+
 @ 는 this 를 대신한다. 그러므로 this.user 는 @user 이다.
 함수는 => 나 -> 로 선언되고 function 키워드는 사용하지 않는다.
 ? 옵션
+
 
 
 ## interface
