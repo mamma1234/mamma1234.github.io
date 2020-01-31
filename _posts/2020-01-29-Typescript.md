@@ -249,33 +249,483 @@ tsc 명령어 뒤에 파일명을 지정하면 tsconfig.json이 무시되므로 
 ```
 - readonly 키워드를 붙여 해당 속성의 재할당을 막을 수 있다. readonly 키워드가 붙은 속성은 const 키워드를 이용한 변수의 정의와 비슷하게 동작한다.
 ```JavaScript
-const user: { 
-  readonly name: string; 
-  height: numer; 
-} = { name: '안희종', height: 176 };
-user.name = '종희안'; // error TS2540: Cannot assign to 'name' because it is a constant or a read-only property.
+    const user: { 
+    readonly name: string; 
+    height: numer; 
+    } = { name: '안희종', height: 176 };
+    user.name = '종희안'; // error TS2540: Cannot assign to 'name' because it is a constant or a read-only property.
 ```
 
 ### 타입 별칭
 - 타입 별칭(type alias)을 이용해 이미 존재하는 타입에 다른 이름을 붙여 복잡한 타입을 간단하게 쓸 수 있다
 ```JavaScript
-type NewType = Type;
-type UUID = string;
-type Height = number;
-type AnotherUUID = UUID;
-type Animals = Animal[];
-type User = {
-  name: string;
-  height: number;
-};
+    type NewType = Type;
+    type UUID = string;
+    type Height = number;
+    type AnotherUUID = UUID;
+    type Animals = Animal[];
+    type User = {
+    name: string;
+    height: number;
+    };
 ```
+
+### 함수
+```JavaScript
+    function sum(a: number, b: number): number {
+        return (a + b);
+    }
+
+    function logGreetings(name: string): void {
+        console.log(`Hello, ${name}!`);
+    }
+
+    function greetings(name: string = 'stranger'): void {
+        console.log(`Hello, ${name}`);
+    }
+
+    function fetchVideo(url: string, subtitleLanguage?: string) {
+        const option = { url };
+        if (subtitleLanguage) {
+            option.subtitleLanguage = true;
+        }
+    /* ... */
+    }
+
+    const yetAnotherSum: (a: number, b: number) => number = sum;
+    
+    const onePlusOne: () => number = () => 2;
+    
+    const arrowSum: (a: number, b: number) => number = (a, b) => (a + b);
+
+    type SumFunction = (a: number, b: number) => number;
+    const definitelySum: SumFunction = (a, b) => (a + b);
+```
+
+- 함수 오버로딩
+    - 함수는 하나 이상의 타입 시그니처를 가질 수 있다.
+    - 함수는 단 하나의 구현을 가질 수 있다.
+```JavaScript
+    function double(str: string): string;
+    function double(num: number): number;
+    function double(arr: boolean[]): boolean[];
+
+    function double(arg) {
+        if (typeof arg === 'string') {
+            return `${arg}${arg}`;
+        } else if (typeof arg === 'number') {
+            return arg * 2;
+        } else if (Array.isArray(arg)) {
+            return arg.concat(arg);
+        }
+    }
+
+    const num = double(3); // number
+    const str = double('ab'); // string
+    const arr = double([true, false]); // boolean[]
+```
+
+- This 타입
+```JavaScript
+    interface HTMLElement {
+        tagName: string;
+    /* ... */
+    }
+    interface Handler {
+        (this: HTMLElement, event: Event, callback: () => void): void;
+    }
+    let cb: any;
+    // 실제 함수 매개변수에는 this가 나타나지 않음
+    const onClick: Handler = function(event, cb) {
+        // this는 HTMLElement 타입
+        console.log(this.tagName);
+        cb();
+    }
+
+    //this의 타입을 void로 명시한다면 함수 내부에서 this에 접근하는 일 자체를 막을 수 있다
+    interface NoThis {
+        (this: void): void;
+    }
+    const noThis: NoThis = function() {
+        console.log(this.a); // Property 'a' does not exist on type 'void'.
+    }
+```
+
+### 제너릭
+- 제너릭을 이용해 여러 타입에 대해 동일한 규칙을 갖고 동작하는 타입을 정의할 수 있다.
+```JavaScript
+    function getFirstElem(arr: string[]): string;
+    function getFirstElem(arr: number[]): number;
+    function getFirstElem(arr) {
+    if (!Array.isArray(arr)) {
+        throw new Error('getFirstElemOrNull: Argument is not array!');
+    }
+    if (arr.length === 0) {
+        throw new Error('getFirstElemOrNull: Argument is an empty array!');
+    } 
+    return arr[0] ? arr[0] : null;
+    }
+```
+- 타입 변수 <T>
+```JavaScript
+    //타입변수 활용 제너릭 함수
+    function getFirstElem<T>(arr: T[]): T {
+    /* 함수 본문 */
+    }
+```
+- 여러 타입에 대해 동작하는 요소를 정의하되, 해당 요소를 사용할 때가 되어야 알 수 있는 타입 정보를 정의에 사용하는 것
+
+### 유니온 타입
+- 유니온 타입을 이용해 “여러 경우 중 하나”인 타입을 표현할 수 있다.
+```JavaScript
+    function square(value: number, returnString: boolean): number;
+    function square(value: number, returnString: boolean): string;
+    function square(value, returnString = false) {
+    /* 본문 동일 */
+    }
+    const mystery: ??? = square(randomNumber, randomBoolean);
+
+    function square(value: number, returnString: boolean = false): string | number {
+    /* 본문 동일 */
+    }
+    const stringOrNumber: string | number = square(randomNumber, randomBoolean);
+
+    type SquaredType = string | number;
+    function square(value: number, returnOnString: boolean = false): SquaredType {
+    /* 본문 동일 */
+    }
+
+    type Fruits =
+        | Apple
+        | Banana
+        | Cherry;
+```
+
+### 인터섹션 타입
+- 인터섹션 타입을 이용해 “여러 경우에 모두 해당”하는 타입을 표현할 수 있다.
+```JavaScript
+    type Programmer = { favoriteLanguage: string };
+    const programmer: Programmer = { favoriteLanguage: 'TypeScript' };
+
+    type BeerLover = { favoriteBeer: string };
+    const beerLover: BeerLover = { favoriteBeer: 'Imperial Stout' };
+
+    type BeerLovingProgrammer = Programmar & BeerLover;
+
+    type BeerLovingProgrammer2 =
+        & Programmer
+        & BeerLover;
+```
+
+### 열거형
+- 유한한 경우의 수를 갖는 값의 집합을 표현하기 위해 사용하는 열거형(enum) 타입
+
+- 숫자 열거형은 number 타입 값에 기반한 열거형이다. 만약 열거형을 정의하며 멤버의 값을 초기화하지 않을 경우, 해당 멤버의 값은 0부터 순차적으로 증가하는 숫자 값을 갖는다
 
 
 @ 는 this 를 대신한다. 그러므로 this.user 는 @user 이다.
-함수는 => 나 -> 로 선언되고 function 키워드는 사용하지 않는다.
-? 옵션
-
 
 
 ## interface
+- 인터페이스(interface)를 통해 값이 따라야 할 제약을 타입으로 표현 할 수 있다. 인터페이스 타입을 통해 값의 형태(shape)를, 즉 값이 어떤 멤버를 가져야 하고 각 멤버의 타입은 어때야 하는지를 서술할 수 있다.
+
+```JavaScript
+    interface User {
+        name: string;
+        height: number;
+    }
+
+    interface User {
+        name: string;
+        readonly height: number;
+        favoriteLanguage?: string;
+    }
+    const author: User = { name: '안희종', height: 176 }; // ok
+    author.height = 183; // error TS2540: Cannot assign to 'height' because it is a constant or a read-only property.    
+```
+
+- 함수 인터페이스
+    - (매개변수1 이름: 매개변수1 타입, 매개변수2 이름: 매개변수2 타입, ...): 반환 타입
+```JavaScript
+    interface GetUserName {
+        (user: User): string;
+    }
+    const getUserName: GetUserName = function (user) {
+        return user.name;
+    };
+```
+
+- 하이브리드 타입
+```JavaScript
+    interface Counter {
+        (start: number): string;
+        interval: number;
+        reset(): void;
+    }
+    function getCounter(): Counter {
+        let counter = <Counter>function (start: number) { };
+        counter.interval = 123;
+        counter.reset = function () { };
+        return counter;
+    }
+    let c = getCounter();
+    c(10);
+    c.reset();
+    c.interval = 5.0;
+```
+
+- 제너릭 인터페이스
+```JavaScript
+    interface MyResponse<Data> {
+        data: Data;
+        status: number;
+        ok: boolean;
+        /* ... */
+    }
+    inteface User {
+        name: string;
+        readonly height: number;
+        /* ... */
+    }
+    const user: MyReponse<User> = await getUserApiCall(userId);
+    user.name; // 타입 시스템은 user.name이 string임을 알 수 있다.
+
+
+    interface GetData {
+       <Data>(response: MyResponse<Data>): Data;
+    }
+```
+
+### 색인 가능 타입
+- 동적인 색인을 표현하는 색인 가능 타입
+
+- 색인 시그니쳐
+```JavaScript
+    interface NameHeightMap {
+    [userName: string]: number | undefined;
+    }
+```
+
+### 인터페이스 확장
+```JavaScript
+    interface LoggedInUser extends User {
+    loggedInAt: Date;
+    }
+```
+
 ## class
+- 클래스(class)를 이용해 객체 지향 프로그래밍 언어와 비슷한 방식으로 코드를 구조화 할 수 있다. 타입스크립트의 클래스는 ES6에 추가된 클래스 문법의 확장으로, 접근 제어자 등의 유용한 추가 기능을 제공한다.
+
+```JavaScript
+    class BarkingDog {
+        constructor(barkingSound: string) {
+            console.log(`${barkingSound}!`);
+        }
+    }
+
+    const barkingDog: BarkingDog = new BarkingDog('월'); // 월!
+
+
+    class BarkingDog {
+    barkingSound: string;
+    
+    constructor(barkingSound: string) {
+        this.barkingSound = barkingSound;
+    }
+    
+    bark(): void {
+        console.log(`${this.barkingSound}!`);
+    }
+    }
+    const barkingDog: BarkingDog = new BarkingDog('월');
+    barkingDog.bark(); // 월!    
+```
+
+### 클래스 확장
+```JavaScript
+    class Base {
+    baseProp: number;
+    constructor() {
+        this.baseProp = 123;
+    }
+    }
+    class Extended extends Base {
+    extendedProp: number;
+    constructor() {
+        super(); // 반드시 이 호출을 직접 해 주어야 한.
+        this.extendedProp = 456;
+    }
+    }
+    const extended: Extended = new Extended();
+    console.log(extended.baseProp); // 123
+    console.log(extended.extendedProp); // 45
+```
+
+### static 스태틱 멤버
+```JavaScript
+    class Counter {
+        static count: number = 0;
+        static increaseCount() {
+            Counter.count += 1;
+        }
+        static getCount() {
+            return Counter.count;
+        }
+        }
+    console.log(Counter.count); // 0
+    Counter.increaseCount();
+    console.log(Counter.getCount()); // 1
+    Counter.increaseCount();
+    console.log(Counter.getCount()); // 2
+```
+
+### 접근 제어자
+- public
+    - 접근 제한이 전혀 존재하지 않으며, 프로그램의 어느 곳에서나 접근 가능
+```JavaScript
+    // implicit public member
+    class Triangle {
+        vertices: number;
+        
+        constructor() {
+            this.vertices = 3;
+        }
+    }
+
+    // explicit public member
+    class Triangle {
+        public vertices: number;
+        
+        public constructor() {
+            this.vertices = 3;
+        }
+    }
+```
+- private
+    - 해당 클래스 내부의 코드만이 접근 가능
+```JavaScript
+    class User {
+        private password: string;
+        
+        constructor (password: string) {
+            this.password = password;
+        }
+    }
+
+    const yoonha = new User('486');
+    console.log(yoonha.password); 
+    // error TS2341: Property 'password' is private and only accessible within class 'User'.
+```
+
+- protected
+    - protected 권한의 멤버는 private과 비슷하게 동작하지만, 서브클래스에서의 접근 또한 허용된다는 점이 다르다.
+```JavaScript
+    class User {
+        protected password: string;
+        
+        constructor (password: string) {
+            this.password = password;
+        }
+    }
+
+    class CarOwner extends User {
+        carId: string;
+        
+        constructor (password: string, carId: string) {
+            super(password);
+            this.carId = carId;
+        }
+        
+        setPassword(newPassword: string) {
+            this.password = newPassword; // Okay
+        }
+    }    
+```
+
+- 생성자에서의 접근 제어자
+```JavaScript
+    class User {
+        constructor (public id: string, private password: string) { }
+    }
+
+    //동일한 코드
+
+    class User {
+        public id: string;
+        private password: string;
+        
+        constructor (id: string, password: string) {
+            this.id = id;
+            this.password = password;
+        }
+    }
+```
+
+### 접근자
+
+```JavaScript
+    class Shape {
+        private _vertices: number = 3;
+        
+        getVertices() {
+            console.log('Vertices getter called.');
+            return this._vertices;
+        }
+        
+        setVertices(value) {
+            console.log('Vertices setter called.');
+            this._vertices = value;
+        }
+    }
+```
+- 읽기 접근을 위한 게터
+```JavaScript
+    class Shape {
+    constructor (public vertices: number) { }
+        get vertices(): number {
+            console.log('Vertices getter called.');
+            return 3;
+        }
+    }
+    const triangle: Shape = new Shape(3);
+    const vertices = triangle.vertices; // Vertices getter called.
+    console.log(vertices); // 3
+```
+
+- 쓰기 접근을 위한 세터
+```JavaScript
+    class Shape {
+        private _vertices: number = 3;
+        get vertices() {
+            console.log('Vertices getter called.');
+            return this._vertices;
+        }
+        set vertices(value) {
+            console.log('Vertices setter called.');
+            this._vertices = value;
+        }
+    }
+    const square = new Shape();
+    square.vertices = 4; // Vertices setter called.
+    const vertices = square.vertices; // Vertices getter called.
+    console.log(vertices); // 4
+```
+
+
+### 추상 클랙스
+- 추상 클래스는 인스턴스화가 불가능하다는 점에서 일반 클래스와 다르다
+- 추상 클래스는 구현을 일부 포함할 수 있다는 점에서 인터페이스와 다르다. 
+```JavaScript
+    abstract class Animal {
+        move(): void {
+            console.log("roaming the earth...");
+        }
+        abstract makeSound(): void;
+    }
+```
+
+- 가상 클래스를 확장하는 서브 클래스는 슈퍼 클래스의 모든 가상 메소드를 구현해야 한다.
+```JavaScript
+    class Dog extends Animal { }
+    // error TS2515: Non-abstract class 'Dog' does not implement inherited abstract member 'makeSound' from class 'Animal'.
+```
