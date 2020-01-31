@@ -729,3 +729,27 @@ tsc 명령어 뒤에 파일명을 지정하면 tsconfig.json이 무시되므로 
     class Dog extends Animal { }
     // error TS2515: Non-abstract class 'Dog' does not implement inherited abstract member 'makeSound' from class 'Animal'.
 ```
+
+
+## 인터페이스와 클래스의 관계
+```JavaScript
+    interface Animal {
+        legs: number;
+    }
+
+    class Dog implements Animal {
+        legs: number = 4;
+    }
+    // Okay
+
+    class Point {
+        x: number;
+        y: number;
+    }
+
+    interface Point3d extends Point {
+        z: number;
+    }
+
+    const point3d: Point3d = {x: 1, y: 2, z: 3};    
+```
