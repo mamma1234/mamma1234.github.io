@@ -365,3 +365,77 @@ disqus:
     # docker run에서 실행될 때 가장 먼저 실행.
 
 ```
+
+### docker Node.js 예시
+- package.json 
+```JavaScript
+    {
+        "name": "docker_web_app",
+        "version": "1.0.0",
+        "description": "Node.js on Docker",
+        "author": "First Last <first.last@example.com>",
+        "main": "server.js",
+        "scripts": {
+            "start": "node server.js"
+        },
+        "dependencies": {
+            "express": "^4.16.1"
+        }
+    }
+```
+
+- server.js
+```JavaScript
+    'use strict';
+
+    const express = require('express');
+
+    // 상수
+    const PORT = 8080;
+    const HOST = '0.0.0.0';
+
+    // 앱
+    const app = express();
+    app.get('/', (req, res) => {
+    res.send('Hello World');
+    });
+
+    app.listen(PORT, HOST);
+    console.log(`Running on http://${HOST}:${PORT}`);
+```
+
+- Dockerfile
+```JavaScript
+    FROM node:latest
+
+    # 앱 디렉터리 생성
+    WORKDIR /usr/src/app
+
+    # 앱 의존성 설치
+    # 가능한 경우(npm@5+) package.json과 package-lock.json을 모두 복사하기 위해
+    # 와일드카드를 사용
+    COPY package*.json ./
+
+    RUN npm install
+    # 프로덕션을 위한 코드를 빌드하는 경우
+    # RUN npm ci --only=production
+
+    # 앱 소스 추가
+    COPY . .
+
+    EXPOSE 8080
+    CMD [ "node", "server.js" ]
+```
+
+- .dockerignore
+```JavaScript
+    node_modules
+    npm-debug.log
+```
+
+- 이미지 빌드
+    - docker build -t klnet.owner/klnet.owner.web .
+
+- 이미지 실행
+    - docker run -p 49160:8080 -d klnet.owner/klnet.owner.web
+    - docker run -p 80:8080 -d klnet.owner/klnet.owner.web
