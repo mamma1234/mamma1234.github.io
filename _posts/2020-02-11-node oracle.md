@@ -49,7 +49,8 @@ disqus:
     vi /etc/profile.d/oracle.sh
 
     export ORACLE_HOME=/usr/lib/oracle/19.3/client64
-    export TNS_ADMIN=/usr/lib/oracle/19.3/client64/bin
+    export TNS_ADMIN=/usr/lib/oracle/19.3/client64/lib/network/admin
+    export LD_LIBRARY_PATH=/usr/lib/oracle/19.3/client64/lib
     oracle.sh파일에는 client 설치 경로를 설정한다.
 
 
@@ -64,4 +65,38 @@ disqus:
     PATH=$PATH:$HOME/bin:$ORACLE_HOME/bin 
     export PATH
     .bash_profile 파일에는 ORACLE_HOME을 추가한다.
+```
+
+
+
+# Linux Centos7 Test
+
+```JavaScript
+    git clone https://github.com/oracle/node-oracledb.git
+    cd node-oracledb
+    git checkout dev-2.0
+    git submodule init
+    git submodule update
+    npm install
+```
+
+
+# DPI-1047 "libclntsh.so: cannot open shared object file: No such file or directory"
+
+```JavaScript
+DPI-1047: Cannot locate a 64-bit Oracle Client library: "libclntsh.so: cannot open shared object file: No such file or directory". See https://oracle.github.io/odpi/doc/installation.html#linux for help
+Node-oracledb installation instructions: https://oracle.github.io/node-oracledb/INSTALL.html
+You must have 64-bit Oracle client libraries in LD_LIBRARY_PATH, or configured with ldconfig.
+If you do not have Oracle Database on this computer, then install the Instant Client Basic or Basic Light package from 
+http://www.oracle.com/technetwork/topics/linuxx86-64soft-092277.html
+
+
+
+```
+
+-Solution
+
+```JavaScript
+cd /usr/lib/oracle/18.3/client64/lib
+ln -s libclntsh.so.18.1 libclntsh.so
 ```

@@ -35,7 +35,7 @@ disqus:
 - 이미지 : 이미지는 로컬 또는 Docker Hb등과 같은 퍼블릭 Repository를 사용할수 있다.
 
 
-## CentOS 설치
+## CentOS Docker 설치
 - yum-config-manager 유틸리티를 제공하는 yum-utils를 설치하십시오
     - yum install -y yum-utils
 - 안정적인 저장소를 설정
