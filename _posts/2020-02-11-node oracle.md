@@ -11,7 +11,7 @@ mathjax:
 chart: 
 share: true
 comments: true
-featured: true
+featured: false
 disqus:
 ---
 
