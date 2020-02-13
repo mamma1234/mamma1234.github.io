@@ -400,8 +400,8 @@ disqus:
     res.send('Hello World');
     });
 
-    app.listen(PORT, HOST);
-    console.log(`Running on http://${HOST}:${PORT}`);
+    app.listen(PORT);
+    console.log('Running on http://localhost:' + PORT);
 ```
 
 - Dockerfile
@@ -439,3 +439,41 @@ disqus:
 - 이미지 실행
     - docker run -p 49160:8080 -d klnet.owner/klnet.owner.web
     - docker run -p 80:8080 -d klnet.owner/klnet.owner.web
+
+
+## Docker logs
+-docker logs 명령은 컨테이너의 표준 출력을 표시함으로써 애플리케이션 상태를 알 수 있다.
+```
+    docker log [container name]
+    docker logs mariadb
+```
+
+- 마지막 로그의 10줄만 표시한다
+```
+    docker logs --tail 10 mariadb 
+```
+
+- --since 옵션은 입력 받은 유닉스 시간 이후의 로그를 확인할 수 있으며 -t옵션으로 타임 스탬프를 표시할 수도 있다.
+```
+    Docker logs --since 1549150300 -t mariadb
+```
+
+- -f 옵션을 사용하면 실시간으로 생성되는 로그를 스트림으로 확인할 수 있다.
+```
+    Docker logs --tail 10 -f mariadb
+```
+
+- 로깅 드라이버는 기본적으로 json-file로 설정되지만 도커 데몬 시작 옵션에서 --log-driver 옵션을 사용하여 기본적으로 사용할 로깅 드라이버를 변경할 수 있다. 아래 스크립트는 nonoe 로깅드라이버로 alpine 컨테이너를 시작한다.
+```
+    docker run -it --log-driver none alpine ash
+```
+
+- 실행중인 컨테이너의 로깅 드라이버를 확인하려면 docker inspect 명령을 실행한다.
+```
+    docker inspect -f '{{.HostConfig.LogConfig.Type}}' <CONTAINER>
+
+    docker inspect -f '{{.HostConfig.LogConfig.Type}}' mariadb
+```
+
+- 현재 로깅 드라이버는 매우 다양하게 지원되고 있으며 아래 링크에서 지원되는 드라이버를 확인할 수 있다.
+    - Configure logging drivers  : [https://docs.docker.com/config/containers/logging/configure/](https://docs.docker.com/config/containers/logging/configure/)
