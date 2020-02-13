@@ -14,9 +14,8 @@ comments: true
 featured: false
 disqus:
 ---
-
-# Windows
-
+# node-oralce 18.5
+## Windows
 ```JavaScript
     1. oracle client zip 다운로드
     https://www.oracle.com/database/technologies/instant-client/winx64-64-downloads.html
@@ -25,7 +24,7 @@ disqus:
     C:\oracle\instantclient_18_5\network\admin
 ```
 
-# Linux Centos7
+## Linux Centos7
 
 ```JavaScript
     1. oracle client rpm 다운로드
@@ -40,6 +39,11 @@ disqus:
 
     yum install -y libaio
     위와 같이 라이브러리를 설치해 주면 된다.
+
+
+    2.  Instant Client를 런타임 링크 경로에 영구적으로 추가
+    sudo sh -c "echo /usr/lib/oracle/18.3/client64/lib > /etc/ld.so.conf.d/oracle-instantclient.conf"
+    sudo ldconfig
 
 
 
@@ -69,7 +73,7 @@ disqus:
 
 
 
-# Linux Centos7 Test
+## Linux Centos7 Test
 
 ```JavaScript
     git clone https://github.com/oracle/node-oracledb.git
@@ -81,7 +85,7 @@ disqus:
 ```
 
 
-# DPI-1047 "libclntsh.so: cannot open shared object file: No such file or directory"
+## DPI-1047 "libclntsh.so: cannot open shared object file: No such file or directory"
 
 ```JavaScript
 DPI-1047: Cannot locate a 64-bit Oracle Client library: "libclntsh.so: cannot open shared object file: No such file or directory". See https://oracle.github.io/odpi/doc/installation.html#linux for help
@@ -99,4 +103,64 @@ http://www.oracle.com/technetwork/topics/linuxx86-64soft-092277.html
 ```JavaScript
 cd /usr/lib/oracle/18.3/client64/lib
 ln -s libclntsh.so.18.1 libclntsh.so
+
+ENV LD_LIBRARY_PATH="/usr/src/app/oracle/instantclient_18_3/lib"
+```
+
+
+
+# node-oralce 19.5
+
+```JavaScript
+sudo yum install oracle-instantclient19.5-basic-19.5.0.0.0-1.x86_64.rpm
+
+Instant Client 19의 경우 설치 중에 시스템 라이브러리 검색 경로가 자동으로 구성됩니다.
+
+    sudo sh -c "echo /usr/lib/oracle/18.3/client64/lib > /etc/ld.so.conf.d/oracle-instantclient.conf"
+    sudo ldconfig
+```
+
+# Docker에서 node-oracledb 사용
+
+- Oracle Linux Instant Client RPM 사용
+
+```JavaScript
+FROM oraclelinux:7-slim
+
+RUN  yum -y install oracle-release-el7 && \
+     yum-config-manager --enable ol7_oracle_instantclient && \
+     yum -y install oracle-instantclient19.5-basiclite && \
+     rm -rf /var/cache/yum
+```
+
+- Instant Client zip 파일 자동 다운로드
+
+```JavaScript
+RUN wget https://download.oracle.com/otn_software/linux/instantclient/instantclient-basiclite-linuxx64.zip && \
+    unzip instantclient-basiclite-linuxx64.zip && rm -f instantclient-basiclite-linuxx64.zip && \
+    cd /opt/oracle/instantclient* && rm -f *jdbc* *occi* *mysql* *jar uidrvci genezi adrci && \
+    echo /opt/oracle/instantclient* > /etc/ld.so.conf.d/oracle-instantclient.conf && ldconfig
+
+
+    RUN yum install -y libaio
+
+    RUN apt-get update && apt-get install -y libaio1
+
+```
+
+- 호스트에서 Instant Client zip 파일 복사
+
+```JavaScript
+
+libclntshcore.so.19.1
+libclntsh.so.19.1
+libnnz19.so
+libociicus.so
+
+
+ADD instantclient_19_5/* /opt/oracle/instantclient_19_5
+RUN echo /opt/oracle/instantclient_19_5 > /etc/ld.so.conf.d/oracle-instantclient.conf && \
+    ldconfig
+
+    libaio또는 libaio1이전 옵션과 같이 패키지가 필요합니다.
 ```
