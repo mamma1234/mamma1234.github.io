@@ -58,3 +58,15 @@ _app.js         React에서 대부분 App.js이라는 이름으로 공통의 레
 _error.js       Error 처리를 공통으로 하고자 할 때, 공통적으로 사용할 수 있는 Error Page를 작성할 수 있다.
 next.config.js  webpack plugin들과 Next.js의 라우팅 설정을 작성한다.
 ```
+
+## build 오류
+- 다른 경로에서 동일한 빌드 제공
+- build 후 Blank 페이지 
+- Blank page after running build on create-react-app
+
+    - I have solved the problem by setting homepage: "." according to this doc
+
+    - https://facebook.github.io/create-react-app/docs/deployment
+
+
+    - "homepage" : "." , 
