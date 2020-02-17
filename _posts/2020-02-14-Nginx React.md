@@ -41,3 +41,37 @@ C:\github\mamma1234\nginx-1.17.8\conf\nginx.conf
 - sites-enabled : sites-available 에 있는 가상 서버 파일들중에서 실행시키고 싶은 파일을 symlink로 연결한 폴더입니다. 실제로 이 폴더에 위치한 가상서버 환경 파일들을 읽어서 서버를 세팅합니다.
 - nginx.conf : Nginx에 관한 설정파일로 Nginx 설정에 관한 블록들이 작성되어 있으며 이 파일에서 sites-enabled 폴더에 있는 파일들을 가져옵니다.
 
+
+
+## 명령어
+```JavaScript
+    서버 시작 : nginx
+    서버 중지 : nginx -s stop
+    서버 재시작 : nginx -r reload
+```
+
+## Nginx 로드밸런싱 설정
+```JavaScript
+    #http블럭 내부에 추가
+        #NodeJS 서버 로드밸런싱
+        upstream nodejs_server {
+            #least_conn;
+            #ip_hash;
+            server localhost:3000 weight=10 max_fails=3 fail_timeout=10s;
+            server localhost:3001 weight=10 max_fails=3 fail_timeout=10s;
+        }
+    
+        #3333번 포트 NodeJS 서버로 연결
+        server{
+            listen                3333;
+            server_name  localhost;
+        
+            location / {
+                proxy_pass http://nodejs_server;
+            }
+        }
+```
+
+
+ip_hash : 동일한 IP의 접속은 같은 서버로 접속하도록 하는 옵션입니다.
+least_conn : 가장 접속이 적은 서버로 접속을 유도하는 옵션으로 ip_hash와 같이쓰입니다.
