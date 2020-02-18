@@ -147,3 +147,38 @@ server {
 }
 ```
 
+
+
+## Nginx 프록시 설정
+```JavaScript
+# nginx/default.conf
+
+upstream client {
+    server client:3000;
+}
+
+upstream server {
+    server server:3050;
+}
+
+server {
+    listen 80;
+
+    location / {        
+        proxy_pass http://client;
+    }
+
+    location /sockjs-node {
+        proxy_pass http://client;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "Upgrade";
+    }
+
+    location /api {
+        rewrite /api/(.*) /$1 break;
+        proxy_pass http://server;
+    }
+}
+
+```
