@@ -75,3 +75,75 @@ C:\github\mamma1234\nginx-1.17.8\conf\nginx.conf
 
 ip_hash : 동일한 IP의 접속은 같은 서버로 접속하도록 하는 옵션입니다.
 least_conn : 가장 접속이 적은 서버로 접속을 유도하는 옵션으로 ip_hash와 같이쓰입니다.
+
+
+## Nginx 멀티 location 설정
+```JavaScript
+server {
+    listen 80;
+    index index.html;
+    server_name localhost;
+    error_log  /var/log/nginx/error.log;
+    access_log /var/log/nginx/access.log;
+    root /usr/share/nginx/html;
+
+    location ~* /api {
+        proxy_pass http://server:5000;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+    }
+
+    location ~* /pg {
+        proxy_pass http://server:5000;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+    }
+
+    location ~* /auth {
+        proxy_pass http://server:5000;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+    }
+
+    location ~* /ora {
+        proxy_pass http://server:5000;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+    }
+
+
+    location ~* /own {
+        proxy_pass http://server:5000;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+    }
+
+    location / {
+            root /usr/share/nginx/html;
+            index index.html index.htmi menu.html;
+            try_files $uri $uri/ /index.html;
+    }
+
+    error_page 500 502 503 504 /50x.html;
+
+    location = /50x.html {
+            root /usr/share/nginx/html;
+    }
+}
+```
+
