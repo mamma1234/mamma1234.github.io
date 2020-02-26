@@ -18,7 +18,8 @@ disqus:
 # Record
 ## 개념
 - 
-## 주요 명령어
+
+
 
 
 ## 주요 문법
@@ -159,4 +160,45 @@ print(math.ceil(1.2))
 
 from math import ceil
 print(ceil(1.2))
+```
+
+
+
+## CentOS 7 / CentOS 8에 Python 3.8 설치
+[https://computingforgeeks.com/how-to-install-python-on-3-on-centos/] (https://computingforgeeks.com/how-to-install-python-on-3-on-centos/)
+
+
+- 1 단계 : Python 종속성 설치
+    sudo yum -y groupinstall "Development Tools"
+    sudo yum -y install openssl-devel bzip2-devel libffi-devel
+
+    $ gcc --version
+
+- 2 단계 : 최신 Python 3.8 아카이브 다운로드
+    sudo yum -y install wget
+    wget https://www.python.org/ftp/python/3.8.1/Python-3.8.1.tgz
+
+    tar xvf Python-3.8.1.tgz
+
+    cd Python-3.8*/
+
+
+- 3 단계 : CentOS 7 / CentOS 8에 Python 3.8 설치
+    ./configure --enable-optimizations
+    sudo make altinstall
+    $ python3.8 --version;
+    $ pip3.8 --version
+
+```
+  python3 -m venv klnet.owner.scheduleloader
+  source bin/activate
+  pip install watchdog
+  pip install pandas
+  pip install xlrd
+  pip install psycopg2
+  pip install pgwrap
+  pip install -e . 
+  python3 src/scheduleloader/main.py
+  nohup python3 src/scheduleloader/main.py &
+  tail -f nohup.out
 ```
