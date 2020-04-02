@@ -251,3 +251,34 @@ $ constructor(id, text) : 100, Button
 
 
 ## 클래스 상속
+```JavaScript
+    final:      오버라이트 불가,                    클래스 멤버의 기본 변경자
+    open:       오버라이트 가능,                    반드시 open을 명시해야 가능
+    abstract:   반드시 오버라이트 해야 함,          추상 클래스의 멤버에만 붙일수 있다. 추상 멤버에는 구현이 있을 수 없다.
+    override:   상위 멤버를 오버라이딩 하는 중,     오버라이드 하는 멤버는 기본적으로 open 상태. 항위 클래스에서 오버라이드를 금지상태면 final을 명시해야 함.
+
+```
+
+```JavaScript
+    open class Book(val title:String, var price:Int){
+        open fun printInfo(){
+            println("Title: $title, Price:$price")
+        }
+    }
+
+    class EBook(title:String, price:Int, var url:String): Book(title, price){
+        override fun printInfo(){
+            println("Title:$title, Price:$price, URL:$url")
+        }
+    }
+
+    fun main(args:Array<String>){
+        val book = Book("bbb",200)
+        val ebook = EBook("cccc", 1000, "aaaaa")
+        book.printInfo()
+        ebook.printInfo()
+    }
+
+$ Title: bbb, Price:200
+$ Title:cccc, Price:1000, URL:aaaaa
+```
