@@ -167,7 +167,8 @@ Java언어로 작성된 스크립트를 Kotlin언어로 바꾸는 기능
 
 
 ## 클래스의 초기화 블록 (Initializer Block)
-    초기화 블록은 주생성자 호출 직후 실행되며, 부생성자보다 먼저 실행된다.
+- 초기화 블록은 주생성자 호출 직후 실행되며, 부생성자보다 먼저 실행된다.
+
 ```JavaScript
     class Button(var id:Int){
         var text:String=""
@@ -259,6 +260,7 @@ $ constructor(id, text) : 100, Button
 
 ```
 
+- 생성자와 오버라이드
 ```JavaScript
     open class Book(val title:String, var price:Int){
         open fun printInfo(){
@@ -281,4 +283,187 @@ $ constructor(id, text) : 100, Button
 
 $ Title: bbb, Price:200
 $ Title:cccc, Price:1000, URL:aaaaa
+```
+
+- 오버라이드 금지 final
+```JavaScript
+    open class EBook(title:String, price:Int, var url:String): Book(title, price){
+        final override printInfo(){
+            println("Title:$title, Price:$price, URL:$url")
+        }
+    }
+
+```
+
+- 상속 클래스의 생성자를 사용 super
+```JavaScript
+    open class Book(val title:String, var price:Int) {
+    }
+    class EBook: Book {
+        var url = ""
+        constructor(title:String, price:Int, url:String): super(title, price){
+        }
+    }
+
+```
+
+
+## 인터페이스 선언
+- interface
+```JavaScript
+    interface Clickable {
+        fun click()
+    }
+
+    class Button:Clickable{
+        override fun click() = println("click")
+    }
+```
+
+```JavaScript
+    interface Clickable {
+        fun click()
+        fun showOff() = println("show off")
+    }
+
+    class Button:Clickable{
+        override fun click() = println("click")
+    }
+
+    fun main(args: Array<String>) {
+        val button = Button()
+        button.click()
+        button.showOff()
+    }
+
+$ click
+$ show off    
+```
+
+
+- 다중 인터페이스 상속
+```JavaScript
+    interface Clickable {
+        fun click()
+        fun showOff() = println("click off")
+    }
+    interface Focusable {
+        fun setFocus(b:Boolean) = println("I ${if (b) "got" else "lost"} focus.")
+        fun showOff() = println("focus off")
+    }    
+
+    class Button:Clieckable, Focusable{
+        override fun click() = println("clicked.")
+        override fun showOff() {
+            super<Clickable>.showOff()
+            super<Focusable>.showOff()
+        }
+    }
+
+    fun main(args: Array<String>) {
+        val button: Button()
+        button.click()
+        button.setFocus(true)
+        button.showOff()
+    }
+
+$ clicked.
+$ I got focus.
+$ click off
+$ focus off
+```
+
+
+- 인터페이스 클래스의 프로퍼티
+```JavaScript
+    interface User {
+        val nickname: String
+    }
+
+    class PrivateUser(override val nickname:String): User
+    class SubscribingUser(val email:String):User{
+        override val nickname:String=getID()
+        fun getID()=email.substringBefore('@')
+    }
+
+    fun main(args: Array<String>){
+        println(PrivateUser("aaa").nickname)
+        println(SubscribingUser("bbbb@cccc").nickname)
+    }
+
+$ aaa
+$ bbbb
+```
+
+
+## 프로퍼티 (Property)
+- 멤버 변수의 필드와 게터, 세터를 묶어 프로퍼티라고 한다.
+    값을 저장할수 없는 필드(Backing Field)
+- 멤버 변수 선언시, 바로 뒤에 각 멤버에 대한 게터와 세터가 구현된다. 사용자가 직접 구현할때도 바로 뒤에 붙여서 구현해야 한다.
+```JavaScript
+    class Rectangle {
+        var height:Int=0
+        get()=field
+        set(value){
+            field=value
+        }
+        
+        var width:Int=0
+        get()=field
+        set(value){
+            field=value
+        }
+    }
+
+    fun main(args:Array<String>){
+        val rect = Rectangle()
+        rect.height=10
+        rect.width=20
+        println("height:${rect.height}, width:${rect.width}")
+    }
+
+$ height:10, width:20
+```
+
+- 커스텀 접근자
+```JavaScript
+    class Rectangle(var height:Int, var width:Int) {
+        val isSquare:Boolean
+        get() = height==width
+    }
+
+
+    fun main(args:Array<String>){
+        val rect = Rectangle(10,10)
+        println("height:${rect.height}, width:${rect.width}, isSquare:${rect.isSquare}")
+        rect.height=20
+        println("height:${rect.height}, width:${rect.width}, isSquare:${rect.isSquare}")
+    }
+
+$ height:10, width:10, isSquare:true
+$ height:20, width:10, isSquare:false
+```
+
+
+- 접근자의 가시성 변경자
+    counter 프로퍼티는 var 타입이지만, set 앞에 private 접근자를 붙여 변경할수 없도록 함
+    게터로 접근은 가능하지만, 세터로 값을 변경할 수 없음
+```JavaScript
+    class LengthCounter {
+        var counter:Int=0
+        private set
+
+        fun addWord(word:String){
+            counter+=word.length
+        }
+    }
+
+    fun main(args: Array<String>){
+        val lengthCounter = LengthCounter()
+        //LengthCounter.counter = 1
+        lengthCounter.addWord("aaa")
+        println(lengthCounter.counter)
+    }
+
+$ 3
 ```
