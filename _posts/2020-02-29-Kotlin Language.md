@@ -18,7 +18,7 @@ disqus:
 
 ## 개요
 Kotlin언어란 IntelliJ IDEA 소프트웨어를 제작한 JetBrain사가 2011년 제작한 프로그래밍 언어
-[https://try.kotlinlang.org] https://try.kotlinlang.org
+[https://try.kotlinlang.org] (https://try.kotlinlang.org)
 
 ## 특징
 JVM에서 동작하는 Kotlin언어는 Java언어와 100% 호환이 가능
@@ -135,7 +135,8 @@ Java언어로 작성된 스크립트를 Kotlin언어로 바꾸는 기능
 ```
 
 - 부생성자 (Secondary Constructor)
-부생성자는 클래스명 대신 Constructor라는 키워드를 사용해 정의한다.
+    부생성자는 클래스명 대신 Constructor라는 키워드를 사용해 정의한다.
+
 ```JavaScript
     
     class Button {
@@ -163,3 +164,90 @@ Java언어로 작성된 스크립트를 Kotlin언어로 바꾸는 기능
     class Button(var id:Int, var text:String="", var isCheckbox:Boolean=false)
 
 ```
+
+
+## 클래스의 초기화 블록 (Initializer Block)
+    초기화 블록은 주생성자 호출 직후 실행되며, 부생성자보다 먼저 실행된다.
+```JavaScript
+    class Button(var id:Int){
+        var text:String=""
+        init {
+            println("Initializer Block:$id, $text")
+        }
+        constructor(id:Int, test:String): this(id) {
+            this.text = text
+            println("constructor(id, text) : ${this.text}")
+        }
+    }
+
+```
+
+```JavaScript
+class Button{
+    var id: Int =0
+    var text:String=""
+    init {
+        println("Initializer Block 1:$id, $text")
+    }
+    constructor(id:Int){
+        this.id = id
+        println("constructor(id) : ${this.id}")
+    }
+    init {
+        println("Initializer Block 2:$id, $text")
+    }    
+    constructor(id:Int, text:String): this(id) {
+        this.text = text
+        println("constructor(id, text) : ${this.id}, ${this.text}")
+    }
+    init {
+        println("Initializer Block 3:$id, $text")
+    }    
+}
+
+fun main(args: Array<String>) {
+    println("Hello, world!")
+    val Button = Button(100, "Button")
+}
+
+$ Hello, world!
+$ Initializer Block 1:0, 
+$ Initializer Block 2:0, 
+$ Initializer Block 3:0, 
+$ constructor(id) : 
+$ constructor(id, text) : 
+
+
+
+class Button(var id:Int){
+    var text:String=""
+    init {
+        println("Initializer Block 1:$id, $text")
+    }
+    init {
+        println("Initializer Block 2:$id, $text")
+    }    
+    constructor(id:Int, text:String): this(id) {
+        this.text = text
+        println("constructor(id, text) : ${this.id}, ${this.text}")
+    }
+    init {
+        println("Initializer Block 3:$id, $text")
+    }    
+}
+
+fun main(args: Array<String>) {
+    println("Hello, world!")
+    val Button = Button(100, "Button")
+}
+
+$ Hello, world!
+$ Initializer Block 1:100, 
+$ Initializer Block 2:100, 
+$ Initializer Block 3:100, 
+$ constructor(id, text) : 100, Button
+
+```
+
+
+## 클래스 상속
