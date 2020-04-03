@@ -105,6 +105,7 @@ Java언어로 작성된 스크립트를 Kotlin언어로 바꾸는 기능
 
 
 ## 클래스의 생성자 (Constructor)
+
 - 주생성자 (Primary Constructor)
 
 ```JavaScript
