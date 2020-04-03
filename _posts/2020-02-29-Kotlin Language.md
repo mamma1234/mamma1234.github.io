@@ -467,3 +467,91 @@ $ height:20, width:10, isSquare:false
 
 $ 3
 ```
+
+## 데이터 클래스
+- 프로퍼티만 갖는 클래스 'data' 키워드 사용
+
+```JavaScript
+    data class Client(val name:String, val postalCode:Int)
+```
+
+- toString()
+```JavaScript
+    data Client(val name:String, val postalCode:Int) {
+        override fun toString() = "Client(name= $name, postalCode= $postalCode)"
+    }
+
+
+
+    data class Client(val name:String, val postalCode:Int)
+
+    fun main(args:Array<String>) {
+        val client = Client("aaa", 1234)
+        println(client)
+    }
+
+$ Client(name=aaa, postalCode=1234)
+
+```
+
+- equals()
+```JavaScript
+    class Client(val name:String, val postalCode:Int) {
+        override fun equals(other: Any?) : Boolean {
+            if (other == null || other !is Client) return false
+            return name == other.name && postalCode == other.postalCode
+        }
+    }
+
+
+
+    data class Client(val name:String, val postalCode:Int)
+
+    fun main(args:Array<String>) {
+        val client1 = Client("aaa", 1234)
+        val client2 = Client("aaa", 1234)
+        println(client1 == client2)
+        println(client1.equals(client2))
+    }
+
+$ true
+$ true
+
+```
+
+- hashCode()
+```JavaScript
+    class Client(val name:String, val postalCode:Int) {
+        override fun equals(other: Any?) : Boolean {
+            if (other == null || other !is Client) return false
+            return name == other.name && postalCode == other.postalCode
+        }
+
+        override fun hashCode(): Int = name.hashCode() * 31 + postalCode
+    }
+    
+    data class Client(val name:String, val postalCode:Int)
+
+    fun main(args:Array<String>) {
+        val clientset = hashSetOf(Client("aaa", 1234))
+        println(clientset.contains(Client("aaa", 1234)))
+    }
+
+
+$ true
+```
+
+- copy()
+```JavaScript
+    data class Client(val name:String, val postalCode:Int)
+
+    fun main(args:Array<String>) {
+        val client1 = Client("aaa", 1234)
+        val client2 = client1.copy(postalCode = 1236)
+        println(client1)
+        println(client2)
+    }
+
+$ Client(name=aaa, postalCode=1234)
+$ Client(name=aaa, postalCode=1236)    
+```
