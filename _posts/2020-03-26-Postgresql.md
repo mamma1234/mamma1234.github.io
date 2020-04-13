@@ -130,3 +130,15 @@ $$;
 
 CALL transaction_test1();
 ```
+
+
+## postgresql ORA-08177: can't serialize access for this transaction
+```JavaScript
+    *** SEGMENT CREATION IMMEDIATE; 
+
+    CREATE TABLE scott.gis (
+        id  NUMBER(5) PRIMARY KEY,
+        g   MDSYS.SDO_GEOMETRY
+    ) SEGMENT CREATION IMMEDIATE;
+
+```

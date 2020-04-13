@@ -574,3 +574,130 @@ $ true
 $ Client(name=aaa, postalCode=1234)
 $ Client(name=aaa, postalCode=1236)    
 ```
+
+
+## 클래스의 확장
+- 확장 함수(Extension Function) : 코틀린으로 변환할수 없는 자바코드를 처리해야 할 경우
+- 확장 함수로 오버라이드할 수 없다.
+- 확장 프로퍼티 : 반드시 커스텀 게터 get() 를 정의해 줘야 한다.
+ 
+```JavaScript
+    class Calculator {
+        fun sum(a: Int, b: Int) = a+b
+        fun minus(a: Int, b: Int) = a-b
+    }
+
+    fun Calculator.sum(a: Int, b: Int, c: Int) = sum(a,b)+c
+    fun Calculator.minus(a: Int) = -a
+
+    fun main(arga: Array<String>) {
+        val calc = Calculator()
+        println("1+2+3 = ${calc.sum(1,2,3)}")
+        println("1 = ${calc.minus(1)}")
+    }
+
+$ 1+2+3 = 6
+$ 1 = -1
+```
+
+## Null
+- Non-Null 타입 : 컴파일시 에러 발생, NullPointerException 이 발생하지 않는다.
+- Nullable 타입 : ? 문자를 사용하여 Null 값을 가질수 있도록 허용, Null Check 없이 바로 접근 불가능
+
+```JavaScript
+    class Bitmap(val width:Int, val height:Int) {
+        val size: Int
+        get() = width*height
+        val map = ByteArray(size)
+    }
+
+    fun CreateBitmap(width:Int, height:Int):Bitmap? {
+        if (width > 0 && height > 0) return Bitmap(width,height)
+        else return null
+    }
+
+    fun main(args:Array<String>) {
+        val bitmap : Bitmap? = CreateBitmap(10,10)
+        if (bitmap != null) println(bitmap.size)
+    }
+
+$ 100
+```
+
+## Null Check
+- Safe Calls : "?."
+    왼쪽의 매개변수가 null이라면 null을 반환하며 구문을 종료하고, 아니라면 해당 변수를 Non-Null 타입으로 변환하여 프로퍼티에 접근한다.
+
+```JavaScript
+
+    fun main(args:Array<String>) {
+        val bitmap : Bitmap? = CreateBitmap(10,10)
+        if (bitmap != null) println(bitmap.size)
+    }
+
+    fun main(args:Array<String>) {
+        val bitmap : Bitmap? = CreateBitmap(10,10)
+        println(bitmap?.size)
+    }    
+
+    fun Person.cityName(): String {
+        val city = this.company?.addr?.city
+        return if (city != null) city else "Unkown"
+    }
+```
+
+- Elvis(엘비스) 연산바:"?:"
+    시계 방향으로 90도 회전하면 엘비스 프레슬리의 헤어스타일을 닮았다?
+    왼쪽에 있는 값이 null이 결우 오른쪽에 있는 값을 대입한다.
+
+```JavaScript
+    fun Person.cityName(): String {
+        val city = this.company?.addr?.city
+        return city?:"Unkown"
+    }
+
+    fun Person.cityName(): String = this.company?.addr?.city?:"Unkown"
+```
+
+- !! Null 이 아님
+
+```JavaScript
+
+    fun main(args:Array<String>) {
+        val bitmap : Bitmap? = CreateBitmap(10,10)
+        bitmap : Bitmap? = CreateBitmap(10,10)
+        println(bitmap!!.size)
+    }
+
+```
+
+- let 함수
+    let 함수를 사용해 Nullable 타입변수를 Non-Null 타입에 대입할 수 있다.
+
+```JavaScript
+    class Bitmap(val width:Int, val height:Int) {
+        val size: Int
+        get() = width*height
+        val map = ByteArray(size)
+    }
+
+    fun CreateBitmap(width:Int, height:Int):Bitmap? {
+        if (width > 0 && height > 0) return Bitmap(width,height)
+        else return null
+    }
+
+    fun DrawBitmap(bitmap: Bitmap){
+        println("DrawBitmap")
+    }
+
+    fun main(args:Array<String>) {
+        val bitmap : Bitmap? = CreateBitmap(10,10)
+        bitmap?.let {
+            DrawBitmap(it)
+        }
+    }
+
+```
+
+    안전한 호출 연산자 ?.를 사용해서 'bitmap' 객체가 null인지 확인한후 null 이 아닐 경우에는 Non-Null 타입의 객체가 되어 let 함수를 실행한다. let 함수는 호출하는 객체를 인자로 넘기는 함수이므로 Non-Null 타입으로 변환된 bitmap 변수가 인자로 넘어와 DrawBitmap() 함수에 사용될 수 있다.
+    it 연산자는 매개 변수가 하나 뿐일 경우 매개 변수 이름 대신 사용할 수 있는 키워드
