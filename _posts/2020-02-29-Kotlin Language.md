@@ -701,3 +701,299 @@ $ 100
 
     안전한 호출 연산자 ?.를 사용해서 'bitmap' 객체가 null인지 확인한후 null 이 아닐 경우에는 Non-Null 타입의 객체가 되어 let 함수를 실행한다. let 함수는 호출하는 객체를 인자로 넘기는 함수이므로 Non-Null 타입으로 변환된 bitmap 변수가 인자로 넘어와 DrawBitmap() 함수에 사용될 수 있다.
     it 연산자는 매개 변수가 하나 뿐일 경우 매개 변수 이름 대신 사용할 수 있는 키워드
+
+## 제어 함수
+- if
+
+```JavaScript
+    fun GetMax(a:Int, b:Int): Int = if (a<b) b else a
+
+    fun GetMax(a:Int, b:Int): Int {
+        return if (a<b) {
+            println("b bigger than a")
+            b
+        } else {
+            println("a bigger than b")
+            a
+        }
+    }
+
+```
+
+- when
+
+```JavaScript
+    fun printValue(a:Int) {
+        when(a) {
+            1 -> println("value:1")
+            2 -> println("value:2")
+            else -> println("value is neigher 1 nor 2")
+        }
+    }
+    
+    fun printValue(a:Int, str:String) {
+        when(a) {
+            str.toInt() -> println("str is a")
+            else -> prinln("str is not a")
+        }
+    }
+
+    fun printValue(a:Int, str:String) {
+        when(a) {
+            in 1..10 -> println("str is (1~10)")
+            in 10..20 -> println("str is (10~20)")            
+            else -> prinln("str is not a")
+        }
+    }
+
+    fun checkValue(a:Int) {
+        when {
+            a.isOdd() -> println("odd")
+            a.isEven() -> println("even")
+            else -> println("what")
+        }
+    }
+```
+
+- 스마트 캐스트 (Smart Cast)
+    is 또는 !is 연산자를 통해 타입을 검사하여 객체 타입이 일치할 경우 객체가 해당 타입으로 자동 캐스팅 되는 기능
+
+- while, do-while
+
+- in
+```JavaScript
+    val oneToTen = 1..10
+
+    fun isLetter(c: Char) = c in 'a'..'z'||c in 'A'..'Z'
+    fun isNotDigit(c: Char) = c !in '0'..'9'
+
+    fun recognize(c:Char) = when (c) {
+        in '0' .. '9' -> "It's a digit"
+        in 'a' .. 'z', in 'A' .. 'Z' -> "It's a letter"
+        else -> "I don't klnow.. sorry TT"
+    }
+
+```
+
+- for
+
+```JavaScript
+    for(i in 0..9) print("$i ")
+
+    for(i in 10 downTo 1) print("$i ")
+
+    for(i in 10 downTo 1 step 2) print("$i ")
+
+    var array: Array<int> = arrayOf(1,2,3)
+    for(i in 0 until array.size) print(array[1])
+````
+
+## 고차 함수와 람다
+- 고차 함수 (High Order Function) : 매개변수 또는 반환 값으로 또 다른 함수가 사용되는 함수
+
+```JavaScript
+    button.setOnClickListener({ /* Click Event 함수 내용 */ })
+```
+
+- 람다(Lambdas) 식의 문법
+{매개변수1: 타입, 매개변수2: 타입.. -> 반환형}
+
+```JavaScript
+    val sum = {x:Int, y:Int -> x+y }
+
+    val sum:(Int, Int) -> Int = {x,y -> x+y}
+```
+
+- 익명함수 (Anonymous Function)
+
+```JavaScript
+    Calculator(2,1,{a:Int, b:Int -> a+b})
+
+    fun Calculator(a:Int, b:Int, p:(Int, Int) -> Int){
+        println("$a, $b -> ${p(a, b)}")
+    }
+```
+
+## Collection
+
+- List ; listOf : mutableListOf, arrayListOf
+- Set ; set : mutableSetOf, hashSetOf, linkedSOf, sortedSetOf
+- Map ; mapOf : mutableMapOf, hashMapOf, linkedMapOf, sortedMapOf
+
+- 속성
+val size:Int
+
+- 함수
+fun contains(element:E):Boolean
+fun get(index:Int):E
+fun indexOf(element:E):Int
+fun isEmpty():Boolean
+fun subList(formIndex:Int, toIndex:Int):List<E>
+
+- 확장 기능
+- MutableCollection 메서드
+
+
+
+## 연산자 오버로딩 (operator)
+- 이항연산자
+a+b a.plus(b)
+a-b a.minus(b)
+a*b a.times(b)
+a/b a.div(b)
+a%b a.rem(b)
+
+- 단항연산자
++a a.unaryPlus()
+-a a.unaryMinus()
+!a a.not()
+++a, a++ a.inc()
+--a, a-- a.dec()
+
+- 복합 대입 연산자
+a+=b a.plusAssign(b)
+a-=b a.minusAssgin(b)
+a*=b a.timesAssign(b)
+a/=b a.divAssign(b)
+a%=b a.remAssign(b)
+
+- 비교 연산자
+a==b a?.equals(b) ?: (b===null)
+a!=b !(a?.equals(b) ?: (b===null))
+a>b a.compareTo(b) > 0
+a<b a.comapreTo(b) < 0
+a>=b a.compareTo(b) >= 0
+a<=b a.compareTo(b) <= 0
+
+- 기타
+in a.contain(b)
+.. a.rangeTo(b)
+a() a.invoke()
+
+
+## 클래스 위임 (Class Delegation)
+- by : 상속의 단점을 보완하기 위해 사용되는 데코레이터 패턴(Decorator Pattern) 의 구현을 줄이기 위해 제공
+
+```JavaScript
+
+    class CountingSet<T>: MutableCollection<T> {
+
+    }
+
+
+    class CountingSet<T>(val innerSet:MutableCollection<T>) : MutableCollection<T> by innerSet {
+
+        override fun addAll(c:Collection<T>) : Boolean {
+            .......
+        }
+    }
+
+
+    fun main(args: Array<String>) {
+        val lset = CountingSet<Int>(mutableListOf())
+        val hset = CountingSet<Int>(hashSetOf())
+
+        lset.addAll(listOf(1,2,3,2)) //override
+        hset.addAll(listOf(1,2,3,2)) //source
+    }
+```
+
+## 위임 프로퍼티 (Delegated Property)
+- 위임 프로퍼티란, 프로퍼티의 접근자 게터(getter)와 세터(setter)를 다른 객체로 위임하는 방식
+- 위임 받는 클래스에는 getValue() 메서드가 반드시 구현되어야 하며, 수정 가능한 var 타입의 경우 setValue() 메서드 역시 구현되어 있어야 한다.
+
+- by
+
+```JavaScript
+    class Delegator(var value: Int){
+        operator fun getValue(thisRef:Any?, property:KProperty<*>): Int {
+            println("${property.name} get! $value")
+            return value
+        }
+        operator fun setValue(thisRef:Any?, property:KProperty<*>, newValue: Int){
+            println("${property.name} set! $newValue")
+            value = newValue
+        }
+    }
+
+    class Person(val name: String, age:Int, salary:Int) {
+        var age:Int by Delegator(age)
+        var salary:Int by Delegator(salary)
+    }
+
+    fun main(args:Array<String>?){
+        val p = Person("test", 20, 2000)
+        p.age = 21
+        p.salary = 2100
+        println("${p.name} - age:${p.age}, salary:${p.salary}")
+    }
+```
+
+- by Lazy()
+    지연 초기화를 위해 lazy() 메서드로 프로퍼티 접근을 위임할 수 있다.
+
+```JavaScript
+    data class Address(val name:String, var phone:String, var addr: String=""){
+
+    }
+
+    fun loadAddrBook(p:Person): List<Address> {
+        return listOf(/* List */)
+    }
+
+    class Person(val name: String) {
+        var addrBook by Lazy({loadAddrBook(this)})
+    }
+
+    fun main(args:Array<String>?){
+        val p = Person("test")
+        p.addrBook
+    }
+```
+
+- Observable
+    프로퍼티 변경시 필요한 기능을 Delegates, observable() 메서드에 람다 식과 함께 위임할 수 있다.
+
+- Map
+    Map, MutableMap 인터페이스에는 프로퍼티명 (property.name)을 이용한 getValue()와 setValue()가 구현되어 있어 위임 프로퍼티에 사용할 수 있다.
+
+
+## 고차 함수와 람다의 활용
+- 고차함수란 다른 함수를 인자로 받거나 함수를 반환하는 함수
+- 람다 식의 정의에는 매개변수의 타입과 반환 타입이 명시되어야 하며, 매개 변수와 반환 타임은 Nullable이 될수 있다.
+- 고차 함수 정의시 매개변수 또는 반환 타입의 함수 타입을 명확하게 정의해야 하며, 디폴트 값을 지정할 수 있다.
+- 고차 함수와 람다를 이용해 소스 코드의 중복을 상당 부분 제거할 수 있다는 장점이 있다.
+
+
+## 인라인 함수 (Inline Functions)
+- 인라인 함수는 컴파일 단계에서 호출 방식이 아닌 코드 자체가 복사되는 방식으로 변환되며, 함수 앞에 inline 키워드를 붙여 사용한다.
+- 람다 전달시 발생하는 메모리, 호출등의 오버 헤드를 감소시키기 위해 인라인 함수가 사용된다.
+- 특정 람다를 인라인 방식에서 제외하고 싶을때는 noinline 키워드를 사용한다.
+
+```JavaScript
+    inline fun calculator(a: Int, b: Int, op: (Int, Int)->Int): Int {
+        println("calculator body")
+        return op(a,b)
+    }
+
+    fun main(args:Array<String>?){
+        val result = calculator(1,2) {a:Int, b:Int -> a+b}
+        println(result)
+    }
+
+- noinline : 인라인 함수 선언시 해당 파라미터 앞에 noinline 키워드를 붙여줌
+
+
+$ calculator body
+$ 3
+```
+
+
+
+## 람다에서의 리턴 (Return)
+- Non-local Return
+- 레이블을 이용한 Local Return
+- 코틀린에서 return은 Non-Local return 과 Local return 이 있으며, Non-local return은 람다 안에 있는 return 구문이 바깥족 함수를 반환시키는 것을 의미한다.
+- 람다 식에서는 return을 사용할 수 없지만, 인라인 함수에 사용되는 람다의 경우 Non-local return을 사용할 수 있다.
+- 람다 식에서 Local return을 사용하고 싶다면 레이블을 이용해 사용할 수 있다.
+- 일반적인 Local return을 사용할 수 있는 익명 함수를 람다 대신 사용할 수 있다.
