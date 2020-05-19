@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "정규식"
+title: "Scraping"
 description: 
 headline: 
 modified: 2020-05-14
 category: webdevelopment
 imagefeature: cover3.jpg
-tags: [정규식]
+tags: [Scraping, Python, 스크랩핑]
 mathjax: 
 chart: 
 share: true
@@ -16,67 +16,27 @@ disqus:
 ---
 
 
-# 정규식
+# Scraping
 
+
+## Exception
+    - 페이지를 혹은 서버를 찾을 수 없는 경우  : HTTPError
+    - 존재하지 않는 객체의 태그에 접근한 경우 : AttributeError
 ```JavaScript
-* 
-바로 앞에 있는 문자, 대괄호로 묶인 문자들이 0번 이상 나타납니다.
-a*b*
-aaaaaaa,aaaabbb,bbbbb
-
-+
-바로 앞에 있는 문자, 대괄호로 묶인 문자들이 1번 이상 나타납니다.
-a+b+
-aaabbb,aabbb,abbb
-
-[]
-대괄호 안에 있는 문자 중 하나가 나타납니다.
-[A-Z]* (A부터 Z까지 0번 이상 반복)
-APPLE, CAPITALS
-
-()
-그룹으로 묶인 하위 표현식입니다. 가장 먼저 평가됩니다.
-(a*b)*
-bbbbbb, abbab
-
-{m,n}
-바로 앞에 있는 문자, 하위 표현식, 대괄호로 묶인 문자들이 m번 이상 n번 이하 나타납니다.
-a{2,5}b{1,2}
-aab,aaaabb
-
-[^]
-대괄호 안에 있는 문자를 제외한 문자가 나타납니다.
-[^A-Z]*
-apple, lowercase
-
-|
-OR 의 의미를 갖습니다.
-b(a| i | e)d
-bad, bid, bed
-
-.
-공백 혹은 임의의 문자를 나타냅니다.
-b.d
-bad, b d, b$d
-
-^
-바로 뒤의 문자 혹은 하위 표현식이 문자열의 맨 앞에 나타납니다.
-^a
-apple, adsf, a
-
-\
-특수 문자를 원래 의미대로 쓰게 합니다.
-\.
-.
-
-$
-정규 표현식의 마지막에 종종 쓰이며, 바로 앞에 있는 문자나 하위 표현식이 문자열의 마지막이라는 뜻입니다.
-[A-Z]*[a-z]*$
-abc, AAa
-
-?!
-포함하지 않는다는 뜻입니다. 바로 뒤의 문자는 해당 위치에 나타나지 않습니다. 만약 특정 문자를 배제하고 싶다면 ^(?!a)*$
-^((?![A-Z].)*$
-no-caps-here
-
+    try:
+        html = urlopen(url)
+    except HTTPError as e:
+        e1 = e
+        return e1
+    
+    try:
+        bs0bj = BeautifulSoup(html.read(),'html.parser')
+        title = bs0bj.body.h1
+    except AttributeError as e:
+        e2 = e
+        return e2
 ```
+
+
+
+## find(), findall() 
