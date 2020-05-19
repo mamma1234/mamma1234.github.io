@@ -169,27 +169,30 @@ print(ceil(1.2))
 
 
 - 1 단계 : Python 종속성 설치
+```JavaScript
     sudo yum -y groupinstall "Development Tools"
     sudo yum -y install openssl-devel bzip2-devel libffi-devel
 
     $ gcc --version
-
+```
 - 2 단계 : 최신 Python 3.8 아카이브 다운로드
+```JavaScript
     sudo yum -y install wget
     wget https://www.python.org/ftp/python/3.8.1/Python-3.8.1.tgz
 
     tar xvf Python-3.8.1.tgz
 
     cd Python-3.8*/
-
+```
 
 - 3 단계 : CentOS 7 / CentOS 8에 Python 3.8 설치
+```JavaScript
     ./configure --enable-optimizations
     sudo make altinstall
     $ python3.8 --version;
     $ pip3.8 --version
-
 ```
+```JavaScript
   python3 -m venv klnet.owner.scheduleloader
   source bin/activate
   pip install watchdog
