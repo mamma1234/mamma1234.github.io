@@ -275,3 +275,12 @@ Caused by: org.postgresql.util.PSQLException: This connection has been closed.
 
 
 ```
+
+
+
+##  Foreign Data Wrapper for Oracle
+CREATE FOREIGN TABLE oratab (
+              id        integer           OPTIONS (key 'true')  NOT NULL,
+              text      character varying(30),
+              floating  double precision  NOT NULL
+           ) SERVER oradb OPTIONS (schema 'ORAUSER', table 'ORATAB');
