@@ -158,3 +158,5 @@ scrapy crawl mybots
 
 
 ## find(), findall() 
+
+https://blog.naver.com/PostView.nhn?blogId=altmshfkgudtjr&logNo=221494904057&from=search&redirect=Log&widgetTypeCall=true&directAccess=false
