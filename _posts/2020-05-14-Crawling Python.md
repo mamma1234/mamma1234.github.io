@@ -156,5 +156,85 @@ scrapy crawl mybots
 ```
 
 
+## scrapy
+```JavaScript
+    #If we want to get html node
+    response.xpath("/html").extract()
+
+    #If we want to get body node, which is the child of html node
+    response.xpath("/html/body").extract()
+
+    #If you want to get all div descendant of this html
+    response.xpath("/html//div").extract()
+
+    #we can also drill down without having to start with /html, this expression would extract all div nodes
+    response.xpath("//div").extract()
+
+    response.xpath("//div[@class='quote']").extract()
+
+    # you can use this syntax to filter nodes
+    response.xpath("//div[@class='quote']/span[@class='text']").extract()
+
+    # use text() to extract all text inside nodes
+    response.xpath("//div[@class='quote']/span[@class='text']/text()").extract()
+```
+
+
+## selenium
+```JavaScript
+    self.browser = webdriver.Chrome('C:\\github\\chromedriver.exe')
+
+    self.browser.get(response.url)
+
+    self.browser.find_element_by_id("memberId").send_keys('mamma1234')
+    self.browser.find_element_by_id("memberPassword").send_keys('qkrghwls0!')
+    self.browser.find_element_by_css_selector("button[type='submit'].btn").click()
+    
+    html = self.browser.find_element_by_xpath('//*').get_attribute('outerHTML')
+    selector = Selector(text=html)
+
+
+    find_element_by_name('HTML_name')
+    find_element_by_id('HTML_id')
+    find_element_by_xpath('/html/body/some/xpath')
+    find_element_by_css_selector('#css > div.selector')
+    find_element_by_class_name('some_class_name')
+    find_element_by_tag_name('h1')
+    find_elements_by_css_selector('#css > div.selector')
+
+    find_element_by_id
+    find_element_by_name
+    find_element_by_xpath
+    find_element_by_link_text
+    find_element_by_partial_link_text
+    find_element_by_tag_name
+    find_element_by_class_name
+    find_element_by_css_selector
+
+    find_elements_by_name
+    find_elements_by_xpath
+    find_elements_by_link_text
+    find_elements_by_partial_link_text
+    find_elements_by_tag_name
+    find_elements_by_class_name
+    find_elements_by_css_selector
+```
+
+## scheduler
+```JavaScript
+    pip install apscheduler
+
+    from scrapy.crawler import CrawlerProcess
+    from scrapy.utils.project import get_project_settings
+    from apscheduler.schedulers.twisted import TwistedScheduler
+    from camping.spiders.joongrangsoop_spider import JoongrangsoopSpiderSpider
+
+
+    process = CrawlerProcess(get_project_settings())
+    scheduler = TwistedScheduler()
+    scheduler.add_job(process.crawl, 'interval', args=[JoongrangsoopSpiderSpider], seconds=10)
+    scheduler.start()
+    process.start(False)
+```
 
 ## find(), findall() 
