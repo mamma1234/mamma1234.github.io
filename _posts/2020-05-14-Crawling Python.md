@@ -239,9 +239,36 @@ scrapy crawl mybots
 
 ## find(), findall() 
 
-https://blog.naver.com/PostView.nhn?blogId=altmshfkgudtjr&logNo=221494904057&from=search&redirect=Log&widgetTypeCall=true&directAccess=false
+## Selenium 명시적대기 or 암묵적대기?
+
+- Implicitly Wait :::: 암묵적 대기
+```JavaScript
+driver = webdriver.Chrome('chromedriver')
+driver.implicitly_wait(3)
+
+body = driver.find_element_by_css_selector('tbody.information')
+
+위 코드의 뜻은 <tbody class="information"> 이라는 태그가 나올 때까지 3초를 기다려주겠다는 말이다.
+
+즉, 동적할당이 3초내에 완료되면, 이 코드는 정상적으로 작동하게 된다.
+```
+
+- Explicitly Wait :::: 명시적 대기
+
+```JavaScript
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
+WebDriverWait(driver, 100).until(EC.presence_of_element_located((By.CSS_SELECTOR, "div.header")))
+
+명시적 대기는 먼저 위 코드와 같이 3가지를 import해준다. 그리고 난 뒤, 위 코드처럼 적어준다.
+
+그렇게 된다면, 예로들어 위 코드의 의미는 <div class="header"> 이라는 태그를 100초안에 찾을때까지, 기다려주겠다라는 뜻이다. 만약 컴퓨터 속도가 빠르든 느리든, 100초 안에만 찾으면 바로 그 시점에서 값을 반환하겠다는 의미이다
+```
 
 
+## selenium close(), quit() 
 close()는 현재 selenium webdriver가 활성화되어 있는 화면만을 종료합니다.
 2개 이상의 webdriver 탭이 열려있다면 현재 활성화되어 있는 webdriver만 종료되고 나머지 webdriver는 종료되지 않습니다.
 
