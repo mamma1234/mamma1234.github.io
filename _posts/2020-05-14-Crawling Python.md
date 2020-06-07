@@ -238,3 +238,15 @@ scrapy crawl mybots
 ```
 
 ## find(), findall() 
+
+https://blog.naver.com/PostView.nhn?blogId=altmshfkgudtjr&logNo=221494904057&from=search&redirect=Log&widgetTypeCall=true&directAccess=false
+
+
+close()는 현재 selenium webdriver가 활성화되어 있는 화면만을 종료합니다.
+2개 이상의 webdriver 탭이 열려있다면 현재 활성화되어 있는 webdriver만 종료되고 나머지 webdriver는 종료되지 않습니다.
+
+quit()는 dispose() 함수를 불러와 열려있는 모든 webdriver를 종료하고 세션을 안전하게 종료합니다.
+프로그램을 종료할 때 quit()을 사용하지 않는다면 webdriver 세션이 완벽하게 종료되지 않아 메모리 누수가 발생할 수 있습니다.
+
+하나의 webdriver가 열려있다면 close()와 quit() 어느 것을 사용해도 동일한 작업을 수행합니다.
+하지만 2개 이상의 webdriver가 열려있다면 close()와 quit() 다르게 작동 하는것을 유의해야합니다.
