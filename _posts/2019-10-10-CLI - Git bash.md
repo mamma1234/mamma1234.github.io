@@ -60,7 +60,7 @@ npm i -g webpack-cli
 -stree   -> 현재 프로젝트의 버전 관리를 소스트리에서 보여줌  
 
 
-## 주요기능
+## git 취소하기
 git add를 취소할 수 있다.
 git commit을 취소할 수 있다.
 git push를 취소할 수 있다.
@@ -159,5 +159,74 @@ $ git reset --hard HEAD
 
 ### git push 취소하기
 - 이 명령을 사용하면 자신의 local의 내용을 remote에 강제로 덮어쓰기를 하는 것이기 때문에 주의해야 한다.
-    - 되돌아간 commit 이후의 모든 commit 정보가 사라지기 때문에 주의해야 한다.
-    - 특히, 협업 프로젝트에서는 동기화 문제가 발생할 수 있으므로 팀원과 상의 후 진행하는 것이 좋다.
+    되돌아간 commit 이후의 모든 commit 정보가 사라지기 때문에 주의해야 한다.
+    특히, 협업 프로젝트에서는 동기화 문제가 발생할 수 있으므로 팀원과 상의 후 진행하는 것이 좋다.
+1. 워킹 디렉터리에서 commit 되돌린다.
+    - 가장 최근의 commit을 취소하고 워킹 디렉터리를 되돌린다.
+```JavaScript
+// 가장 최근의 commit을 취소 (기본 옵션: --mixed)
+$ git reset HEAD^
+```
+
+    - 원하는 시점으로 워킹 디렉터리를 되돌린다.
+```JavaScript
+// Reflog(브랜치와 HEAD가 지난 몇 달 동안에 가리켰었던 커밋) 목록 확인
+$ git reflog 또는 $ git log -g
+// 원하는 시점으로 워킹 디렉터리를 되돌린다.
+$ git reset HEAD@{number} 또는 $ git reset [commit id]
+```
+
+2. 되돌려진 상태에서 다시 commit을 한다.
+```JavaScript
+$ git commit -m "Write commit messages"
+```
+
+
+3. 원격 저장소에 강제로 push 한다.
+```JavaScript
+$ git push origin [branch name] -f
+또는
+$ git push origin +[branch name]
+```
+
+```JavaScript
+// Ex) master branch를 원격 저장소(origin)에 강제로 push
+$ git push origin +master
+```
+
+TIP 경고를 무시하고 강제로 push 하기
+    [방법 1] -f 옵션
+        –force 옵션과 동일하다.
+    [방법 2] +[branch name]
+        해당 branch를 강제로 push한다.
+
+
+### untracked 파일 삭제하기
+- git clean 명령은 추적 중이지 않은 파일만 지우는 게 기본 동작이다. 즉, .gitignore 에 명시하여 무시되는 파일은 지우지 않는다.
+
+```JavaScript
+$ git clean -f // 디렉터리를 제외한 파일들만 삭제
+$ git clean -f -d // 디렉터리까지 삭제
+$ git clean -f -d -x // 무시된 파일까지 삭제
+```
+
+
+TIP option
+    -d 옵션
+        디렉터리까지 지우는 것
+    -x 옵션
+        무시된 파일(.DS_Store나 .gitignore에 등록한 확장자 파일들)까지 모두 지우는 것
+        Ex) .o 파일 같은 빌드 파일까지도 지울 수 있다.
+    -n 옵션
+        가상으로 실행해보고 어떤 파일들이 지워질지 알려주는 것
+
+```JavaScript
+    git clean -n -d
+    Would remove xxxx
+    Would remove xx/
+
+    git cloean -n -d -x
+    Would remove xxxx
+    Would remove xxx
+    Would remove xx/
+```
