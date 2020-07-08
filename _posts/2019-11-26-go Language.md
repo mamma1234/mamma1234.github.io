@@ -843,3 +843,21 @@ func run2(done chan bool) {
     done <- true
 }
 ```
+
+
+## go 로 작성된 프로젝트
+- Docker
+- Kubernates
+- ETCE
+- Revel
+- InfluxDB
+- Gogs
+
+
+## go 웹 프레임워크
+- 비고 Beego : MVC, 관계 맵 ORM, 세션 핸들링, 로깅, HTTP 객체와의 공통 연상, 파이썬 장고프레임워크와 유사
+- 고릴라 Gorilla : RPC 라이브러리
+- 에코 Echo : API
+- 아이리스 Iris : Javascript 및 node.js
+- 진 Gin : 프로트엔드, 백엔드 등 
+- 레벨 Revel : 루비 온 레일즈 MVC 타입 웹 프레임워크
