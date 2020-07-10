@@ -22,6 +22,9 @@ elasticsearch.yml
 network.host : localhost
 http.port : 9200
 
+
+
+
 # Kibena
 
 https://artifacts.elastic.co/downloads/kibana/kibana-7.8.0-windows-x86_64.zip
@@ -29,8 +32,6 @@ kibana.yml
 server.port:5601 - 키바나의 연결 할 포트번호를 입력해줍니다.
 server.host:"localhost" - 키바나의 연결 할 주소를 입력해줍니다.
 elasticsearch.hosts:["http://localhost:9200"] - 엘라스틱 서치의 주소를 입력해줍니다.
-
-
 
 
 # docker
