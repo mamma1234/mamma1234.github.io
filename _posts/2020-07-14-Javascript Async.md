@@ -17,6 +17,12 @@ disqus:
 
 # Callback
 
+[비동기](https://www.youtube.com/watch?v=s1vpVCrT8f4&list=PLv2d7VI9OotTVOL4QmPfvJWPJvkmv6h-2&index=11)
+[프로미스](https://www.youtube.com/watch?v=JB_yU6Oe2eE&list=PLv2d7VI9OotTVOL4QmPfvJWPJvkmv6h-2&index=12)
+[async await](https://www.youtube.com/watch?v=aoQSOZfz3vQ&list=PLv2d7VI9OotTVOL4QmPfvJWPJvkmv6h-2&index=13)
+
+
+
 ```JavaScript
 //Synchronous callback
 function printImmediately(print) {
@@ -112,7 +118,7 @@ userStorage.loginUser(
 
 ```JavaScript
 // promise is a JavaScript object for asynchronous operation.
-// state: pending -> fulfilled or rejectedd
+// state: pending -> fulfilled or rejected
 // Producer vs Consumer
 
 // 1.Producer
@@ -120,8 +126,8 @@ userStorage.loginUser(
 // when new Promise is created, the executor runs automatically.
 const promise = new Promise((resolve, reject) => {
   setTimeout(() => {
-    // resolve("ellie");
-    reject(new Error("no network"));
+    resolve("ellie");
+    //reject(new Error("no network"));
   }, 2000);
 });
 
