@@ -72,3 +72,15 @@ kubeadm이란, kubernetes에서 제공하는 기본적인 도구이며, kubernet
 
 ### kubectl
 클러스터와 통신하는 커맨드라인 인터페이스 유틸이다.
+
+
+
+
+노드	| 프로토콜	| 방향	| 포트 범위	| 목적	| 누가 사용?
+Master	| TCP	| Inbound	| 6443	| Kubernetes API server	| All
+Master	| TCP	| Inbound	| 2379-2380	| etcd server client API	| kube-apiserver, etcd
+Master	| TCP	| Inbound	| 10250	| Kubelet API	| Self, Control plane
+Master	| TCP	| Inbound	| 10251	| kube-scheduler	| Self
+Master	| TCP	| Inbound	| 10252	| kube-controller-manager	| Self
+Worker	| TCP	| Inbound	| 10250	| Kubelet API	| Self, Control plane
+Worker	| TCP	| Inbound	| 30000-32767 | NodePort Services	| All
