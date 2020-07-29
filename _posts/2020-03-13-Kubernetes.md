@@ -45,17 +45,24 @@ kubeadm이란, kubernetes에서 제공하는 기본적인 도구이며, kubernet
 #### kubeadm init
 - Kubernetes 컨트롤 플레인 노드를 초기화한다.
 - 즉, 마스터 노드를 초기화한다.
+
 #### kubeadm join
 - Kubernetes 워커 노드를 초기화하고 클러스터에 연결한다.
+
 #### kubeadm upgrade
 - Kubernetes 클러스터를 업그레이드 한다.
+
 #### kubeadm config
+
 #### kubeadm token
 - 부트 스트랩 토큰을 사용한 인증에 설명된대로 부트 스트랩 토큰은 클러스터에 참여하는 노드와 제어 평면 노드 사이에 양방향 신뢰를 설정하는 데 사용된다.
+
 #### kubeadm reset
 - kubeadm init 혹은 kubeadm join의 변경사항을 최대한 복구한다.
+
 #### kubeadm version
 - kubeadm 버젼은 보여준다.
+
 #### kubeadm alpha
 - 정식으로 배포된 기능은 아니지만 kubernetes측에서 사용자 피드백을 얻기 위해 인증서 갱신, 인증서 만료 확인, 사용자 생성, kubelet 설정 등 다양한 기능을 제공하고 있다.
 
