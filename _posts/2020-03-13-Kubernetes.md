@@ -39,6 +39,7 @@ disqus:
 - 구성 레지스트리 : 인프라스트럭처와 서비스를 연결하여 일원 관리
 
 ### kubeadm
+kubernetes 클러스터를 구축하기 위해 사용하는 툴이다.
 kubeadm이란, kubernetes에서 제공하는 기본적인 도구이며, kubernetes 클러스터를 가장 빨리 구축하기 위한 다양한 기능을 제공한다.
 
 #### kubeadm init
@@ -57,3 +58,10 @@ kubeadm이란, kubernetes에서 제공하는 기본적인 도구이며, kubernet
 - kubeadm 버젼은 보여준다.
 #### kubeadm alpha
 - 정식으로 배포된 기능은 아니지만 kubernetes측에서 사용자 피드백을 얻기 위해 인증서 갱신, 인증서 만료 확인, 사용자 생성, kubelet 설정 등 다양한 기능을 제공하고 있다.
+
+
+### kubelet
+클러스터의 모든 머신에서 실행되며 Pod 및 컨테이너 시작 등의 작업을 수행하는 구성 요소이다.
+
+### kubectl
+클러스터와 통신하는 커맨드라인 인터페이스 유틸이다.
