@@ -72,8 +72,78 @@ kubeadm이란, kubernetes에서 제공하는 기본적인 도구이며, kubernet
 
 ### kubectl
 클러스터와 통신하는 커맨드라인 인터페이스 유틸이다.
+```JavaScript
+ 각 노드와 상태를 확인할 수 있습니다
+    kubectl get no
+    NAME       STATUS   ROLES    AGE     VERSION
+    master     Ready    master   6m44s   v1.13.3
+    worker-1   Ready    <none>   5m20s   v1.13.3
+    worker-2   Ready    <none>   5m19s   v1.13.3
+```
+
+## 각 노드와 상태를 확인
+```JavaScript
+ 각 노드와 상태를 확인할 수 있습니다
+    kubectl get no
+    NAME       STATUS   ROLES    AGE     VERSION
+    master     Ready    master   6m44s   v1.13.3
+    worker-1   Ready    <none>   5m20s   v1.13.3
+    worker-2   Ready    <none>   5m19s   v1.13.3
+```
+
+## 설치 확인하기
+```JavaScript
+kubectl get componentstatuses
+NAME                 STATUS    MESSAGE              ERROR
+scheduler            Healthy   ok                   
+controller-manager   Healthy   ok                   
+etcd-0               Healthy   {"health": "true"}
+```
+
+## Pod 을 배포
+```JavaScript
+    apiVersion: v1
+    kind: Pod
+    metadata:
+    name: myapp-pod
+    labels:
+        app: myapp
+    spec:
+    containers:
+    - name: myapp-container
+        image: busybox
+        command: ['sh', '-c', 'echo Hello Kubernetes! && sleep 3600']
+
+    kubectl apply -f pod-test.yaml
+```
+
+## Pod 이 정상적으로 실행 확인
+```JavaScript
+    kubectl get po
+    NAME        READY   STATUS    RESTARTS   AGE
+    myapp-pod   1/1     Running   0          6s
+```
+
+## 로그 확인
+```JavaScript
+    kubectl logs myapp-pod
+    Hello Kubernetes!
+```
 
 
+
+## Kubernetes 종료
+- 쿠버네티스 클러스터를 삭제하는 방법입니다
+```JavaScript
+Master에서 :
+$ kubectl drain {노드이름} --delete-local-data --force --ignore-daemonsets
+$ kubectl delete node {노드이름}
+
+$ kubeadm reset
+
+Node에서 :
+$ kubeadm reset
+```
 
 
 노드	| 프로토콜	| 방향	| 포트 범위	| 목적	| 누가 사용?
