@@ -130,6 +130,13 @@ etcd-0               Healthy   {"health": "true"}
     Hello Kubernetes!
 ```
 
+## 로그 확인
+```JavaScript
+    kubectl describe pod nginx-test
+    kubectl logs nginx-test
+    kubectl get pods --all-namespaces
+    kubectl get events
+```
 
 
 ## Kubernetes 종료
