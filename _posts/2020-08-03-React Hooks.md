@@ -19,21 +19,26 @@ disqus:
 useInput
 useTabs
 useTitle
-usePageLeave
 useClick
+useHover
+useConfirm
+usePreventLeave
+
+
+usePageLeave
 useFadeIn
 useFullscreen
-useHover
 useNetwork
 useNotification
 useScroll
-usePreventLeave
-useConfirm
+
+
 useAxios
 
 ## useInput 
 
 ```JavaScript
+
 const useInput = initialValue => {
   const [value, setValue] = useState(initialValue);
   const onChange = event => {
@@ -89,7 +94,6 @@ export default function Hook1() {
 
 ## useTabs 
 
-
 ```JavaScript
 
 const content = [
@@ -136,3 +140,99 @@ export default function Hook1() {
 }
 
 ```
+
+
+## useTitle
+
+```JavaScript
+
+const useTitle = initialTitle => {
+  const [title, setTitle] = useState(initialTitle);
+  const updateTitle = () => {
+    const htmlTitle = document.querySelector("title");
+    htmlTitle.innerText = title;
+  };
+  useEffect(updateTitle, [title]);
+  return setTitle;
+};
+
+
+
+export default function Hook2() {
+  const [item, setItem] = useState(2);
+  const sayHello = () => console.log("hello");
+
+  // useEffect(() => {
+  //   sayHello();
+  // });
+  const [number, setNumber] = useState(0);
+  const [aNumber, setAnumber] = useState(0);
+  useEffect(sayHello, []);
+
+  const titleUpdater = useTitle("Loading...");
+  setTimeout(() => titleUpdater("Home"), 5000);
+
+  return (
+    <div className="App">
+      <h1>Hello Effect Hook {item}</h1>
+      <button onClick={() => setNumber(number + 1)}>{number}</button>
+      <button onClick={() => setAnumber(aNumber + 1)}>{aNumber}</button>
+    </div>
+  );
+}
+
+```
+
+## useClick & useHover
+
+```JavaScript
+
+const useClick = onClick => {
+  if (typeof onClick !== "function") {
+    return;
+  }
+  const element = useRef();
+  useEffect(() => {
+    if (element.current) {
+      element.current.addEventListener("click", onClick);
+    //   element.current.addEventListener("mouseenter", onClick); //useHover
+    }
+    return () => {
+      if (element.current) {
+        console.log("remove event");
+        element.current.removeEventListener("click", onClick);
+        // element.current.removeEventListener("mouseenter", onClick); //useHover
+      }
+    };
+  }, []);
+  return element;
+};
+
+
+
+export default function Hook2() {
+  const [item, setItem] = useState(2);
+  const sayHello = () => console.log("hello");
+
+
+  const potato = useRef();
+  setTimeout(() => potato.current.focus(), 5000);
+
+  // const sayHello = () => console.log("say hello");
+  const title = useClick(sayHello);
+  return (
+    <div className="App">
+      <h1>Hello Effect Hook {item}</h1>
+      <input ref={potato} placeholder="la" />
+      <h1 ref={title}>Hi</h1>
+    </div>
+  );
+}
+
+```
+
+
+## useConfirm
+
+
+## usePreventLeave
