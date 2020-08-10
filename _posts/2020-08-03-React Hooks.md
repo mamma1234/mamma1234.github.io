@@ -25,13 +25,10 @@ useConfirm
 usePreventLeave
 useBeforeLeave
 useFadeIn
-
 useNetwork
 useFullscreen
-useNotification
 useScroll
-
-
+useNotification
 useAxios
 
 ## useInput 
@@ -531,3 +528,125 @@ export default function Hook6() {
 }
 
 ```
+
+
+
+
+## useNotification 
+
+```JavaScript
+
+
+
+import React, { useState, useEffect, useRef, useCallback } from "react";
+import "./styles.css";
+
+const useNotification = (title, options) => {
+  // console.log("call useNotification");
+  if (!("Notification" in window)) {
+    console.log("is");
+    return;
+  }
+  // console.log("useNotification");
+  const fireNotif = () => {
+    if (Notification.permission !== "granted") {
+      Notification.requestPermission().then((permission) => {
+        if (permission === "granted") {
+          new Notification(title, options);
+        } else {
+          return;
+        }
+      });
+    } else {
+      new Notification(title, options);
+    }
+  };
+
+  return fireNotif;
+};
+
+export default function Hook7() {
+  const triggerNotif = useNotification("Can I steal your kimchi ?", {
+    body: "i love kimchi"
+  });
+
+  return (
+    <div className="App">
+      <button onClick={triggerNotif}>hello</button>
+    </div>
+  );
+}
+
+
+```
+
+
+
+
+
+
+## useAxios 
+
+```JavaScript
+
+
+import defaultAxios from "axios";
+import { useState, useEffect } from "react";
+
+const useAxios = (opts, axiosInstance = defaultAxios) => {
+  const [state, setState] = useState({
+    loading: true,
+    error: null,
+    data: null
+  });
+  const [trigger, setTrigger] = useState(0);
+  if (!opts.url) {
+    return;
+  }
+  const refetch = () => {
+    setState({
+      ...state,
+      loading: true
+    });
+    setTrigger(Date.now());
+  };
+  useEffect(() => {
+    axiosInstance(opts)
+      .then((data) => {
+        setState({ ...state, loading: false, data });
+      })
+      .catch((error) => {
+        setState({ ...state, loading: false, error });
+      });
+  }, [trigger]);
+  return { ...state, refetch };
+};
+
+export default useAxios;
+
+
+
+import React, { useState, useEffect, useRef, useCallback } from "react";
+import "./styles.css";
+import useAxios from "./useAxios";
+
+export default function Hook8() {
+  const { loading, data, error, refetch } = useAxios({
+    url:
+      "https://cors-anywhere.herokuapp.com/https://yts.am/api/v2/list_movies.json"
+  });
+  // console.log(
+  //   `Loading:${loading}\nError:${error}\nData:${JSON.stringify(data)}`
+  // );
+  return (
+    <div className="App">
+      <h1>{data && data.status}</h1>
+      <h2>{loading && "Loading"} </h2>
+      <h2>{error} </h2>
+      <button onClick={refetch}>refetch</button>
+    </div>
+  );
+}
+
+```
+
