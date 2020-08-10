@@ -23,12 +23,11 @@ useClick
 useHover
 useConfirm
 usePreventLeave
-
-
-usePageLeave
+useBeforeLeave
 useFadeIn
-useFullscreen
+
 useNetwork
+useFullscreen
 useNotification
 useScroll
 
@@ -282,6 +281,251 @@ export default function Hook3() {
       <button onClick={confirmDelete}>Delete the world</button>
       <button onClick={enablePrevent}>protect</button>
       <button onClick={disablePrevent}>unprotect</button>
+    </div>
+  );
+}
+
+```
+
+
+## useBeforeLeave
+
+```JavaScript
+
+import React, { useState, useEffect, useRef } from "react";
+import "./styles.css";
+
+const useBeforeLeave = (onBefore) => {
+  if (!onBefore && typeof onBefore !== "function") {
+    return;
+  }
+
+  const handle = (event) => {
+    console.log("leave");
+    const { clientY } = event;
+    if (clientY <= 0) {
+      onBefore();
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("mouseleave", handle);
+    return () => document.removeEventListener("mouseleave", handle);
+  }, []);
+};
+
+export default function Hook4() {
+  const [item, setItem] = useState(4);
+  const beforeLife = () => console.log("pls don't leave");
+  useBeforeLeave(beforeLife);
+
+  return (
+    <div className="App">
+      <h1>Hello Effect Hook {item}</h1>
+    </div>
+  );
+}
+
+```
+
+
+## useFadeIn
+
+```JavaScript
+import React, { useState, useEffect, useRef } from "react";
+import "./styles.css";
+
+const useFadeIn = (duration = 1, delay = 0) => {
+  if (typeof duration != "number" || typeof delay != "number") {
+    return;
+  }
+  const element = useRef();
+  // console.log("element.current", element.current);
+  useEffect(() => {
+    if (element.current) {
+      const { current } = element;
+      console.log("opacity");
+      current.style.transition = `opacity ${duration}s ease-in-out ${delay}s`;
+      current.style.opacity = 1;
+    }
+  }, []);
+  return { ref: element, style: { opacity: 0 } };
+};
+export default function Hook5() {
+  // const [item, setItem] = useState(5);
+  const fadeInH1 = useFadeIn(1, 2);
+  const fadeInP = useFadeIn(5, 10);
+  return (
+    <div className="App">
+      <h1 {...fadeInH1}>Hello Ref Hook</h1>
+      <p {...fadeInP}>lorem ipsum adsaf</p>
+    </div>
+  );
+}
+
+```
+
+
+
+
+
+
+## useNetwork
+
+```JavaScript
+
+
+import React, { useState, useEffect, useRef } from "react";
+import "./styles.css";
+
+const useNetwork = (onChange) => {
+  const [status, setStatus] = useState(navigator.onLine);
+  const handleChange = () => {
+    if (typeof onChange === "function") {
+      onChange(navigator.onLine);
+    }
+    setStatus(navigator.onLine);
+  };
+  useEffect(() => {
+    window.addEventListener("online", handleChange);
+    window.addEventListener("offline", handleChange);
+    () => {
+      window.removeEventListener("online", handleChange);
+      window.removeEventListener("offline", handleChange);
+    };
+  }, []);
+  return status;
+};
+
+export default function Hook5() {
+  // const [item, setItem] = useState(5);
+  const handleNetworkChange = (online) => {
+    console.log(online ? "web online" : "we offine");
+  };
+  const onLine = useNetwork(handleNetworkChange);
+  return (
+    <div className="App">
+      <h1>Hello Ref Hook {onLine ? "onLine" : "offline"} </h1>
+    </div>
+  );
+}
+
+
+```
+
+
+
+
+## useScroll
+
+```JavaScript
+
+
+
+import React, { useState, useEffect, useRef } from "react";
+import "./styles.css";
+
+const useScroll = () => {
+  const [state, setState] = useState({ x: 0, y: 0 });
+  const onScroll = (evnet) => {
+    console.log("y", window.scrollY, " x", window.scrollX);
+    setState({ y: window.scrollY, x: window.scrollX });
+  };
+  useEffect(() => {
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  });
+  return state;
+};
+
+export default function Hook6() {
+  // const [item, setItem] = useState(5);
+  const { y } = useScroll();
+  console.log("y", y);
+  return (
+    <div className="App" style={{ height: "1000vh" }}>
+      <h1 style={{ position: "fixed", color: y > 100 ? "red" : "blue" }}>
+        Hi Scroll
+      </h1>
+    </div>
+  );
+}
+
+
+```
+
+
+
+
+
+
+
+
+## useFullscreen 
+
+```JavaScript
+
+
+import React, { useState, useEffect, useRef, useCallback } from "react";
+import "./styles.css";
+
+
+const useFullscreen = (callback) => {
+  const element = useRef();
+  const runCb = (isFull) => {
+    if (callback && typeof callback === "function") {
+      callback(isFull);
+    }
+  };
+  const triggerFull = () => {
+    if (element.current) {
+      if (element.current.requestFullscreen) {
+        element.current.requestFullscreen();
+      } else if (element.current.mozRequestFullScrren) {
+        element.current.mozRequestFullScrren();
+      } else if (element.current.webkitRequestFullscreen) {
+        element.current.webkitRequestFullscreen();
+      } else if (element.current.msRequestfullscreen) {
+        element.current.msRequestfullscreen();
+      }
+      runCb(true);
+      // if (callback && typeof callback === "function") {
+      //   callback(true);
+      // }
+    }
+  };
+  const exitFull = () => {
+    // document.exitFullscreen();
+    if (document.exitFullscreen) {
+      document.exitFullscreen();
+    } else if (document.mozCancelFullScreen) {
+      document.mozCancelFullScreen();
+    } else if (document.webkitExitFullscreen) {
+      document.webkitExitFullscreen();
+    } else if (document.msExitFullscreen) {
+      document.msExitFullscreen();
+    }
+    // if (callback && typeof callback === "function") {
+    //   callback(false);
+    // }
+    runCb(false);
+  };
+  return { element, triggerFull, exitFull };
+};
+
+export default function Hook6() {
+  // const [item, setItem] = useState(5);
+  const onFullS = (isFull) => {
+    console.log(isFull ? "we are full" : "web are small");
+  };
+  const { element, triggerFull, exitFull } = useFullscreen(onFullS);
+  return (
+    <div className="App" style={{ height: "1000vh" }}>
+      <div ref={element}>
+        <img src="http://cafefiles.naver.net/data34/2008/10/4/275/%C6%F7%B8%CB%BA%AF%C8%AF_%B6%F3%B8%E9_0asy0.jpg" />
+        <button onClick={exitFull}>Make exit screen</button>
+      </div>
+      <button onClick={triggerFull}>Make full screen</button>
     </div>
   );
 }
