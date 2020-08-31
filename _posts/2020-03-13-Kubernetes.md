@@ -223,3 +223,20 @@ Master	| TCP	| Inbound	| 10251	| kube-scheduler	| Self
 Master	| TCP	| Inbound	| 10252	| kube-controller-manager	| Self
 Worker	| TCP	| Inbound	| 10250	| Kubelet API	| Self, Control plane
 Worker	| TCP	| Inbound	| 30000-32767 | NodePort Services	| All
+
+
+
+## 실습 k3s
+
+https://github.com/subicura/workshop-init [https://github.com/subicura/workshop-init]
+
+
+## docker 실습 --- network : app-network 
+
+- Exam 1. 방명록 만들기
+
+docker run --name=mongodb --network=app-network mongo:4
+
+docker run -d --name=backend --network=app-network -e PORT=8003 -e GUESTBOOK_DB_ADDR=mongodb:27017 subicura/guestbook-backend:latest
+
+docker run -d -p 3000:8004 -e PORT=8004 -e GUESTBOOK_API_ADDR=backend:8003 --network=app-network subicura/guestbook-frontend:latest
