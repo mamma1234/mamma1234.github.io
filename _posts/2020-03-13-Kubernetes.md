@@ -203,6 +203,7 @@ etcd-0               Healthy   {"health": "true"}
 
 ## Kubernetes 종료
 - 쿠버네티스 클러스터를 삭제하는 방법입니다
+
 ```JavaScript
 Master에서 :
 $ kubectl drain {노드이름} --delete-local-data --force --ignore-daemonsets
@@ -226,17 +227,163 @@ Worker	| TCP	| Inbound	| 30000-32767 | NodePort Services	| All
 
 
 
-## 실습 k3s
+# 실습 k3s
 
 https://github.com/subicura/workshop-init [https://github.com/subicura/workshop-init]
 
 
 ## docker 실습 --- network : app-network 
 
-- Exam 1. 방명록 만들기
+### docker 실습 --- Exam 1. 방명록 만들기
+
+```JavaScript
 
 docker run --name=mongodb --network=app-network mongo:4
 
 docker run -d --name=backend --network=app-network -e PORT=8003 -e GUESTBOOK_DB_ADDR=mongodb:27017 subicura/guestbook-backend:latest
 
 docker run -d -p 3000:8004 -e PORT=8004 -e GUESTBOOK_API_ADDR=backend:8003 --network=app-network subicura/guestbook-frontend:latest
+
+http://13.125.200.94:3000/
+
+```
+
+### Docker Compose 실습 --- Exam 1. 방명록 만들기
+
+```JavaScript
+
+version: '3'
+services:
+  web:
+    image: subicura/docker-workshop-app:1
+    ports:
+      - "4567:4567"
+
+docker-compose up -d
+
+
+
+
+version: '3'
+services:
+  wordpress:
+    image: wordpress
+    environment:
+      WORDPRESS_DB_HOST: mysql
+      WORDPRESS_DB_NAME: wp
+      WORDPRESS_DB_USER: wp
+      WORDPRESS_DB_PASSWORD: wp
+    ports:
+      - "8000:80"
+    restart: always
+  mysql:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: wp
+      MYSQL_DATABASE: wp
+      MYSQL_USER: wp
+      MYSQL_PASSWORD: wp
+
+docker-compose up -d
+docker-compose ps //목록
+docker-compose logs -f //로그
+docker-compose down //종료 후 제거
+
+
+
+version: '3'
+services:
+  frontend:
+    image: subicura/guestbook-frontend:latest
+    environment:
+      PORT: 8000
+      GUESTBOOK_API_ADDR: backend:8000
+    ports:
+      - "3000:8000"
+    restart: always
+  backend:
+    image: subicura/guestbook-backend:latest
+    environment:
+      PORT: 8000
+      GUESTBOOK_DB_ADDR: mongodb:27017
+    ports:
+      - "8002:80"
+    restart: always
+  mongodb:
+    image: mongo:4
+
+docker-compose up -d
+
+docker system prune -a //이미지 정리
+```
+
+### Kubernetes 실습
+
+#### kubectl
+- 명령어
+kubectl 
+    apply
+        Apply a configuration to a resource by filename or stdin
+    get
+        Display one or many resources
+    describe
+        Show details of a specific resource or group of resources
+    delete
+        Delete resources by filenames, stdin, resources and names, or by resources and label selector
+    logs
+        Print the logs for a container in a pod
+    exec
+        Execute a command in a container
+
+- 기본 오브젝트
+
+kubectl api-resources
+
+    node
+    pod
+    replicaset
+    deployment
+    service
+    loadbalancer
+    ingress
+    volume
+    configmap
+    secret
+    namespace
+
+
+- 다양한 사용범
+get
+```JavaScript
+    # pod, replicaset, deployment, service 조회
+    kubectl get all
+
+    # node 조회
+    kubectl get no
+    kubectl get node
+    kubectl get nodes
+
+    # 결과 포멧 변경
+    kubectl get nodes -o wide
+    kubectl get nodes -o yaml
+    kubectl get nodes -o json
+    kubectl get nodes -o json |
+        jq ".items[] | {name:.metadata.name} + .status.capacity"
+```
+
+describe
+```JavaScript
+    # kubectl describe type/name
+    # kubectl describe type name
+    kubectl describe node <node name>
+    kubectl describe node/<node name>
+```
+
+그외 자주 사용하는 명령어
+```JavaScript
+    kubectl exec -it <POD_NAME>
+    kubectl logs -f <POD_NAME|TYPE/NAME>
+
+    kubectl apply -f <FILENAME>
+    kubectl delete -f <FILENAME>
+```
