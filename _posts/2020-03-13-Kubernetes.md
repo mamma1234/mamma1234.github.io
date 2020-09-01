@@ -320,8 +320,11 @@ docker system prune -a //이미지 정리
 ### Kubernetes 실습
 
 #### kubectl
+
 - 명령어
+
 kubectl 
+
     apply
         Apply a configuration to a resource by filename or stdin
     get
@@ -352,38 +355,38 @@ kubectl api-resources
     namespace
 
 
-- 다양한 사용범
-get
-```JavaScript
-    # pod, replicaset, deployment, service 조회
-    kubectl get all
+- 다양한 사용법
+    get
+    ```JavaScript
+        # pod, replicaset, deployment, service 조회
+        kubectl get all
 
-    # node 조회
-    kubectl get no
-    kubectl get node
-    kubectl get nodes
+        # node 조회
+        kubectl get no
+        kubectl get node
+        kubectl get nodes
 
-    # 결과 포멧 변경
-    kubectl get nodes -o wide
-    kubectl get nodes -o yaml
-    kubectl get nodes -o json
-    kubectl get nodes -o json |
-        jq ".items[] | {name:.metadata.name} + .status.capacity"
-```
+        # 결과 포멧 변경
+        kubectl get nodes -o wide
+        kubectl get nodes -o yaml
+        kubectl get nodes -o json
+        kubectl get nodes -o json |
+            jq ".items[] | {name:.metadata.name} + .status.capacity"
+    ```
 
-describe
-```JavaScript
-    # kubectl describe type/name
-    # kubectl describe type name
-    kubectl describe node <node name>
-    kubectl describe node/<node name>
-```
+    describe
+    ```JavaScript
+        # kubectl describe type/name
+        # kubectl describe type name
+        kubectl describe node <node name>
+        kubectl describe node/<node name>
+    ```
 
-그외 자주 사용하는 명령어
-```JavaScript
-    kubectl exec -it <POD_NAME>
-    kubectl logs -f <POD_NAME|TYPE/NAME>
+    그외 자주 사용하는 명령어
+    ```JavaScript
+        kubectl exec -it <POD_NAME>
+        kubectl logs -f <POD_NAME|TYPE/NAME>
 
-    kubectl apply -f <FILENAME>
-    kubectl delete -f <FILENAME>
-```
+        kubectl apply -f <FILENAME>
+        kubectl delete -f <FILENAME>
+    ```
