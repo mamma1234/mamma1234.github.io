@@ -417,96 +417,386 @@ Successfully assigned -> Pulling image -> Successfully pulled image -> Created c
         Normal  Started    3m50s      kubelet, ip-172-26-1-227  Started container whoami
 ```
 
-kubectl delete po/whoami
-kubectl delete deployment/whoami
-
+```JavaScript
+    kubectl delete po/whoami
+    kubectl delete deployment/whoami
+```
 
 - livenessProbe 예제 (살아 있는지 조사)
 
 ```JavaScript
-    apiVersion: v1
-    kind: Pod
-    metadata:
-    name: whoami-lp
-    labels:
-        type: app
-    spec:
-    containers:
-    - name: app
-        image: subicura/whoami:1
-        livenessProbe:
-        httpGet:
-            path: /not/exist
-            port: 8080
-        initialDelaySeconds: 5
-        timeoutSeconds: 2 # Default 1
-        periodSeconds: 5 # Defaults 10
-        failureThreshold: 1 # Defaults 3
+apiVersion: v1
+kind: Pod
+metadata:
+  name: whoami-lp
+  labels:
+    type: app
+spec:
+  containers:
+  - name: app
+    image: subicura/whoami:1
+    livenessProbe:
+      httpGet:
+        path: /not/exist
+        port: 8080
+      initialDelaySeconds: 5
+      timeoutSeconds: 2 # Default 1
+      periodSeconds: 5 # Defaults 10
+      failureThreshold: 1 # Defaults 3
 
 ```
 
 - readinessProbe 예제 (준비가 되었는지 조사)
 
 ```JavaScript
-    apiVersion: v1
-    kind: Pod
-    metadata:
-    name: whoami-rp
-    labels:
-        type: app
-    spec:
-    containers:
-    - name: app
-        image: subicura/whoami:1
-        readinessProbe:
-        httpGet:
-            path: /not/exist
-            port: 8080
-        initialDelaySeconds: 5
-        timeoutSeconds: 2 # Default 1
-        periodSeconds: 5 # Defaults 10
-        failureThreshold: 1 # Defaults 3
+apiVersion: v1
+kind: Pod
+metadata:
+  name: whoami-rp
+  labels:
+    type: app
+spec:
+  containers:
+  - name: app
+    image: subicura/whoami:1
+    readinessProbe:
+      httpGet:
+        path: /not/exist
+        port: 8080
+      initialDelaySeconds: 5
+      timeoutSeconds: 2 # Default 1
+      periodSeconds: 5 # Defaults 10
+      failureThreshold: 1 # Defaults 3
 ```
 
 - health check 예제
 
 ```JavaScript
-    apiVersion: v1
-    kind: Pod
-    metadata:
-    name: whoami-health
-    labels:
-        type: app
-    spec:
-    containers:
-    - name: app
-        image: subicura/whoami:1
-        livenessProbe:
-        httpGet:
-            path: /
-            port: 4567
-        readinessProbe:
-        httpGet:
-            path: /
-            port: 4567
+apiVersion: v1
+kind: Pod
+metadata:
+  name: whoami-health
+  labels:
+    type: app
+spec:
+  containers:
+  - name: app
+    image: subicura/whoami:1
+    livenessProbe:
+      httpGet:
+        path: /
+        port: 4567
+    readinessProbe:
+      httpGet:
+        path: /
+        port: 4567
 ```
 
 - multi container 예제
 
 ```JavaScript
-    apiVersion: v1
-    kind: Pod
-    metadata:
-    name: whoami-redis
-    labels:
-        type: stack
-    spec:
-    containers:
-    - name: app
-        image: subicura/whoami-redis:1
-        env:
-        - name: REDIS_HOST
-        value: "localhost"
-    - name: db
-        image: redis
+apiVersion: v1
+kind: Pod
+metadata:
+  name: whoami-redis
+  labels:
+    type: stack
+spec:
+  containers:
+  - name: app
+    image: subicura/whoami-redis:1
+    env:
+    - name: REDIS_HOST
+      value: "localhost"
+  - name: db
+    image: redis
 ```
+
+
+#### Replicaset
+레플리카셋의 목적은 레플리카 파드 집합의 실행을 항상 안정적으로 유지하는 것이다. 이처럼 레플리카셋은 보통 명시된 동일 파드 개수에 대한 가용성을 보증하는데 사용한다.
+
+```JavaScript
+apiVersion: apps/v1beta2
+kind: ReplicaSet
+metadata:
+  name: whoami-rs
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      type: app
+      service: whoami
+  template:
+    metadata:
+      labels:
+        type: app
+        service: whoami
+    spec:
+      containers:
+      - name: whoami
+        image: subicura/whoami:1
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 4567
+```
+
+
+#### Deployment
+디플로이먼트(Deployment) 는 파드와 레플리카셋(ReplicaSet)에 대한 선언적 업데이트를 제공한다.
+
+디플로이먼트에서 의도하는 상태 를 설명하고, 디플로이먼트 컨트롤러(Controller)는 현재 상태에서 의도하는 상태로 비율을 조정하며 변경한다. 새 레플리카셋을 생성하는 디플로이먼트를 정의하거나 기존 디플로이먼트를 제거하고, 모든 리소스를 새 디플로이먼트에 적용할 수 있다.
+
+kubectl get rs -w
+
+```JavaScript
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: whoami-deploy
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      type: app
+      service: whoami
+  template:
+    metadata:
+      labels:
+        type: app
+        service: whoami
+    spec:
+      containers:
+      - name: whoami
+        image: subicura/whoami:1
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 4567
+```
+
+
+- 배포 오류로 이전으로 되돌아가야 할 때
+kubectl rollout undo deploy/whoami-deploy
+
+
+#### service
+파드 집합에서 실행중인 애플리케이션을 네트워크 서비스로 노출하는 추상화 방법
+쿠버네티스를 사용하면 익숙하지 않은 서비스 디스커버리 메커니즘을 사용하기 위해 애플리케이션을 수정할 필요가 없다. 쿠버네티스는 파드에게 고유한 IP 주소와 파드 집합에 대한 단일 DNS 명을 부여하고, 그것들 간에 로드-밸런스를 수행할 수 있다.
+
+
+```JavaScript
+
+    apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+    name: redis
+    spec:
+    selector:
+        matchLabels:
+        type: db
+        service: redis
+    template:
+        metadata:
+        labels:
+            type: db
+            service: redis
+        spec:
+        containers:
+        - name: redis
+            image: redis
+            ports:
+            - containerPort: 6379
+            protocol: TCP
+    ---
+
+    apiVersion: v1
+    kind: Service
+    metadata:
+    name: redis
+    spec:
+    ports:
+    - port: 6379
+        protocol: TCP
+    selector:
+        type: db
+        service: redis
+```
+
+```JavaScript
+
+    $ kubectl describe service/redis
+    Name:              redis
+    Namespace:         default
+    Labels:            <none>
+    Annotations:       Selector:  service=redis,type=db
+    Type:              ClusterIP
+    IP:                10.43.109.181
+    Port:              <unset>  6379/TCP
+    TargetPort:        6379/TCP
+    Endpoints:         10.42.0.12:6379,10.42.0.13:6379,10.42.0.14:6379
+    Session Affinity:  None
+    Events:            <none>
+
+```
+
+
+
+```JavaScript
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: whoami
+spec:
+  selector:
+      matchLabels:
+        type: app
+        service: whoami
+  template:
+      metadata:
+        labels:
+            type: app
+            service: whoami
+      spec:
+        containers:
+        - name: whoami
+          image: subicura/whoami-redis:1
+          env:
+          - name: REDIS_HOST
+            value: "redis"
+          - name: REDIS_PORT
+            value: "6379"
+```
+
+
+
+kubectl exec -it pod/whoami-68f4d76b9-nxr47 sh
+
+- telnet 설치
+
+apk add curl busybox-extras
+
+
+
+- 노드 포트
+
+```JavaScript
+apiVersion: v1
+kind: Service
+metadata:
+  name: whoami
+spec:
+  type: NodePort
+  ports:
+  - port: 4567
+    protocol: TCP
+  selector:
+    type: app
+    service: whoami
+
+$kubectl get all
+4567:31807/TCP
+
+http://13.125.200.94:31807/
+
+```
+
+#### load balancer
+
+
+
+- 노드밸런스
+
+```JavaScript
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: whoami
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 8000
+    targetPort: 4567
+    protocol: TCP
+  selector:
+    type: app
+    service: whoami
+
+
+```
+
+
+#### ingress
+
+클러스터 내의 서비스에 대한 외부 접근을 관리하는 API 오브젝트이며, 일반적으로 HTTP를 관리함.
+인그레스는 부하 분산, SSL 종료, 명칭 기반의 가상 호스팅을 제공할 수 있다.
+
+```JavaScript
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: whoami-v1
+  annotations:
+    ingress.kubernetes.io/rewrite-target: "/"
+    ingress.kubernetes.io/ssl-redirect: "false"
+spec:
+  rules:
+  - host: v1.whoami.13.125.200.94.sslip.io
+    http:
+      paths: 
+      - path: /
+        backend:
+          serviceName: whoami-v1
+          servicePort: 4567
+
+---
+
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: whoami-v1
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      type: app
+      service: whoami
+      version: v1
+  template:
+    metadata:
+      labels:
+        type: app
+        service: whoami
+        version: v1
+    spec:
+      containers:
+      - name: whoami
+        image: subicura/whoami:1
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 4567
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: whoami-v1
+spec:
+  ports:
+  - port: 4567
+    protocol: TCP
+  selector:
+    type: app
+    service: whoami
+    version: v1
+```
+
+http://v1.whoami.13.125.200.94.sslip.io/
+
+
+#### Horizontal Pod Autoscaler
