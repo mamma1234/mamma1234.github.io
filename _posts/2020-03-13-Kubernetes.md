@@ -356,37 +356,157 @@ kubectl api-resources
 
 
 - 다양한 사용법
-    get
-    ```JavaScript
-        # pod, replicaset, deployment, service 조회
-        kubectl get all
+-- get
+```JavaScript
+    # pod, replicaset, deployment, service 조회
+    kubectl get all
 
-        # node 조회
-        kubectl get no
-        kubectl get node
-        kubectl get nodes
+    # node 조회
+    kubectl get no
+    kubectl get node
+    kubectl get nodes
 
-        # 결과 포멧 변경
-        kubectl get nodes -o wide
-        kubectl get nodes -o yaml
-        kubectl get nodes -o json
-        kubectl get nodes -o json |
-            jq ".items[] | {name:.metadata.name} + .status.capacity"
-    ```
+    # 결과 포멧 변경
+    kubectl get nodes -o wide
+    kubectl get nodes -o yaml
+    kubectl get nodes -o json
+    kubectl get nodes -o json |
+        jq ".items[] | {name:.metadata.name} + .status.capacity"
+```
 
-    describe
-    ```JavaScript
-        # kubectl describe type/name
-        # kubectl describe type name
-        kubectl describe node <node name>
-        kubectl describe node/<node name>
-    ```
+-- describe
+```JavaScript
+    # kubectl describe type/name
+    # kubectl describe type name
+    kubectl describe node <node name>
+    kubectl describe node/<node name>
+```
 
-    그외 자주 사용하는 명령어
-    ```JavaScript
-        kubectl exec -it <POD_NAME>
-        kubectl logs -f <POD_NAME|TYPE/NAME>
+-- 그외 자주 사용하는 명령어
+```JavaScript
+    kubectl exec -it <POD_NAME>
+    kubectl logs -f <POD_NAME|TYPE/NAME>
 
-        kubectl apply -f <FILENAME>
-        kubectl delete -f <FILENAME>
-    ```
+    kubectl apply -f <FILENAME>
+    kubectl delete -f <FILENAME>
+```
+
+
+#### Pod
+
+kubectl run whoami --image subicura/whoami:1 # deprecated soon..
+kubectl describe pods whoami
+kubectl describe po/whoami
+
+
+- Events 확인
+
+Successfully assigned -> Pulling image -> Successfully pulled image -> Created container -> Started container
+
+```JavaScript
+        Node-Selectors:  <none>
+        Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
+                        node.kubernetes.io/unreachable:NoExecute for 300s
+        Events:
+        Type    Reason     Age        From                      Message
+        ----    ------     ----       ----                      -------
+        Normal  Scheduled  <unknown>  default-scheduler         Successfully assigned default/whoami to ip-172-26-1-227
+        Normal  Pulling    4m         kubelet, ip-172-26-1-227  Pulling image "subicura/whoami:1"
+        Normal  Pulled     3m52s      kubelet, ip-172-26-1-227  Successfully pulled image "subicura/whoami:1"
+        Normal  Created    3m50s      kubelet, ip-172-26-1-227  Created container whoami
+        Normal  Started    3m50s      kubelet, ip-172-26-1-227  Started container whoami
+```
+
+kubectl delete po/whoami
+kubectl delete deployment/whoami
+
+
+- livenessProbe 예제 (살아 있는지 조사)
+
+```JavaScript
+    apiVersion: v1
+    kind: Pod
+    metadata:
+    name: whoami-lp
+    labels:
+        type: app
+    spec:
+    containers:
+    - name: app
+        image: subicura/whoami:1
+        livenessProbe:
+        httpGet:
+            path: /not/exist
+            port: 8080
+        initialDelaySeconds: 5
+        timeoutSeconds: 2 # Default 1
+        periodSeconds: 5 # Defaults 10
+        failureThreshold: 1 # Defaults 3
+
+```
+
+- readinessProbe 예제 (준비가 되었는지 조사)
+
+```JavaScript
+    apiVersion: v1
+    kind: Pod
+    metadata:
+    name: whoami-rp
+    labels:
+        type: app
+    spec:
+    containers:
+    - name: app
+        image: subicura/whoami:1
+        readinessProbe:
+        httpGet:
+            path: /not/exist
+            port: 8080
+        initialDelaySeconds: 5
+        timeoutSeconds: 2 # Default 1
+        periodSeconds: 5 # Defaults 10
+        failureThreshold: 1 # Defaults 3
+```
+
+- health check 예제
+
+```JavaScript
+    apiVersion: v1
+    kind: Pod
+    metadata:
+    name: whoami-health
+    labels:
+        type: app
+    spec:
+    containers:
+    - name: app
+        image: subicura/whoami:1
+        livenessProbe:
+        httpGet:
+            path: /
+            port: 4567
+        readinessProbe:
+        httpGet:
+            path: /
+            port: 4567
+```
+
+- multi container 예제
+
+```JavaScript
+    apiVersion: v1
+    kind: Pod
+    metadata:
+    name: whoami-redis
+    labels:
+        type: stack
+    spec:
+    containers:
+    - name: app
+        image: subicura/whoami-redis:1
+        env:
+        - name: REDIS_HOST
+        value: "localhost"
+    - name: db
+        image: redis
+```
