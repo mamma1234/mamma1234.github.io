@@ -90,6 +90,18 @@ browser.get("http://asdfkakd.com")
 browser.quit()
 ```
 
+
+### headless
+
+```JavaScript
+from selenium import webdriver
+options = webdriver.ChromeOptions()
+option.headless = True
+option.add_argument("window-size=1920x1080)
+
+
+```
+
 ### why
 웹 크롤링 및 스크래핑을 위한 Python 라이브러리 : Scrapy
 파이썬 웹브라우저 자동화 라이브러리 : Selenium
@@ -277,3 +289,7 @@ quit()는 dispose() 함수를 불러와 열려있는 모든 webdriver를 종료�
 
 하나의 webdriver가 열려있다면 close()와 quit() 어느 것을 사용해도 동일한 작업을 수행합니다.
 하지만 2개 이상의 webdriver가 열려있다면 close()와 quit() 다르게 작동 하는것을 유의해야합니다.
+
+
+
+## 응용
