@@ -1,5 +1,5 @@
 title:            MAMMA's Blog
-description:      "각종 정보 공유"
+description:      "각종 정보 기록"
 logo:             logo.png
 disqus_shortname: mamma1234
 disqus_url : mamma1234@gamil.com
@@ -24,9 +24,9 @@ owner:
   description:    A person longing for any dream for a long time  resembles that dream at last .
   # Social networking links used in footer. Update and remove as you like.
   #twitter:        hmfaysal
-  #facebook:       hmfaysal
+  facebook:       mamma1234
   github:         mamma1234      
-  #instagram:      hmfaysal
+  instagram:      mamma_amazing
   # For Google Authorship https://plus.google.com/authorship
   #google_plus:    https://plus.google.com/u/0/102602916593522619858
 
