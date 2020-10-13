@@ -19,8 +19,32 @@ disqus:
 # Express
 
 
-## Introduction
+## install
 
+```JavaScript
+$ npm init
+$ yarn add express
+
+$ vi package.json
+-- add
+ "scripts": {
+    "server": "node server.js"
+  },
+
+
+$ vi server.js
+
+'use strict';
+
+const express = require('express');
+const app = express();
+const router = express.Router();
+
+
+app.listen(5009, () => console.log(`Listening on port 5009`));
+
+$ yarn server
+```
 
 ## express
 app.set
