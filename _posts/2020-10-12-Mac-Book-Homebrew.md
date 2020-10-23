@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "Mac Pro Book"
+title: "Mac Pro Book Homebrew"
 description: 
 headline: 
 modified: 2020-10-12
-category: Mac Pro Book
+category: Mac Pro Book Homebrew
 imagefeature: cover3.jpg
-tags: [Mac Pro Book]
+tags: [Mac Pro Book Homebrew]
 mathjax: 
 chart: 
 share: true
