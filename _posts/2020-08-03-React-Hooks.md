@@ -31,6 +31,26 @@ disqus:
   - useLayoutEffect
   - useDebugValue
 
+## useState
+```JavaScript
+import React, { useState } from "react";
+
+const UseStateSample = () => {
+  const [value, setValue] = useState(0);
+  return (
+    <div>
+      <p>
+        UseState : 현재 카운터 값은 <b>{value}</b> 입니다.
+      </p>
+      <button onClick={() => setValue(value + 1)}>+1</button>
+      <button onClick={() => setValue(value - 1)}>-1</button>
+    </div>
+  );
+};
+
+export default UseStateSample;
+```
+
 
 # User Hook
 - useInput
