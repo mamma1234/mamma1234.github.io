@@ -31,7 +31,7 @@ disqus:
   - useLayoutEffect
   - useDebugValue
 
-## useState
+### useState
 ```JavaScript
 import React, { useState } from "react";
 
@@ -51,6 +51,158 @@ const UseStateSample = () => {
 export default UseStateSample;
 ```
 
+### useEffect
+```JavaScript
+import React, { useState, useEffect } from "react";
+
+const UseEffectSample = (pros) => {
+  const [name, setName] = useState("");
+  const [nickname, setNickname] = useState("");
+  const [parentname, setParentname] = useState(pros.parentname);
+
+  useEffect(() => {
+    console.log("렌더링 될 때마다 수행");
+    console.log({
+      name,
+      nickname
+    });
+  });
+
+  useEffect(() => {
+    console.log("마운트 될 때만 실행됩니다.");
+  }, []);
+
+  useEffect(() => {
+    console.log("name stats가 변환될때만 수행 ", name);
+  }, [name]);
+
+  useEffect(() => {
+    console.log("effect");
+    console.log(name);
+    return () => {
+      console.log("cleanup");
+      console.log(name);
+    };
+  });
+
+  useEffect(() => {
+    return () => {
+      console.log("언마운트 될 때만 실행됩니다.");
+    };
+  }, []);
+
+  const onChangeName = (e) => {
+    setName(e.target.value);
+  };
+
+  const onChangeNickname = (e) => {
+    setNickname(e.target.value);
+  };
+
+  return (
+    <div>
+      <div>
+        UseEffect:
+        <input value={name} onChange={onChangeName} />
+        <input value={nickname} onChange={onChangeNickname} />
+      </div>
+      <div>
+        <div>
+          <b>이름:</b> {name}
+        </div>
+        <div>
+          <b>닉네임: </b>
+          {nickname}
+        </div>
+        <div>
+          <button onClick={() => setParentname(pros.parentname)}>
+            {" "}
+            부모이름가져오기
+          </button>
+          <b>부모이름: </b>
+          {parentname}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default UseEffectSample;
+
+```
+
+### useContext
+
+```JavaScript
+import React, { useState } from "react";
+
+const themes = {
+  light: {
+    foreground: "#000000",
+    background: "#eeeeee"
+  },
+  dark: {
+    foreground: "#ffffff",
+    background: "#222222"
+  }
+};
+
+const ThemeContext = React.createContext(themes.light);
+
+function UseContextSample() {
+  return (
+    <ThemeContext.Provider value={themes.dark}>
+      <Toolbar />
+    </ThemeContext.Provider>
+  );
+}
+
+function Toolbar(props) {
+  return (
+    <div>
+      <ThemedButton />
+    </div>
+  );
+}
+
+function ThemedButton() {
+  const theme = React.useContext(ThemeContext);
+  return (
+    <button style={{ background: theme.background, color: theme.foreground }}>
+      I am styled by theme context!
+    </button>
+  );
+}
+
+export default UseContextSample;
+
+```
+
+
+
+### useReducer
+```JavaScript
+```
+### useCallback
+```JavaScript
+```
+### useMemo
+```JavaScript
+```
+### useRef
+```JavaScript
+```
+### useImperativeHandle
+```JavaScript
+```
+### useLayoutEffect
+```JavaScript
+```
+### useDebugValue
+```JavaScript
+```
+
+
 
 # User Hook
 - useInput
@@ -68,7 +220,7 @@ export default UseStateSample;
 - useNotification
 - useAxios
 
-## useInput 
+### useInput 
 
 ```JavaScript
 
@@ -125,7 +277,7 @@ export default function Hook1() {
 ```
 
 
-## useTabs 
+### useTabs 
 
 ```JavaScript
 
@@ -175,7 +327,7 @@ export default function Hook1() {
 ```
 
 
-## useTitle
+### useTitle
 
 ```JavaScript
 
@@ -216,7 +368,7 @@ export default function Hook2() {
 
 ```
 
-## useClick & useHover
+### useClick & useHover
 
 ```JavaScript
 
@@ -265,7 +417,7 @@ export default function Hook2() {
 ```
 
 
-## useConfirm && usePreventLeave
+### useConfirm && usePreventLeave
 
 ```JavaScript
 
@@ -322,7 +474,7 @@ export default function Hook3() {
 ```
 
 
-## useBeforeLeave
+### useBeforeLeave
 
 ```JavaScript
 
@@ -363,7 +515,7 @@ export default function Hook4() {
 ```
 
 
-## useFadeIn
+### useFadeIn
 
 ```JavaScript
 import React, { useState, useEffect, useRef } from "react";
@@ -404,7 +556,7 @@ export default function Hook5() {
 
 
 
-## useNetwork
+### useNetwork
 
 ```JavaScript
 
@@ -450,7 +602,7 @@ export default function Hook5() {
 
 
 
-## useScroll
+### useScroll
 
 ```JavaScript
 
@@ -495,7 +647,7 @@ export default function Hook6() {
 
 
 
-## useFullscreen 
+### useFullscreen 
 
 ```JavaScript
 
@@ -569,7 +721,7 @@ export default function Hook6() {
 
 
 
-## useNotification 
+### useNotification 
 
 ```JavaScript
 
@@ -622,7 +774,7 @@ export default function Hook7() {
 
 
 
-## useAxios 
+### useAxios 
 
 ```JavaScript
 
