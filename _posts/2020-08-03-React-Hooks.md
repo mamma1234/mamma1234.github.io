@@ -601,6 +601,7 @@ export default UseDebugValueSample;
 
 # User Hook
 - useInput
+- usePromise
 - useTabs
 - useTitle
 - useClick
@@ -618,10 +619,11 @@ export default UseDebugValueSample;
 ### useInput 
 
 ```JavaScript
+import React, { useState, useReducer } from "react";
 
-const useInput = initialValue => {
+const useInput = (initialValue) => {
   const [value, setValue] = useState(initialValue);
-  const onChange = event => {
+  const onChange = (event) => {
     const {
       target: { value }
     } = event;
@@ -634,7 +636,7 @@ const useInput = initialValue => {
 
 const useInput2 = (initialValue, validator) => {
   const [value, setValue] = useState(initialValue);
-  const onChange = event => {
+  const onChange = (event) => {
     const {
       target: { value }
     } = event;
@@ -650,25 +652,123 @@ const useInput2 = (initialValue, validator) => {
   return { value, onChange };
 };
 
+function reducer(state, action) {
+  return {
+    ...state,
+    [action.name]: action.value
+  };
+}
 
+const useInput3 = (initialForm) => {
+  const [state, dispatch] = useReducer(reducer, initialForm);
+  const onChange = (e) => {
+    dispatch(e.target);
+  };
+  return [state, onChange];
+};
 
-export default function Hook1() {
+export default function UserInput() {
   const [item, setItem] = useState(1);
   const incrementItem = () => setItem(item + 1);
   const decrementItem = () => setItem(item - 1);
   const name = useInput("Mr:");
-  const maxLen = value => value.length < 10;
+  const maxLen = (value) => value.length < 10;
   const name2 = useInput2("Mr:", maxLen);
+
+  const [state, onChange] = useInput3({
+    name3: "",
+    nickname3: ""
+  });
+  const { name3, nickname3 } = state;
+
   return (
     <div className="App">
-      <h1>Hello State Hook {item}</h1>
-      <button onClick={incrementItem}>Increment</button>
-      <button onClick={decrementItem}>Decrement</button>
+      <h3>* User Input</h3>
+      <h5>Hello State Hook {item}</h5>
+      <div>
+        <button onClick={incrementItem}>Increment</button>
+        <button onClick={decrementItem}>Decrement</button>
+      </div>
       <input placeholder="Name" {...name} />
       <input placeholder="Name" {...name2} />
+      <div>
+        <input name="name3" value={name3} onChange={onChange} />
+        <b>이름:</b> {name3}
+        <input name="nickname3" value={nickname3} onChange={onChange} />
+        <b>이름:</b> {nickname3}
+      </div>
     </div>
   );
 }
+
+
+```
+
+### usePromise
+
+```JavaScript
+import React, { useState, useEffect } from "react";
+// import usePromise from './usePromise';
+
+const usePromise = (promiseCreator, deps) => {
+  const [resolved, setResolved] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+  const process = async () => {
+    setLoading(true);
+    try {
+      const result = await promiseCreator();
+      setResolved(result);
+    } catch (e) {
+      setError(e);
+    }
+    setLoading(false);
+  };
+
+  useEffect(() => {
+    process();
+  }, deps);
+
+  return [loading, resolved, error];
+};
+
+const wait = () => {
+  // 3초 후에 끝나는 프로미스를 반환
+  return new Promise((resolve) =>
+    setTimeout(() => resolve("Hello hooks!"), 3000)
+  );
+};
+const UsePromiseSample = () => {
+  const [loading, resolved, error] = usePromise(wait, []);
+
+  if (loading)
+    return (
+      <>
+        <h3>* User Promise</h3>
+        <div>로딩중..!</div>
+      </>
+    );
+  if (error)
+    return (
+      <>
+        <h3>* User Promise</h3>
+        <div>에러 발생!</div>
+      </>
+    );
+  if (!resolved) return null;
+
+  return (
+    <>
+      <h3>* User Promise</h3>
+      <div>{resolved}</div>
+    </>
+  );
+};
+
+export default UsePromiseSample;
+
+
 ```
 
 
