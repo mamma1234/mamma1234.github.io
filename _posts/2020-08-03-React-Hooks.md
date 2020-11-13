@@ -1275,7 +1275,10 @@ export default function Hook7() {
 
 
 import defaultAxios from "axios";
-import { useState, useEffect } from "react";
+// import { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
+// import "./styles.css";
+// import useAxios from "./useAxios";
 
 const useAxios = (opts, axiosInstance = defaultAxios) => {
   const [state, setState] = useState({
@@ -1297,6 +1300,7 @@ const useAxios = (opts, axiosInstance = defaultAxios) => {
   useEffect(() => {
     axiosInstance(opts)
       .then((data) => {
+        console.log(data);
         setState({ ...state, loading: false, data });
       })
       .catch((error) => {
@@ -1306,27 +1310,22 @@ const useAxios = (opts, axiosInstance = defaultAxios) => {
   return { ...state, refetch };
 };
 
-export default useAxios;
-
-
-
-import React, { useState, useEffect, useRef, useCallback } from "react";
-import "./styles.css";
-import useAxios from "./useAxios";
-
-export default function Hook8() {
+export default function UserAxios() {
   const { loading, data, error, refetch } = useAxios({
-    url:
-      "https://cors-anywhere.herokuapp.com/https://yts.am/api/v2/list_movies.json"
+    // url: "https://cors-anywhere.herokuapp.com"
+    url: "https://yts.mx/api/v2/list_movies.json"
   });
   // console.log(
   //   `Loading:${loading}\nError:${error}\nData:${JSON.stringify(data)}`
   // );
   return (
     <div className="App">
-      <h1>{data && data.status}</h1>
-      <h2>{loading && "Loading"} </h2>
-      <h2>{error} </h2>
+      <h3>* User Axios</h3>
+      <h5>{data && data.status}</h5>
+      <h5>{loading && "Loading"} </h5>
+      <h5>{error} </h5>
+      {/* <h5>{String(data.data)}</h5> */}
+      <h5>{JSON.stringify(data)}</h5>
       <button onClick={refetch}>refetch</button>
     </div>
   );
