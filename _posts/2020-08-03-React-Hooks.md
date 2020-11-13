@@ -958,6 +958,7 @@ export default function Hook3() {
   return (
     <div className="App">
       <h1>Hello Effect Hook {item}</h1>
+      <h5>enablePrevent 사이트에서 나가시겠습니까?</h5>
       <button onClick={confirmDelete}>Delete the world</button>
       <button onClick={enablePrevent}>protect</button>
       <button onClick={disablePrevent}>unprotect</button>
