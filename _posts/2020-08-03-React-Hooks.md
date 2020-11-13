@@ -450,7 +450,7 @@ export default UseRefSample;
 
 ```
 
-#### ref
+#### ref 전달 참조
 ```JavaScript
 import React, { Component } from "react";
 
@@ -506,9 +506,69 @@ export default RefSample;
 
 ### useImperativeHandle
 ```JavaScript
+import React, { useImperativeHandle, useRef } from "react";
+
+const FormControl = React.forwardRef((props, ref) => {
+  const inputRef = useRef(null);
+  useImperativeHandle(
+    ref,
+    () => ({
+      getValue() {
+        return inputRef.current.value;
+      }
+    }),
+    [inputRef]
+  ); // deps도 추가가능하다.
+  return (
+    <div className="form-control">
+      <input type="text" ref={inputRef} />
+    </div>
+  );
+});
+
+const UseImperativeHandleSample = () => {
+  const inputRef = React.useRef();
+  return (
+    <div className="App">
+      <h4>useImperativeHandle</h4>
+      <FormControl ref={inputRef} />
+      <button
+        onClick={() => {
+          console.log(inputRef.current.getValue());
+        }}
+      >
+        focus
+      </button>
+    </div>
+  );
+};
+export default UseImperativeHandleSample;
+
 ```
 ### useLayoutEffect
+
+- 서버에서 렌더링된 HTML에서 레이아웃 effect가 필요한 컴포넌트를 배제하고 싶다면, showChild && <Child />를 사용하여 조건적으로 렌더링 하고 useEffect(() => { setShowChild(true); }, [])를 사용하여 노출을 지연시키세요. 이런 방법으로 자바스크립트 코드가 주입되기 전에 깨져 보일 수 있는 UI는 표현되지 않게 됩니다.
+
 ```JavaScript
+
+import React, { useEffect, useLayoutEffect } from "react";
+function UseImperativeHandleSample() {
+  useLayoutEffect(() => {
+    console.log("useLayoutEffect");
+  });
+  useEffect(() => {
+    console.log("useEffect");
+  });
+  console.log("render");
+  return (
+    <>
+      <h4>UseImperativeHandleSample</h4>
+    </>
+  );
+}
+export default UseImperativeHandleSample;
+
+
 ```
 ### useDebugValue
 ```JavaScript
