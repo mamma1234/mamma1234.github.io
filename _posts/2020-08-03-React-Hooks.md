@@ -776,6 +776,8 @@ export default UsePromiseSample;
 
 ```JavaScript
 
+import React, { useState } from "react";
+
 const content = [
   {
     tab: "Section 1",
@@ -800,17 +802,13 @@ const useTabs = (initialTab, allTabs) => {
   };
 };
 
-
-
-
-export default function Hook1() {
-  const [item, setItem] = useState(1);
+export default function UserTabs() {
   // const tabs = useTabs(0, content);
   const { currentItem, changeItem } = useTabs(0, content);
   console.log(currentItem);
   return (
     <div className="App">
-      <h1>Hello State Hook {item}</h1>
+      <h3>* User Tabs</h3>
       {content.map((section, index) => (
         <button onClick={() => changeItem(index)}>{section.tab}</button>
       ))}
@@ -818,6 +816,7 @@ export default function Hook1() {
     </div>
   );
 }
+
 
 ```
 
