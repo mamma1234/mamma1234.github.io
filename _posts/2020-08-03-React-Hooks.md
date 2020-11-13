@@ -178,10 +178,111 @@ export default UseContextSample;
 
 ```
 
+#### Composition 합성
+
+```JavaScript
+import React, { useState } from "react";
+
+function FancyBorder(props) {
+  return (
+    <div className={"FancyBorder FancyBorder-" + props.color}>
+      {props.children}
+    </div>
+  );
+}
+
+function Composition() {
+  return (
+    <FancyBorder color="blue">
+      <h1 className="Dialog-title">합성 Composition</h1>
+      <p className="Dialog-message">Thank you for visiting our spacecraft!</p>
+    </FancyBorder>
+  );
+}
+
+export default Composition;
+```
 
 
 ### useReducer
 ```JavaScript
+
+- 예시 1
+import React, { useReducer } from "react";
+
+function reducer(state, action) {
+  // action.type 에 따라 다른 작업 수행
+  switch (action.type) {
+    case "INCREMENT":
+      return { value: state.value + 1 };
+    case "DECREMENT":
+      return { value: state.value - 1 };
+    default:
+      // 아무것도 해당되지 않을 때 기존 상태 반환
+      return state;
+  }
+}
+
+const UseReducerSample = () => {
+  const [state, dispatch] = useReducer(reducer, { value: 0 });
+
+  return (
+    <div>
+      <h4>useReducer</h4>
+      <p>
+        현재 카운터 값은 <b>{state.value}</b> 입니다.
+      </p>
+      <button onClick={() => dispatch({ type: "INCREMENT" })}>+1</button>
+      <button onClick={() => dispatch({ type: "DECREMENT" })}>-1</button>
+    </div>
+  );
+};
+
+export default UseReducerSample;
+
+
+
+- 예시 2
+import React, { useReducer } from 'react';
+
+function reducer(state, action) {
+  return {
+    ...state,
+    [action.name]: action.value
+  };
+}
+
+const UseReducer2Sample = () => {
+  const [state, dispatch] = useReducer(reducer, {
+    name: '',
+    nickname: ''
+  });
+  const { name, nickname } = state;
+  const onChange = e => {
+    dispatch(e.target);
+  };
+
+  return (
+    <div>
+      <div>
+        <input name="name" value={name} onChange={onChange} />
+        <input name="nickname" value={nickname} onChange={onChange} />
+      </div>
+      <div>
+        <div>
+          <b>이름:</b> {name}
+        </div>
+        <div>
+          <b>닉네임: </b>
+          {nickname}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default UseReducer2Sample;
+
 ```
 ### useCallback
 ```JavaScript
