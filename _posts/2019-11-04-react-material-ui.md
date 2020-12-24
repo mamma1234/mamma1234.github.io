@@ -37,7 +37,8 @@ disqus:
 
 ```
 next // 내장되어 있는 webpack-dev-server로 기동
-next build // 프로젝트를 빌드하여 .next 폴더를 생성한다.
+next build // 프로젝트를 빌드하여 .next 폴더를 생성한다.ls
+
 next start // 빌드된 .next 폴더를 기준으로 웹 서버를 기동해준다.
 next export // html 파일들로 내보내기를 해준다.
 ```
