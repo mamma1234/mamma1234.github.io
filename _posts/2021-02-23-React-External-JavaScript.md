@@ -6,7 +6,7 @@ headline:
 modified: 2021-02-23
 category: webdevelopment
 imagefeature: cover3.jpg
-tags: [React]
+tags: [React External JavaScript]
 mathjax: 
 chart: 
 share: true
