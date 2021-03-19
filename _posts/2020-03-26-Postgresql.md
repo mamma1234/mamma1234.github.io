@@ -16,6 +16,23 @@ disqus:
 ---
 # Postgresql
 
+
+## lock 해소
+```JavaScript
+
+select * from pg_catalog.pg_locks
+
+select * from pg_catalog.pg_locks a, pg_catalog.pg_stat_all_tables b where a.relation = b.relid
+
+select * from pg_catalog.pg_stat_activity
+
+select pg_cancel_backend(31129);
+
+select pg_terminate_backend(31129) from pg_stat_activity
+
+
+```
+
 ## PostgreSQL Exception handling detail with GET STACKED DIAGNOSTICS
 
 ```JavaScript
