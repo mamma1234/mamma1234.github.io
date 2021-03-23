@@ -17,7 +17,6 @@ disqus:
 # Postgresql
 
 ## 목차
-- [test](#test)
 - [lock 해소](#lock 해소)
 - [PostgreSQL Exception handling detail with GET STACKED DIAGNOSTICS](#PostgreSQL-Exception-handling-detail-with-GET-STACKED-DIAGNOSTICS)
 - [Use RAISE Statements to debug](#Use RAISE Statements to debug)
@@ -29,7 +28,6 @@ disqus:
 - [Foreign Data Wrapper for Oracle](#Foreign Data Wrapper for Oracle)
 - [Connection state](#Connection state)
 
-## test
 
 ## lock 해소
 ```JavaScript
