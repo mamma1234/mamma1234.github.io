@@ -27,7 +27,7 @@ disqus:
 - [lock 삭제](#lock 삭제)
 - [Postgres connection has been closed error in Spring Boot](#Postgres connection has been closed error in Spring Boot)
 - [Foreign Data Wrapper for Oracle](#Foreign Data Wrapper for Oracle)
-
+- [Connection state](#Connection state)
 
 ## test
 
@@ -318,7 +318,7 @@ CREATE FOREIGN TABLE oratab (
 
 
 ## Connection state
-Active — 현재 쿼리가 실행 중인 상태를 의미하며, 한번에 얼마나 많은 컨넥션이 필요한지를 나타냅니다.
-Idle — Application과 DB가 연결되었지만 실제 사용하지 않는 상태를 의미합니다. 대부분의 프레임워크는 이러한 연결을 풀로 관리합니다. 만약 Idle connection 관리가 필요하거나 많은 idle connection으로 문제가 될 경우 PgBouncer와 같은 pooler를 통하여 성능을 향상 시킬 수 있습니다. 링크를 통하여 설정에 대한 자세한 내용을 확인할 수 있습니다.
-Idle in transaction — idle과 비슷하지만, transaction이 걸려있는 상태(BEGIN)로서 트렌젝션이 종료되기를 기다리고 있고 아무 작업도 하지 않는 상태를 의미합니다.
-Idle in transaction (aborted) — 취소가 된 idle in transaction 상태를 의미합니다
+* Active — 현재 쿼리가 실행 중인 상태를 의미하며, 한번에 얼마나 많은 컨넥션이 필요한지를 나타냅니다.
+* Idle — Application과 DB가 연결되었지만 실제 사용하지 않는 상태를 의미합니다. 대부분의 프레임워크는 이러한 연결을 풀로 관리합니다.  만약 Idle connection 관리가 필요하거나 많은 idle connection으로 문제가 될 경우 PgBouncer와 같은 pooler를 통하여 성능을 향상 시킬 수 있습니다. 링크를 통하여 설정에 대한 자세한 내용을 확인할 수 있습니다.
+* Idle in transaction — idle과 비슷하지만, transaction이 걸려있는 상태(BEGIN)로서 트렌젝션이 종료되기를 기다리고 있고 아무 작업도 하지 않는 상태를 의미합니다.
+* Idle in transaction (aborted) — 취소가 된 idle in transaction 상태를 의미합니다
