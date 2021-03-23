@@ -320,3 +320,6 @@ CREATE FOREIGN TABLE oratab (
 * Idle — Application과 DB가 연결되었지만 실제 사용하지 않는 상태를 의미합니다. 대부분의 프레임워크는 이러한 연결을 풀로 관리합니다.  만약 Idle connection 관리가 필요하거나 많은 idle connection으로 문제가 될 경우 PgBouncer와 같은 pooler를 통하여 성능을 향상 시킬 수 있습니다. 링크를 통하여 설정에 대한 자세한 내용을 확인할 수 있습니다.
 * Idle in transaction — idle과 비슷하지만, transaction이 걸려있는 상태(BEGIN)로서 트렌젝션이 종료되기를 기다리고 있고 아무 작업도 하지 않는 상태를 의미합니다.
 * Idle in transaction (aborted) — 취소가 된 idle in transaction 상태를 의미합니다
+Idle in transaction은 좀 더 독특한면이 있습니다. 확인해야 할 점은 얼마나 컨넥션이 오래되었는지 입니다. pg_stat_activity 카달로그를 통하여 이런 쿼리들의 age를 확인할 수 있습니다. 실행된 지 너무 오래된 경우엔 수동으로 연결을 끊어줄 필요가있습니다.
+* Statement timeout
+    일부 오래된 트렌젝션이 며칠, 몇시간, 몇분 동안 지속되는 경우 해당 트렌젝션을 종료하도록 기본값을 설정할 수 있습니다. statement_timeout 설정값으로 지정된 시간보다 오랫동안 실행중인(hang인) 모든 명령을 자동적으로 종료시킬 수 있습니다. 설정 범위는 전역 또는 특정 세션에 할당할 수 있습니다. 설정 단위는 millisecond입니다.
