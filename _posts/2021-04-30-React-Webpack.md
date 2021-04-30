@@ -142,4 +142,383 @@ module.exports = {
     })
   ]
 };
+
+html-webpack-plugin은 웹팩이 html 파일을 읽어서 html 파일을 빌드할 수 있게 해줍니다.
+
+위에 있는 로더는 html 파일을 읽었을 때 html-loader를 실행하여 웹팩이 이해할 수 있게 하고 options 으로는 minimize 라는 코드 최적화 옵션을 사용하고 있습니다.
+
+그 후 yarn build 명령어를 실행해 주시면 다음과 같이 build/index.html 파일이 생성되어 있는 모습을 볼 수 있습니다.
+
+minimize 옵션이 켜져 있어서 파일 내용이 한줄로 되어 있습니다. minimize 옵션을 꺼주시면 줄바꿈된 형태로 보여집니다. 또한 HtmlWebpackPlugin은 웹팩 빌드시 output에 있는 bundole.js를 자동으로 import 합니다.
+
+index.html 을 웹브라우저에서 보시면 콘솔창에 webpack test 가 찍히는 것을 볼 수 있습니다.
+
 ```
+
+
+### 웹팩으로 리액트 빌드하기
+- src/index.js
+```JavaScript
+import React from "react";
+import ReactDOM from "react-dom";
+import Root from "./Root";
+
+ReactDOM.render(<Root />, document.getElementById("root"))
+```
+
+- src/Root.js
+```JavaScript
+import React from 'react';
+
+const Root = () => {
+  return (
+    <h3>Hello, React</h3>
+  );
+};
+
+export default Root;
+```
+
+- 최상위 디렉터리에서 .babelrc 파일 생성
+  - 바벨 (babel)은 ES6에서 ES5로 자바스크립트를 변환해주는 역할을 합니다. 아래 내용은 바벨이 ES6와 리액트를 ES5로 변환할 수 있게 해준다는 내용입니다.
+```JavaScript
+{
+  "presets": ["@babel/preset-env", "@babel/preset-react"]
+}
+```
+
+- webpack.config.js 파일에 entry와 rules에 babel-loader를 추가
+```JavaScript
+const path = require("path");
+const HtmlWebPackPlugin = require("html-webpack-plugin");
+
+module.exports = {
+  entry: "./src/index.js",
+  output: {
+    filename: "bundle.js",
+    path: path.resolve(__dirname + "/build")
+  },
+  mode: "none",
+  module: {
+    rules: [
+      {
+        test: /\.(js|jsx)$/,
+        exclude: "/node_modules",
+        use: ['babel-loader'],
+      },
+      {
+        test: /\.html$/,
+        use: [
+          {
+            loader: "html-loader",
+            options: { minimize: true }
+          }
+        ]
+      }
+    ]
+  },
+  plugins: [
+    new HtmlWebPackPlugin({
+      template: './public/index.html', // public/index.html 파일을 읽는다.
+      filename: 'index.html' // output으로 출력할 파일은 index.html 이다.
+    })
+  ]
+};
+```
+
+- yarn build 명령어를 실행해 웹팩으로 빌드한 후 index.html 파일을 열어보면 Hello, React가 보이는 모습을 확인
+
+
+### 웹팩에서 CSS 사용하기
+- src/style.css 생성
+```JavaScript
+.title {
+	color: #2196f3;
+    font-size: 52px;
+    text-align: center;
+}
+```
+
+- src/root.js에서 style.css
+```JavaScript
+import React from 'react';
+import './style.css';
+
+const Root = () => {
+  return (
+    <h3 className="title">Hello, React</h3>
+  );
+};
+
+export default Root;
+```
+
+- webpack.config.js에 css-loader를 추가
+```JavaScript
+const path = require("path");
+const HtmlWebPackPlugin = require("html-webpack-plugin");
+
+module.exports = {
+  entry: "./src/index.js",
+  output: {
+    filename: "bundle.js",
+    path: path.resolve(__dirname + "/build")
+  },
+  mode: "none",
+  module: {
+    rules: [
+      {
+        test: /\.(js|jsx)$/,
+        exclude: "/node_modules",
+        use: ['babel-loader'],
+      },
+      {
+        test: /\.html$/,
+        use: [
+          {
+            loader: "html-loader",
+            options: { minimize: true }
+          }
+        ]
+      },
+      {
+        test: /\.css$/,
+        use: ['css-loader']
+      }
+    ]
+  },
+  plugins: [
+    new HtmlWebPackPlugin({
+      template: './public/index.html', // public/index.html 파일을 읽는다.
+      filename: 'index.html' // output으로 출력할 파일은 index.html 이다.
+    })
+  ]
+};
+```
+
+```JavaScript
+하지만 build가 완료된 index.html 파일을 웹브라우저에서 열어보면 css가 적용이 안되어 있습니다.
+
+왜냐하면, 웹팩에서 css 파일을 읽은 후 어딘가에 저장을 해야하기 때문입니다.
+
+이럴때, css를 index.html에 합치는 방법도 있지만 파일을 추출해 보도록 하겠습니다!
+
+webpack.config.js에 CSS를 추출해서 파일로 저장하는 플러그인을 적용하겠습니다.
+
+
+const path = require("path");
+const HtmlWebPackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
+module.exports = {
+  entry: "./src/index.js",
+  output: {
+    filename: "bundle.js",
+    path: path.resolve(__dirname + "/build")
+  },
+  mode: "none",
+  module: {
+    rules: [
+      {
+        test: /\.(js|jsx)$/,
+        exclude: "/node_modules",
+        use: ['babel-loader'],
+      },
+      {
+        test: /\.html$/,
+        use: [
+          {
+            loader: "html-loader",
+            options: { minimize: true }
+          }
+        ]
+      },
+      {
+        test: /\.css$/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader']
+      }
+    ]
+  },
+  plugins: [
+    new HtmlWebPackPlugin({
+      template: './public/index.html', // public/index.html 파일을 읽는다.
+      filename: 'index.html' // output으로 출력할 파일은 index.html 이다.
+    }),
+    new MiniCssExtractPlugin({
+      filename: 'style.css'
+    })
+  ]
+};
+```
+
+```JavaScript
+{
+test: /\.css$/,
+use: [MiniCssExtractPlugin.loader, 'css-loader']
+}
+use에 있는 loader 순서는 오른쪽에서 왼쪽 순서로 실행이 됩니다.
+위에 있는 코드에 의미는 css-loader로 css 파일을 읽고 MniCssExtractPlugin.loader로 읽은 CSS를 파일로 추출해 냅니다.
+```
+
+
+### 웹팩에서 SCSS 사용하기
+- src/style.scss 생성
+```JavaScript
+$fontColor: #2196f3;
+$fontSize: 52px;
+
+
+.title {
+  color: $fontColor;
+  font-size: $fontSize;
+  text-align: center;
+}
+```
+
+- src/Root.js를 아래와 같이 scss를 import
+```JavaScript
+import React from 'react';
+import './style.scss';
+
+const Root = () => {
+  return (
+    <h3 className="title">Hello, React</h3>
+  );
+};
+
+export default Root;
+```
+
+- webpack.config.js를 열어 아래와 같이 sass-loader를 적용
+```JavaScript
+const path = require("path");
+const HtmlWebPackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
+module.exports = {
+  entry: "./src/index.js",
+  output: {
+    filename: "bundle.js",
+    path: path.resolve(__dirname + "/build")
+  },
+  mode: "none",
+  module: {
+    rules: [
+      {
+        test: /\.(js|jsx)$/,
+        exclude: "/node_modules",
+        use: ['babel-loader'],
+      },
+      {
+        test: /\.html$/,
+        use: [
+          {
+            loader: "html-loader",
+            options: { minimize: true }
+          }
+        ]
+      },
+      {
+        test: /\.css$/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader']
+      },
+      {
+        test: /\.scss$/,
+        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"]
+      }
+    ]
+  },
+  plugins: [
+    new HtmlWebPackPlugin({
+      template: './public/index.html', // public/index.html 파일을 읽는다.
+      filename: 'index.html' // output으로 출력할 파일은 index.html 이다.
+    }),
+    new MiniCssExtractPlugin({
+      filename: 'style.css'
+    })
+  ]
+};
+```
+
+```JavaScript
+use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"]
+위에 부분을 해석하면 먼저 sass-loader로 scss 파일을 읽고 css로 변환한 후 css-loader로 css 읽습니다. 그 후 MiniCssExtractPlugin으로 읽은 CSS를 파일로 추출합니다.
+```
+
+
+### 웹팩 개발 서버 적용하기
+
+- 지금까지 소스코드를 수정할 때마다 웹팩으로 직접 빌드를 했습니다.
+  수정할때 마다 직접 빌드하면 많이 불편할 것 같습니다.
+
+  이런 불편한 점때문에 소스코드를 수정할때마다 알아서 웹팩이 빌드해주는 webpack-dev-server가 있습니다.
+
+  바로 webpack-dev-server를 적용해보도록 하겠습니다.
+
+  먼저, webpack.config.js 파일에 들어가 devServer를 추가해 줍시다.
+
+
+```JavaScript
+const path = require("path");
+const HtmlWebPackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
+module.exports = {
+  entry: "./src/index.js",
+  output: {
+    filename: "bundle.js",
+    path: path.resolve(__dirname + "/build")
+  },
+  devServer: {
+    contentBase: path.resolve("./build"),
+    index: "index.html",
+    port: 9000
+  },
+  mode: "none",
+  module: {
+    rules: [
+      {
+        test: /\.(js|jsx)$/,
+        exclude: "/node_modules",
+        use: ['babel-loader'],
+      },
+      {
+        test: /\.html$/,
+        use: [
+          {
+            loader: "html-loader",
+            options: { minimize: true }
+          }
+        ]
+      },
+      {
+        test: /\.css$/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader']
+      },
+      {
+        test: /\.scss$/,
+        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"]
+      }
+    ]
+  },
+  plugins: [
+    new HtmlWebPackPlugin({
+      template: './public/index.html', // public/index.html 파일을 읽는다.
+      filename: 'index.html' // output으로 출력할 파일은 index.html 이다.
+    }),
+    new MiniCssExtractPlugin({
+      filename: 'style.css'
+    })
+  ]
+};
+
+그 후 package.json 파일에 들어가 scripts에 다음과 같이 yarn start를 추가해 줍니다.
+
+"scripts": {
+	"build": "webpack",
+	"start": "webpack-dev-server --hot"
+}
+그런다음 터미널에서 yarn start를 실행해주세요
+
+```
+
