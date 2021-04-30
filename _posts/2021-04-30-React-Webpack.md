@@ -83,4 +83,63 @@ mode는 웹팩 빌드 옵션 입니다. production은 최적화되어 빌드되�
   }
 }
 
+webpack 명령어가 실행되면 디폴트로 실행할 파일은 같은 경로에 있는 webpack.config.js에 내용을 가지고 빌드 됩니다.
+
+yarn build 
+
+그 후 빌드 디렉터리로 이동하면 bundle.js 파일을 볼 수 있습니다.
+```
+
+### 웹팩으로 HTML 파일 빌드하기
+- 이번에는 html 파일들을 웹팩으로 빌드해 보도록 하겠습니다.
+웹팩은 자바스크립트 파일뿐만 아니라 자바스크립트가 아닌 파일들도 모듈로 관리 할 수 있습니다.
+로더(loader) 라는 기능이 있습니다. 로더는 자바스크립트 파일이 아닌 파일을 웹팩이 이해할 수 있게 해줍니다.
+
+- public 디렉터리를 만들어 주신 후 public 디렉터리에 다음과 같이 index.html 파일 생성
+```JavaScript
+<!DOCTYPE html>
+<html lang="kr">
+  <head>
+    <meta charset="utf-8" />
+    <title>WEBPACK4-REACT</title>
+  </head>
+  <body>
+    <noscript>스크립트가 작동되지 않습니다!</noscript>
+    <div id="root"></div>
+  </body>
+</html>
+```
+
+- webpack.config.js 파일에 아래와 같이 html 관련 코드를 추가
+```JavaScript
+const path = require("path");
+const HtmlWebPackPlugin = require("html-webpack-plugin");
+
+module.exports = {
+  entry: "./src/test.js",
+  output: {
+    filename: "bundle.js",
+    path: path.resolve(__dirname + "/build")
+  },
+  mode: "none",
+  module: {
+    rules: [
+      {
+        test: /\.html$/,
+        use: [
+          {
+            loader: "html-loader",
+            options: { minimize: true }
+          }
+        ]
+      }
+    ]
+  },
+  plugins: [
+    new HtmlWebPackPlugin({
+			template: './public/index.html', // public/index.html 파일을 읽는다.
+      filename: 'index.html' // output으로 출력할 파일은 index.html 이다.
+    })
+  ]
+};
 ```
