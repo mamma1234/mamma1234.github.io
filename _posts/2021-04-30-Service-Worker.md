@@ -36,7 +36,7 @@ disqus:
 
 ## 참조
 - (https://berkbach.com/service-worker-%EC%97%90-%EA%B4%80%ED%95%B4%EC%84%9C-9c8f9f2f3988)[https://berkbach.com/service-worker-%EC%97%90-%EA%B4%80%ED%95%B4%EC%84%9C-9c8f9f2f3988]
-- [https://so-so.dev/web/service-worker/]
+- https://so-so.dev/web/service-worker/ [https://so-so.dev/web/service-worker/]
 
 
 1. 캐시와 상호작용
