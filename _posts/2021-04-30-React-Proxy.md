@@ -55,6 +55,17 @@ module.exports = function(app) {
   );
 };
 
+함수 변화 proxy -> createProxyMiddleware
+
+module.exports = function(app) {
+  app.use(
+    createProxyMiddleware('/posts', {
+      target: 'http://jsonplaceholder.typicode.com/',
+      changeOrigin: true
+    })
+  );
+};
+
 
 $ yarn add axios
 src/App.js
