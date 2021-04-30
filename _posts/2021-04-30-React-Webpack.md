@@ -522,3 +522,179 @@ module.exports = {
 
 ```
 
+### 빌드 디렉터리 깨끗하게 하기
+
+```JavaScript
+이번에는 build 디렉터리를 clean-webpack-plugin 을 통해서 빌드될때마다 안쓰는 파일들을 삭제할 수 있게 하겠습니다.
+
+먼저, webpack.config.js에서 아래와 같이 plugins에 MiniCssExtractPlugin에 filename을 style-test.css로 변경해 주세요
+
+
+plugins: [
+	new HtmlWebPackPlugin({
+		template: './public/index.html', // public/index.html 파일을 읽는다.
+		filename: 'index.html' // output으로 출력할 파일은 index.html 이다.
+	}),
+	new MiniCssExtractPlugin({
+		filename: 'style-test.css'
+	})
+]
+그런 다음 yarn build를 해주신 후 build 디렉터리를 보면 다음과 같이 안쓰는 style.css가 여전히 존재하는 모습을 볼 수 있습니다.
+
+
+
+clean-webpack-plugin을 사용해서 사용안하는 파일을 자동으로 삭제할 수 있게 해봅시다!
+
+webpack.config.js를 clean-webpack-plguin을 추가하고 plugins에 적용해 주세요
+
+const CleanWebpackPlugin = require("clean-webpack-plugin");
+
+module.exports = {
+ 	...,
+  plugins: [
+    new HtmlWebPackPlugin({
+      template: './public/index.html', // public/index.html 파일을 읽는다.
+      filename: 'index.html' // output으로 출력할 파일은 index.html 이다.
+    }),
+    new MiniCssExtractPlugin({
+      filename: 'style-test.css'
+    }),
+    new CleanWebpackPlugin()
+  ]
+};
+그 후 yarn build를 하면 사용 안하는 파일이 삭제된 것을 볼 수 있습니다.
+```
+
+
+### 웹팩 빌드 모드 나누기
+
+```JavaScript
+웹팩은 빌드 모드가 Development와 Production에 따라서 차이가 있습니다.
+
+간단하게 설명하면, Development는 빠르게 빌드하기 위해서 빌드할때 최적화를 안하는 특징을 가지고 있고 Production은 빌드할때 최적화 작업을 하고 있습니다.
+
+파일을 confing/webpack.config.dev.js와 config/webpack.config.prod.js로 나누어 적용해 보도록 하겠습니다.
+
+먼저 config 디렉터리를 만드신 후 webpack.config.dev.js와 webpack.config.prod.js를 만들어 주세요
+
+그리고 각 파일들을 아래와 같이 적용해 주세요
+
+config/webpack.config.dev.js
+
+const path = require("path");
+const HtmlWebPackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CleanWebpackPlugin = require("clean-webpack-plugin");
+
+module.exports = {
+  entry: "./src/index.js",
+  output: {
+    filename: "bundle.js",
+    path: path.resolve(__dirname, "../build")
+  },
+  mode: "development",
+  devServer: {
+    contentBase: path.resolve(__dirname, "../build"),
+    index: "index.html",
+    port: 9000
+  },
+  module: {
+    rules: [
+      {
+        test: /\.(js|jsx)$/,
+        exclude: "/node_modules",
+        use: ["babel-loader"]
+      },
+      {
+        test: /\.html$/,
+        use: [
+          {
+            loader: "html-loader",
+            options: { minimize: true }
+          }
+        ]
+      },
+      {
+        test: /\.css$/,
+        use: [MiniCssExtractPlugin.loader, "css-loader"]
+      },
+      {
+        test: /\.scss$/,
+        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"]
+      }
+    ]
+  },
+  plugins: [
+    new HtmlWebPackPlugin({
+      template: "./public/index.html",
+      filename: "index.html"
+    }),
+    new MiniCssExtractPlugin({
+      filename: "style.css"
+    }),
+    new CleanWebpackPlugin()
+  ]
+};
+config/webpack.config.prod.js
+
+const path = require("path");
+const HtmlWebPackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CleanWebpackPlugin = require("clean-webpack-plugin");
+
+module.exports = {
+  entry: "./src/index.js",
+  output: {
+    filename: "bundle.[contenthash].js",
+    path: path.resolve(__dirname, "../build")
+  },
+  mode: "production",
+  module: {
+    rules: [
+      {
+        test: /\.(js|jsx)$/,
+        exclude: "/node_modules",
+        use: ["babel-loader"]
+      },
+      {
+        test: /\.html$/,
+        use: [
+          {
+            loader: "html-loader",
+            options: { minimize: true }
+          }
+        ]
+      },
+      {
+        test: /\.css$/,
+        use: [MiniCssExtractPlugin.loader, "css-loader"]
+      },
+      {
+        test: /\.scss$/,
+        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"]
+      }
+    ]
+  },
+  plugins: [
+    new HtmlWebPackPlugin({
+      template: "./public/index.html",
+      filename: "index.html"
+    }),
+    new MiniCssExtractPlugin({
+      filename: "style.css"
+    }),
+    new CleanWebpackPlugin()
+  ]
+};
+기존 webpack.config.js와 다른점은 mode를 development로 했냐 production으로 했냐에 차이점 입니다.
+
+지금은 별로 차이는 없지만 development와 production에 맞는 플러그인들을 적용하면서 붙여나가기 시작하면 mode에 따라 강점들이 생길 것 입니다!
+
+그 후 package.json에서 스크립트를 다음과 같이 추가해 주세요
+
+"scripts": {
+  "start": "webpack-dev-server --config ./config/webpack.config.dev --hot",
+  "build": "webpack --config ./config/webpack.config.prod"
+ },
+이제 yarn start와 yarn build 명령어를 통해서 잘되는지 확인해 보세요!
+```
