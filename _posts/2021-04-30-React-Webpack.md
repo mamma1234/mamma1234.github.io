@@ -26,5 +26,19 @@ disqus:
 ### 웹팩으로 자바스크립트 파일 빌드하기
 - src 디렉터리를 만드신 후 아래와 같이 test.js 파일을 작성
 ```JavaScript
-console.log("webpack test");
+  console.log("webpack test");
+```
+
+- 최상위 디렉터리로 이동한 후 아래와 같이 webpack.config.js
+```JavaScript
+  const path = require("path");
+
+  module.exports = {
+    entry: "./src/test.js",
+    output: {
+      filename: "bundle.js",
+      path: path.resolve(__dirname + "/build")
+    },
+    mode: "none"
+  };
 ```
