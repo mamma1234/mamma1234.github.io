@@ -18,7 +18,7 @@ disqus:
 # Record
 ## 개념
 - 웹팩 갸벌 서버에서 백엔드 API 를 호출 할 때 발생 할 수 있는 CORS 관련 오류를 방지하기 위하여 웹팩 개발 서버에 proxy 를 설정 
-
+- [https://developer.mozilla.org/ko/docs/Web/HTTP/CORS](https://developer.mozilla.org/ko/docs/Web/HTTP/CORS)
 
 ## 방법 1
 - package.json 에서 proxy 필드를 설정
