@@ -197,8 +197,37 @@ flex-basis	|| Item의 (공간 배분 전) 기본 너비 설정	|| auto
 
 
 #### flex-shrink
+- Item이 감소하는 너비의 비율을 설정합니다.
+숫자가 크면 더 많은 너비가 감소합니다.
+Item이 가변 너비가 아니거나, 값이 0일 경우 효과가 없습니다.
+
+값	|| 의미	|| 기본값
+숫자	|| Item의 감소 너비 비율을 설정	|| 1
+
+
 #### flex-basis
+- Item의 (공간 배분 전) 기본 너비를 설정합니다.
+값이 auto일 경우 width, height 등의 속성으로 Item의 너비를 설정할 수 있습니다.
+하지만 단위 값이 주어질 경우 설정할 수 없습니다.
+
+값	|| 의미	|| 기본값
+auto	|| 가변 Item과 같은 너비	|| auto
+단위	|| px, em, cm 등 단위로 지정	||
+
+  * flex 속성에서 설명한 것 같이 단축 속성 내에서 flex-basis를 생략하면 값이 0이 되는 것을 주의합시다
 
 ### align-self
+- 교차 축(cross-axis)에서 개별 Item의 정렬 방법을 설정합니다.
 
+  * align-items는 Container 내 모든 Items의 정렬 방법을 설정합니다.
+  필요에 의해 일부 Item만 정렬 방법을 변경하려고 할 경우 align-self를 사용할 수 있습니다.
+  이 속성은 align-items 속성보다 우선합니다.
+
+값	|| 의미	|| 기본값
+auto	|| Container의 align-items 속성을 상속받음	|| auto
+stretch	|| Container의 교차 축을 채우기 위해 Item을 늘림	||
+flex-start	|| Item을 각 줄의 시작점(flex-start)으로 정렬	||
+flex-end	|| Item을 각 줄의 끝점(flex-end)으로 정렬	||
+center	|| Item을 가운데 정렬	||
+baseline	|| Item을 문자 기준선에 정렬 ||
 
