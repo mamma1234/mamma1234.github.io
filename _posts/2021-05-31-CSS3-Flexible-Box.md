@@ -25,13 +25,13 @@ disqus:
 
 
 ## 목차
-- [flex-container](#flex-container)
+- [Flex Container](#flex-container)
   - [display](#display)
     - [flex-flow](#flex-flow)
       - [flex-direction](#flex-direction)
+      - [flex-wrap](#flex-wrap)
 
-
-## Flex-Container
+## Flex Container
 
 속성 || 의미
 display	|| Flex Container를 정의
