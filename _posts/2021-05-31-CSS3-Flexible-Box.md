@@ -28,7 +28,7 @@ disqus:
 - [Flex Container](#Flex-Container)
   - [display](#display)
     - [flex-flow](#flex-flow)
-    - [flex-direction](#flex-direction)
+      - [flex-direction](#flex-direction)
 
 
 ## Flex Container
