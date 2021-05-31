@@ -25,7 +25,7 @@ disqus:
 
 
 ## 목차
-- [Flex-Container](#Flex-Container)
+- [flex-container](#flex-container)
   - [display](#display)
     - [flex-flow](#flex-flow)
       - [flex-direction](#flex-direction)
@@ -43,7 +43,7 @@ align-content	|| 교차 축(cross-axis)의 정렬 방법을 설정(2줄 이상)
 align-items	|| 교차 축(cross-axis)에서 Items의 정렬 방법을 설정(1줄)
 
 
-### display
+    ### display
 
 값 || 의미 ||	기본값 || 설명
 flex || Block 특성의 Flex Container를 정의	|| || 지정된 Flex Container는 Block 요소와 같은 성향(수직 쌓임)
