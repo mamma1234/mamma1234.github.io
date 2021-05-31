@@ -30,13 +30,28 @@ disqus:
 ## 목차
 - [Flex Container](#flex-container)
   - [display](#display)
-    - [flex-flow](#flex-flow)
-      - [flex-direction](#flex-direction)
-      - [flex-wrap](#flex-wrap)
-    - [justify-content](#justify-content)
-    - [align-content](#align-content)	
-    - [align-items](#align-items)
+  - [flex-flow](#flex-flow)
+    - [flex-direction](#flex-direction)
+    - [flex-wrap](#flex-wrap)
+  - [justify-content](#justify-content)
+  - [align-content](#align-content)	
+  - [align-items](#align-items)
 - [Flex Items](#flex-items)
+  - [order](#order)
+  - [flex](#flex)
+    - [flex-grow](#flex-grow)
+    - [flex-shrink](#flex-shrink)
+    - [flex-basis](#flex-basis)
+  - [align-self](#align-self)
+
+order	|| Flex Item의 순서를 설정
+flex	|| flex-grow, flex-shrink, flex-basis의 단축 속성
+  >> flex-grow	|| Flex Item의 증가 너비 비율을 설정
+  >> flex-shrink	|| Flex Item의 감소 너비 비율을 설정
+  >> flex-basis	|| Flex Item의 (공간 배분 전) 기본 너비 설정
+align-self	|| 교차 축(cross-axis)에서 Item의 정렬 방법을 설정
+
+
 
 ## Flex Container
 
@@ -148,7 +163,13 @@ align-self	|| 교차 축(cross-axis)에서 Item의 정렬 방법을 설정
 숫자	|| Item의 순서를 설정	|| 0
 
 
-1. 캐시와 상호작용
-2. 푸쉬 알림
-3. 백그라운드 동기화
+### flex
+- Item의 너비(증가, 감소, 기본)를 설정하는 단축 속성입니다.
+
+#### flex-grow
+#### flex-shrink
+#### flex-basis
+
+### align-self
+
 
