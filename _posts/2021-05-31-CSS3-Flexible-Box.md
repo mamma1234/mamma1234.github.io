@@ -23,6 +23,9 @@ disqus:
   - Container에는 display, flex-flow, justify-content 등의 속성을 사용할 수 있으며,
   - Items에는 order, flex, align-self 등의 속성을 사용할 수 있습니다.
 
+## 참조
+- [https://heropy.blog/2018/11/24/css-flexible-box/](https://heropy.blog/2018/11/24/css-flexible-box/)
+
 
 ## 목차
 - [Flex Container](#flex-container)
@@ -114,6 +117,7 @@ space-around	|| Items를 균등한 여백을 포함하여 정렬 ||
 
 - 교차 축(cross-axis)에서 Items의 정렬 방법을 설정합니다.
 * Items가 한 줄일 경우 많이 사용합니다.
+* 주의할 점은 Items가 flex-wrap을 통해 여러 줄(2줄 이상)일 경우에는 align-content 속성이 우선합니다. 따라서 align-items를 사용하려면 align-content 속성을 기본값(stretch)으로 설정해야 합니다.
 
 값	|| 의미	|| 기본값
 stretch	|| Container의 교차 축을 채우기 위해 Items를 늘림	|| stretch
@@ -125,9 +129,23 @@ baseline	|| Items를 문자 기준선에 정렬 ||
 
 ## Flex Items
 
-- [https://berkbach.com/service-worker-%EC%97%90-%EA%B4%80%ED%95%B4%EC%84%9C-9c8f9f2f3988](https://berkbach.com/service-worker-%EC%97%90-%EA%B4%80%ED%95%B4%EC%84%9C-9c8f9f2f3988)
+속성	|| 의미
+order	|| Flex Item의 순서를 설정
+flex	|| flex-grow, flex-shrink, flex-basis의 단축 속성
+  >> flex-grow	|| Flex Item의 증가 너비 비율을 설정
+  >> flex-shrink	|| Flex Item의 감소 너비 비율을 설정
+  >> flex-basis	|| Flex Item의 (공간 배분 전) 기본 너비 설정
+align-self	|| 교차 축(cross-axis)에서 Item의 정렬 방법을 설정
 
-- [https://so-so.dev/web/service-worker/](https://so-so.dev/web/service-worker/)
+
+### order
+
+- Item의 순서를 설정합니다.
+* Item에 숫자를 지정하고 숫자가 클수록 순서가 밀립니다.
+* 음수가 허용됩니다.
+
+값	|| 의미	|| 기본값
+숫자	|| Item의 순서를 설정	|| 0
 
 
 1. 캐시와 상호작용
