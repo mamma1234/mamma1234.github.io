@@ -166,6 +166,21 @@ align-self	|| 교차 축(cross-axis)에서 Item의 정렬 방법을 설정
 ### flex
 - Item의 너비(증가, 감소, 기본)를 설정하는 단축 속성입니다.
 
+값	|| 의미	|| 기본값
+flex-grow	|| Item의 증가 너비 비율을 설정	|| 0
+flex-shrink	|| Item의 감소 너비 비율을 설정	|| 1
+flex-basis	|| Item의 (공간 배분 전) 기본 너비 설정	|| auto
+
+
+```JavaScript
+.item {
+  flex: 1 1 20px;  /* 증가너비 감소너비 기본너비 */
+  flex: 1 1;  /* 증가너비 감소너비 */
+  flex: 1 20px;  /* 증가너비 기본너비 (단위를 사용하면 flex-basis가 적용됩니다) */
+}
+```
+
+
 #### flex-grow
 #### flex-shrink
 #### flex-basis
