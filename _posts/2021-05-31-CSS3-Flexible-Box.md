@@ -31,6 +31,8 @@ disqus:
       - [flex-direction](#flex-direction)
       - [flex-wrap](#flex-wrap)
     - [justify-content](#justify-content)
+    - [align-content](#align-content)	
+    - [align-items](#align-items)
 
 ## Flex Container
 
@@ -94,6 +96,11 @@ space-around	|| Items를 균등한 여백을 포함하여 정렬 ||
 
 
 
+
+
+
+### align-content	
+### align-items
 
 
 - [https://berkbach.com/service-worker-%EC%97%90-%EA%B4%80%ED%95%B4%EC%84%9C-9c8f9f2f3988](https://berkbach.com/service-worker-%EC%97%90-%EA%B4%80%ED%95%B4%EC%84%9C-9c8f9f2f3988)
