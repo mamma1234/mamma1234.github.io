@@ -31,7 +31,7 @@ disqus:
       - [flex-direction](#flex-direction)
 
 
-## Flex Container
+## Flex-Container
 
 속성 || 의미
 display	|| Flex Container를 정의
