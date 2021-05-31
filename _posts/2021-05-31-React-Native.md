@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "CSS3 Flexible Box"
+title: "React Native"
 description: 
 headline: 
 modified: 2021-05-31
 category: webdevelopment
 imagefeature: cover3.jpg
-tags: [CSS3 Flexible Box]
+tags: [React Native]
 mathjax: 
 chart: 
 share: true
@@ -17,15 +17,34 @@ disqus:
 
 # Record
 ## 개념
-- Flex는 요소의 크기가 불분명하거나 동적인 경우에도, 각 요소를 정렬할 수 있는 효율적인 방법을 제공  
+- 
+## 시작
 
-- Container, Items 구분
-  - Container에는 display, flex-flow, justify-content 등의 속성을 사용할 수 있으며,
-  - Items에는 order, flex, align-self 등의 속성을 사용할 수 있습니다.
 
-## 참조
-- [https://heropy.blog/2018/11/24/css-flexible-box/](https://heropy.blog/2018/11/24/css-flexible-box/)
-- [https://developer.mozilla.org/ko/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox](https://developer.mozilla.org/ko/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox)
+```JavaScript
+$ npm install -g create-react-native-app
+
+- case 1
+$ create-react-native-app 프로젝트명
+
+- case 2
+$ react-native init 프로젝트명
+
+
+$ cd 프로젝트 명
+$ npm start
+
+$ npm install -g react-native-cli
+
+$ cd 프로젝트 명
+$ react-native run-ios 
+$ react-native run-android
+
+$ react-native run-ios --simulator "iPhone 8"
+
+```
+
+
 
 ## 목차
 - [Flex Container](#flex-container)
