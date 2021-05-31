@@ -33,6 +33,7 @@ disqus:
     - [justify-content](#justify-content)
     - [align-content](#align-content)	
     - [align-items](#align-items)
+- [Flex Items](#flex-items)
 
 ## Flex Container
 
@@ -111,6 +112,18 @@ space-around	|| Items를 균등한 여백을 포함하여 정렬 ||
 
 ### align-items
 
+- 교차 축(cross-axis)에서 Items의 정렬 방법을 설정합니다.
+* Items가 한 줄일 경우 많이 사용합니다.
+
+값	|| 의미	|| 기본값
+stretch	|| Container의 교차 축을 채우기 위해 Items를 늘림	|| stretch
+flex-start	|| Items를 각 줄의 시작점(flex-start)으로 정렬	||
+flex-end	|| Items를 각 줄의 끝점(flex-end)으로 정렬	||
+center	|| Items를 가운데 정렬	||
+baseline	|| Items를 문자 기준선에 정렬 ||
+
+
+## Flex Items
 
 - [https://berkbach.com/service-worker-%EC%97%90-%EA%B4%80%ED%95%B4%EC%84%9C-9c8f9f2f3988](https://berkbach.com/service-worker-%EC%97%90-%EA%B4%80%ED%95%B4%EC%84%9C-9c8f9f2f3988)
 
