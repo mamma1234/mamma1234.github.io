@@ -23,6 +23,14 @@ disqus:
   - Container에는 display, flex-flow, justify-content 등의 속성을 사용할 수 있으며,
   - Items에는 order, flex, align-self 등의 속성을 사용할 수 있습니다.
 
+
+## 목차
+- [Flex Container](#Flex-Container)
+  - [display](#display)
+    - [flex-flow](#flex-flow)
+    - [flex-direction](#flex-direction)
+
+
 ## Flex Container
 
 속성 || 의미
@@ -35,6 +43,28 @@ align-content	|| 교차 축(cross-axis)의 정렬 방법을 설정(2줄 이상)
 align-items	|| 교차 축(cross-axis)에서 Items의 정렬 방법을 설정(1줄)
 
 
+### display
+
+값 || 의미 ||	기본값 || 설명
+flex || Block 특성의 Flex Container를 정의	|| || 지정된 Flex Container는 Block 요소와 같은 성향(수직 쌓임)
+inline-flex || Inline 특성의 Flex Container를 정의 ||  || 지정된 Flex Container는 Inline(Inline Block) 요소와 같은 성향(수평 쌓임)
+
+
+### flex-flow
+
+값	|| 의미	|| 기본값
+flex-direction	|| Items의 주 축(main-axis)을 설정	|| row
+flex-wrap	|| Items의 여러 줄 묶음(줄 바꿈) 설정	|| nowrap
+
+#### flex-direction
+
+- Items의 주 축(main-axis)을 설정합니다.
+
+값	|| 의미	|| 기본값
+row	|| Itmes를 수평축(왼쪽에서 오른쪽으로)으로 표시	|| row
+row-reverse	|| Items를 row의 반대 축으로 표시	
+column	|| Items를 수직축(위에서 아래로)으로 표시	
+column-reverse	|| Items를 column의 반대 축으로 표시
 
 
 - [https://berkbach.com/service-worker-%EC%97%90-%EA%B4%80%ED%95%B4%EC%84%9C-9c8f9f2f3988](https://berkbach.com/service-worker-%EC%97%90-%EA%B4%80%ED%95%B4%EC%84%9C-9c8f9f2f3988)
