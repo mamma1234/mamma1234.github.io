@@ -56,6 +56,11 @@ $ yarn ios
 - [style](#style)
 - [RN flex](#rn-flex)
 - [component](#component)
+    - [View](#View)
+    - [Text](#Text)
+    - [Touchable](#Touchable)
+    - [Image](#Image)
+
 
 ## style
 - CSS VS RN
@@ -128,3 +133,32 @@ alignSelf	|| ‘auto’ , ‘flex-start’ , ‘flex-end’ , ‘center’ , ‘
 
 
 ## component
+
+### View
+- View 컴포넌트는 UI를 구축하기 위한 가장 기본적인 구성요소로서 웹에서는 div와 사용성이 유사합니다. 중첩이 가능하며 레이아웃을 구축하기 위해서 가장 많이 사용합니다. 일부 터치 핸들링 및 접근성 제어가 가능합니다.
+
+### Text
+- Text는 텍스트를 표현하기 위한 컴포넌트로 리액트 네이티브에서 기본적으로 제공하는 컴포넌트에서는 Text와 TextInput을 사용해야만 텍스트를 삽입할 수 있기 때문에 필수적으로 사용되는 컴포넌트입니다.
+Text 내부에 사용할 수 있는 컴포넌트는 매우 제한적이며 내부 요소의 스타일 제약을 받을 수 있습니다.
+
+
+### Touchable
+- button 역할을 하는 컴포넌트
+
+#### Button
+- 기본적인 버튼 컴포넌트입니다. style props를 이용해 스타일링을 할 수 없기 때문에 UI개발시 활용도가 떨어집니다.
+    - color : ios의 경우 버튼 텍스트 color, 안드로이드의 경우 버튼 배경색이 변경됩니다.
+
+#### TouchableHightlight
+- 터치시 하이라이트가 발생합니다. 내부에 반드시 하나의 자식 컴포넌트를 삽입해야합니다.
+여러개의 컴포넌트가 필요하다면 View나 flagment(<></>)를 이용해 그룹화해야합니다.
+    - underlayColor : 터치시 하이라이팅되는 색상을 지정합니다.
+
+#### TouchableOpacity
+- 터치시 opacity값이 적용됩니다. 다른 Touchable 컴포넌트와 달리 여러개의 자식 요소가 올 수 있습니다.
+    - activeOpacity : 터치시 적용되는 opacity값을 설정합니다.(0~1)
+
+#### TouchableNativeFeedback
+- 터치시 사용자가 정의한 피드백을 표현할 수 있으며 단일 View 컴포넌트만 자식 요소로 가질 수 있습니다. Android 환경만 지원합니다.
+
+### Image
