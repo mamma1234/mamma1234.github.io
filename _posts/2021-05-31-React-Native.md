@@ -24,8 +24,10 @@ disqus:
 ```JavaScript
 $ npm install -g create-react-native-app
 
-- case 1
+- case 1 : React Native 프로젝트는 CLI보다는 CRNA를 통해서 프로젝트를 시작한 후 ejecting 기능을 사용해 Expo SDK를 그대로 가져가며 프로젝트는 진행하는것이 좋을것 같습니다.
 $ create-react-native-app 프로젝트명
+
+
 
 - case 2
 $ react-native init 프로젝트명
@@ -42,211 +44,86 @@ $ react-native run-android
 
 $ react-native run-ios --simulator "iPhone 8"
 
+$ yarn ios
+
 ```
 
+## 참조
+- [https://wit.nts-corp.com/2020/03/23/6014](https://wit.nts-corp.com/2020/03/23/6014)
 
 
 ## 목차
-- [Flex Container](#flex-container)
-  - [display](#display)
-  - [flex-flow](#flex-flow)
-    - [flex-direction](#flex-direction)
-    - [flex-wrap](#flex-wrap)
-  - [justify-content](#justify-content)
-  - [align-content](#align-content)	
-  - [align-items](#align-items)
-- [Flex Items](#flex-items)
-  - [order](#order)
-  - [flex](#flex)
-    - [flex-grow](#flex-grow)
-    - [flex-shrink](#flex-shrink)
-    - [flex-basis](#flex-basis)
-  - [align-self](#align-self)
-
-order	|| Flex Item의 순서를 설정
-flex	|| flex-grow, flex-shrink, flex-basis의 단축 속성
-  >> flex-grow	|| Flex Item의 증가 너비 비율을 설정
-  >> flex-shrink	|| Flex Item의 감소 너비 비율을 설정
-  >> flex-basis	|| Flex Item의 (공간 배분 전) 기본 너비 설정
-align-self	|| 교차 축(cross-axis)에서 Item의 정렬 방법을 설정
+- [style](#style)
+- [RN flex](#rn-flex)
 
 
-
-## Flex Container
-
-속성 || 의미
-display	|| Flex Container를 정의
-flex-flow	|| flex-direction와 flex-wrap의 단축 속성
-  >> flex-direction || Flex Items의 주 축(main-axis)을 설정
-  >> flex-wrap	|| Flex Items의 여러 줄 묶음(줄 바꿈) 설정
-justify-content	|| 주 축(main-axis)의 정렬 방법을 설정
-align-content	|| 교차 축(cross-axis)의 정렬 방법을 설정(2줄 이상)
-align-items	|| 교차 축(cross-axis)에서 Items의 정렬 방법을 설정(1줄)
-
-
-### display
-
-값 || 의미 ||	기본값 || 설명
-flex || Block 특성의 Flex Container를 정의	|| || 지정된 Flex Container는 Block 요소와 같은 성향(수직 쌓임)
-inline-flex || Inline 특성의 Flex Container를 정의 ||  || 지정된 Flex Container는 Inline(Inline Block) 요소와 같은 성향(수평 쌓임)
-
-
-### flex-flow
-
-값	|| 의미	|| 기본값
-flex-direction	|| Items의 주 축(main-axis)을 설정	|| row
-flex-wrap	|| Items의 여러 줄 묶음(줄 바꿈) 설정	|| nowrap
-
-#### flex-direction
-
-- Items의 주 축(main-axis)을 설정합니다.
-
-값	|| 의미	|| 기본값
-row	|| Itmes를 수평축(왼쪽에서 오른쪽으로)으로 표시	|| row
-row-reverse	|| Items를 row의 반대 축으로 표시	||
-column	|| Items를 수직축(위에서 아래로)으로 표시	||
-column-reverse	|| Items를 column의 반대 축으로 표시 ||
-
-
-- 주 축(main-axis)과 교차 축(cross-axis) : 방향(수평, 수직)에 따라 주 축과 교차 축이 달라집니다.
-- 시작점(flex-start)과 끝점(flex-end) : 방향에 따라 시작점과 끝점이 달라집니다
-
-#### flex-wrap
-
-- Items의 여러 줄 묶음(줄 바꿈)을 설정합니다.
-
-값	|| 의미	|| 기본값
-nowrap	|| 모든 Itmes를 여러 줄로 묶지 않음(한 줄에 표시)	|| nowrap
-wrap	||Items를 여러 줄로 묶음	||
-wrap-reverse	|| Items를 wrap의 역 방향으로 여러 줄로 묶음 ||
-
-
-### justify-content
-
-- 주 축(main-axis)의 정렬 방법을 설정합니다.
-
-값	|| 의미	|| 기본값
-flex-start	|| Items를 시작점(flex-start)으로 정렬	|| flex-start
-flex-end	|| Items를 끝점(flex-end)으로 정렬 ||	
-center	|| Items를 가운데 정렬	||
-space-between	|| 시작 Item은 시작점에, 마지막 Item은 끝점에 정렬되고 나머지 Items는 사이에 고르게 정렬됨	 ||
-space-around	|| Items를 균등한 여백을 포함하여 정렬 ||
-
-
-### align-content	
-
-- 교차 축(cross-axis)의 정렬 방법을 설정합니다.
-* 주의할 점은 flex-wrap 속성을 통해 Items가 여러 줄(2줄 이상)이고 여백이 있을 경우만 사용할 수 있습니다.
-* Items가 한 줄일 경우 align-items 속성을 사용하세요.
-
-값	|| 의미	|| 기본값
-stretch	|| Container의 교차 축을 채우기 위해 Items를 늘림	|| stretch
-flex-start	|| Items를 시작점(flex-start)으로 정렬 ||	
-flex-end	|| Items를 끝점(flex-end)으로 정렬	||
-center	|| Items를 가운데 정렬	||
-space-between	|| 시작 Item은 시작점에, 마지막 Item은 끝점에 정렬되고 나머지 Items는 사이에 고르게 정렬됨	||
-space-around	|| Items를 균등한 여백을 포함하여 정렬 ||
-
-### align-items
-
-- 교차 축(cross-axis)에서 Items의 정렬 방법을 설정합니다.
-  * Items가 한 줄일 경우 많이 사용합니다.
-  * 주의할 점은 Items가 flex-wrap을 통해 여러 줄(2줄 이상)일 경우에는 align-content 속성이 우선합니다. 따라서 align-items를 사용하려면 align-content 속성을 기본값(stretch)으로 설정해야 합니다.
-
-값	|| 의미	|| 기본값
-stretch	|| Container의 교차 축을 채우기 위해 Items를 늘림	|| stretch
-flex-start	|| Items를 각 줄의 시작점(flex-start)으로 정렬	||
-flex-end	|| Items를 각 줄의 끝점(flex-end)으로 정렬	||
-center	|| Items를 가운데 정렬	||
-baseline	|| Items를 문자 기준선에 정렬 ||
-
-
-## Flex Items
-
-속성	|| 의미
-order	|| Flex Item의 순서를 설정
-flex	|| flex-grow, flex-shrink, flex-basis의 단축 속성
-  >> flex-grow	|| Flex Item의 증가 너비 비율을 설정
-  >> flex-shrink	|| Flex Item의 감소 너비 비율을 설정
-  >> flex-basis	|| Flex Item의 (공간 배분 전) 기본 너비 설정
-align-self	|| 교차 축(cross-axis)에서 Item의 정렬 방법을 설정
-
-
-### order
-
-- Item의 순서를 설정합니다.
-  * Item에 숫자를 지정하고 숫자가 클수록 순서가 밀립니다.
-  * 음수가 허용됩니다.
-
-값	|| 의미	|| 기본값
-숫자	|| Item의 순서를 설정	|| 0
-
-
-### flex
-- Item의 너비(증가, 감소, 기본)를 설정하는 단축 속성입니다.
-
-값	|| 의미	|| 기본값
-flex-grow	|| Item의 증가 너비 비율을 설정	|| 0
-flex-shrink	|| Item의 감소 너비 비율을 설정	|| 1
-flex-basis	|| Item의 (공간 배분 전) 기본 너비 설정	|| auto
+## style
+- CSS VS RN
+  - 각 스타일 속성의 구분은 ;가 아닌 ,로 합니다.
+  - 클래스 선택자에  .을 붙이지 않는다.
 
 
 ```JavaScript
-.item {
-  flex: 1 1 20px;  /* 증가너비 감소너비 기본너비 */
-  flex: 1 1;  /* 증가너비 감소너비 */
-  flex: 1 20px;  /* 증가너비 기본너비 (단위를 사용하면 flex-basis가 적용됩니다) */
+* CSS
+.bigBlue {
+    color: blue;
+    font-weight: bold;
+    font-size: 30px;
+}
+.red {
+    color: red;
+}
+
+* RN
+bigBlue: {
+    color: 'blue',
+    fontWeight: 'bold',
+    fontSize: 30,
+},
+red: { 
+    color: 'red',
 }
 ```
 
 
-#### flex-grow
-- Item의 증가 너비 비율을 설정합니다.
-  * 숫자가 크면 더 많은 너비를 가집니다.
-  * Item이 가변 너비가 아니거나, 값이 0일 경우 효과가 없습니다.
+- 스타일 속성명(property)의 단어 구분은 하이픈(‘-‘)이 아닌 카멜케이스를 이용
 
-값	|| 의미	|| 기본값
-숫자	|| Item의 증가 너비 비율을 설정	|| 0
+```JavaScript
+* CSS
+.content {
+    justify-content: space-between;
+    background-color: #eee;
+}
 
-  * 모든 Items의 총 증가 너비(flex-grow)에서 각 Item의 증가 너비의 비율 만큼 너비를 가질 수 있습니다.
-  예를 들어 Item이 3개이고 증가 너비가 각각 1, 2, 1이라면,
-  첫 번째 Item은 총 너비의 25%(1/4)을,
-  두 번째 Item은 총 너비의 50%(2/4)를,
-  세 번째 Item은 총 너비의 25%(1/4)을 가지게 됩니다.
+* RN
+content: {
+    justifyContent: 'space-between',
+    backgroundColor: '#eee',
+},
+```
+
+- 스타일 속성명의 하이픈(‘-’)을 사용
+- ‘px’, ‘em’ 등의 단위 사용
+- 스타일 우선 순위가 CSS와 다르다.
+- 의사 클래스(가상 클래스), 가상요소, 형제 선택자, 자식 선택자 등을 사용할 수 없다
+- 스크립트의 장점을 활용할 수 있다.
+
+## RN의 flex
+- main axis, CSS의 flex와 RN의 flex는 main axis가 반대
+
+- 지원하지 않는 flex 관련 속성
 
 
-#### flex-shrink
-- Item이 감소하는 너비의 비율을 설정합니다.
-숫자가 크면 더 많은 너비가 감소합니다.
-Item이 가변 너비가 아니거나, 값이 0일 경우 효과가 없습니다.
+속성명(property)	|| 값(value)	|| 기본값
+flex	|| number	|| 
+flexDirection	|| ‘row’ | ‘row-reverse’ | ‘column’ | ‘column-reverse’	|| ‘column’
+flexGrow	|| number	|| 0
+flexShrink	|| number	|| 1
+flexBasis	|| number | string	|| ‘auto’
+flexWrap	|| ‘wrap’	|| ‘nowrap’
+justifyContent	‘flex-start’ | ‘flex-end’ | ‘center’ | ‘space-between’ | ‘space-around’ | ‘space-evenly’	‘flex-start’
+alignItems	‘flex-start’ | ‘flex-end’ | ‘center’ | ‘stretch’ | ‘baseline’	‘stretch’
+alignContent	‘flex-start’ | ‘flex-end’ | ‘center’ | ‘stretch’ | ‘space-between’ | ‘space-around’	‘flex-start’
+alignSelf	‘auto’ | ‘flex-start’ | ‘flex-end’ | ‘center’ | ‘stretch’ | ‘baseline’	‘stretch’
 
-값	|| 의미	|| 기본값
-숫자	|| Item의 감소 너비 비율을 설정	|| 1
-
-
-#### flex-basis
-- Item의 (공간 배분 전) 기본 너비를 설정합니다.
-값이 auto일 경우 width, height 등의 속성으로 Item의 너비를 설정할 수 있습니다.
-하지만 단위 값이 주어질 경우 설정할 수 없습니다.
-
-값	|| 의미	|| 기본값
-auto	|| 가변 Item과 같은 너비	|| auto
-단위	|| px, em, cm 등 단위로 지정	||
-
-  * flex 속성에서 설명한 것 같이 단축 속성 내에서 flex-basis를 생략하면 값이 0이 되는 것을 주의합시다
-
-### align-self
-- 교차 축(cross-axis)에서 개별 Item의 정렬 방법을 설정합니다.
-
-  * align-items는 Container 내 모든 Items의 정렬 방법을 설정합니다.
-  필요에 의해 일부 Item만 정렬 방법을 변경하려고 할 경우 align-self를 사용할 수 있습니다.
-  이 속성은 align-items 속성보다 우선합니다.
-
-값	|| 의미	|| 기본값
-auto	|| Container의 align-items 속성을 상속받음	|| auto
-stretch	|| Container의 교차 축을 채우기 위해 Item을 늘림	||
-flex-start	|| Item을 각 줄의 시작점(flex-start)으로 정렬	||
-flex-end	|| Item을 각 줄의 끝점(flex-end)으로 정렬	||
-center	|| Item을 가운데 정렬	||
-baseline	|| Item을 문자 기준선에 정렬 ||
 
