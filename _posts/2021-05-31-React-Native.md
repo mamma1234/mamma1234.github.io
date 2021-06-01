@@ -68,7 +68,7 @@ $ yarn ios
     - [ActiveIndicator](#activeindicator)
     - [Modal](#modal)
 - [커스텀 컴포넌트 사용하기](#커스텀-컴포넌트-사용하기)
-
+- [Props](#props)
 
 ## style
 - CSS VS RN
@@ -230,3 +230,14 @@ const wrappedText: React.SFC<TextProps> = ({ children, style, ...bypass }) => (
 
 export default wrappedText
 ```
+
+
+## Props
+- numberOfLines
+    - 말줄임이 될 라인수를 전달하면 간단하게 말줄임을 구현할 수 있습니다.
+- elliipsizeMode
+    - elliipsizeMode는 "head", "middle", "tail", "clip" 네 가지 값을 가질 수 있으며 말줄임의 위치나 방식을 조정합니다.
+- contentContainerStyle
+    - ScrollView 사용할 때 컨텐츠의 내용이 부족하더라도 ScrollView 영역만큼의 영역을 확보해야할 경우가 있습니다.
+- hitSlop
+    -  hitSlop props를 이용하면 주변 요소의 렌더링에 영향을 주지 않고 터치 영역만 원하는 만큼 증가시킬 수 있습니다.
