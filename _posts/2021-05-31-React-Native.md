@@ -205,3 +205,27 @@ input이 제공되어 키보드를 사용해야하는 페이지에서 필수적�
 
 ### Modal
 - 모달창을 구현할 때 사용되는 컴포넌트입니다. 어디에 선언되든 부모와 상관없이 항상 뷰포트 전체 width, height값을 가지며 기존 레이아웃 위에 노출됩니다.
+
+
+## 커스텀 컴포넌트 사용하기
+- RN에서 제공하는 컴포넌트를 사용하면서 컴포넌트 내에 항상 들어가는 코드가 있다면 커스텀 컴포넌트를 사용을 고려해 볼 수 있습니다.
+반복적인 코드나 스타일 리셋 코드 등을 넣어 컴포넌트를 사용한다면 코드를 매번 삽입할 필요가 없어집니다.
+저희 서비스에서는 안드로이드 환경에서 폰트에 들어가는 padding값을 없애기 위해서 RN에서 제공하는 Text를 커스텀해 사용하였습니다.
+
+```JavaScript
+import * as React from 'react'
+import { Text, Platform, TextProps } from 'react-native'
+
+const DefaultStyle = Platform.select({
+  ios: {},
+  android: { includeFontPadding: false },
+})
+
+const wrappedText: React.SFC<TextProps> = ({ children, style, ...bypass }) => (
+  <Text {...bypass} style={[DefaultStyle, style]}>
+    {children}
+  </Text>
+)
+
+export default wrappedText
+```
