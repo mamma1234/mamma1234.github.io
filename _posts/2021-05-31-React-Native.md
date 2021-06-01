@@ -121,9 +121,9 @@ flexGrow	|| number	|| 0
 flexShrink	|| number	|| 1
 flexBasis	|| number | string	|| ‘auto’
 flexWrap	|| ‘wrap’	|| ‘nowrap’
-justifyContent	‘flex-start’ | ‘flex-end’ | ‘center’ | ‘space-between’ | ‘space-around’ | ‘space-evenly’	‘flex-start’
-alignItems	‘flex-start’ | ‘flex-end’ | ‘center’ | ‘stretch’ | ‘baseline’	‘stretch’
-alignContent	‘flex-start’ | ‘flex-end’ | ‘center’ | ‘stretch’ | ‘space-between’ | ‘space-around’	‘flex-start’
-alignSelf	‘auto’ | ‘flex-start’ | ‘flex-end’ | ‘center’ | ‘stretch’ | ‘baseline’	‘stretch’
+justifyContent	|| ‘flex-start’ | ‘flex-end’ | ‘center’ | ‘space-between’ | ‘space-around’ | ‘space-evenly’	|| ‘flex-start’
+alignItems	|| ‘flex-start’ | ‘flex-end’ | ‘center’ | ‘stretch’ | ‘baseline’	|| ‘stretch’
+alignContent	|| ‘flex-start’ | ‘flex-end’ | ‘center’ | ‘stretch’ | ‘space-between’ | ‘space-around’	|| ‘flex-start’
+alignSelf	|| ‘auto’ | ‘flex-start’ | ‘flex-end’ | ‘center’ | ‘stretch’ | ‘baseline’	|| ‘stretch’
 
 
