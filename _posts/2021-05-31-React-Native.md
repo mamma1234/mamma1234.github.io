@@ -56,10 +56,10 @@ $ yarn ios
 - [style](#style)
 - [RN flex](#rn-flex)
 - [component](#component)
-    - [View](#View)
-    - [Text](#Text)
-    - [Touchable](#Touchable)
-    - [Image](#Image)
+    - [View](#view)
+    - [Text](#text)
+    - [Touchable](#touchable)
+    - [Image](#image)
 
 
 ## style
