@@ -55,7 +55,7 @@ $ yarn ios
 ## 목차
 - [style](#style)
 - [RN flex](#rn-flex)
-
+- [component](#component)
 
 ## style
 - CSS VS RN
@@ -116,14 +116,15 @@ content: {
 
 속성명(property)	|| 값(value)	|| 기본값
 flex	|| number	|| 
-flexDirection	|| ‘row’ | ‘row-reverse’ | ‘column’ | ‘column-reverse’	|| ‘column’
+flexDirection	|| ‘row’ , ‘row-reverse’ , ‘column’ , ‘column-reverse’	|| ‘column’
 flexGrow	|| number	|| 0
 flexShrink	|| number	|| 1
-flexBasis	|| number | string	|| ‘auto’
+flexBasis	|| number , string	|| ‘auto’
 flexWrap	|| ‘wrap’	|| ‘nowrap’
-justifyContent	|| ‘flex-start’ | ‘flex-end’ | ‘center’ | ‘space-between’ | ‘space-around’ | ‘space-evenly’	|| ‘flex-start’
-alignItems	|| ‘flex-start’ | ‘flex-end’ | ‘center’ | ‘stretch’ | ‘baseline’	|| ‘stretch’
-alignContent	|| ‘flex-start’ | ‘flex-end’ | ‘center’ | ‘stretch’ | ‘space-between’ | ‘space-around’	|| ‘flex-start’
-alignSelf	|| ‘auto’ | ‘flex-start’ | ‘flex-end’ | ‘center’ | ‘stretch’ | ‘baseline’	|| ‘stretch’
+justifyContent	|| ‘flex-start’ , ‘flex-end’ , ‘center’ , ‘space-between’ , ‘space-around’ , ‘space-evenly’	|| ‘flex-start’
+alignItems	|| ‘flex-start’ , ‘flex-end’ , ‘center’ , ‘stretch’ , ‘baseline’	|| ‘stretch’
+alignContent	|| ‘flex-start’ , ‘flex-end’ , ‘center’ , ‘stretch’ , ‘space-between’ , ‘space-around’	|| ‘flex-start’
+alignSelf	|| ‘auto’ , ‘flex-start’ , ‘flex-end’ , ‘center’ , ‘stretch’ , ‘baseline’	|| ‘stretch’
 
 
+## component
