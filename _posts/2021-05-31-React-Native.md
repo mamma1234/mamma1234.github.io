@@ -60,13 +60,14 @@ $ yarn ios
     - [Text](#text)
     - [Touchable](#touchable)
     - [Image](#image)
-    - [ImageBackground] (#ImageBackground)
-    - [SafeAreaView] (#SafeAreaView)
-    - [ScrollView] (#ScrollView)
-    - [KeyboardAvodingView] (#KeyboardAvodingView)
-    - [FlatList] (#FlatList)
-    - [ActiveIndicator] (#ActiveIndicator)
-    - [Modal] (#Modal)
+    - [ImageBackground](#ImageBackground)
+    - [SafeAreaView](#SafeAreaView)
+    - [ScrollView](#ScrollView)
+    - [KeyboardAvodingView](#KeyboardAvodingView)
+    - [FlatList](#FlatList)
+    - [ActiveIndicator](#ActiveIndicator)
+    - [Modal](#Modal)
+- [커스텀 컴포넌트 사용하기](#커스텀-컴포넌트-사용하기)
 
 
 ## style
