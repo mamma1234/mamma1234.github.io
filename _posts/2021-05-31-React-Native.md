@@ -113,7 +113,7 @@ content: {
 - 의사 클래스(가상 클래스), 가상요소, 형제 선택자, 자식 선택자 등을 사용할 수 없다
 - 스크립트의 장점을 활용할 수 있다.
 
-## RN의 flex
+## RN flex
 - main axis, CSS의 flex와 RN의 flex는 main axis가 반대
 
 - 지원하지 않는 flex 관련 속성
