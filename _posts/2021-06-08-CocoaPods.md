@@ -76,3 +76,8 @@ spec.source = { :git => 'https://github.com/Alamofire/Alamofire.git', :tag => 'v
 ```
 
 ~/.cocoapods/repos 에는 모든 pod에 대해 가능한 버전들의 podspec 파일들이 모여있습니다. pod repo update 를 실행하게 되면 최신 podspec 파일들로 업데이트되게 되는 것입니다. 추가한 라이브러리에 대한 podspec 이 업데이트되지 않아 오류가 날 경우 이 명령어를 통하여 해결할 수 있습니다.
+
+
+
+## Podfile.lock을 커밋하세요!
+동료와 같이 협업하고 있다면! 꼭 Podfile.lock을 공유해야 합니다. pod 버전을 모두가 동일하게 쓰도록 유지시키는 역할을 하는 것이죠. 그리고 Podfile이 수정될 일이 생긴다면 pod install 명령어를 통해 의존성을 관리하면 됩니다. 만약 동료들과 같은 CHECKSUM을 얻는데에 실패했다면 간단하게 rm -rf Pods && pod install 을 실행하면 됩니다.
