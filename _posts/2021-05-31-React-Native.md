@@ -20,33 +20,26 @@ disqus:
 - 
 ## 시작
 
-
+### Create-react-native-app
 ```JavaScript
 $ npm install -g create-react-native-app
-
-- case 1 : React Native 프로젝트는 CLI보다는 CRNA를 통해서 프로젝트를 시작한 후 ejecting 기능을 사용해 Expo SDK를 그대로 가져가며 프로젝트는 진행하는것이 좋을것 같습니다.
 $ create-react-native-app 프로젝트명
-
-
-
-- case 2
-$ react-native init 프로젝트명
-
-
 $ cd 프로젝트 명
 $ npm start
-
-$ npm install -g react-native-cli
-
-$ cd 프로젝트 명
-$ react-native run-ios 
-$ react-native run-android
-
-$ react-native run-ios --simulator "iPhone 8"
-
-$ yarn ios
-
 ```
+
+### React-native 
+```JavaScript
+$ npm install -g react-native-cli
+$ react-native init 프로젝트명
+$ cd 프로젝트명
+$ react-native run-ios
+or 
+$ react-native run-android
+```
+
+
+- case 1 : React Native 프로젝트는 CLI보다는 CRNA를 통해서 프로젝트를 시작한 후 ejecting 기능을 사용해 Expo SDK를 그대로 가져가며 프로젝트는 진행하는것이 좋을것 같습니다.
 
 ## 참조
 - [https://wit.nts-corp.com/2020/03/23/6014](https://wit.nts-corp.com/2020/03/23/6014)
@@ -241,3 +234,10 @@ export default wrappedText
     - ScrollView 사용할 때 컨텐츠의 내용이 부족하더라도 ScrollView 영역만큼의 영역을 확보해야할 경우가 있습니다.
 - hitSlop
     -  hitSlop props를 이용하면 주변 요소의 렌더링에 영향을 주지 않고 터치 영역만 원하는 만큼 증가시킬 수 있습니다.
+
+
+## Error
+- Invariant Violation: Module AppRegistry is not a registered callable module (calling runApplication)
+```JavaScript
+$ cd ios && rm -rf Pods && pod cache clean --all && pod install && cd ..
+```
