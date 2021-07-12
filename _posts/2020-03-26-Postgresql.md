@@ -27,7 +27,24 @@ disqus:
 - [Postgres connection has been closed error in Spring Boot](#Postgres connection has been closed error in Spring Boot)
 - [Foreign Data Wrapper for Oracle](#Foreign Data Wrapper for Oracle)
 - [Connection state](#Connection state)
-- [현재-active중인-쿼리-보기]현재 active중인 쿼리 보기
+- [현재 active중인 쿼리 보기](#현재-active중인-쿼리-보기)
+- db 통계정보 보기
+- 테이블 통계정보 보기
+- db사이즈 조회
+- tablespace size조회
+- 현재 스키마 조회
+- table 목록 보기
+- db목록 보기
+- 컬럼 내용 보기
+- DESCRIBE TABLE
+- user 정보 보기
+- 현재 유저 정보 보기
+- function 내용보기
+- index 조회하기
+- 컴마 붙이기
+- index table space 변경
+- [함수 소스 확인](#함수-소스-확인)
+
 
 ## lock 해소
 ```JavaScript
@@ -326,17 +343,15 @@ Idle in transaction은 좀 더 독특한면이 있습니다. 확인해야 할 �
 
 
 ## 현재 active중인 쿼리 보기
-
-- 현재 active중인 쿼리 보기
 select * from pg_stat_activity;
 
-- db 통계정보 보기
+## db 통계정보 보기
 SELECT * FROM pg_stat_database;
 
-- 테이블 통계정보 보기
+## 테이블 통계정보 보기
 select * from pg_stat_all_tables
 
-- db사이즈 조회
+## db사이즈 조회
 select * from pg_size_pretty(pg_database_size('testDatabase'));
 
 - tablespace size조회
@@ -387,26 +402,6 @@ SELECT prosrc FROM pg_proc WHERE proname = 'partitioning_trigger_login';
 -index 조회하기
 
 
-
-Colored By Color Scripter™
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
 SELECT i.relname as indname,
        i.relowner as indowner,
        idx.indrelid::regclass,
@@ -435,6 +430,11 @@ and i.relname not like 'pg%';
 
 
 
--index table space 변경
+- index table space 변경
 
 ALTER INDEX tb_ham_log_login_2013_11_first_idx1 SET TABLESPACE tbs_ham
+
+
+## 함수 소스 확인
+
+select * from pg_proc where prosrc like '%company_id%'
