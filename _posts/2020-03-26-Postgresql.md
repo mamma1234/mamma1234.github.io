@@ -17,7 +17,7 @@ disqus:
 # Postgresql
 
 ## 목차
-- [lock-해소](#lock 해소)
+- [lock 해소](#lock-해소)
 - [PostgreSQL Exception handling detail with GET STACKED DIAGNOSTICS](#PostgreSQL-Exception-handling-detail-with-GET-STACKED-DIAGNOSTICS)
 - [Use RAISE Statements to debug](#Use RAISE Statements to debug)
 - [Procedures and transaction control](#Procedures and transaction control)
