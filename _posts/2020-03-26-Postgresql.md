@@ -44,6 +44,11 @@ disqus:
 - [컴마 붙이기](#컴마-붙이기)
 - [index table space 변경](#index-table-space-변경)
 - [함수 소스 확인](#함수-소스-확인)
+- [다른 테이블 구조와 데이터 복사하기](#다른-테이블-구조와-데이터-복사하기)
+- [다른 테이블 구조만 복사하기](#다른-테이블구조만-복사하기)
+- [데이터 & 인덱스 &  constraint 등의 정보 다 같이 복사하기](#데이터-&인덱스-&--constraint-등의-정보-다-같이-복사하기)
+- [다른 테이블의 일부 필드만 복사하기](#다른-테이블의-일부-필드만-복사하기)
+
 
 
 ## lock 해소
@@ -438,3 +443,37 @@ ALTER INDEX tb_ham_log_login_2013_11_first_idx1 SET TABLESPACE tbs_ham
 ## 함수 소스 확인
 
 select * from pg_proc where prosrc like '%company_id%'
+
+
+## 다른 테이블 구조와 데이터 복사하기
+
+CREATE TABLE newtable AS SELECT * FROM oldtable;
+
+## 다른 테이블 구조만 복사하기
+
+CREATE TABLE newtable ( LIKE oldtable ); 
+
+
+## 데이터 & 인덱스 &  constraint 등의 정보 다 같이 복사하기 
+
+아래 두개의 sql 문을 차례로 실행한다. 복사 속도는 위의 방식이 더 빠르지만 인덱스 정보가 같이 복사됨.
+
+create table newtable (like "oldtable" including all);
+
+insert into newtable ( select * from "oldtable");
+
+
+## 다른 테이블의 일부 필드만 복사하기 
+
+
+insert into items_ver(item_id, item_group, name)
+
+select * from items where item_id=2;
+
+
+
+insert into items_ver (item_id, name, item_group)
+
+select item_id, name, item_group from items where item_id=2;
+
+
