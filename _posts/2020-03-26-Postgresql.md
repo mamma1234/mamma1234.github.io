@@ -25,24 +25,24 @@ disqus:
 - [lock 테이블 확인](#lock-테이블-확인)
 - [lock 삭제](#lock-삭제)
 - [Postgres connection has been closed error in Spring Boot](#Postgres-connection-has-been-closed-error-in-Spring-ßBoot)
-- [Foreign Data Wrapper for Oracle](#Foreign-Data-Wrapper -for-Oracle)
+- [Foreign Data Wrapper for Oracle](#Foreign-Data-Wrapper-for-Oracle)
 - [Connection state](#Connection-state)
 - [현재 active중인 쿼리 보기](#현재-active중인-쿼리-보기)
-- db 통계정보 보기
-- 테이블 통계정보 보기
-- db사이즈 조회
-- tablespace size조회
-- 현재 스키마 조회
-- table 목록 보기
-- db목록 보기
-- 컬럼 내용 보기
-- DESCRIBE TABLE
-- user 정보 보기
-- 현재 유저 정보 보기
-- function 내용보기
-- index 조회하기
-- 컴마 붙이기
-- index table space 변경
+- [db 통계정보 보기](#db-통계정보-보기)
+- [테이블 통계정보 보기](#테이블-통계정보-보기)
+- [db사이즈 조회](#db사이즈-조회)
+- [tablespace size조회](#tablespace-size조회)
+- [현재 스키마 조회](#현재-스키마-조회)
+- [table 목록 보기](#table-목록-보기)
+- [db목록 보기](#table-목록-보기)
+- [컬럼 내용 보기](#컬럼-내용-보기)
+- [DESCRIBE TABLE](#DESCRIBE0-TABLE)
+- [user 정보 보기](#DESCRIBE-TABLE)
+- [현재 유저 정보 보기](#현재-유저-정보-보기)
+- [function 내용보기](#function-내용보기)
+- [index 조회하기](#index-조회하기)
+- [컴마 붙이기](#컴마-붙이기)
+- [index table space 변경](#index-table-space-변경)
 - [함수 소스 확인](#함수-소스-확인)
 
 
@@ -354,44 +354,44 @@ select * from pg_stat_all_tables
 ## db사이즈 조회
 select * from pg_size_pretty(pg_database_size('testDatabase'));
 
-- tablespace size조회
+## tablespace size조회
 select * from pg_size_pretty(pg_tablespace_size('pg_default'));
 
--현재 스키마 조회
+## 현재 스키마 조회
 select current_schema(); 
 
-- table 목록 보기
+## table 목록 보기
 postgresql: \d
 postgresql: SELECT table_name FROM information_schema.tables WHERE table_schema = 'public';
 
-- db목록 보기
+## db목록 보기
 postgresql: \l
 postgresql: SELECT datname FROM pg_database;
 
-- 컬럼 내용 보기
+## 컬럼 내용 보기
 postgresql: \d table
 postgresql: SELECT column_name FROM information_schema.columns WHERE table_name ='table';
 
-- DESCRIBE TABLE
+## DESCRIBE TABLE
 postgresql: \d+ table
 postgresql: SELECT column_name FROM information_schema.columns WHERE table_name ='table'
 
 
 
-- user 정보 보기
+## user 정보 보기
 
 select * from pg_user where usename = CURRENT_USER;
 
 
 
-- 현재 유저 정보 보기
+## 현재 유저 정보 보기
 
 
 select CURRENT_USER;
 
 
 
--function 내용보기
+## function 내용보기
 
 SELECT prosrc FROM pg_proc WHERE proname = 'partitioning_trigger_login';
 
@@ -399,7 +399,7 @@ SELECT prosrc FROM pg_proc WHERE proname = 'partitioning_trigger_login';
 
 
 
--index 조회하기
+## index 조회하기
 
 
 SELECT i.relname as indname,
@@ -424,13 +424,13 @@ and i.relname not like 'pg%';
 
 
 
--컴마 붙이기
+## 컴마 붙이기
 
  select to_char(123456789, 'FM999,999,990'); 
 
 
 
-- index table space 변경
+## index table space 변경
 
 ALTER INDEX tb_ham_log_login_2013_11_first_idx1 SET TABLESPACE tbs_ham
 
