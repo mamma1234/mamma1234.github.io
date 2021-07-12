@@ -19,14 +19,14 @@ disqus:
 ## 목차
 - [lock 해소](#lock-해소)
 - [PostgreSQL Exception handling detail with GET STACKED DIAGNOSTICS](#PostgreSQL-Exception-handling-detail-with-GET-STACKED-DIAGNOSTICS)
-- [Use RAISE Statements to debug](#Use RAISE Statements to debug)
-- [Procedures and transaction control](#Procedures and transaction control)
-- [postgresql ORA-08177: can't serialize access for this transaction](#postgresql ORA-08177: can't serialize access for this transaction)
-- [lock 테이블 확인](#lock 테이블 확인)
-- [lock 삭제](#lock 삭제)
-- [Postgres connection has been closed error in Spring Boot](#Postgres connection has been closed error in Spring Boot)
-- [Foreign Data Wrapper for Oracle](#Foreign Data Wrapper for Oracle)
-- [Connection state](#Connection state)
+- [Use RAISE Statements to debug](#Use-RAISE-Statements-to-debug)
+- [Procedures and transaction control](#Procedures-and-transaction-ßcontrol)
+- [postgresql ORA-08177: can't serialize access for this transaction](#postgresql-ORA-08177:-can't-serialize-access-for-this-transaction)
+- [lock 테이블 확인](#lock-테이블-확인)
+- [lock 삭제](#lock-삭제)
+- [Postgres connection has been closed error in Spring Boot](#Postgres-connection-has-been-closed-error-in-Spring-ßBoot)
+- [Foreign Data Wrapper for Oracle](#Foreign-Data-Wrapper -for-Oracle)
+- [Connection state](#Connection-state)
 - [현재 active중인 쿼리 보기](#현재-active중인-쿼리-보기)
 - db 통계정보 보기
 - 테이블 통계정보 보기
