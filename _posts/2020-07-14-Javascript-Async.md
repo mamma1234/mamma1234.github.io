@@ -440,15 +440,15 @@ userStorage
 
 # async function 표현식
 - 문법
-async function [name]([param1[, param2[, ..., paramN]]]) { statements }
+  async function [name]([param1[, param2[, ..., paramN]]]) { statements }
 
 - 인수
   - name
-    함수 이름. 생략가능하며 이경우함수는 anonymous 형식임  이름은 함수 몸체에 대해 지역적으로 사용.
+      함수 이름. 생략가능하며 이경우함수는 anonymous 형식임  이름은 함수 몸체에 대해 지역적으로 사용.
   - paramN
-    함수에 전달될 인수의 이름.
+      함수에 전달될 인수의 이름.
   - statements
-    함수 몸체를 구성하는 명령문들.
+      함수 몸체를 구성하는 명령문들.
 
 - Simple example
 
