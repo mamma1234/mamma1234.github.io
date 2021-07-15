@@ -26,7 +26,7 @@ disqus:
 - [Callback](#Callback)
 - [Promise](#Promise)
 - [Async & Await](#Async-&-Await)
-
+- [async function 표현식](#async-function-표현식)
 
 # Callback
 
@@ -126,9 +126,10 @@ userStorage.loginUser(
 # Promise
 
 - Promise 는 3가지 상태가 존재한다.
-  - pending : 대기상태
-  - fulfilled : 성공상태
-  - rejected : 실패상태
+  - Pending(대기, 비동기 처리 로직이 아직 완료되지 않은 상태) : new Promise() 메서드를 호출하면 Pending 상태가 된다. 이 때 콜백함수를 선언할 수 있다.
+  - Fulfilled(이행, 비동기 처리가 완료되어 프로미스가 결과 값을 반환해 준 상태) : 콜백 함수에서 resolve를 실행하는 경우로 resolve 상태가 되면 then()을 이용해 처리 결과 값을 받을 수 있다.
+  - Rejected(실패, 비동기 처리가 실패하거나 오류가 발생한 상태) : 콜백 함수에서 reject를 실행하는 경우로 reject 상태가되면 catch()를 통해 실패 처리 값을 받을 수 있다.
+
 
 ```JavaScript
 // pending 대기상태
@@ -154,6 +155,23 @@ console.log(rejected);
 // rejected
 // [[PromiseStatus]]: "rejected"
 // [[PromiseValue]]: Error: rejected at <anonymous>
+
+var catchError = new Promise((resolve, reject) => {
+    throw new Error('rejected')
+}).catch(() => { return 'catchValue' })
+console.log(catchError);
+// pending
+// [[PromiseStatus]]: "resolved"
+// [[PromiseValue]]: "catchValue"
+
+var catchThen = new Promise((resolve, reject) => {
+    reject('rejected')
+}).then(null, (error) => { return 'catchThen' }
+).catch(() => { return 'catchValue' });
+console.log(catchThen);
+// pending
+// [[PromiseStatus]]: "resolved"
+// [[PromiseValue]]: "catchThen"
 ```
 
 
@@ -418,3 +436,16 @@ userStorage
 
 
 ```
+
+
+# async function 표현식
+- 문법
+async function [name]([param1[, param2[, ..., paramN]]]) { statements }
+
+- 인수
+  - name
+    함수 이름. 생략가능하며 이경우함수는 anonymous 형식임  이름은 함수 몸체에 대해 지역적으로 사용.
+  - paramN
+    함수에 전달될 인수의 이름.
+  - statements
+    함수 몸체를 구성하는 명령문들.
