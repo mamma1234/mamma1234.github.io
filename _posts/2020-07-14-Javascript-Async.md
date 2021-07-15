@@ -22,6 +22,11 @@ disqus:
 - [프로미스] (https://www.youtube.com/watch?v=JB_yU6Oe2eE&list=PLv2d7VI9OotTVOL4QmPfvJWPJvkmv6h-2&index=12)
 - [async await] (https://www.youtube.com/watch?v=aoQSOZfz3vQ&list=PLv2d7VI9OotTVOL4QmPfvJWPJvkmv6h-2&index=13)
  
+## 목차
+- [Callback](#Callback)
+- [Promise](#Promise)
+- [Async & Await](#Async-&-Await)
+
 
 # Callback
 
@@ -119,6 +124,39 @@ userStorage.loginUser(
 ```
 
 # Promise
+
+- Promise 는 3가지 상태가 존재한다.
+  - pending : 대기상태
+  - fulfilled : 성공상태
+  - rejected : 실패상태
+
+```JavaScript
+// pending 대기상태
+var pending = new Promise((resolve) => {});
+console.log(pending);
+// pending
+// [[PromiseStatus]]: "pending"
+// [[PromiseValue]]: undefined
+
+// fulfilled 성공상태
+var fulfilled = new Promise((resolve) => resolve('fulfilled'))
+console.log(fulfilled);
+// resolved
+// [[PromiseStatus]]: "resolved"
+// [[PromiseValue]]: "fulfilled"
+
+// rejected 실패상태
+var rejected = new Promise((resolve, reject) => {
+    throw new Error('rejected');
+    reject();
+});
+console.log(rejected);
+// rejected
+// [[PromiseStatus]]: "rejected"
+// [[PromiseValue]]: Error: rejected at <anonymous>
+```
+
+
 
 ```JavaScript
 // promise is a JavaScript object for asynchronous operation.
