@@ -311,6 +311,7 @@ userStorage
 - async function 선언은 AsyncFunction객체를 반환하는 하나의 비동기 함수를 정의합니다. 비동기 함수는 이벤트 루프를 통해 비동기적으로 작동하는 함수로, 암시적으로 Promise를 사용하여 결과를 반환합니다. 그러나 비동기 함수를 사용하는 코드의 구문과 구조는, 표준 동기 함수를 사용하는것과 많이 비슷합니다.
 
 - async 함수는 항상 promise를 반환합니다. 만약 async 함수의 반환값이 명시적으로 promise가 아니라면 암묵적으로 promise로 감싸집니다.
+
 ```JavaScript
 예를 들어
 
@@ -325,6 +326,7 @@ function foo() {
 ```
 
 - 실제로는 fulfil Promise가 반환되기 때문에 반환된 값을 사용하기 위해선 .then() 블럭을 사용해야 합니다.
+
 ```JavaScript
 hello().then((value) => console.log(value))
 
@@ -334,6 +336,7 @@ hello().then(console.log)
 ```
 
 - async 함수의 본문은 0개 이상의 await 문으로 분할된 것으로 생각할 수 있습니다. 첫번째 await 문을 포함하는 최상위 코드는 동기적으로 실행됩니다. 따라서 await 문이 없는 async 함수는 동기적으로 실행됩니다. 하지만 await 문이 있다면 async 함수는 항상 비동기적으로 완료됩니다.
+
 ```JavaScript
 예를 들어
 
