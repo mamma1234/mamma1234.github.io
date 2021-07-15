@@ -27,6 +27,8 @@ disqus:
 - [Promise](#Promise)
 - [Async](#Async)
 - [Async & Await](#Async-&-Await)
+  - [Callback -> Async](#Callback-->-Async)
+- [await Promise.all](#await-Promise.all)  
 - [async function 표현식](#async-function-표현식)
 
 # Callback
@@ -483,6 +485,61 @@ userStorage
 ```
 
 
+
+# await Promise.all
+
+- await 을 사용하여 세 가지 Promise의 결과가 반환되었을 때 values 배열에 담을 수 있습니다
+
+```JavaScript
+async function fetchAndDecode(url, type) {
+  let response = await fetch(url);
+
+  let content;
+
+  if (!response.ok) {
+    throw new Error(`HTTP error! status: ${response.status}`);
+  } else {
+    if(type === 'blob') {
+      content = await response.blob();
+    } else if(type === 'text') {
+      content = await response.text();
+    }
+  }
+
+  return content;
+
+
+}
+
+async function displayContent() {
+  let coffee = fetchAndDecode('coffee.jpg', 'blob');
+  let tea = fetchAndDecode('tea.jpg', 'blob');
+  let description = fetchAndDecode('description.txt', 'text');
+
+  let values = await Promise.all([coffee, tea, description]);
+
+  let objectURL1 = URL.createObjectURL(values[0]);
+  let objectURL2 = URL.createObjectURL(values[1]);
+  let descText = values[2];
+
+  let image1 = document.createElement('img');
+  let image2 = document.createElement('img');
+  image1.src = objectURL1;
+  image2.src = objectURL2;
+  document.body.appendChild(image1);
+  document.body.appendChild(image2);
+
+  let para = document.createElement('p');
+  para.textContent = descText;
+  document.body.appendChild(para);
+}
+
+displayContent()
+.catch((e) =>
+  console.log(e)
+);
+```
+
 # async function 표현식
 - 문법
   * async function [name]([param1[, param2[, ..., paramN]]]) { statements }
@@ -518,7 +575,7 @@ add(10).then(v => {
 });
 
 
-(async function(x) { // async function 표현식을 IIFE로 사용
+(async function(x) { // async function 표현식을 IIFE로 (즉시실행 함수(Immediately Invoked Function Expression)) 사용
   var p_a = resolveAfter2Seconds(20);
   var p_b = resolveAfter2Seconds(30);
   return x + await p_a + await p_b;
