@@ -324,6 +324,14 @@ function foo() {
 }
 ```
 
+- 실제로는 fulfil Promise가 반환되기 때문에 반환된 값을 사용하기 위해선 .then() 블럭을 사용해야 합니다.
+```JavaScript
+hello().then((value) => console.log(value))
+
+짧게 표현하면 아래와 같이 쓸 수 있습니다.
+
+hello().then(console.log)
+```
 
 - async 함수의 본문은 0개 이상의 await 문으로 분할된 것으로 생각할 수 있습니다. 첫번째 await 문을 포함하는 최상위 코드는 동기적으로 실행됩니다. 따라서 await 문이 없는 async 함수는 동기적으로 실행됩니다. 하지만 await 문이 있다면 async 함수는 항상 비동기적으로 완료됩니다.
 ```JavaScript
