@@ -21,7 +21,7 @@ disqus:
 
 ## 목차
 - [forEach](#forEach)
-- [RN flex](#rn-flex)
+- [find](#find)
 - [component](#component)
     - [View](#view)
 
@@ -31,4 +31,26 @@ disqus:
     - arr.forEach(callback(currentvalue[, index[, array]])[, thisArg])
 ```JavaScript
 fruits.forEach((fruit) => console.log(fruit, second), second);
-````
+```
+
+### find
+```JavaScript
+const fruits =  ['1', '2', '1']
+const findedata= fruits.find((value, index)=>
+    value === '1'
+)
+console.log(findedata);
+
+$1
+```
+
+### filter
+```JavaScript
+const fruits =  ['1', '2', '1']
+const findedata= fruits.filter((value, index)=>
+    value === '1'
+)
+console.log(findedata);
+
+$[ '1', '1' ]
+```
