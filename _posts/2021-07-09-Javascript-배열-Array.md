@@ -28,6 +28,7 @@ disqus:
 
 ### forEach
 - thisArg 매개변수(this)를 forEach()에 제공했기에, callback은 전달받은 this의 값을 자신의 this 값으로 사용할 수 있습니다. 
+    - arr.forEach(callback(currentvalue[, index[, array]])[, thisArg])
 ```JavaScript
 fruits.forEach((fruit) => console.log(fruit, second), second);
 ````
