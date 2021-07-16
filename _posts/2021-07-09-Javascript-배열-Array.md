@@ -54,3 +54,14 @@ console.log(findedata);
 
 $[ '1', '1' ]
 ```
+
+### map
+```JavaScript
+const fruits =  ['1', '2', '1']
+const findedata2= fruits.map((value, index)=>
+    value + 333
+)
+console.log(findedata2);
+
+$[ '1333', '2333', '1333' ]
+```
