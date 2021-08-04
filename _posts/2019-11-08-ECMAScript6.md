@@ -32,8 +32,12 @@ disqus:
 - [팁](#)
   - [Nullish Coalescing Operator](#)
   - [Object Destructuring](#)
-  - [Spread Syntax](#)
-
+  - [Spread Syntax Object](#)
+  - [Spread Syntax Array](#)
+  - [Optional Chaining](#)
+  - [Template Literals](#)
+  - [Promise -> Async/await](#)
+  
 ### ES6 에서 사용하는 변수 선언. ES5 에서 사용하던 var 외에 const나 let
 - 블록 스코프 변수인 let은 자신을 정의한 블록에서만 접근 가능하다.
 - const 담긴 값이 불변을 뜻하는게 아니라, 단지 변수의 식별자가 재할당 될 수 없다.
@@ -307,7 +311,9 @@ trip.print();
 // 당신의 선글라스와(과) 당신의 배낭와(과) 당신의 카메라를(을) 가져오십시오.
 ```
 
-### Nullish Coalescing Operator
+### 팁
+
+#### Nullish Coalescing Operator
 ```JavaScript
 // Nullish coalescing operator
 function printMessage(text) {
@@ -343,12 +349,12 @@ printMessage(''); ==> 'Nothing to display'
 ```
 
 
-### Object Destructuring
+#### Object Destructuring
 ```JavaScript
   const { name, age } = person;
 ```
 
-#### Spread Syntax 
+#### Spread Syntax Object
 
 ```JavaScript
 const item = { type: '👔', size: 'M' };
@@ -362,4 +368,92 @@ console.log(shirt0);
 const shirt = { ...item, ...detail, price: 30 };
 console.log(shirt);
 
+```
+
+#### Spread Syntax Array
+```JavaScript
+let fruits = ['🍉', '🍊', '🍌'];
+const fruits2 = ['🍈', '🍑', '🍍'];
+
+let combined = fruits.concat(fruits2);
+combined = [...fruits, '🍒', ...fruits2];
+
+```
+
+#### Optional Chaining
+```JavaScript
+// Optional Chaining
+const bob = {
+  name: 'Julia',
+  age: 20,
+};
+const anna = {
+  name: 'Julia',
+  age: 20,
+  job: {
+    title: 'Software Engineer',
+  },
+};
+
+// ❌ Bad Code 💩
+function displayJobTitle(person) {
+  if (person.job && person.job.title) {
+    console.log(person.job.title);
+  }
+}
+
+// ✅ Good Code ✨
+function displayJobTitle(person) {
+  if (person.job?.title) {
+    console.log(person.job.title);
+  }
+}
+
+// ✅ Good Code ✨
+function displayJobTitle(person) {
+  const title = person.job?.title ?? 'No Job Yet 🔥';
+  console.log(title);
+}
+
+displayJobTitle(bob); ==> 'No Job Yet 🔥'
+displayJobTitle(anna); ==> 'Software Engineer'
+
+```
+
+
+#### Template Literals
+```JavaScript
+// ❌ Bad Code 💩
+console.log(
+  'Hello ' + person.name + ', Your current score is: ' + person.score
+);
+
+// ✅ Good Code ✨
+console.log(`Hello ${person.name}, Your current score is: ${person.score}`);
+
+```
+
+
+#### Promise -> Async/await
+```JavaScript
+
+// Promise -> Async/await
+
+// ❌ Bad Code 💩
+function displayUser() {
+  fetchUser() //
+    .then((user) => {
+      fetchProfile(user) //
+        .then((profile) => {
+          updateUI(user, profile);
+        });
+    });
+}
+
+// ✅ Good Code ✨
+async function displayUser() {
+  const user = await fetchUser();
+  const profile = await fetchProfile(user);
+  updateUI(user, profile);
+}
 ```
