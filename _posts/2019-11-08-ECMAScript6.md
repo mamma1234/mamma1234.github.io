@@ -19,6 +19,21 @@ disqus:
 ## 개념
 - 
 
+## 목차
+- [ES6 에서 사용하는 변수 선언. ES5 에서 사용하던 var 외에 const나 let](#)
+- [module import, export](#)
+- [arrow function](#)
+- [템플릿 리터럴 (Template Literals)](#)
+- [개선된 객체 리터럴 (Enhanced Object Literal)](#)
+- [스프레드 연산자 Spread Operator](#)
+- [프라미스 Promise](#)
+- [Fetch API](#)
+- [클래스 (Class)](#)
+- [팁](#)
+  - [Nullish Coalescing Operator](#)
+  - [Object Destructuring](#)
+  - [Spread Syntax](#)
+
 ### ES6 에서 사용하는 변수 선언. ES5 에서 사용하던 var 외에 const나 let
 - 블록 스코프 변수인 let은 자신을 정의한 블록에서만 접근 가능하다.
 - const 담긴 값이 불변을 뜻하는게 아니라, 단지 변수의 식별자가 재할당 될 수 없다.
@@ -290,4 +305,61 @@ const trip = new Expedition("한라산", 3, ["선글라스", "배낭", "카메�
 trip.print(); 
 // 한라산은(는) 3일 걸립니다.
 // 당신의 선글라스와(과) 당신의 배낭와(과) 당신의 카메라를(을) 가져오십시오.
+```
+
+### Nullish Coalescing Operator
+```JavaScript
+// Nullish coalescing operator
+function printMessage(text) {
+  const message = text ?? 'Nothing to display';
+  console.log(message);
+}
+
+printMessage('Hello');
+printMessage(null); ==> 'Nothing to display'
+printMessage(undefined); ==> 'Nothing to display'
+
+
+// 🚨 Default parameter is only for undefined
+function printMessage(text = 'Nothing to display 😜') {
+  console.log(text);
+}
+
+
+
+
+// 🚨 Logical OR operator ||
+function printMessage(text) {
+  const message = text || 'Nothing to display 😜';
+  console.log(message);
+}
+
+
+printMessage('Hello');
+printMessage(null); ==> 'Nothing to display'
+printMessage(undefined); ==> 'Nothing to display'
+printMessage(0); ==> 'Nothing to display'
+printMessage(''); ==> 'Nothing to display'
+```
+
+
+### Object Destructuring
+```JavaScript
+  const { name, age } = person;
+```
+
+#### Spread Syntax 
+
+```JavaScript
+const item = { type: '👔', size: 'M' };
+const detail = { price: 20, made: 'Korea', gender: 'M' };
+
+// ✅ Good Code ✨
+const shirt0 = Object.assign(item, detail);
+console.log(shirt0);
+
+// ✅ Better! Code ✨
+const shirt = { ...item, ...detail, price: 30 };
+console.log(shirt);
+
 ```
