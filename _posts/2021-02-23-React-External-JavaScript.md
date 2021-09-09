@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "React"
+title: "React External JavaScript"
 description: 
 headline: 
 modified: 2021-02-23
