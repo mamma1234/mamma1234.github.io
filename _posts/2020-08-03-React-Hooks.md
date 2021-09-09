@@ -18,13 +18,9 @@ disqus:
 # React Hooks
 
 ## 목차
-
-- 기본 Hook
 - [useState](#useState)
 - [useEffect](#useEffect)
 - [useContext](#useContext)
-
-- 추가 Hooks
 - [useReducer](#useReducer)
 - [useCallback](#useCallback)
 - [useMemo](#useMemo)
@@ -32,7 +28,6 @@ disqus:
 - [useImperativeHandle](#useImperativeHandle)
 - [useLayoutEffect](#useLayoutEffect)
 - [useDebugValue](#useDebugValue)
-
 
 
 ### useState
