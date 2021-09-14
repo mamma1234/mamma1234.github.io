@@ -16,6 +16,16 @@ disqus:
 ---
 
 # React Hooks
+리액트는 얕은 비교를 통해 새로운 값인지 아닌지를 판단한 후 새로운 값인 경우 리렌더링을 하게 된다.
+
+얕은 비교란 간단히 말하자면 객체, 배열, 함수와 같은 참조 타입들을 실제 내부 값까지 비교하지 않고 동일 참조인지(동일한 메모리 값을 사용하는지)를 비교하는 것을 뜻한다
+state에 push, pop, shite.. 등의 원본을 변형하는 메소드를 사용하면 안되는 이유이기도 하다.. immutable의 중요성!!!)
+
+따라서 원시 값들은 서로 다른 참조 값을 가지고 있어도 비교함에 있어 문제가 없지만, (원시 타입 값은 참조 타입과 달리 서로 다른 메모리에 할당되어 있어도 값이 같다면 === Strict Equal Operator에서 true 값을 반환한다.) 객체(object), 배열(array), 함수(function)와 같은 객체들은 같은 참조 값이 아니라면 새로운 값으로 판단하는 것이다
+
+예를 들어 상위 컴포넌트의 state가 변경되면 > 상위 컴포넌트가 리렌더링 되며 하위 컴포넌트에 넘겨주는 props가 새롭게 생성되고 > props에 참조 타입이 있다면 동일한 값이라도 동일 참조 값이 아니므로 얕은 비교를 통해 새로운 값으로 판단하여 리렌더링을 일으키는 것이다
+
+useCallback, React.memo는 위와 같은 상황을 방지하기 위해 사용
 
 ## 목차
 - 기초
@@ -30,7 +40,7 @@ disqus:
   - [useImperativeHandle](#useimperativehandle)
   - [useLayoutEffect](#uselayouteffect)
   - [useDebugValue](#usedebugvalue)
-
+- [User Hook](#User-Hook)
 
 ### useState
 ```JavaScript
