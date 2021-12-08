@@ -75,7 +75,13 @@ place-items	|| align-items와 justify-items의 단축 속성
 grid	|| Block 특성의 Grid Container를 정의
 inline-grid	|| Inline 특성의 Grid Container를 정의
 
-### flex-flow
+### grid-template-rows
+
+- 명시적 행(Track)의 크기를 정의합니다.
+    동시에 라인(Line)의 이름도 정의할 수 있습니다.
+    fr(fraction, 공간 비율) 단위를 사용할 수 있습니다.
+    repeat() 함수를 사용할 수 있습니다.
+
 
 값	|| 의미	|| 기본값
 flex-direction	|| Items의 주 축(main-axis)을 설정	|| row
