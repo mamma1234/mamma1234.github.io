@@ -48,7 +48,7 @@ Container는 Items를 감싸는 부모 요소이며, 그 안에서 각 Item을 �
   - [align-items](#align-items)
   - [justify-items](#justify-items)
   - [place-items](#place-items)
-  
+- [Grid Items](#grid-Items)
 
 
 ## Grid Container
@@ -461,8 +461,6 @@ stretch	|| 행 축을 채우기 위해 그리드 아이템을 늘림
 ## Grid Items
 
 
-
-
 속성	|| 의미
 grid-row-start	|| 그리드 아이템(Item)의 행 시작 위치 지정
 grid-row-end	|| 그리드 아이템의 행 끝 위치 지정
@@ -478,83 +476,74 @@ order	|| 그리드 아이템의 배치 순서를 지정
 z-index	|| 그리드 아이템의 쌓이는 순서를 지정
 
 
-### order
+### grid-row-start
 
-- Item의 순서를 설정합니다.
-  * Item에 숫자를 지정하고 숫자가 클수록 순서가 밀립니다.
-  * 음수가 허용됩니다.
+- 그리드 아이템(Item)을 배치하기 위해 그리드 선(Line)의 ‘시작 위치’와 ‘끝 위치’를 지정합니다.
+‘숫자’를 지정하거나, ‘선 이름’을 지정하거나, span 키워드를 사용합니다.
 
-값	|| 의미	|| 기본값
-숫자	|| Item의 순서를 설정	|| 0
+```JavaScript
+
+.container {
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+}
+.item:nth-child(1) {
+  grid-row-start: 1;
+  grid-row-end: 3;
+  grid-column-start: 2;
+  grid-column-end: 4;
+}
+
+```
+
+### grid-row-end
+
+- 그리드 아이템(Item)을 배치하기 위해 그리드 선(Line)의 ‘시작 위치’와 ‘끝 위치’를 지정합니다.
+‘숫자’를 지정하거나, ‘선 이름’을 지정하거나, span 키워드를 사용합니다.
 
 
-### flex
-- Item의 너비(증가, 감소, 기본)를 설정하는 단축 속성입니다.
 
-값	|| 의미	|| 기본값
-flex-grow	|| Item의 증가 너비 비율을 설정	|| 0
-flex-shrink	|| Item의 감소 너비 비율을 설정	|| 1
-flex-basis	|| Item의 (공간 배분 전) 기본 너비 설정	|| auto
+### grid-row
+
+- grid-row-start과 grid-row-end의 단축 속성입니다.
+각 속성을 /로 구분하는 것에 주의하세요.
 
 
 ```JavaScript
+
 .item {
-  flex: 1 1 20px;  /* 증가너비 감소너비 기본너비 */
-  flex: 1 1;  /* 증가너비 감소너비 */
-  flex: 1 20px;  /* 증가너비 기본너비 (단위를 사용하면 flex-basis가 적용됩니다) */
+  grid-row: <grid-row-start> / <grid-row-end>;
 }
+
 ```
 
+### grid-column-start
+
+- 그리드 아이템(Item)을 배치하기 위해 그리드 선(Line)의 ‘시작 위치’와 ‘끝 위치’를 지정합니다.
+‘숫자’를 지정하거나, ‘선 이름’을 지정하거나, span 키워드를 사용합니다.
 
 
+### grid-column-end
 
-#### flex-grow
-- Item의 증가 너비 비율을 설정합니다.
-  * 숫자가 크면 더 많은 너비를 가집니다.
-  * Item이 가변 너비가 아니거나, 값이 0일 경우 효과가 없습니다.
+- 그리드 아이템(Item)을 배치하기 위해 그리드 선(Line)의 ‘시작 위치’와 ‘끝 위치’를 지정합니다.
+‘숫자’를 지정하거나, ‘선 이름’을 지정하거나, span 키워드를 사용합니다.
 
-값	|| 의미	|| 기본값
-숫자	|| Item의 증가 너비 비율을 설정	|| 0
+### grid-column
 
-  * 모든 Items의 총 증가 너비(flex-grow)에서 각 Item의 증가 너비의 비율 만큼 너비를 가질 수 있습니다.
-  예를 들어 Item이 3개이고 증가 너비가 각각 1, 2, 1이라면,
-  첫 번째 Item은 총 너비의 25%(1/4)을,
-  두 번째 Item은 총 너비의 50%(2/4)를,
-  세 번째 Item은 총 너비의 25%(1/4)을 가지게 됩니다.
+- grid-column-start과 grid-column-end의 단축 속성입니다.
+각 속성을 /로 구분하는 것에 주의하세요.
 
 
-#### flex-shrink
-- Item이 감소하는 너비의 비율을 설정합니다.
-숫자가 크면 더 많은 너비가 감소합니다.
-Item이 가변 너비가 아니거나, 값이 0일 경우 효과가 없습니다.
+```JavaScript
 
-값	|| 의미	|| 기본값
-숫자	|| Item의 감소 너비 비율을 설정	|| 1
+.item {
+  grid-column: <grid-column-start> / <grid-column-end>;
+}
+
+```
+
+### grid-area
 
 
-#### flex-basis
-- Item의 (공간 배분 전) 기본 너비를 설정합니다.
-값이 auto일 경우 width, height 등의 속성으로 Item의 너비를 설정할 수 있습니다.
-하지만 단위 값이 주어질 경우 설정할 수 없습니다.
-
-값	|| 의미	|| 기본값
-auto	|| 가변 Item과 같은 너비	|| auto
-단위	|| px, em, cm 등 단위로 지정	||
-
-  * flex 속성에서 설명한 것 같이 단축 속성 내에서 flex-basis를 생략하면 값이 0이 되는 것을 주의합시다
-
-### align-self
-- 교차 축(cross-axis)에서 개별 Item의 정렬 방법을 설정합니다.
-
-  * align-items는 Container 내 모든 Items의 정렬 방법을 설정합니다.
-  필요에 의해 일부 Item만 정렬 방법을 변경하려고 할 경우 align-self를 사용할 수 있습니다.
-  이 속성은 align-items 속성보다 우선합니다.
-
-값	|| 의미	|| 기본값
-auto	|| Container의 align-items 속성을 상속받음	|| auto
-stretch	|| Container의 교차 축을 채우기 위해 Item을 늘림	||
-flex-start	|| Item을 각 줄의 시작점(flex-start)으로 정렬	||
-flex-end	|| Item을 각 줄의 끝점(flex-end)으로 정렬	||
-center	|| Item을 가운데 정렬	||
-baseline	|| Item을 문자 기준선에 정렬 ||
-
+  - [place-items](#place-items)
