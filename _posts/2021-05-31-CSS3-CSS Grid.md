@@ -40,9 +40,14 @@ Container는 Items를 감싸는 부모 요소이며, 그 안에서 각 Item을 �
   - [gap](#gap)
   - [grid-auto-rows](#grid-auto-rows)
   - [grid-auto-columns](#grid-auto-columns)
+  - [grid-auto-flow](#grid-auto-flow)
   - [grid](#grid)
   - [align-content](#align-content)
   - [justify-content](#justify-content)
+  - [place-content](#place-content)
+  - [align-items](#align-items)
+  - [justify-items](#justify-items)
+  - [place-items](#place-items)
   
 
   - [grid-template-areas](#grid-template-areas)
@@ -372,6 +377,89 @@ stretch	|| 행 축을 채우기 위해 그리드 콘텐츠를 늘림
 ```
 
 
+### place-content
+
+- align-content와 justify-content의 단축 속성입니다.
+하나의 값만 입력하면 두 속성에 모두 적용됩니다.
+
+
+```JavaScript
+
+.container {
+  place-content: <align-content> <justify-content>;
+}
+
+```
+
+### align-items
+
+- 그리드 아이템(Items)들을 수직(열 축) 정렬합니다.
+그리드 아이템의 세로 너비가 자신이 속한 그리드 행(Track)의 크기보다 작아야 합니다.
+
+값	|| 의미	|| 기본값
+normal	|| stretch와 같습니다.	|| normal
+start	|| 시작점(위쪽) 정렬	
+center	|| 수직 가운데 정렬	
+end	|| 끝점(아래쪽) 정렬	
+stretch	|| 열 축을 채우기 위해 그리드 아이템을 늘림	
+
+
+```JavaScript
+
+.container {
+  width: 450px;
+  height: 450px;
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  align-items: <align-items>;
+}
+
+```
+
+### justify-items
+
+- 그리드 아이템(Items)들을 수평(행 축) 정렬합니다.
+그리드 아이템의 가로 너비가 자신이 속한 그리드 열(Track)의 크기보다 작아야 합니다.
+
+
+값	|| 의미	|| 기본값
+normal	|| stretch와 같습니다.	|| normal
+start	|| 시작점(왼쪽) 정렬	
+center	|| 수평 가운데 정렬	
+end	|| 끝점(오른쪽) 정렬	
+stretch	|| 행 축을 채우기 위해 그리드 아이템을 늘림	
+
+
+```JavaScript
+
+.container {
+  width: 450px;
+  height: 450px;
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: <justify-items>;
+}
+
+```
+
+### place-items
+
+- align-items와 justify-items의 단축 속성입니다.
+하나의 값만 입력하면 두 속성에 모두 적용됩니다.
+
+
+
+```JavaScript
+
+.container {
+  place-items: <align-items> <justify-items>;
+}
+
+```
+
+
 
 
 
@@ -385,6 +473,9 @@ stretch	|| 행 축을 채우기 위해 그리드 콘텐츠를 늘림
 
 
 ## Grid Items
+
+
+
 
 속성	|| 의미
 grid-row-start	|| 그리드 아이템(Item)의 행 시작 위치 지정
@@ -427,6 +518,8 @@ flex-basis	|| Item의 (공간 배분 전) 기본 너비 설정	|| auto
   flex: 1 20px;  /* 증가너비 기본너비 (단위를 사용하면 flex-basis가 적용됩니다) */
 }
 ```
+
+
 
 
 #### flex-grow
