@@ -35,9 +35,9 @@ Container는 Items를 감싸는 부모 요소이며, 그 안에서 각 Item을 �
   - [grid-template-columns](#grid-template-columns)
   - [grid-template-areas](#grid-template-areas)
   - [grid-template](#grid-template)
-  - [row-gap(grid-row-gap)](#row-gap(grid-row-gap))
-  - [column-gap(grid-column-gap)](#column-gap(grid-column-gap))
-  - [gap](#gap)
+  - [row-gap(grid-row-gap)](#row-gap)
+  - [column-gap(grid-column-gap)](#column-gap)
+  - [gap(grid-gap)](#gap)
   - [grid-auto-rows](#grid-auto-rows)
   - [grid-auto-columns](#grid-auto-columns)
   - [grid-auto-flow](#grid-auto-flow)
@@ -49,20 +49,6 @@ Container는 Items를 감싸는 부모 요소이며, 그 안에서 각 Item을 �
   - [justify-items](#justify-items)
   - [place-items](#place-items)
   
-
-  - [grid-template-areas](#grid-template-areas)
-    - [flex-direction](#flex-direction)
-    - [flex-wrap](#flex-wrap)
-  - [justify-content](#justify-content)
-  - [align-content](#align-content)	
-  - [align-items](#align-items)
-- [Grid Items](#grid-items)
-  - [order](#order)
-  - [flex](#flex)
-    - [flex-grow](#flex-grow)
-    - [flex-shrink](#flex-shrink)
-    - [flex-basis](#flex-basis)
-  - [align-self](#align-self)
 
 
 ## Grid Container
@@ -191,15 +177,15 @@ wrap	||Items를 여러 줄로 묶음	||
 wrap-reverse	|| Items를 wrap의 역 방향으로 여러 줄로 묶음 ||
 
 
-### row-gap(grid-row-gap)
+### row-gap (grid-row-gap)
 
 - 각 행과 행 사이의 간격(Gutter)을 지정합니다.
 
-### column-gap(grid-column-gap)
+### column-gap (grid-column-gap)
 
 - 각 열과 열 사이의 간격(Gutter)을 지정합니다.
 
-### gap(grid-gap)
+### gap (grid-gap)
 
 - 각 행과 행, 열과 열 사이의 간격(Gutter)을 지정합니다.
 
