@@ -702,18 +702,41 @@ stretch	|| 행 축을 채우기 위해 그리드 아이템을 늘림
 
 
 ## Grid Units
+- 그리드에서 사용하는 주요 단위
 
 ### fr
+- fr(fractional unit)은 사용 가능한 공간에 대한 비율을 의미합니다.
 
+```JavaScript
+
+다음 예제는 그리드 컨테이너의 3번째 컬럼에 100px, 4번째 컬럼에 25%를 사용하고 남은 공간을 1번째 컬럼에 ‘1/3’, 2번째 컬럼에 ‘2/3’ 만큼 사용합니다.
+
+.container {
+  grid-template-columns: 1fr 2fr 100px 25%;
+}
+
+```
 
 ### min-content
-
+- 그리드 아이템이 포함하는 내용(Contents)의 최소 크기를 의미합니다.
+    - 한글을 사용하는 경우 word-break: keep-all;를 설정하면 정상적으로 동작합니다.  
 
 ### max-content
+- 그리드 아이템이 포함하는 내용(Contents)의 최대 크기를 의미합니다.
 
+```JavaScript
+
+다음 예제는 총 4컬럼 그리드를 생성하며 각 열(Track)은 최대 1fr 크기를 가지지만, max-content를 통해 포함된 그리드 아이템의 내용보다 작아질 수 없습니다.
+
+.container {
+  grid-template-columns: repeat(4, minmax(max-content, 1fr));
+}
+
+```
 
 ### auto-fill, auto-fit
-
+- 행/열(Track)의 개수를 그리드 컨테이너(Container) 및 행/열 크기에 맞게 자동으로(암시적) 조정합니다.
+    - repeat() 함수와 같이 사용하며, 행/열과 아이템(Item) 개수가 명확할 필요가 없거나 명확하지 않은 경우 유용합니다.(반응형 그리드)
 
 ## 용어 정리
 
