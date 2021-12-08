@@ -713,8 +713,31 @@ stretch	|| 행 축을 채우기 위해 그리드 아이템을 늘림
 
 
 ### minmax
+- minmax() 함수는 행/열(Track)의 ‘최소/최대 크기’를 정의합니다.
+    - 첫 번째 인수는 ‘최솟값’이고 두 번째 인수는 ‘최댓값’입니다.
+    - grid-template-rows, grid-template-columns, grid-auto-rows 그리고 grid-auto-columns에서 사용합니다.    
+
+```JavaScript
+
+.container {
+  grid-template-columns: minmax(100px, 1fr) minmax(200px, 1fr);
+}
+
+```
+
+
 
 ### fit-content
+- fit-content() 함수는 행/열(Track)의 크기를 그리드 아이템(Item)이 포함하는 내용(Contents) 크기에 맞춥니다.
+    - ‘내용의 최대 크기’를 인수로 사용합니다.
+
+```JavaScript
+
+.container {
+  grid-template-columns: fit-content(300px) fit-content(300px);
+}
+
+```
 
 
 ## Grid Units
