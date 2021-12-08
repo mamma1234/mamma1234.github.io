@@ -695,6 +695,22 @@ stretch	|| 행 축을 채우기 위해 그리드 아이템을 늘림
 ## Grid Functions
 
 ### repeat
+- repeat() 함수는 행/열(Track)의 크기 정의를 반복합니다.
+    - ‘반복되는 횟수’와 ‘행/열의 크기 정의’를 인수로 사용합니다.
+    - grid-template-rows와 grid-template-columns에서 사용합니다.
+
+```JavaScript
+
+/* 9컬럼 그리드 */
+.container {
+  grid-template-columns: 100px 100px 100px 100px 100px 100px 100px 100px 100px;
+}
+.container {
+  grid-template-columns: repeat(9, 100px);
+}
+
+```
+
 
 ### minmax
 
