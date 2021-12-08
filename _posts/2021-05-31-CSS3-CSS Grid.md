@@ -36,8 +36,11 @@ Container는 Items를 감싸는 부모 요소이며, 그 안에서 각 Item을 �
   - [grid-template-areas](#grid-template-areas)
   - [grid-template](#grid-template)
   - [row-gap](#row-gap)
-  - [grid-template](#grid-template)
-  - [grid-template](#grid-template)
+  - [column-gap](#column-gap)
+  - [gap](#gap)
+  - [grid-auto-rows](#grid-auto-rows)
+  - [grid-auto-columns](#grid-auto-columns)
+  
 
   - [grid-template-areas](#grid-template-areas)
     - [flex-direction](#flex-direction)
@@ -243,6 +246,31 @@ wrap-reverse	|| Items를 wrap의 역 방향으로 여러 줄로 묶음 ||
   grid-column: 3 / 4;
 }
 
+
+```
+
+### grid-auto-flow
+
+- 배치하지 않은 아이템(Item)을 어떤 방식의 ‘자동 배치 알고리즘’으로 처리할지 정의합니다.
+
+값	|| 의미	|| 기본값
+row	|| 각 행 축을 따라 차례로 배치	|| row
+column	|| 각 열 축을 따라 차례로 배치	
+row dense(dense)	|| 각 행 축을 따라 차례로 배치, 빈 영역 메움!	
+column dense	|| 각 열 축을 따라 차례로 배치, 빈 영역 메움!	
+
+```JavaScript
+
+/* For row & row dense */
+.container {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-flow: row || row dense || dense;
+}
+.item:nth-child(2) {
+  grid-column: span 3;
+}
 
 ```
 
