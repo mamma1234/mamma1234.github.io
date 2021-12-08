@@ -42,6 +42,7 @@ Container는 Items를 감싸는 부모 요소이며, 그 안에서 각 Item을 �
   - [grid-auto-columns](#grid-auto-columns)
   - [grid](#grid)
   - [align-content](#align-content)
+  - [justify-content](#justify-content)
   
 
   - [grid-template-areas](#grid-template-areas)
@@ -369,6 +370,8 @@ stretch	|| 행 축을 채우기 위해 그리드 콘텐츠를 늘림
 }
 
 ```
+
+
 
 
 
