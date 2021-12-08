@@ -32,6 +32,14 @@ Container는 Items를 감싸는 부모 요소이며, 그 안에서 각 Item을 �
 - [Grid Container](#grid-Container)
   - [display](#display)
   - [grid-template-rows](#grid-template-rows)
+  - [grid-template-columns](#grid-template-columns)
+  - [grid-template-areas](#grid-template-areas)
+  - [grid-template](#grid-template)
+  - [row-gap](#row-gap)
+  - [grid-template](#grid-template)
+  - [grid-template](#grid-template)
+
+  - [grid-template-areas](#grid-template-areas)
     - [flex-direction](#flex-direction)
     - [flex-wrap](#flex-wrap)
   - [justify-content](#justify-content)
@@ -79,8 +87,10 @@ inline-grid	|| Inline 특성의 Grid Container를 정의
 
 - 명시적 행(Track)의 크기를 정의합니다.
 - 동시에 라인(Line)의 이름도 정의할 수 있습니다.
-- fr(fraction, 공간 비율) 단위를 사용할 수 있습니다.
-- repeat() 함수를 사용할 수 있습니다.
+- fr(fraction, 공간 비율) 단위를 사용할 수 있습니다.    
+      grid-template-columns: repeat(12, 1fr);
+- repeat() 함수를 사용할 수 있습니다.                 
+      grid-template-columns: repeat(12, 100px);
 
 ### grid-template-columns
 
@@ -89,6 +99,62 @@ inline-grid	|| Inline 특성의 Grid Container를 정의
 - fr(fraction, 공간 비율) 단위를 사용할 수 있습니다.
 - repeat() 함수를 사용할 수 있습니다.
 
+
+### grid-template-areas
+
+- 지정된 그리드 영역 이름(grid-area)을 참조해 그리드 템플릿을 생성합니다.
+- (마침표)를 사용하거나 명시적으로 none을 입력해 빈 영역을 정의할 수 있습니다.
+
+```JavaScript
+
+.container {
+  display: grid;
+  grid-template-rows: repeat(4, 100px);
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas:
+    "header header header"
+    "main . ."
+    "main . aside"
+    "footer footer footer";
+}
+header { grid-area: header; }
+main   { grid-area: main;   }
+aside  { grid-area: aside;  }
+footer { grid-area: footer; }
+
+```
+
+### grid-template
+
+- grid-template-rows, grid-template-columns 그리고 grid-template-areas의 단축 속성입니다.
+
+```JavaScript
+
+.container {
+  display: grid;
+  grid-template:
+    "header header header" 80px
+    "main main aside" 350px
+    "footer footer footer" 130px
+    / 2fr 100px 1fr;
+}
+header { grid-area: header; }
+main   { grid-area: main; }
+aside  { grid-area: aside; }
+footer { grid-area: footer; }
+
+
+.container {
+  display: grid;
+  grid-template-rows: 80px 350px 130px;
+  grid-template-columns: 2fr 100px 1fr;
+  grid-template-areas:
+    "header header header"
+    "main main aside"
+    "footer footer footer";
+}
+
+```
 
 #### flex-direction
 
@@ -114,44 +180,71 @@ wrap	||Items를 여러 줄로 묶음	||
 wrap-reverse	|| Items를 wrap의 역 방향으로 여러 줄로 묶음 ||
 
 
-### justify-content
+### row-gap(grid-row-gap)
 
-- 주 축(main-axis)의 정렬 방법을 설정합니다.
+- 각 행과 행 사이의 간격(Gutter)을 지정합니다.
 
-값	|| 의미	|| 기본값
-flex-start	|| Items를 시작점(flex-start)으로 정렬	|| flex-start
-flex-end	|| Items를 끝점(flex-end)으로 정렬 ||	
-center	|| Items를 가운데 정렬	||
-space-between	|| 시작 Item은 시작점에, 마지막 Item은 끝점에 정렬되고 나머지 Items는 사이에 고르게 정렬됨	 ||
-space-around	|| Items를 균등한 여백을 포함하여 정렬 ||
+### column-gap(grid-column-gap)
+
+- 각 열과 열 사이의 간격(Gutter)을 지정합니다.
+
+### gap(grid-gap)
+
+- 각 행과 행, 열과 열 사이의 간격(Gutter)을 지정합니다.
+
+```JavaScript
+
+.container {
+  gap: <grid-row-gap> <grid-column-gap>;
+}
+
+```
+
+### grid-auto-rows
+
+- 암시적 행(Track)의 크기를 정의합니다.
+아이템(Item)이 grid-template-rows로 정의한 명시적 행 외부에 배치되는 경우 암시적 행의 크기가 적용됩니다.
+
+```JavaScript
+
+.container {
+  width: 300px;
+  height: 200px;
+  display: grid;
+  grid-template-rows: 100px 100px; /* 명시적 2개 행 정의 */
+  grid-template-columns: 150px 150px; /* 명시적 2개 열 정의 */
+  grid-auto-rows: 100px; /* 그 외(암시적) 행의 크기 정의 */
+}
+.item:nth-child(3) {
+  grid-row: 3 / 4;
+}
+
+```
+
+### grid-auto-columns
+
+- 암시적 열(Track)의 크기를 정의합니다.
+아이템(Item)이 grid-template-columns로 정의한 명시적 열 외부에 배치되는 경우 암시적 열의 크기가 적용됩니다.
 
 
-### align-content	
+```JavaScript
 
-- 교차 축(cross-axis)의 정렬 방법을 설정합니다.
-* 주의할 점은 flex-wrap 속성을 통해 Items가 여러 줄(2줄 이상)이고 여백이 있을 경우만 사용할 수 있습니다.
-* Items가 한 줄일 경우 align-items 속성을 사용하세요.
+.container {
+  width: 300px;
+  height: 200px;
+  display: grid;
+  grid-template-rows: 100px 100px;
+  grid-template-columns: 150px 150px;
+  grid-auto-rows: 100px;
+  grid-auto-columns: 100px;
+}
+.item:nth-child(3) {
+  grid-row: 3 / 4;
+  grid-column: 3 / 4;
+}
 
-값	|| 의미	|| 기본값
-stretch	|| Container의 교차 축을 채우기 위해 Items를 늘림	|| stretch
-flex-start	|| Items를 시작점(flex-start)으로 정렬 ||	
-flex-end	|| Items를 끝점(flex-end)으로 정렬	||
-center	|| Items를 가운데 정렬	||
-space-between	|| 시작 Item은 시작점에, 마지막 Item은 끝점에 정렬되고 나머지 Items는 사이에 고르게 정렬됨	||
-space-around	|| Items를 균등한 여백을 포함하여 정렬 ||
 
-### align-items
-
-- 교차 축(cross-axis)에서 Items의 정렬 방법을 설정합니다.
-  * Items가 한 줄일 경우 많이 사용합니다.
-  * 주의할 점은 Items가 flex-wrap을 통해 여러 줄(2줄 이상)일 경우에는 align-content 속성이 우선합니다. 따라서 align-items를 사용하려면 align-content 속성을 기본값(stretch)으로 설정해야 합니다.
-
-값	|| 의미	|| 기본값
-stretch	|| Container의 교차 축을 채우기 위해 Items를 늘림	|| stretch
-flex-start	|| Items를 각 줄의 시작점(flex-start)으로 정렬	||
-flex-end	|| Items를 각 줄의 끝점(flex-end)으로 정렬	||
-center	|| Items를 가운데 정렬	||
-baseline	|| Items를 문자 기준선에 정렬 ||
+```
 
 
 ## Grid Items
