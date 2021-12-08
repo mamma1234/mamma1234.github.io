@@ -78,16 +78,16 @@ inline-grid	|| Inline 특성의 Grid Container를 정의
 ### grid-template-rows
 
 - 명시적 행(Track)의 크기를 정의합니다.
-    동시에 라인(Line)의 이름도 정의할 수 있습니다.
-    fr(fraction, 공간 비율) 단위를 사용할 수 있습니다.
-    repeat() 함수를 사용할 수 있습니다.
+- 동시에 라인(Line)의 이름도 정의할 수 있습니다.
+- fr(fraction, 공간 비율) 단위를 사용할 수 있습니다.
+- repeat() 함수를 사용할 수 있습니다.
 
 ### grid-template-columns
 
 - 명시적 열(Track)의 크기를 정의합니다.
-    동시에 라인(Line)의 이름도 정의할 수 있습니다.
-    fr(fraction, 공간 비율) 단위를 사용할 수 있습니다.
-    repeat() 함수를 사용할 수 있습니다.
+- 동시에 라인(Line)의 이름도 정의할 수 있습니다.
+- fr(fraction, 공간 비율) 단위를 사용할 수 있습니다.
+- repeat() 함수를 사용할 수 있습니다.
 
 
 #### flex-direction
