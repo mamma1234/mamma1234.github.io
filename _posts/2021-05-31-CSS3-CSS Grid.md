@@ -35,7 +35,7 @@ Container는 Items를 감싸는 부모 요소이며, 그 안에서 각 Item을 �
   - [grid-template-columns](#grid-template-columns)
   - [grid-template-areas](#grid-template-areas)
   - [grid-template](#grid-template)
-  - [row-gap(grid-row-gap)](#row-gap)
+  - [row-gap(grid-row-gap)](#row-gap\(grid-row-gap\))
   - [column-gap(grid-column-gap)](#column-gap)
   - [gap(grid-gap)](#gap)
   - [grid-auto-rows](#grid-auto-rows)
@@ -49,7 +49,18 @@ Container는 Items를 감싸는 부모 요소이며, 그 안에서 각 Item을 �
   - [justify-items](#justify-items)
   - [place-items](#place-items)
 - [Grid Items](#grid-Items)
-
+  - [grid-row-start](#grid-row-start)
+  - [grid-row-end](#grid-row-end)
+  - [grid-row](#grid-row)
+  - [grid-column-start](#grid-column-start)
+  - [grid-column-end](#grid-column-end)
+  - [grid-column](#grid-column)
+  - [grid-area](#grid-area)
+  - [align-self](#align-self)
+  - [justify-self](#justify-self)
+  - [place-self](#place-self)
+  - [order](#order)
+  - [z-index](#z-index)
 
 ## Grid Container
 
@@ -177,7 +188,7 @@ wrap	||Items를 여러 줄로 묶음	||
 wrap-reverse	|| Items를 wrap의 역 방향으로 여러 줄로 묶음 ||
 
 
-### row-gap (grid-row-gap)
+### row-gap(grid-row-gap)
 
 - 각 행과 행 사이의 간격(Gutter)을 지정합니다.
 
@@ -611,12 +622,54 @@ stretch	|| 행 축을 채우기 위해 그리드 아이템을 늘림
 
 ```
 
+### place-self
+
+- align-self와 justify-self의 단축 속성입니다.
+하나의 값만 입력하면 두 속성에 모두 적용됩니다.
+
+```JavaScript
+
+.item {
+  place-self: <align-self> <justify-self>;
+}
+
+```
+
+### order
+
+- 그리드 아이템이 자동 배치되는 순서를 변경할 수 있습니다.
+숫자가 작을수록 앞서 배치됩니다.
 
 
-  - [grid-row-start](#grid-row-start)
-  - [grid-row-end](#grid-row-end)
-  - [grid-row](#grid-row)
-  - [grid-column-start](#grid-column-start)
-  - [grid-column-end](#grid-column-end)
-  - [grid-column](#grid-column)
-  - [grid-area](#grid-area)
+```JavaScript
+
+.container {
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+}
+.item:nth-child(1) { order: 1; }
+.item:nth-child(3) { order: 5; }
+.item:nth-child(5) { order: -1; }
+
+```
+
+### z-index
+
+- z-index 속성을 이용해 아이템이 쌓이는 순서를 변경할 수 있습니다.
+
+
+```JavaScript
+
+.item:nth-child(1) {
+  grid-area: 1 / 1 / 2 / 3;
+}
+.item:nth-child(2) {
+  grid-area: 1 / 2 / 3 / 3;
+  z-index: 1;
+}
+.item:nth-child(3) {
+  grid-area: 2 / 2 / 3 / 4;
+}
+
+```
