@@ -35,7 +35,7 @@ Container는 Items를 감싸는 부모 요소이며, 그 안에서 각 Item을 �
   - [grid-template-columns](#grid-template-columns)
   - [grid-template-areas](#grid-template-areas)
   - [grid-template](#grid-template)
-  - [row-gap(grid-row-gap)](#row-gap\(grid-row-gap\))
+  - [row-gap(grid-row-gap)](#row-gap)
   - [column-gap(grid-column-gap)](#column-gap)
   - [gap(grid-gap)](#gap)
   - [grid-auto-rows](#grid-auto-rows)
@@ -61,6 +61,22 @@ Container는 Items를 감싸는 부모 요소이며, 그 안에서 각 Item을 �
   - [place-self](#place-self)
   - [order](#order)
   - [z-index](#z-index)
+- [Grid Functions](#grid-functions)
+  - [repeat](#repeat)
+  - [minmax](#minmax)
+  - [fit-content](#fit-content)
+- [Grid Units](#grid-units)
+  - [fr](#fr)
+  - [min-content](#min-content)
+  - [max-content](#max-content)
+  - [auto-fill, auto-fit](#auto-fill,-auto-fit)
+- [용어 정리](#용어-정리)
+  - [Track](#Track)
+  - [Line](#Line)
+  - [Cell](#Cell)
+  - [Area](#Area)
+
+
 
 ## Grid Container
 
@@ -673,3 +689,42 @@ stretch	|| 행 축을 채우기 위해 그리드 아이템을 늘림
 }
 
 ```
+
+
+
+## Grid Functions
+
+### repeat
+
+### minmax
+
+### fit-content
+
+
+## Grid Units
+
+### fr
+
+
+### min-content
+
+
+### max-content
+
+
+### auto-fill, auto-fit
+
+
+## 용어 정리
+
+### Track
+- 트랙(Track)은 하나의 행(Row) 혹은 열(Column)을 의미합니다.
+
+### Line
+- 선(Line)은 일반적으로 거터(Gutter)라고 하는 트랙과 트랙 사이의 간격을 의미합니다.
+
+### Cell
+- 셀(Cell)은 아이템(Item)이 배치되는 최소 단위의 영역(Area)입니다.
+
+### Area
+- 영역(Area)은 아이템이 배치되는, 하나 이상의 셀(Cell)로 이루어진 영역입니다.
