@@ -32,7 +32,7 @@ disqus:
 - [Flex Container](#flex-container)
   - [display](#display)
   - [flex-flow](#flex-flow)
-    - [flex-direction](#flex-direction)
+    - [(중요) flex-direction](#flex-direction)
     - [flex-wrap](#flex-wrap)
   - [(중요) justify-content](#justify-content)
   - [align-content](#align-content)	
