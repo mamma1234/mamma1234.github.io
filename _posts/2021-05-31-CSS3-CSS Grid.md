@@ -545,5 +545,78 @@ z-index	|| 그리드 아이템의 쌓이는 순서를 지정
 
 ### grid-area
 
+- grid-row-start, grid-column-start, grid-row-end 그리고 grid-column-end의 단축 속성입니다.
+혹은 grid-template-areas가 참조할 영역(Area) 이름을 설정할 수도 있습니다.
+영역 이름을 설정할 경우 grid-row와 grid-column 개념은 무시됩니다.
 
-  - [place-items](#place-items)
+```JavaScript
+
+.item {
+  grid-area: <grid-row-start> / <grid-column-start> / <grid-row-end> / <grid-column-end>;
+  grid-area: 영역이름;
+}
+
+```
+
+### align-self
+
+- 단일 그리드 아이템(Item)을 수직(열 축) 정렬합니다.
+그리드 아이템의 세로 너비가 자신이 속한 그리드 행(Track)의 크기보다 작아야 합니다.
+
+값	|| 의미	|| 기본값
+normal	|| stretch와 같습니다.	|| normal
+start	|| 시작점(위쪽) 정렬	
+center	|| 수직 가운데 정렬	
+end	|| 끝점(아래쪽) 정렬	
+stretch	|| 열 축을 채우기 위해 그리드 아이템을 늘림
+
+```JavaScript
+
+.container {
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(2, 1fr);
+}
+.item:nth-child(1) { align-self: start; }
+.item:nth-child(2) { align-self: center; }
+.item:nth-child(3) { align-self: end; }
+.item:nth-child(4) { align-self: stretch; }
+
+```
+
+### justify-self
+
+- 단일 그리드 아이템(Item)을 수평(행 축) 정렬합니다.
+그리드 아이템의 가로 너비가 자신이 속한 그리드 열(Track)의 크기보다 작아야 합니다.
+
+
+값	|| 의미	|| 기본값
+normal	|| stretch와 같습니다.	|| normal
+start	|| 시작점(왼쪽) 정렬	
+center	|| 수평 가운데 정렬	
+end	|| 끝점(오른쪽) 정렬	
+stretch	|| 행 축을 채우기 위해 그리드 아이템을 늘림	
+
+```JavaScript
+
+.container {
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(2, 1fr);
+}
+.item:nth-child(1) { justify-self: start; }
+.item:nth-child(2) { justify-self: center; }
+.item:nth-child(3) { justify-self: end; }
+.item:nth-child(4) { justify-self: stretch; }
+
+```
+
+
+
+  - [grid-row-start](#grid-row-start)
+  - [grid-row-end](#grid-row-end)
+  - [grid-row](#grid-row)
+  - [grid-column-start](#grid-column-start)
+  - [grid-column-end](#grid-column-end)
+  - [grid-column](#grid-column)
+  - [grid-area](#grid-area)
