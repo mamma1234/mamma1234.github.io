@@ -38,12 +38,12 @@ disqus:
   - [align-content](#align-content)	
   - [(중요) align-items](#align-items)
 - [Flex Items](#flex-items)
-  - [order](#order)
+  - [(중요) order](#order)
   - [flex](#flex)
     - [flex-grow](#flex-grow)
     - [flex-shrink](#flex-shrink)
     - [flex-basis](#flex-basis)
-  - [align-self](#align-self)
+  - [(중요) align-self](#align-self)
 
 order	|| Flex Item의 순서를 설정
 flex	|| flex-grow, flex-shrink, flex-basis의 단축 속성
