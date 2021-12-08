@@ -31,7 +31,7 @@ Container는 Items를 감싸는 부모 요소이며, 그 안에서 각 Item을 �
 ## 목차
 - [Grid Container](#grid-Container)
   - [display](#display)
-  - [flex-flow](#flex-flow)
+  - [grid-template-rows](#grid-template-rows)
     - [flex-direction](#flex-direction)
     - [flex-wrap](#flex-wrap)
   - [justify-content](#justify-content)
@@ -82,10 +82,13 @@ inline-grid	|| Inline 특성의 Grid Container를 정의
     fr(fraction, 공간 비율) 단위를 사용할 수 있습니다.
     repeat() 함수를 사용할 수 있습니다.
 
+### grid-template-columns
 
-값	|| 의미	|| 기본값
-flex-direction	|| Items의 주 축(main-axis)을 설정	|| row
-flex-wrap	|| Items의 여러 줄 묶음(줄 바꿈) 설정	|| nowrap
+- 명시적 열(Track)의 크기를 정의합니다.
+    동시에 라인(Line)의 이름도 정의할 수 있습니다.
+    fr(fraction, 공간 비율) 단위를 사용할 수 있습니다.
+    repeat() 함수를 사용할 수 있습니다.
+
 
 #### flex-direction
 
