@@ -35,11 +35,13 @@ Container는 Items를 감싸는 부모 요소이며, 그 안에서 각 Item을 �
   - [grid-template-columns](#grid-template-columns)
   - [grid-template-areas](#grid-template-areas)
   - [grid-template](#grid-template)
-  - [row-gap](#row-gap)
-  - [column-gap](#column-gap)
+  - [row-gap(grid-row-gap)](#row-gap(grid-row-gap))
+  - [column-gap(grid-column-gap)](#column-gap(grid-column-gap))
   - [gap](#gap)
   - [grid-auto-rows](#grid-auto-rows)
   - [grid-auto-columns](#grid-auto-columns)
+  - [grid](#grid)
+  - [align-content](#align-content)
   
 
   - [grid-template-areas](#grid-template-areas)
@@ -273,6 +275,110 @@ column dense	|| 각 열 축을 따라 차례로 배치, 빈 영역 메움!
 }
 
 ```
+
+### grid
+
+- grid-template-xxx과 grid-auto-xxx의 단축 속성입니다.
+
+```JavaScript
+
+.container {
+  grid: <grid-template>;
+  grid: <grid-template-rows> / <grid-auto-flow> <grid-auto-columns>;
+  grid: <grid-auto-flow> <grid-auto-rows> / <grid-template-columns>;
+}
+
+
+.container {
+  grid: <grid-template>;
+}
+.container {
+  grid:
+    "header header header" 80px
+    "main main aside" 350px
+    "footer footer footer" 130px
+    / 2fr 100px 1fr;
+}
+.container {
+  grid-template:
+    "header header header" 80px
+    "main main aside" 350px
+    "footer footer footer" 130px
+    / 2fr 100px 1fr;
+}
+
+```
+
+### align-content
+
+- 그리드 콘텐츠(Contents)를 수직(열 축) 정렬합니다.
+그리드 콘텐츠의 세로 너비가 그리드 컨테이너(Container)보다 작아야 합니다.
+
+
+값	|| 의미	|| 기본값
+normal	|| stretch와 같습니다.	|| normal
+start	|| 시작점(위쪽) 정렬	
+center	|| 수직 가운데 정렬	
+end	|| 끝점(아래쪽) 정렬	
+space-around	|| 각 행 위아래에 여백을 고르게 정렬	
+space-between	|| 첫 행은 시작점에, 끝 행은 끝점에 정렬되고 나머지 여백으로 고르게 정렬	
+space-evenly	|| 모든 여백을 고르게 정렬	
+stretch	|| 열 축을 채우기 위해 그리드 콘텐츠를 늘림
+
+
+```JavaScript
+
+.container {
+  width: 450px;
+  height: 450px;
+  display: grid;
+  grid-template-rows: repeat(3, 100px);
+  grid-template-columns: repeat(3, 100px);
+  align-content: <align-content>;
+}
+
+```
+
+### justify-content
+
+- 그리드 콘텐츠(Contents)를 수평(행 축) 정렬합니다.
+그리드 콘텐츠의 가로 너비가 그리드 컨테이너(Container)보다 작아야 합니다.
+
+
+
+값	|| 의미	|| 기본값
+normal	|| stretch와 같습니다.	|| normal
+start	|| 시작점(왼쪽) 정렬	
+center	|| 수평 가운데 정렬	
+end	|| 끝점(오른쪽) 정렬	
+space-around	|| 각 열 좌우에 여백을 고르게 정렬	
+space-between	|| 첫 열은 시작점에, 끝 열은 끝점에 정렬되고 나머지 여백으로 고르게 정렬	
+space-evenly	|| 모든 여백을 고르게 정렬	
+stretch	|| 행 축을 채우기 위해 그리드 콘텐츠를 늘림
+
+
+```JavaScript
+
+.container {
+  width: 450px;
+  height: 450px;
+  display: grid;
+  grid-template-rows: repeat(3, 100px);
+  grid-template-columns: repeat(3, 100px);
+  justify-content: <justify-content>;
+}
+
+```
+
+
+
+
+
+
+
+
+
+
 
 
 ## Grid Items
