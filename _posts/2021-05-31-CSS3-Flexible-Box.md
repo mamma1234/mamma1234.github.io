@@ -32,18 +32,18 @@ disqus:
 - [Flex Container](#flex-container)
   - [display](#display)
   - [flex-flow](#flex-flow)
-    - [(중요) flex-direction](#flex-direction)
+    - [flex-direction](#flex-direction)
     - [flex-wrap](#flex-wrap)
-  - [(중요) justify-content](#justify-content)
+  - [justify-content](#justify-content)
   - [align-content](#align-content)	
-  - [(중요) align-items](#align-items)
+  - [align-items](#align-items)
 - [Flex Items](#flex-items)
-  - [(중요) order](#order)
+  - [order](#order)
   - [flex](#flex)
     - [flex-grow](#flex-grow)
     - [flex-shrink](#flex-shrink)
     - [flex-basis](#flex-basis)
-  - [(중요) align-self](#align-self)
+  - [align-self](#align-self)
 
 order	|| Flex Item의 순서를 설정
 flex	|| flex-grow, flex-shrink, flex-basis의 단축 속성
