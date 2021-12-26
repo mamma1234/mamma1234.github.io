@@ -43,6 +43,18 @@ chart: true
 
 
 ## [Skills]
+
+TypeScript, Visual Basic, C#, C++, JSP, CSS3, HTML5, Python, JavaScript, Java, ProC, goLang, Kotlin, <br>
+Spring Boot, Spring, Spring Framework, AOP, Egovframework, MyBatis, Maven, <br>
+Struts2, JSTL, Java Servlet,  <br>
+React, jQuery, Bootstrap,  <br>
+PostgreSQL, Mongo DB, MY-SQL, Oracle DB,  <br>
+React-Native,  <br>
+Elasticsearch, R, <br>
+AWS, Docker, GCP, <br>
+SVN, GitHub,  <br>
+Linux, CentOS, Ubuntu <br>
+
 <pre><code>
 TypeScript, Visual Basic, C#, C++, JSP, CSS3, HTML5, Python, JavaScript, Java, ProC, goLang, Kotlin, 
 Spring Boot, Spring, Spring Framework, AOP, Egovframework, MyBatis, Maven
