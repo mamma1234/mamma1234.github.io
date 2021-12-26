@@ -114,7 +114,7 @@ Linux, CentOS, Ubuntu <br>
 - 배경
   - PLISM 3.0 구축후 개발부서 (솔루션연구소) 서비스 운영 및 팀 관리 
 -  설명
-  - Etrans, Plism, LogisBill, Port-Mis, e-Logispis, EDI 중계, Xmapper ) 운영 및 유지보수, 관리
+  - Etrans, Plism, LogisBill, Port-Mis, e-Logispis, EDI 중계, Xmapper등 시스템을 운영 및 유지보수, 관리
   - 솔루션 운영 기간중 역대 최소의 장애로 역대 가장 안정적 서비스를 제공하였으며
   - 역대 가장 많은 마이너 서비스 개발한 기간
 - 역할
