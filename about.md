@@ -1,7 +1,7 @@
 ---
 layout: page
 permalink: /about/index.html
-title: 박대규
+title: 꿈꾸는 개발자, 박대규
 tags: [mamma, mamma1234, parkdaekyu, dreamdae, pdkship]
 imagefeature: fourseasons.jpg
 chart: true
@@ -9,7 +9,7 @@ chart: true
 
 <figure>
 	<img src="{{ site.url }}/images/mamma_2021-12-26.jpeg" alt="portfolio">
-	<figcaption>portfolio</figcaption>
+	<figcaption>2021년 8월 6일 금요일 오후 5:52</figcaption>
 </figure>
 
 {% assign total_words = 0 %}
@@ -43,7 +43,9 @@ This is my personal blog. It currently has {{ site.posts | size }} posts in {{ s
 ## [INTRODUCTION]()
 안녕하세요. 오래된 개발자 하지만 기술 만큼은 최신을 추구하는 개발자 입니다.
 
-## [EXPERIENCE]()
+## [EXPERIENCE]
+### EXPERIENCE
+
 ### 관련사이트  - *링크*
 - [Github https://github.com/mamma1234](https://github.com/mamma1234)
 - [BLOG http://mamma1234.egloos.com/](http://mamma1234.egloos.com/)
