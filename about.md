@@ -1,15 +1,15 @@
 ---
 layout: page
 permalink: /about/index.html
-title: MAMMA
+title: 박대규
 tags: [mamma, mamma1234, parkdaekyu, dreamdae, pdkship]
 imagefeature: fourseasons.jpg
 chart: true
 ---
 
 <figure>
-	<img src="{{ site.url }}/images/mamma_2021-12-26 18.22.18.jpeg" alt="자기소개서 워드클라우드">
-	<figcaption>자기소개서 워드클라우드</figcaption>
+	<img src="{{ site.url }}/images/mamma_2021-12-26 18.22.18.jpeg" alt="portfolio">
+	<figcaption>portfolio</figcaption>
 </figure>
 
 {% assign total_words = 0 %}
