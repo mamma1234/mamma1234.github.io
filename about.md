@@ -89,7 +89,7 @@ Linux, CentOS, Ubuntu <br>
 - 기간
   - 2021년 4월 ~ 2021년 8월
 - 배경
-  - 화주통합서비스 구출중 사업 범위내 위동선사에서 부킹 서비스 구축 의뢰하여 수행 
+  - 화주통합서비스 구축중 사업 범위내 위동선사에서 부킹 서비스 구축 의뢰하여 수행 
 - 서비스 설명
   - 화주 부킹, SR 통합 서비스
   - 위동 선사, 컨펌, BL 수신 서비스
@@ -100,6 +100,24 @@ Linux, CentOS, Ubuntu <br>
 <figure>
 	<img height="500px" width="500px" src="{{ site.url }}/images/weidong.png" alt="portfolio">
 	<figcaption> [weidong.plism.com](https:.//weidong.plism.com)</figcaption>
+</figure>
+
+
+### PLISM
+- 기간
+  - 2021년 4월 ~ 2021년 8월
+- 배경
+  - 화주통합서비스 구축중 사업 범위내 위동선사에서 부킹 서비스 구축 의뢰하여 수행 
+- 서비스 설명
+  - 화주 부킹, SR 통합 서비스
+  - 위동 선사, 컨펌, BL 수신 서비스
+  - 위동 스케쥴, 부킹 Close, SR Close 서비스
+  - 위동 선박 위치 서비스
+- 역할
+  - 기획, 설계, 분석, 개발, PM
+<figure>
+	<img height="500px" width="500px" src="{{ site.url }}/images/plism.png" alt="portfolio">
+	<figcaption> [www.plism.com](https:.//www.plism.com)</figcaption>
 </figure>
 
 
