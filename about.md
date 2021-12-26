@@ -72,25 +72,16 @@ Linux, CentOS, Ubuntu <br>
   - 2020년 ~ 현재
 - 배경
   - 케이엘넷 새로운 사업 영역 확대를 위한 서비스 구축
-<h3></h3>
-<p>
-  <dl>
-    <dt>기간</dt>
-      <dd>2020년 ~ 현재</dd>
-    <dt>배경</dt>
-      <dd>케이엘넷 새로운 사업 영역 확대를 위한 서비스 구축</dd>
-    <dt>서비스 설명</dt>
-      <dd>해운선사 부킹, SR 통합 서비스</dd>
-      <dd>선사스케쥴</dd>
-      <dd>선박 해상 추적서비스</dd>
-      <dd>컨테이너 추적 서비스</dd>
-  </dl>
+- 서비스 설명
+  - 해운선사 부킹, SR 통합 서비스
+  - 선사스케쥴
+  - 선박 해상 추적서비스
+  - 컨테이너 추적 서비스
+
 <figure>
 	<img height="500px" width="500px" src="{{ site.url }}/images/plismplus.png" alt="portfolio">
 	<figcaption> [booking.plism.com](https:.//booking.plism.com)</figcaption>
 </figure>
-</p>
-
 
 ### XXXX - *Team project*
 <sub>2018.10.07 - 12.20, [Github](https://github.com/mamma1234), [Report](https://bit.ly/mamma1234)</sub>
