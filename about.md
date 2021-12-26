@@ -62,6 +62,11 @@ Linux, CentOS, Ubuntu <br>
 ✉️ [mamma1234@naver.com](mailto:mamma1234@naver.com])  
 🌐 [https://github.com/mamma1234](https://github.com/mamma1234)
 
+<h2>My Stie</h2>
+🌐 [Github https://github.com/mamma1234](https://github.com/mamma1234)
+🌐 BLOG http://mamma1234.egloos.com/](http://mamma1234.egloos.com/)
+🌐 [CAFE https://cafe.naver.com/mamma1234](https://cafe.naver.com/mamma1234)
+
 
 
 ## [EXPERIENCE]
@@ -125,19 +130,3 @@ Linux, CentOS, Ubuntu <br>
 
 ### XXXX - *Team project*
 <sub>2018.10.07 - 12.20, [Github](https://github.com/mamma1234), [Report](https://bit.ly/mamma1234)</sub>
-
-
-
-
-<img src="{{ site.url }}/images/plismplus.png" alt="portfolio">
-
-- 샘플 내용 1
-- 샘플 내용 2
-
-
-
-
-### 관련사이트  - *링크*
-- [Github https://github.com/mamma1234](https://github.com/mamma1234)
-- [BLOG http://mamma1234.egloos.com/](http://mamma1234.egloos.com/)
-- [CAFE https://cafe.naver.com/mamma1234](https://cafe.naver.com/mamma1234)
