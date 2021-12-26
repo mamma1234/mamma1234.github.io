@@ -69,9 +69,9 @@ Linux, CentOS, Ubuntu <br>
 
 
 ### 화주통합서비스
-<sub>2018.10.07 - 12.20, [Github](https://github.com/mamma1234), [Report](https://bit.ly/mamma1234)</sub>
-- 샘플 내용 1
-- 샘플 내용 2
+<sub>2020년 ~ 현재</sub>
+- 화주 (수출입 화물 소유자)를 위한 통합서비스
+  
 
 ### XXXX - *Team project*
 <sub>2018.10.07 - 12.20, [Github](https://github.com/mamma1234), [Report](https://bit.ly/mamma1234)</sub>
