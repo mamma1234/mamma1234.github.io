@@ -52,26 +52,14 @@ PostgreSQL, Mongo DB, MY-SQL, Oracle DB,  <br>
 React-Native,  <br>
 Elasticsearch, R, <br>
 AWS, Docker, GCP, <br>
-SVN, GitHub,  <br>
+SVN, GitHub, CVS,  <br>
 Linux, CentOS, Ubuntu <br>
 
-<pre><code>
-TypeScript, Visual Basic, C#, C++, JSP, CSS3, HTML5, Python, JavaScript, Java, ProC, goLang, Kotlin, 
-Spring Boot, Spring, Spring Framework, AOP, Egovframework, MyBatis, Maven
-Struts2, JSTL, Java Servlet, 
-React, jQuery, Bootstrap, 
-PostgreSQL, Mongo DB, MY-SQL, Oracle DB, 
-React-Native, 
-Elasticsearch, R,
-AWS, Docker, GCP,
-SVN, GitHub, 
-Linux, CentOS, Ubuntu
-</code></pre>
 
 
 <h2>Connect</h2>
-✉️ [mamma1234@gmail.com](mamma1234@gmail.com)  
-✉️ [mamma1234@naver.com](mamma1234@naver.com])  
+✉️ [mamma1234@gmail.com](mailto:mamma1234@gmail.com)  
+✉️ [mamma1234@naver.com](mailto:mamma1234@naver.com])  
 🌐 [https://github.com/mamma1234](https://github.com/mamma1234)
 
 
