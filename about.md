@@ -75,6 +75,10 @@ Linux, CentOS, Ubuntu <br>
 
 ### XXXX - *Team project*
 <sub>2018.10.07 - 12.20, [Github](https://github.com/mamma1234), [Report](https://bit.ly/mamma1234)</sub>
+
+
+<img src="{{ site.url }}/images/plismplus.png" alt="portfolio">
+
 - 샘플 내용 1
 - 샘플 내용 2
 
