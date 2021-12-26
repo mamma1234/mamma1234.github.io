@@ -84,8 +84,31 @@ Linux, CentOS, Ubuntu <br>
 	<figcaption> [booking.plism.com](https:.//booking.plism.com)</figcaption>
 </figure>
 
+
+### 위동부킹서비스
+- 기간
+  - 2021년 4월 ~ 2021년 8월
+- 배경
+  - 화주통합서비스 구출중 사업 범위내 위동선사에서 부킹 서비스 구축 의뢰하여 수행 
+- 서비스 설명
+  - 화주 부킹, SR 통합 서비스
+  - 위동 선사, 컨펌, BL 수신 서비스
+  - 위동 스케쥴, 부킹 Close, SR Close 서비스
+  - 위동 선박 위치 서비스
+- 역할
+  - 기획, 설계, 분석, 개발, PM
+<figure>
+	<img height="500px" width="500px" src="{{ site.url }}/images/weidong.png" alt="portfolio">
+	<figcaption> [weidong.plism.com](https:.//weidong.plism.com)</figcaption>
+</figure>
+
+
+
+
 ### XXXX - *Team project*
 <sub>2018.10.07 - 12.20, [Github](https://github.com/mamma1234), [Report](https://bit.ly/mamma1234)</sub>
+
+
 
 
 <img src="{{ site.url }}/images/plismplus.png" alt="portfolio">
