@@ -32,7 +32,7 @@ chart: true
 
 
 ## [EDUCATION]
-### 경원대학교 - *전자계산학과*
+### 경원대학교 - *전자계산학과*  >> 가천대학교 대학교 이름 변경
 <sub>94학번, 2002년 졸업</sub>  
 
 ### certificate
@@ -43,18 +43,14 @@ chart: true
 
 
 ## [Skills]
+<pre><code>
 Struts2, Spring Framework, TypeScript, Java Servlet, JSP,
 Visual Basic, SVN, GitHub, PostgreSQL, Mongo DB, MY-SQL,
 Oracle DB, C#, C++, Bootstrap, Spring Boot, Spring, 
 React, CSS3, HTML5, jQuery, Python, JavaScript, Java, 
-goLang, React-Native, ProC, Egovframework, MyBatis, 
-
-]
-### Framework
-Pandas, NumPy, scikit-learn, KoNLPy, Spark, [PyTorch](https://github.com/mamma1234/PyTorch), [TensorFlow](https://github.com/mamma1234/TensorFlow), [Keras](https://github.com/mamma1234/Keras-Applications)
-
-### AI / ML
-오일석의 '[패턴인식](http://www.yes24.com/24/goods/3315437?scode=032&OzSrank=1)', 마이클 네그네빗스키의 ‘[인공지능 개론](http://www.yes24.com/24/Goods/9386454?Acode=101)’ 독학으로 전통적인 ML 분야 학습, Vision + NLP + Sequence Models - [Coursera 강의](https://www.coursera.org/learn/nlp-sequence-models) 수료 및 각종 프로젝트 진행, [강화학습](https://event-us.kr/modu/event/2016) + [Deep Generative](https://event-us.kr/modu/event/4648) 스터디를 통하여 학습 및 실습
+goLang, React-Native, ProC, Egovframework, MyBatis, R,
+Elasticsearch, Kotlin
+</code></pre>
 
 
 <h2>Connect</h2>
