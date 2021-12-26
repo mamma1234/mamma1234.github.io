@@ -85,12 +85,15 @@ Linux, CentOS, Ubuntu <br>
 - 역할
   - 기획, 설계, 분석, 개발, PM
 - 대표 기술
-  - Docker, Python, React, Scrapy
+  - Python, React, Scrapy, Javascript
+  - Docker, Nginx
   - 맞춤형 API 서버 구축
   - Jasper 기반 레포트 서버 구축
   - React-Native 앱 구축
   - Oauth2.0 통합 인증 서버 구축
-  - Gcm Push 서버 구축
+  - Gcm Push 서버 구축중
+  - Oracle, Postgresql, Mssql, ElasticSearcher
+  - MiBatis, Maven, Spring Boot
 <figure>
 	<img height="500px" width="500px" src="{{ site.url }}/images/plismplus.png" alt="portfolio">
 	<figcaption> [booking.plism.com](https:.//booking.plism.com)</figcaption>
@@ -109,6 +112,13 @@ Linux, CentOS, Ubuntu <br>
   - 위동 선박 위치 서비스
 - 역할
   - 기획, 설계, 분석, 개발, PM
+- 대표 기술
+  - Python, React, Javascript
+  - Docker, Nginx
+  - Jasper 기반 레포트 서버 구축
+  - Oauth2.0 통합 인증 서버 구축
+  - Oracle, Postgresql
+  - MiBatis, Maven, Spring Boot
 <figure>
 	<img height="500px" width="500px" src="{{ site.url }}/images/weidong.png" alt="portfolio">
 	<figcaption> [weidong.plism.com](https:.//weidong.plism.com)</figcaption>
@@ -126,7 +136,13 @@ Linux, CentOS, Ubuntu <br>
   - 역대 가장 많은 마이너 서비스 개발한 기간
 - 역할
   - 팀장,파트장
-
+- 대표 기술
+  - Oracle
+  - Java, Jquery, Javascript, ProC
+  - ESB, Kafka
+  - Jeus, EJB
+  - Websquare, Miplatform, Gauce
+  - Spring Framework, iBatis, Maven, Spring MVC, Spring Boot
 
 ### PLISM 3.0
 - 기간
@@ -143,6 +159,13 @@ Linux, CentOS, Ubuntu <br>
   - 반입신고서, 적하일람표 해양수산부 신고 시스템
 - 역할
   - 기획, 설계, 분석, 개발, PL
+- 대표 기술
+  - Oracle
+  - Java, Jquery, Javascript, ProC
+  - ESB, Kafka
+  - Jeus, EJB
+  - Websquare, Miplatform, Gauce
+  - Spring Framework, iBatis, Maven, Spring MVC, Spring Boot
 <figure>
 	<img height="500px" width="500px" src="{{ site.url }}/images/plism.png" alt="portfolio">
 	<figcaption> [www.plism.com](https:.//www.plism.com)</figcaption>
@@ -162,6 +185,11 @@ Linux, CentOS, Ubuntu <br>
   - PMS - 부서별 계획, 원가, 매출, 이익, 인력관리 전산화로 의사결정 지원 시스템 구축
 - 역할
   - 기획, 설계, 분석, 개발, PM
+- 대표 기술
+  - Oracle, Mssql
+  - Java, Jquery, Javascript
+  - Tomcat, Apache
+  - Spring Framework, iBatis, Maven, Spring MVC
 
 ### 복권시스템 안정화를 위한 병행운영 사업
 - 기간
@@ -173,6 +201,10 @@ Linux, CentOS, Ubuntu <br>
   - 복권발급 운영 시스템 부분 담당
 - 역할
   - 컨설턴트, 설계, TA
+- 대표 기술
+  - Oracle
+  - Java, Jsp, Servlet
+  - Spring Framework, iBatis, Maven, Spring MVC
 
 ### 국토해양부 스마트포트 정보시스템 구축 사업
 - 기간
@@ -183,6 +215,11 @@ Linux, CentOS, Ubuntu <br>
   - 국토해양부, 항만공사 항만운영정보시스템 통합을 위한 선행 사업
 - 역할
   - PL, 설계, 개발
+- 대표 기술
+  - Oracle
+  - Java, Jsp, Servlet
+  - Websquare
+  - Spring Framework, iBatis, Maven, Spring MVC
 
 ### 부산항만공사 BPA-NET 구축 사업
 - 기간
@@ -193,6 +230,11 @@ Linux, CentOS, Ubuntu <br>
   - 노후화된 부산항만공사 정보화 시스템을 현대화하기 위한 사업
 - 역할
   - PL, 설계, 개발
+- 대표 기술
+  - Oracle
+  - Java, Jsp, Servlet
+  - Websquare
+  - Spring Framework, iBatis, Maven, Spring MVC
 
 ### 여수광양 항만운영정보시스템 신고검증체계 시스템 구축
 - 기간
@@ -204,6 +246,11 @@ Linux, CentOS, Ubuntu <br>
   - 신고 정보 검증을 위한 시스템 구축으로 정확도 해결을 위한 과제 수행
 - 역할
   - PL, TA, 설계, 개발
+- 대표 기술
+  - Oracle
+  - Java, Jsp, Servlet
+  - Miplatform
+  - Spring Framework, iBatis, Maven, Spring MVC
 
 ### 인천항 항만물류 U-시스템 구축 3단계
 - 기간
@@ -215,6 +262,11 @@ Linux, CentOS, Ubuntu <br>
   - I-PLUS 구축 3개년 사업의 마지막 연도 구축 부문
 - 역할
   - PL, 설계, 개발
+- 대표 기술
+  - Oracle
+  - Java, Jsp, Servlet
+  - Miplatform
+  - Spring Framework, iBatis, Maven, Spring MVC
 
 ### 부산항만공사 인센티브 검증시스템
 - 기간
@@ -226,6 +278,10 @@ Linux, CentOS, Ubuntu <br>
   - 운송사, 선사가 운송 내역을 상호 비교하여 검증하는 시스템
 - 역할
   - PM, 설계
+- 대표 기술
+  - Oracle
+  - Java, Jsp, Servlet
+  - Spring Framework, iBatis, Maven, Spring MVC
 
 ### 인천항 항만물류 U-시스템 구축 2단계
 - 기간
@@ -236,6 +292,11 @@ Linux, CentOS, Ubuntu <br>
   - 3단게 사업중 2단계 인천항 내부 시스템, ERP, 전자결재등 정보화 시스템 구축 년차
 - 역할
   - TA, 컨설턴트
+- 대표 기술
+  - Oracle
+  - Java, Jsp, Servlet
+  - Miplatform
+  - Spring Framework, iBatis, Maven, Spring MVC
 
 ### 항해정기선사협의회 화물실적 통계 관리 시스템
 - 기간
@@ -246,6 +307,10 @@ Linux, CentOS, Ubuntu <br>
   - 서해, 중국간 화물을 정기적으로 운행하는 선사의 화물 실적을 통계내어 관리하기 위한 시스템
 - 역할
   - PL, 개발
+- 대표 기술
+  - Oracle
+  - Java, Jsp, Servlet
+  - Spring Framework, iBatis, Maven, Spring MVC
 
 ### 인천항 항만물류 U-시스템 구축 1단계
 - 기간
@@ -257,6 +322,11 @@ Linux, CentOS, Ubuntu <br>
   - 포탈 구축 담당 수행
 - 역할
   - TA, 설계
+- 대표 기술
+  - Oracle
+  - Java, Jsp, Servlet
+  - Miplatform
+  - Spring Framework, iBatis, Maven, Spring MVC
 
 ### 화물수송 최적화 시스템 구축 사업
 - 기간
@@ -267,6 +337,10 @@ Linux, CentOS, Ubuntu <br>
   - 화물수송 예약제 시스템 구축을 위한 과제중 운송사와 철도청간의 중계 서비스 부분을 담당
 - 역할
   - PL, 설계, 개발
+- 대표 기술
+  - Oracle
+  - Java, Jsp, Servlet
+  - Spring Framework, iBatis, Maven, Spring MVC
 
 ### RFID-USN 기반 u-PORT 구축
 - 기간
@@ -279,6 +353,10 @@ Linux, CentOS, Ubuntu <br>
   - 차량에 900 Mhz tag를 부착
 - 역할
   - RFID 미들웨어 컨설팅, 개발
+- 대표 기술
+  - Oracle
+  - Java, Jsp, Servlet
+  - Jquery
 
 ### 케이엘넷 RFID 미들웨어 연구 개발
 - 기간
@@ -289,6 +367,9 @@ Linux, CentOS, Ubuntu <br>
   - 미래 신성장 동력인 RFID 미들웨어를 개발하여 시장을 주도하기 위함
 - 역할
   - 미들웨어 개발 연구원
+- 대표 기술
+  - Java, Jsp, Servlet
+  - Jquery
 
 ### 삼성전자 SCM (gSCM) 시스템 구축
 - 기간
@@ -299,7 +380,12 @@ Linux, CentOS, Ubuntu <br>
   - 사업부별, 국가별 별도 구축된 SCM 시스템을 하나의 gSCM으로 통합 구축
 - 역할
   - 설계, 개발
-
+- 대표 기술
+  - Jeus
+  - Oracle
+  - Java, Jsp, Servlet
+  - Miplatform, Gauce
+  
 ### 포스코 CRM 시스템 구축
 - 기간
   - 2002년 9월 ~ 2003년 9월
@@ -309,6 +395,10 @@ Linux, CentOS, Ubuntu <br>
   - 오라클 글로벌 CRM 모듈을 포스코, 국내용으로 커스터마이징 사업
 - 역할
   - 설계, 개발
+- 대표 기술
+  - Oracle
+  - Java, Jsp, Servlet
+  
 
 ### 비씨카드 구매카드시스템 구축
 - 기간
@@ -319,3 +409,7 @@ Linux, CentOS, Ubuntu <br>
   - 어음, 현금 대신 신용구매카드를 활용하여 혁신적 기업거래가 가능하게 됨
 - 역할
   - 설계, 개발
+- 대표 기술
+  - Tuxedo, Weblogic
+  - Oracle
+  - Java, Jsp, Servlet, ProC, Visual Basic
