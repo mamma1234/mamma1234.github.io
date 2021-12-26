@@ -1,7 +1,7 @@
 ---
 layout: page
 permalink: /about/index.html
-title: 꿈꾸는 개발자, 박대규
+title: 꿈을 간직한 이, 박대규
 tags: [mamma, mamma1234, parkdaekyu, dreamdae, pdkship]
 imagefeature: fourseasons.jpg
 chart: true
@@ -27,40 +27,29 @@ chart: true
     {% endif %}
 {% endfor %}
 
-<!--
-This is my personal blog. It currently has {{ site.posts | size }} posts in {{ site.categories | size }} categories which combinedly have {{ total_words }} words, which will take an average reader ({{ site.wpm }} WPM) approximately <span class="time">{{ total_readtime }}</span> minutes to read. {% if featuredcount != 0 %}There are <a href="{{ site.url }}/featured">{{ featuredcount }} featured posts</a>, you should definitely check those out.{% endif %} The most recent post is {% for post in site.posts limit:1 %}{% if post.description %}<a href="{{ site.url }}{{ post.url }}" title="{{ post.description }}">"{{ post.title }}"</a>{% else %}<a href="{{ site.url }}{{ post.url }}" title="{{ post.description }}" title="Read more about {{ post.title }}">"{{ post.title }}"</a>{% endif %}{% endfor %} which was published on {% for post in site.posts limit:1 %}{% assign modifiedtime = post.modified | date: "%Y%m%d" %}{% assign posttime = post.date | date: "%Y%m%d" %}<time datetime="{{ post.date | date_to_xmlschema }}" class="post-time">{{ post.date | date: "%d %b %Y" }}</time>{% if post.modified %}{% if modifiedtime != posttime %} and last modified on <time datetime="{{ post.modified | date: "%Y-%m-%d" }}" itemprop="dateModified">{{ post.modified | date: "%d %b %Y" }}</time>{% endif %}{% endif %}{% endfor %}. The last commit was on {{ site.time | date: "%A, %d %b %Y" }} at {{ site.time | date: "%I:%M %p" }} [UTC](http://en.wikipedia.org/wiki/Coordinated_Universal_Time "Temps Universel Coordonné").
--->
-
-<h1 align="center">
-<a href=""></a>  
-</h1>
-
-<figure>
-  <img src="" alt="">
-  <figcaption></figcaption>
-</figure>
-
-## [INTRODUCTION]()
+## [INTRODUCTION]
 안녕하세요. 오래된 개발자 하지만 기술 만큼은 최신을 추구하는 개발자 입니다.
 
-## [EXPERIENCE]
-### EXPERIENCE
 
-### 관련사이트  - *링크*
-- [Github https://github.com/mamma1234](https://github.com/mamma1234)
-- [BLOG http://mamma1234.egloos.com/](http://mamma1234.egloos.com/)
-- [CAFE https://cafe.naver.com/mamma1234](https://cafe.naver.com/mamma1234)
-
-
-## [EDUCATION]()
+## [EDUCATION]
 ### 경원대학교 - *전자계산학과*
 <sub>94학번, 2002년 졸업</sub>  
 
-## [Skills]()
+### certificate
+- 2001.06	자격증/면허증	정보처리기사	한국산업인력공단	최종합격
+- 2019.11	자격증/면허증	초경량비행장치 조종자	한국교통안전공단	최종합격
+- 현재 부동산중개사 시험 도전중
 
-### Language
-Python, JavaScript, C
 
+
+## [Skills]
+Struts2, Spring Framework, TypeScript, Java Servlet, JSP,
+Visual Basic, SVN, GitHub, PostgreSQL, Mongo DB, MY-SQL,
+Oracle DB, C#, C++, Bootstrap, Spring Boot, Spring, 
+React, CSS3, HTML5, jQuery, Python, JavaScript, Java, 
+goLang, React-Native, ProC, Egovframework, MyBatis, 
+
+]
 ### Framework
 Pandas, NumPy, scikit-learn, KoNLPy, Spark, [PyTorch](https://github.com/mamma1234/PyTorch), [TensorFlow](https://github.com/mamma1234/TensorFlow), [Keras](https://github.com/mamma1234/Keras-Applications)
 
@@ -69,10 +58,16 @@ Pandas, NumPy, scikit-learn, KoNLPy, Spark, [PyTorch](https://github.com/mamma12
 
 
 <h2>Connect</h2>
-✉️ [mamma1234@gmail.com]()  
+✉️ [mamma1234@gmail.com](mamma1234@gmail.com)  
+✉️ [mamma1234@naver.com](mamma1234@naver.com])  
 🌐 [https://github.com/mamma1234](https://github.com/mamma1234)
 
 
+
+## [EXPERIENCE]
+### EXPERIENCE
+
+
 ### XXXX - *Team project*
 <sub>2018.10.07 - 12.20, [Github](https://github.com/mamma1234), [Report](https://bit.ly/mamma1234)</sub>
 - 샘플 내용 1
@@ -82,3 +77,11 @@ Pandas, NumPy, scikit-learn, KoNLPy, Spark, [PyTorch](https://github.com/mamma12
 <sub>2018.10.07 - 12.20, [Github](https://github.com/mamma1234), [Report](https://bit.ly/mamma1234)</sub>
 - 샘플 내용 1
 - 샘플 내용 2
+
+
+
+
+### 관련사이트  - *링크*
+- [Github https://github.com/mamma1234](https://github.com/mamma1234)
+- [BLOG http://mamma1234.egloos.com/](http://mamma1234.egloos.com/)
+- [CAFE https://cafe.naver.com/mamma1234](https://cafe.naver.com/mamma1234)
