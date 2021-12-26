@@ -69,7 +69,12 @@ Linux, CentOS, Ubuntu <br>
 ### 화주통합서비스
 <sub>2020년 ~ 현재</sub>
 - 화주 (수출입 화물 소유자)를 위한 통합서비스
-  
+<figure>
+	<img src="{{ site.url }}/images/plismplus.png" alt="portfolio">
+	<figcaption>booking.plism.com (booking.plism.com)</figcaption>
+</figure>
+
+
 
 ### XXXX - *Team project*
 <sub>2018.10.07 - 12.20, [Github](https://github.com/mamma1234), [Report](https://bit.ly/mamma1234)</sub>
