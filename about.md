@@ -8,7 +8,7 @@ chart: true
 ---
 
 <figure>
-	<img src="{{ site.url }}/images/mamma_2021-12-26 18.22.18.jpeg" alt="portfolio">
+	<img src="{{ site.url }}/images/mamma_2021-12-26.jpeg" alt="portfolio">
 	<figcaption>portfolio</figcaption>
 </figure>
 
@@ -41,7 +41,7 @@ This is my personal blog. It currently has {{ site.posts | size }} posts in {{ s
 </figure>
 
 ## [INTRODUCTION]()
-XXXX
+안녕하세요. 오래된 개발자 하지만 기술 만큼은 최신을 추구하는 개발자 입니다.
 
 ## [EXPERIENCE]()
 ### 관련사이트  - *링크*
