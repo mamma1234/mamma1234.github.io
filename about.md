@@ -77,7 +77,8 @@ Linux, CentOS, Ubuntu <br>
   - 선사스케쥴
   - 선박 해상 추적서비스
   - 컨테이너 추적 서비스
-
+- 역할
+  - 기획, 설계, 분석, 개발, PM
 <figure>
 	<img height="500px" width="500px" src="{{ site.url }}/images/plismplus.png" alt="portfolio">
 	<figcaption> [booking.plism.com](https:.//booking.plism.com)</figcaption>
