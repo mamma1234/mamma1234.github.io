@@ -66,14 +66,20 @@ Linux, CentOS, Ubuntu <br>
 
 ## [EXPERIENCE]
 
+
 ### 화주통합서비스
+<p>
 <figure>
-  <sub>2020년 ~ 현재</sub>
-  - 화주 (수출입 화물 소유자)를 위한 통합서비스
+  <dt>기간</dt>
+    <dd>2020년 ~ 현재</dd>
+  <dt>배경</dt>
+    <dd>케이엘넷 새로운 사업 영역 확대를 위한 서비스 구축</dd>
+  <dt>서비스 설명</dt>
+    <dd>해운선사 통합 부킹서비스</dd>
 	<img height="500px" width="500px" src="{{ site.url }}/images/plismplus.png" alt="portfolio">
 	<figcaption> [booking.plism.com](https:.//booking.plism.com)</figcaption>
 </figure>
-
+</p>
 
 
 ### XXXX - *Team project*
