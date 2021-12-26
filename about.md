@@ -69,7 +69,7 @@ Linux, CentOS, Ubuntu <br>
 
 ### 화주통합서비스
 <p>
-<figure>
+  <dl>
   <dt>기간</dt>
     <dd>2020년 ~ 현재</dd>
   <dt>배경</dt>
@@ -80,6 +80,8 @@ Linux, CentOS, Ubuntu <br>
     <dd>선박 해상 추적서비스</dd>
     <dd>컨테이너 추적 서비스</dd>
     <dd>컨테이너 추적 서비스</dd>
+  </dl>
+<figure>
 	<img height="500px" width="500px" src="{{ site.url }}/images/plismplus.png" alt="portfolio">
 	<figcaption> [booking.plism.com](https:.//booking.plism.com)</figcaption>
 </figure>
