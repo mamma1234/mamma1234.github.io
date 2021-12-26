@@ -44,12 +44,16 @@ chart: true
 
 ## [Skills]
 <pre><code>
-Struts2, Spring Framework, TypeScript, Java Servlet, JSP,
-Visual Basic, SVN, GitHub, PostgreSQL, Mongo DB, MY-SQL,
-Oracle DB, C#, C++, Bootstrap, Spring Boot, Spring, 
-React, CSS3, HTML5, jQuery, Python, JavaScript, Java, 
-goLang, React-Native, ProC, Egovframework, MyBatis, R,
-Elasticsearch, Kotlin
+TypeScript, Visual Basic, C#, C++, JSP, CSS3, HTML5, Python, JavaScript, Java, ProC, goLang, Kotlin, 
+Spring Boot, Spring, Spring Framework, AOP, Egovframework, MyBatis, Maven
+Struts2, JSTL, Java Servlet, 
+React, jQuery, Bootstrap, 
+PostgreSQL, Mongo DB, MY-SQL, Oracle DB, 
+React-Native, 
+Elasticsearch, R,
+AWS, Docker, GCP,
+SVN, GitHub, 
+Linux, CentOS, Ubuntu
 </code></pre>
 
 
@@ -64,7 +68,7 @@ Elasticsearch, Kotlin
 ### EXPERIENCE
 
 
-### XXXX - *Team project*
+### 화주통합서비스
 <sub>2018.10.07 - 12.20, [Github](https://github.com/mamma1234), [Report](https://bit.ly/mamma1234)</sub>
 - 샘플 내용 1
 - 샘플 내용 2
