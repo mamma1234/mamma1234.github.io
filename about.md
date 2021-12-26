@@ -78,12 +78,19 @@ Linux, CentOS, Ubuntu <br>
 - 배경
   - 케이엘넷 새로운 사업 영역 확대를 위한 서비스 구축
 - 서비스 설명
-  - 해운선사 부킹, SR 통합 서비스
-  - 선사스케쥴
+  - 국내 유일 해운선사 부킹, SR 통합 서비스
+  - 국내 최대 선사스케쥴
   - 선박 해상 추적서비스
-  - 컨테이너 추적 서비스
+  - 국내 최정밀,실시간 컨테이너 추적 서비스
 - 역할
   - 기획, 설계, 분석, 개발, PM
+- 대표 기술
+  - Docker, Python, React, Scrapy
+  - 맞춤형 API 서버 구축
+  - Jasper 기반 레포트 서버 구축
+  - React-Native 앱 구축
+  - Oauth2.0 통합 인증 서버 구축
+  - Gcm Push 서버 구축
 <figure>
 	<img height="500px" width="500px" src="{{ site.url }}/images/plismplus.png" alt="portfolio">
 	<figcaption> [booking.plism.com](https:.//booking.plism.com)</figcaption>
