@@ -70,7 +70,7 @@ Linux, CentOS, Ubuntu <br>
 <sub>2020년 ~ 현재</sub>
 - 화주 (수출입 화물 소유자)를 위한 통합서비스
 <figure>
-	<img src="{{ site.url }}/images/plismplus.png" alt="portfolio">
+	<img height="300" width="300" src="{{ site.url }}/images/plismplus.png" alt="portfolio">
 	<figcaption>booking.plism.com (booking.plism.com)</figcaption>
 </figure>
 
