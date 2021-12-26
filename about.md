@@ -68,18 +68,22 @@ Linux, CentOS, Ubuntu <br>
 
 
 ### 화주통합서비스
+- 기간
+  - 2020년 ~ 현재
+- 배경
+  - 케이엘넷 새로운 사업 영역 확대를 위한 서비스 구축
+<h3></h3>
 <p>
   <dl>
-  <dt>기간</dt>
-    <dd>2020년 ~ 현재</dd>
-  <dt>배경</dt>
-    <dd>케이엘넷 새로운 사업 영역 확대를 위한 서비스 구축</dd>
-  <dt>서비스 설명</dt>
-    <dd>해운선사 부킹, SR 통합 서비스</dd>
-    <dd>선사스케쥴</dd>
-    <dd>선박 해상 추적서비스</dd>
-    <dd>컨테이너 추적 서비스</dd>
-    <dd>컨테이너 추적 서비스</dd>
+    <dt>기간</dt>
+      <dd>2020년 ~ 현재</dd>
+    <dt>배경</dt>
+      <dd>케이엘넷 새로운 사업 영역 확대를 위한 서비스 구축</dd>
+    <dt>서비스 설명</dt>
+      <dd>해운선사 부킹, SR 통합 서비스</dd>
+      <dd>선사스케쥴</dd>
+      <dd>선박 해상 추적서비스</dd>
+      <dd>컨테이너 추적 서비스</dd>
   </dl>
 <figure>
 	<img height="500px" width="500px" src="{{ site.url }}/images/plismplus.png" alt="portfolio">
