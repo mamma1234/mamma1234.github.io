@@ -25,4 +25,13 @@ disqus:
 
 - [AWS] Free-tier로 RDS 사용 중 요금을 지불했어요! [https://velog.io/@arara90/AWS-Free-tier%EB%A1%9C-RDS-%EC%82%AC%EC%9A%A9-%EC%A4%91-%EC%9A%94%EA%B8%88%EC%9D%84-%EC%A7%80%EB%B6%88%ED%96%88%EC%96%B4%EC%9A%94](https://velog.io/@arara90/AWS-Free-tier%EB%A1%9C-RDS-%EC%82%AC%EC%9A%A9-%EC%A4%91-%EC%9A%94%EA%B8%88%EC%9D%84-%EC%A7%80%EB%B6%88%ED%96%88%EC%96%B4%EC%9A%94)
 
-## 
+## AWS Margate - 컨테이너 제어 서버
+## ECS 컨테이너 배포, 관리
+## EKS ECS 에 kubernetes
+## ECR 이미지 관리
+## EC2 가상 컴퓨팅 환경
+## EFS 파일 시스템
+## S3 Simple Storage Service 객체 스토리지 서비스
+## SES Simple Email Service
+## SQS Simple Queue Service
+## AWS Lambda - 서버리스 컴퓨팅 서비스
