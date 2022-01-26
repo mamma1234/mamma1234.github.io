@@ -23,8 +23,8 @@ disqus:
 - [](#)
 
 ## Filter, Interceptor, AOP 의 흐름
-ㆍInterceptor와 Filter는 Servlet 단위에서 실행된다. <> 반면 AOP는 메소드 앞에 Proxy패턴의 형태로 실행된다.
-ㆍ실행순서를 보면 Filter가 가장 밖에 있고 그안에 Interceptor, 그안에 AOP가 있는 형태이다.
+- Interceptor와 Filter는 Servlet 단위에서 실행된다. <> 반면 AOP는 메소드 앞에 Proxy패턴의 형태로 실행된다.
+- 실행순서를 보면 Filter가 가장 밖에 있고 그안에 Interceptor, 그안에 AOP가 있는 형태이다.
 따라서 요청이 들어오면 Filter → Interceptor → AOP → Interceptor → Filter 순으로 거치게 된다.
 
 1. 서버를 실행시켜 서블릿이 올라오는 동안에 init이 실행되고, 그 후 doFilter가 실행된다. 
@@ -57,9 +57,9 @@ disqus:
 인터셉터는 여러 개를 사용할 수 있고 로그인 체크, 권한체크, 프로그램 실행시간 계산작업 로그확인 등의 업무처리
 
 [ 실행메서드 ]
-preHandler() - 컨트롤러 메서드가 실행되기 전
-postHanler() - 컨트롤러 메서드 실행직 후 view페이지 렌더링 되기 전
-afterCompletion() - view페이지가 렌더링 되고 난 후
+preHandler() - 컨트롤러 메서드가 실행되기 전 <br>
+postHanler() - 컨트롤러 메서드 실행직 후 view페이지 렌더링 되기 전 <br>
+afterCompletion() - view페이지가 렌더링 되고 난 후 <br>
 
 # AOP
 OOP를 보완하기 위해 나온 개념 
