@@ -57,9 +57,9 @@ disqus:
 인터셉터는 여러 개를 사용할 수 있고 로그인 체크, 권한체크, 프로그램 실행시간 계산작업 로그확인 등의 업무처리
 
 [ 실행메서드 ] <br>
-preHandler() - 컨트롤러 메서드가 실행되기 전 <br>
-postHanler() - 컨트롤러 메서드 실행직 후 view페이지 렌더링 되기 전 <br>
-afterCompletion() - view페이지가 렌더링 되고 난 후 <br>
+ㆍpreHandler() - 컨트롤러 메서드가 실행되기 전 <br>
+ㆍpostHanler() - 컨트롤러 메서드 실행직 후 view페이지 렌더링 되기 전 <br>
+ㆍafterCompletion() - view페이지가 렌더링 되고 난 후 <br>
 
 # AOP
 OOP를 보완하기 위해 나온 개념 
@@ -75,8 +75,8 @@ Advice의 경우 JoinPoint나 ProceedingJoinPoint 등을 활용해서 호출한�
 반면 HandlerInterceptor는 Filter와 유사하게 HttpServletRequest, HttpServletResponse를 파라미터로 사용한다.
 
 [ 포인트컷 ] <br>
-@Before: 대상 메서드의 수행 전 <br>
-@After: 대상 메서드의 수행 후 <br>
-@After-returning: 대상 메서드의 정상적인 수행 후 <br>
-@After-throwing: 예외발생 후 <br>
-@Around: 대상 메서드의 수행 전/후 <br>
+ㆍ@Before: 대상 메서드의 수행 전 <br>
+ㆍ@After: 대상 메서드의 수행 후 <br>
+ㆍ@After-returning: 대상 메서드의 정상적인 수행 후 <br>
+ㆍ@After-throwing: 예외발생 후 <br>
+ㆍ@Around: 대상 메서드의 수행 전/후 <br>
