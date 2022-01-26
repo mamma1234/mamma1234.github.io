@@ -74,7 +74,7 @@ AOP의 Advice와 HandlerInterceptor의 가장 큰 차이는 파라미터의 차�
 Advice의 경우 JoinPoint나 ProceedingJoinPoint 등을 활용해서 호출한다. <br>
 반면 HandlerInterceptor는 Filter와 유사하게 HttpServletRequest, HttpServletResponse를 파라미터로 사용한다.
 
-[ 실행메서드 ] <br>
+[ 포인트컷 ] <br>
 @Before: 대상 메서드의 수행 전 <br>
 @After: 대상 메서드의 수행 후 <br>
 @After-returning: 대상 메서드의 정상적인 수행 후 <br>
