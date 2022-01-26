@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "Git"
+title: "Filter, Interceptor, AOP"
 description: 
 headline: 
 modified: 2022-01-26
 category: webdevelopment
 imagefeature: cover3.jpg
-tags: [GFilter, Interceptor, AOPit]
+tags: [Filter, Interceptor, AOP]
 mathjax: 
 chart: 
 share: true
