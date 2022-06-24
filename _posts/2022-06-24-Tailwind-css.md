@@ -26,10 +26,13 @@ disqus:
 ### 장점
 
 -   CSS를 작성하지 않고 인터페이스를 구축할 수 있게 해준다. 기존에는 CSS 파일로 가서 다음처럼 코드를 작성했어야 했다.
-    .text {
+
+```JavaScript
+.text {
     font-size: 1.125rem;
     line-height: 1.75rem;
-    }
+}
+```
 
 Tailwind CSS에서는 HTML class 속성에 text-lg만을 넣어주는 것으로 간단하게 스타일을 적용할 수 있다.
 예를 들자면- 순수 css에서 작성할때, 배경 그래디언트를 넣을때는 예시로 이정도 용량의 코드를 넣어야 했다.
@@ -59,7 +62,7 @@ div {
 </body>
 ```
 
-이렇게 할 수 있다.
+이렇게 할 수 있다.  
 div나 다른 태그의 class 부분에 tailwindcss 구문을 넣으면 된다.
 
 ### 단점
