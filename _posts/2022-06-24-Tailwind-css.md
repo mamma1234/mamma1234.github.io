@@ -23,17 +23,6 @@ disqus:
 
 ## 개념
 
-    POST CSS는 우리의 CSS를 조금더 현대적으로 바꿔주는 플러그인이다.
-    좀더 풀어 설명하자면 POST CSS 는 JS 플러그인을 사용하여 CSS를 변환시키는 툴 입니다.
-    POST CSS 는 언어가아니라 자동으로 신기술 CSS 를 호환가능하도록 변환시켜주는 플러그인일 뿐이다.
-    CSS에 문제가없는지 미리 확인해서 에러로그를 준다.
-    지금 발전중인 CSS의 현대기술들을 브라우저에 호환되도록 자동 변환해준다.
-    PostCSS 자체는 아무 일도 하지 않는다. 다만 다양한 플러그인과, 플러그인을 추가할 수 있는 환경을 제공할 뿐이다.
-
-### reset.css
-
--   기본 스타일링을 초기화하는 방식이다. 각 태그 별로 유용한 스타일도 모두 지워진다.
-
 ### 장점
 
 -   CSS를 작성하지 않고 인터페이스를 구축할 수 있게 해준다. 기존에는 CSS 파일로 가서 다음처럼 코드를 작성했어야 했다.
@@ -45,6 +34,7 @@ disqus:
 Tailwind CSS에서는 HTML class 속성에 text-lg만을 넣어주는 것으로 간단하게 스타일을 적용할 수 있다.
 예를 들자면- 순수 css에서 작성할때, 배경 그래디언트를 넣을때는 예시로 이정도 용량의 코드를 넣어야 했다.
 
+```JavaScript
 <style>
 div {
    width: 100%;
@@ -59,12 +49,15 @@ div {
 <body>
      <div class="jbGrad01">to yellow, red</div>
 </body>
+```
 
 로 해야 했던것을
 
+```JavaScript
 <body>
      <div class="bg-gradient-to-r from-yellow-400 to-red-400"></div>
 </body>
+```
 
 이렇게 할 수 있다.
 div나 다른 태그의 class 부분에 tailwindcss 구문을 넣으면 된다.
