@@ -1,21 +1,24 @@
 ---
 layout: post
-title: "Node Oracle"
-description: 
-headline: 
+title: 'Node Oracle'
+description:
+headline:
 modified: 2020-02-11
 category: webdevelopment
-imagefeature: cover3.jpg
+imagefeature:
 tags: [node oracle]
-mathjax: 
-chart: 
+mathjax:
+chart:
 share: true
 comments: true
 featured: false
 disqus:
 ---
+
 # node-oralce 18.5
+
 ## Windows
+
 ```JavaScript
     1. oracle client zip 다운로드
     https://www.oracle.com/database/technologies/instant-client/winx64-64-downloads.html
@@ -58,7 +61,7 @@ disqus:
     oracle.sh파일에는 client 설치 경로를 설정한다.
 
 
-    vi ~/.bash_profile 
+    vi ~/.bash_profile
 
     # .bash_profile
     # Get the aliases and functions
@@ -66,12 +69,10 @@ disqus:
     . ~/.bashrc
     fi
     # User specific environment and startup programs
-    PATH=$PATH:$HOME/bin:$ORACLE_HOME/bin 
+    PATH=$PATH:$HOME/bin:$ORACLE_HOME/bin
     export PATH
     .bash_profile 파일에는 ORACLE_HOME을 추가한다.
 ```
-
-
 
 ## Linux Centos7 Test
 
@@ -84,14 +85,13 @@ disqus:
     npm install
 ```
 
-
 ## DPI-1047 "libclntsh.so: cannot open shared object file: No such file or directory"
 
 ```JavaScript
 DPI-1047: Cannot locate a 64-bit Oracle Client library: "libclntsh.so: cannot open shared object file: No such file or directory". See https://oracle.github.io/odpi/doc/installation.html#linux for help
 Node-oracledb installation instructions: https://oracle.github.io/node-oracledb/INSTALL.html
 You must have 64-bit Oracle client libraries in LD_LIBRARY_PATH, or configured with ldconfig.
-If you do not have Oracle Database on this computer, then install the Instant Client Basic or Basic Light package from 
+If you do not have Oracle Database on this computer, then install the Instant Client Basic or Basic Light package from
 http://www.oracle.com/technetwork/topics/linuxx86-64soft-092277.html
 
 
@@ -107,8 +107,6 @@ ln -s libclntsh.so.18.1 libclntsh.so
 ENV LD_LIBRARY_PATH="/usr/src/app/oracle/instantclient_18_3/lib"
 ```
 
-
-
 # node-oralce 19.5
 
 ```JavaScript
@@ -122,7 +120,7 @@ Instant Client 19의 경우 설치 중에 시스템 라이브러리 검색 경�
 
 # Docker에서 node-oracledb 사용
 
-- Oracle Linux Instant Client RPM 사용
+-   Oracle Linux Instant Client RPM 사용
 
 ```JavaScript
 FROM oraclelinux:7-slim
@@ -133,7 +131,7 @@ RUN  yum -y install oracle-release-el7 && \
      rm -rf /var/cache/yum
 ```
 
-- Instant Client zip 파일 자동 다운로드
+-   Instant Client zip 파일 자동 다운로드
 
 ```JavaScript
 RUN wget https://download.oracle.com/otn_software/linux/instantclient/instantclient-basiclite-linuxx64.zip && \
@@ -148,7 +146,7 @@ RUN wget https://download.oracle.com/otn_software/linux/instantclient/instantcli
 
 ```
 
-- 호스트에서 Instant Client zip 파일 복사
+-   호스트에서 Instant Client zip 파일 복사
 
 ```JavaScript
 

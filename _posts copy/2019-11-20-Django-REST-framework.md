@@ -1,14 +1,14 @@
 ---
 layout: post
-title: "Django Rest Framework"
-description: 
-headline: 
+title: 'Django Rest Framework'
+description:
+headline:
 modified: 2019-11-20
 category: webdevelopment
-imagefeature: cover3.jpg
+imagefeature:
 tags: [Django, React, Rest, Framework]
-mathjax: 
-chart: 
+mathjax:
+chart:
 share: true
 comments: true
 featured: true
@@ -16,11 +16,15 @@ disqus:
 ---
 
 # Record
+
 ## 개념
-- Django REST framework
+
+-   Django REST framework
 
 ## python3
+
 ### 가상환경
+
 ```
 DATABASES = {
     'default': {
@@ -73,5 +77,3 @@ class MultiDBRouter(object):
 class Meta:
         app_label = 'mfedi'
 ```
-
-

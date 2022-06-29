@@ -1,14 +1,14 @@
 ---
 layout: post
-title: "ES6"
-description: 
-headline: 
+title: 'ES6'
+description:
+headline:
 modified: 2019-11-08
 category: webdevelopment
-imagefeature: cover3.jpg
+imagefeature:
 tags: [ES6]
-mathjax: 
-chart: 
+mathjax:
+chart:
 share: true
 comments: true
 featured: true
@@ -16,85 +16,95 @@ disqus:
 ---
 
 # Record
+
 ## 개념
-- 
+
+-
 
 ### ES6 에서 사용하는 변수 선언. ES5 에서 사용하던 var 외에 const나 let
-- 블록 스코프 변수인 let은 자신을 정의한 블록에서만 접근 가능하다.
-- const 담긴 값이 불변을 뜻하는게 아니라, 단지 변수의 식별자가 재할당 될 수 없다.
-``` 
-const ME = { "name": "ES6" } 
-console.log(ME.name); //ES6 
-ME.name = "ES7"; 
-console.log(ME.name); //ES7, 객체 값 재할당 
-ME = {}; //변수 자체는 상수값으로 수정되지 않는다. 
+
+-   블록 스코프 변수인 let은 자신을 정의한 블록에서만 접근 가능하다.
+-   const 담긴 값이 불변을 뜻하는게 아니라, 단지 변수의 식별자가 재할당 될 수 없다.
+
+```
+const ME = { "name": "ES6" }
+console.log(ME.name); //ES6
+ME.name = "ES7";
+console.log(ME.name); //ES7, 객체 값 재할당
+ME = {}; //변수 자체는 상수값으로 수정되지 않는다.
 console.log(ME); //{ name: 'ES7' }
 ```
 
-
 ### module import, export
-- import - 다른 스크립트의 특정 함수, 객체, primitives를 사용하기 위해 들여오는 키워드
-``` 
-import * as name from "module-name"; 
-import { member as alias } from "module-name"; 
-import { member1 , member2 } from "module-name"; 
-import { member1 , member2 as alias2 , [...] } from "module-name"; 
-import defaultMember, { member [ , [...] ] } from "module-name"; 
-import defaultMember, * as name from "module-name"; 
-import "module-name";
-``` 
 
-- export - 반대로 스크립트 내의 특정 함수, 객체, primitives를 내보내는 키워드
+-   import - 다른 스크립트의 특정 함수, 객체, primitives를 사용하기 위해 들여오는 키워드
+
+```
+import * as name from "module-name";
+import { member as alias } from "module-name";
+import { member1 , member2 } from "module-name";
+import { member1 , member2 as alias2 , [...] } from "module-name";
+import defaultMember, { member [ , [...] ] } from "module-name";
+import defaultMember, * as name from "module-name";
+import "module-name";
+```
+
+-   export - 반대로 스크립트 내의 특정 함수, 객체, primitives를 내보내는 키워드
+
 ```
 export { variable1 as name1, variable2 as name2, …, nameN };
-export let name1, name2, …, nameN; 
-export let name1 = …, name2 = …, …, nameN; 
-export { name1 as default, … }; 
+export let name1, name2, …, nameN;
+export let name1 = …, name2 = …, …, nameN;
+export { name1 as default, … };
 export * from …; export { name1, name2, …, nameN } from …;
 export { import1 as name1, import2 as name2, …, nameN } from …;
 ```
 
-- default를 사용한 export와 import
+-   default를 사용한 export와 import
 
 ### arrow function
-- 기존의 function보다 빠르며 간결한 구문을 보여주는 함수이다.
-- 한줄 코드인경우 return 구문없이 자동으로 반환된다
-- 항상 익명함수이다.
-- 생성자를 사용할 수 없다.
+
+-   기존의 function보다 빠르며 간결한 구문을 보여주는 함수이다.
+-   한줄 코드인경우 return 구문없이 자동으로 반환된다
+-   항상 익명함수이다.
+-   생성자를 사용할 수 없다.
+
 ```
 var plus = function(a, b) { var result = a + b; return result; }
 let plus = (a, b) => { let result = a + b; return result; }
 ```
 
 ```
-var result = function(a, b) { return a * b; } 
+var result = function(a, b) { return a * b; }
 var result2 = (a, b) => a * b;
 ```
 
-- this 사용 범위
-- 화살표 함수의 this는 외부함수(부모함수)의 this를 상속받기 때문에 this는 항상 일정하다.
+-   this 사용 범위
+-   화살표 함수의 this는 외부함수(부모함수)의 this를 상속받기 때문에 this는 항상 일정하다.
+
 ```
-function phone() { 
+function phone() {
     var self = this,
-    name = "Galaxy s", 
-    version = 6;             
-    versionUp = function() { console.log(this); self.version++; }; 
+    name = "Galaxy s",
+    version = 6;
+    versionUp = function() { console.log(this); self.version++; };
 }
-function phone(){ 
-    this.sName = "Galaxy s"; 
-    this.sVersion = 0; 
-    test => { console.log(this); this.version++; }; 
+function phone(){
+    this.sName = "Galaxy s";
+    this.sVersion = 0;
+    test => { console.log(this); this.version++; };
 }
 ```
 
 ### 템플릿 리터럴 (Template Literals)
-- 역 따옴표(backticks)을 사용하여 문자열을 연결하거나 문자열 중간에 변수를 삽입하여 사용할 수 있다.
-- 또한 ${}에는 값을 만들어내는 자바스크립트 식이라면 어떤 것이든 들어갈 수 있다.
+
+-   역 따옴표(backticks)을 사용하여 문자열을 연결하거나 문자열 중간에 변수를 삽입하여 사용할 수 있다.
+-   또한 ${}에는 값을 만들어내는 자바스크립트 식이라면 어떤 것이든 들어갈 수 있다.
 
 let message = '`Hello ${student.name} from ${student.city}'`;
 
-
 ### 개선된 객체 리터럴 (Enhanced Object Literal)
+
 ```
 // ES5
 var skier = {
@@ -126,8 +136,10 @@ let skier = {
 ```
 
 ### 스프레드 연산자 Spread Operator
-- 스프레드 연산자는 ... 세개의 점으로 이루어진 연산자로, 몇 가지 다른 역할을 담당한다. 
-- Spread 연산자는 연산자의 대상 배열 또는 이터러블(iterable)을 "개별" 요소로 분리한다.
+
+-   스프레드 연산자는 ... 세개의 점으로 이루어진 연산자로, 몇 가지 다른 역할을 담당한다.
+-   Spread 연산자는 연산자의 대상 배열 또는 이터러블(iterable)을 "개별" 요소로 분리한다.
+
 ```
 개별 요소로 분리
 // 배열
@@ -139,7 +151,8 @@ console.log(...new Map([['a', '1'], ['b', '2']]));  // [ 'a', '1' ] [ 'b', '2' ]
 console.log(...new Set([1, 2, 3]));  // 1 2 3
 ```
 
-- 함수의 파라미터로 사용하는 방법
+-   함수의 파라미터로 사용하는 방법
+
 ```
 // ES6
 function foo(x, y, z) {
@@ -151,7 +164,7 @@ const arr = [1, 2, 3];
 foo(...arr);// Array를 받아서 각 매개변수로 전달되었다.
 ```
 
-- 배열에서 사용하는 방법
+-   배열에서 사용하는 방법
 
 ```
 가독성up
@@ -169,8 +182,7 @@ arr1.push(...arr2); // == arr1.push(4, 5, 6);
 console.log(arr1); // [ 1, 2, 3, 4, 5, 6 ]
 ```
 
-
-- 객체에서 사용하기
+-   객체에서 사용하기
 
 ```
 const o1 = { x: 1, y: 2 };
@@ -184,10 +196,9 @@ const source = { z: 3 };
 console.log(Object.assign(target, source)); // { x: 1, y: 2, z: 3 }
 ```
 
-
 ### 프라미스 Promise
 
-- 비동기 프라미스 만들기
+-   비동기 프라미스 만들기
 
 ```
 function myAsyncFunction(url) {
@@ -206,11 +217,9 @@ myAsyncFunction('https://jsonplaceholder.typicode.com/todos/1').then(
 )
 ```
 
-
-
 ### Fetch API
 
-- Fetch API를 이용하면 Request나 Resposne와 같은 HTTP의 파이프라인을 구성하는 요소를 조작하는것이 가능하다. 또한 fetch() 메서드를 이용하여 비동기 네트워크 통신을 알기쉽게 기술할 수 있다. fetch는 이전에 제공하던 XMLHttpRequest 대체제이다.
+-   Fetch API를 이용하면 Request나 Resposne와 같은 HTTP의 파이프라인을 구성하는 요소를 조작하는것이 가능하다. 또한 fetch() 메서드를 이용하여 비동기 네트워크 통신을 알기쉽게 기술할 수 있다. fetch는 이전에 제공하던 XMLHttpRequest 대체제이다.
 
 ```
 var xhr = new XMLHttpRequest(); // Set up our HTTP request
@@ -238,10 +247,10 @@ fetch('https://jsonplaceholder.typicode.com/posts')
 
 ### 클래스 (Class)
 
-- 이전 자바스크립트에는 공식적으로 클래스가 없어서 프로토타입을 사용해 구현하였지만, ES6에는 클래스 선언이 추가되었다.
+-   이전 자바스크립트에는 공식적으로 클래스가 없어서 프로토타입을 사용해 구현하였지만, ES6에는 클래스 선언이 추가되었다.
 
 ```
-// ES5 
+// ES5
 function Vacation(destination, length) {
   this.destination = destination;
   this.length = length;
@@ -254,7 +263,7 @@ Vacation.prototype.print = function() {
 var trip = new Vacation("마우이", 7);
 trip.print() // 마우이은(는) 7일 걸립니다.
 
-// ES6 
+// ES6
 class Vacation {
   constructor(destination, length) {
     this.destination = destination;
@@ -270,7 +279,7 @@ const trip = new Vacation("칠레", 7);
 trip.print() // 칠레은(는) 7일 걸립니다.
 ```
 
-- extends를 이용한 클래스 확장
+-   extends를 이용한 클래스 확장
 
 ```
 //상속
@@ -287,7 +296,7 @@ class Expedition extends Vacation {
 }
 
 const trip = new Expedition("한라산", 3, ["선글라스", "배낭", "카메라"]);
-trip.print(); 
+trip.print();
 // 한라산은(는) 3일 걸립니다.
 // 당신의 선글라스와(과) 당신의 배낭와(과) 당신의 카메라를(을) 가져오십시오.
 ```

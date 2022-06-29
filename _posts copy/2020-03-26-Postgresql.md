@@ -1,19 +1,20 @@
 ---
 layout: post
-title: "Postgresql"
-description: 
-headline: 
+title: 'Postgresql'
+description:
+headline:
 modified: 2020-03-26
 category: webdevelopment
-imagefeature: cover3.jpg
+imagefeature:
 tags: [Postgresql]
-mathjax: 
-chart: 
+mathjax:
+chart:
 share: true
 comments: true
 featured: false
 disqus:
 ---
+
 # Postgresql
 
 ## PostgreSQL Exception handling detail with GET STACKED DIAGNOSTICS
@@ -49,9 +50,6 @@ disqus:
     $$ language PLpgSQL;
 ```
 
-
-
-
 ## Use RAISE Statements to debug
 
 ```JavaScript
@@ -64,8 +62,8 @@ RAISE level format;
  WARNING
  EXCEPTION
 
-    DO $$ 
-    BEGIN 
+    DO $$
+    BEGIN
     RAISE INFO 'information message %', now() ;
     RAISE LOG 'log message %', now();
     RAISE DEBUG 'debug message %', now();
@@ -79,36 +77,35 @@ USING option = expression
  DETAIL:  give detailed information about the error.
  ERRCODE: identify the error code, which can be either by condition name or directly five-character SQLSTATE code. Please refer to the table of error codes and condition names.
 
-    DO $$ 
+    DO $$
     DECLARE
     email varchar(255) := 'info@postgresqltutorial.com';
-    BEGIN 
+    BEGIN
     -- check email for duplicate
     -- ...
     -- report duplicate email
-    RAISE EXCEPTION 'Duplicate email: %', email 
+    RAISE EXCEPTION 'Duplicate email: %', email
         USING HINT = 'Check the email again';
     END $$;
 
-    DO $$ 
-    BEGIN 
+    DO $$
+    BEGIN
     --...
     RAISE SQLSTATE '2210B';
     END $$;
 
-    CREATE OR REPLACE FUNCTION msgfailerror() 
-    RETURNS trigger AS 
+    CREATE OR REPLACE FUNCTION msgfailerror()
+    RETURNS trigger AS
     $$
-    BEGIN 
-    IF NEW.noces< new.first_column THEN 
-        RAISE EXCEPTION 'cannot have a negative salary'; 
-    END IF; 
-    return new; 
+    BEGIN
+    IF NEW.noces< new.first_column THEN
+        RAISE EXCEPTION 'cannot have a negative salary';
+    END IF;
+    return new;
     END;
     $$
-    LANGUAGE plpgsql;    
+    LANGUAGE plpgsql;
 ```
-
 
 ## Procedures and transaction control
 
@@ -131,10 +128,10 @@ $$;
 CALL transaction_test1();
 ```
 
-
 ## postgresql ORA-08177: can't serialize access for this transaction
+
 ```JavaScript
-    *** SEGMENT CREATION IMMEDIATE; 
+    *** SEGMENT CREATION IMMEDIATE;
 
     CREATE TABLE scott.gis (
         id  NUMBER(5) PRIMARY KEY,
@@ -143,38 +140,36 @@ CALL transaction_test1();
 
 ```
 
-
-
-## lock 테이블 확인 
+## lock 테이블 확인
 
 select t.relname,l.locktype,page,virtualtransaction,pid,mode,granted  
-from pg_locks l, pg_stat_all_tables t 
-where l.relation=t.relid order by relation asc; 
+from pg_locks l, pg_stat_all_tables t
+where l.relation=t.relid order by relation asc;
 
-## lock 삭제 
+## lock 삭제
 
 select pg_cancel_backend(pid);
 
 ## Postgres connection has been closed error in Spring Boot
-- org.springframework.jdbc.support.MetaDataAccessException: Error while extracting DatabaseMetaData; nested exception is org.postgresql.util.PSQLException: This connection has been closed.
 
-- Option 1: Toss out broken connections from the pool.
+-   org.springframework.jdbc.support.MetaDataAccessException: Error while extracting DatabaseMetaData; nested exception is org.postgresql.util.PSQLException: This connection has been closed.
+
+-   Option 1: Toss out broken connections from the pool.
 
 spring.datasource.test-on-borrow=true
 spring.datasource.validation-query=SELECT 1;
 spring.datasource.validation-interval=30000
 
-- Option 2: Keep connections in the pool alive.
+-   Option 2: Keep connections in the pool alive.
 
 spring.datasource.test-while-idle=true
 spring.datasource.validation-query=SELECT 1;
 spring.datasource.time-between-eviction-runs-millis=60000
 
-- Option 3: Proactively toss out idle connections.
+-   Option 3: Proactively toss out idle connections.
 
 spring.datasource.remove-abandoned=true
 spring.datasource.remove-abandoned-timeout=60
-
 
 ```JavaScript
 
@@ -241,7 +236,7 @@ Caused by: org.postgresql.util.PSQLException: This connection has been closed.
 	at org.postgresql.jdbc.PgConnection.getMetaData(PgConnection.java:1268) ~[postgresql-9.4.1212.jre7.jar:9.4.1212.jre7]
 
 [ERROR] 2020-05-08 13:32:46.796 [pool-2-thread-24] TaskUtils$LoggingErrorHandler - Unexpected error occurred in scheduled task.
-org.springframework.dao.DataAccessResourceFailureException: 
+org.springframework.dao.DataAccessResourceFailureException:
 ### Error querying database.  Cause: org.postgresql.util.PSQLException: This connection has been closed.
 ### The error may exist in file [C:\egovframeworkSample\eclipse-jee-neon-2-win32-x86_64\workspace\klnet.owner.Schedule\target\classes\mappers\postgresql\OwnerMapper.xml]
 ### The error may involve com.klnet.owner.selectPostgresqlThread

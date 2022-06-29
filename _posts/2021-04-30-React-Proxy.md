@@ -1,14 +1,14 @@
 ---
 layout: post
-title: "React Proxy"
-description: 
-headline: 
+title: 'React Proxy'
+description:
+headline:
 modified: 2021-04-30
 category: webdevelopment
-imagefeature: cover3.jpg
+imagefeature:
 tags: [React Proxy]
-mathjax: 
-chart: 
+mathjax:
+chart:
 share: true
 comments: true
 featured: true
@@ -16,12 +16,15 @@ disqus:
 ---
 
 # Record
+
 ## 개념
-- 웹팩 갸벌 서버에서 백엔드 API 를 호출 할 때 발생 할 수 있는 CORS 관련 오류를 방지하기 위하여 웹팩 개발 서버에 proxy 를 설정 
-- [https://developer.mozilla.org/ko/docs/Web/HTTP/CORS](https://developer.mozilla.org/ko/docs/Web/HTTP/CORS)
+
+-   웹팩 갸벌 서버에서 백엔드 API 를 호출 할 때 발생 할 수 있는 CORS 관련 오류를 방지하기 위하여 웹팩 개발 서버에 proxy 를 설정
+-   [https://developer.mozilla.org/ko/docs/Web/HTTP/CORS](https://developer.mozilla.org/ko/docs/Web/HTTP/CORS)
 
 ## 방법 1
-- package.json 에서 proxy 필드를 설정
+
+-   package.json 에서 proxy 필드를 설정
 
 ```JavaScript
 {
@@ -39,7 +42,8 @@ disqus:
 ```
 
 ## 방법 2
-- 그 중간 단계에서 추가작업을 하고 싶다면, 이 proxy 는 지우고, http-proxy-middleware 라는 모듈을 설치 후 src 디렉토리에 setupProxy.js 라는 파일을 생성
+
+-   그 중간 단계에서 추가작업을 하고 싶다면, 이 proxy 는 지우고, http-proxy-middleware 라는 모듈을 설치 후 src 디렉토리에 setupProxy.js 라는 파일을 생성
 
 ```JavaScript
 $ yarn add http-proxy-middleware axios
@@ -109,10 +113,8 @@ class App extends Component {
 export default App;
 ```
 
+-   pathRewrite 설정
 
-
-
-- pathRewrite 설정
 ```JavaScript
 pathRewrite는 서버 API [https://jsonplaceholder.typicode.com/posts/1 이라고 가정했을 때
 프론트엔드에서 호출 시에는 API에 특정 URL 규칙을 만들어 가독성을 높이고 싶거나 다수의 proxy를

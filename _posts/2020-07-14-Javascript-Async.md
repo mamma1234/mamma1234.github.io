@@ -1,14 +1,14 @@
 ---
 layout: post
-title: "JavaScript Async"
-description: 
-headline: 
+title: 'JavaScript Async'
+description:
+headline:
 modified: 2020-07-14
 category: webdevelopment
-imagefeature: cover3.jpg
+imagefeature:
 tags: [JavaScript Async]
-mathjax: 
-chart: 
+mathjax:
+chart:
 share: true
 comments: true
 featured: true
@@ -16,24 +16,24 @@ disqus:
 ---
 
 # 비동기 프로세스
-- 동영상
 
-- [비동기] (https://www.youtube.com/watch?v=s1vpVCrT8f4&list=PLv2d7VI9OotTVOL4QmPfvJWPJvkmv6h-2&index=11)
-- [프로미스] (https://www.youtube.com/watch?v=JB_yU6Oe2eE&list=PLv2d7VI9OotTVOL4QmPfvJWPJvkmv6h-2&index=12)
-- [async await] (https://www.youtube.com/watch?v=aoQSOZfz3vQ&list=PLv2d7VI9OotTVOL4QmPfvJWPJvkmv6h-2&index=13)
- 
+-   동영상
+
+-   [비동기] (https://www.youtube.com/watch?v=s1vpVCrT8f4&list=PLv2d7VI9OotTVOL4QmPfvJWPJvkmv6h-2&index=11)
+-   [프로미스] (https://www.youtube.com/watch?v=JB_yU6Oe2eE&list=PLv2d7VI9OotTVOL4QmPfvJWPJvkmv6h-2&index=12)
+-   [async await] (https://www.youtube.com/watch?v=aoQSOZfz3vQ&list=PLv2d7VI9OotTVOL4QmPfvJWPJvkmv6h-2&index=13)
+
 ## 목차
-- [Callback](#Callback)
-- [Promise](#Promise)
-- [Async](#Async)
-- [Async & Await](#Async-&-Await)
-  - [Callback -> Async](#Callback-->-Async)
-- [await Promise.all](#await-Promise.all)  
-- [async function 표현식](#async-function-표현식)
+
+-   [Callback](#Callback)
+-   [Promise](#Promise)
+-   [Async](#Async)
+-   [Async & Await](#Async-&-Await)
+    -   [Callback -> Async](#Callback-->-Async)
+-   [await Promise.all](#await-Promise.all)
+-   [async function 표현식](#async-function-표현식)
 
 # Callback
-
-
 
 ```JavaScript
 //Synchronous callback
@@ -128,11 +128,10 @@ userStorage.loginUser(
 
 # Promise
 
-- Promise 는 3가지 상태가 존재한다.
-  - Pending(대기, 비동기 처리 로직이 아직 완료되지 않은 상태) : new Promise() 메서드를 호출하면 Pending 상태가 된다. 이 때 콜백함수를 선언할 수 있다.
-  - Fulfilled(이행, 비동기 처리가 완료되어 프로미스가 결과 값을 반환해 준 상태) : 콜백 함수에서 resolve를 실행하는 경우로 resolve 상태가 되면 then()을 이용해 처리 결과 값을 받을 수 있다.
-  - Rejected(실패, 비동기 처리가 실패하거나 오류가 발생한 상태) : 콜백 함수에서 reject를 실행하는 경우로 reject 상태가되면 catch()를 통해 실패 처리 값을 받을 수 있다.
-
+-   Promise 는 3가지 상태가 존재한다.
+    -   Pending(대기, 비동기 처리 로직이 아직 완료되지 않은 상태) : new Promise() 메서드를 호출하면 Pending 상태가 된다. 이 때 콜백함수를 선언할 수 있다.
+    -   Fulfilled(이행, 비동기 처리가 완료되어 프로미스가 결과 값을 반환해 준 상태) : 콜백 함수에서 resolve를 실행하는 경우로 resolve 상태가 되면 then()을 이용해 처리 결과 값을 받을 수 있다.
+    -   Rejected(실패, 비동기 처리가 실패하거나 오류가 발생한 상태) : 콜백 함수에서 reject를 실행하는 경우로 reject 상태가되면 catch()를 통해 실패 처리 값을 받을 수 있다.
 
 ```JavaScript
 // pending 대기상태
@@ -176,8 +175,6 @@ console.log(catchThen);
 // [[PromiseStatus]]: "resolved"
 // [[PromiseValue]]: "catchThen"
 ```
-
-
 
 ```JavaScript
 // promise is a JavaScript object for asynchronous operation.
@@ -307,12 +304,11 @@ userStorage
 
 ```
 
-
-
 # Async
-- async function 선언은 AsyncFunction객체를 반환하는 하나의 비동기 함수를 정의합니다. 비동기 함수는 이벤트 루프를 통해 비동기적으로 작동하는 함수로, 암시적으로 Promise를 사용하여 결과를 반환합니다. 그러나 비동기 함수를 사용하는 코드의 구문과 구조는, 표준 동기 함수를 사용하는것과 많이 비슷합니다.
 
-- async 함수는 항상 promise를 반환합니다. 만약 async 함수의 반환값이 명시적으로 promise가 아니라면 암묵적으로 promise로 감싸집니다.
+-   async function 선언은 AsyncFunction객체를 반환하는 하나의 비동기 함수를 정의합니다. 비동기 함수는 이벤트 루프를 통해 비동기적으로 작동하는 함수로, 암시적으로 Promise를 사용하여 결과를 반환합니다. 그러나 비동기 함수를 사용하는 코드의 구문과 구조는, 표준 동기 함수를 사용하는것과 많이 비슷합니다.
+
+-   async 함수는 항상 promise를 반환합니다. 만약 async 함수의 반환값이 명시적으로 promise가 아니라면 암묵적으로 promise로 감싸집니다.
 
 ```JavaScript
 예를 들어
@@ -327,7 +323,7 @@ function foo() {
 }
 ```
 
-- 실제로는 fulfil Promise가 반환되기 때문에 반환된 값을 사용하기 위해선 .then() 블럭을 사용해야 합니다.
+-   실제로는 fulfil Promise가 반환되기 때문에 반환된 값을 사용하기 위해선 .then() 블럭을 사용해야 합니다.
 
 ```JavaScript
 hello().then((value) => console.log(value))
@@ -337,7 +333,7 @@ hello().then((value) => console.log(value))
 hello().then(console.log)
 ```
 
-- async 함수의 본문은 0개 이상의 await 문으로 분할된 것으로 생각할 수 있습니다. 첫번째 await 문을 포함하는 최상위 코드는 동기적으로 실행됩니다. 따라서 await 문이 없는 async 함수는 동기적으로 실행됩니다. 하지만 await 문이 있다면 async 함수는 항상 비동기적으로 완료됩니다.
+-   async 함수의 본문은 0개 이상의 await 문으로 분할된 것으로 생각할 수 있습니다. 첫번째 await 문을 포함하는 최상위 코드는 동기적으로 실행됩니다. 따라서 await 문이 없는 async 함수는 동기적으로 실행됩니다. 하지만 await 문이 있다면 async 함수는 항상 비동기적으로 완료됩니다.
 
 ```JavaScript
 예를 들어
@@ -353,7 +349,6 @@ function foo() {
 ```
 
 # Async & Await
-
 
 ```JavaScript
 // async & await
@@ -484,11 +479,9 @@ userStorage
 
 ```
 
-
-
 # await Promise.all
 
-- await 을 사용하여 세 가지 Promise의 결과가 반환되었을 때 values 배열에 담을 수 있습니다
+-   await 을 사용하여 세 가지 Promise의 결과가 반환되었을 때 values 배열에 담을 수 있습니다
 
 ```JavaScript
 async function fetchAndDecode(url, type) {
@@ -541,18 +534,21 @@ displayContent()
 ```
 
 # async function 표현식
-- 문법
-  * async function [name]([param1[, param2[, ..., paramN]]]) { statements }
 
-- 인수
-  - name
-      * 함수 이름. 생략가능하며 이경우함수는 anonymous 형식임  이름은 함수 몸체에 대해 지역적으로 사용.
-  - paramN
-      * 함수에 전달될 인수의 이름.
-  - statements
-      * 함수 몸체를 구성하는 명령문들.
+-   문법
 
-- Simple example
+    -   async function [name]([param1[, param2[, ..., paramN]]]) { statements }
+
+-   인수
+
+    -   name
+        -   함수 이름. 생략가능하며 이경우함수는 anonymous 형식임 이름은 함수 몸체에 대해 지역적으로 사용.
+    -   paramN
+        -   함수에 전달될 인수의 이름.
+    -   statements
+        -   함수 몸체를 구성하는 명령문들.
+
+-   Simple example
 
 ```JavaScript
 function resolveAfter2Seconds(x) {

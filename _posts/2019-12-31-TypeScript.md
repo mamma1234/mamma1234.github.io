@@ -1,14 +1,14 @@
 ---
 layout: post
-title: "TypeScript"
-description: 
-headline: 
+title: 'TypeScript'
+description:
+headline:
 modified: 2019-12-31
 category: development
-imagefeature: cover3.jpg
+imagefeature:
 tags: [TypeScript]
-mathjax: 
-chart: 
+mathjax:
+chart:
 share: true
 comments: true
 featured: true
@@ -16,21 +16,26 @@ disqus:
 ---
 
 # Record
+
 ## 개념
+
 -
 
 ## 특징
-- 자바스크립트의 태생적 문제를 극복하고자 CoffeeScript, Dart, Haxe와 같은 AltJS(자바스크립트의 대체 언어)가 등장하였다.
+
+-   자바스크립트의 태생적 문제를 극복하고자 CoffeeScript, Dart, Haxe와 같은 AltJS(자바스크립트의 대체 언어)가 등장하였다.
 
 TypeScript 또한 자바스크립트 대체 언어의 하나로써 자바스크립트(ES5)의 Superset(상위확장)이다. C#의 창시자인 덴마크 출신 소프트웨어 엔지니어 Anders Hejlsberg(아네르스 하일스베르)가 개발을 주도한 TypeScript는 Microsoft에서 2012년 발표한 오픈소스로, 정적 타이핑을 지원하며 ES6(ECMAScript 2015)의 클래스, 모듈 등과 ES7의 Decorator 등을 지원한다.
 
 TypeScript는 ES5의 Superset이므로 기존의 자바스크립트(ES5) 문법을 그대로 사용할 수 있다. 또한, ES6의 새로운 기능들을 사용하기 위해 Babel과 같은 별도 트랜스파일러(Transpiler)를 사용하지 않아도 ES6의 새로운 기능을 기존의 자바스크립트 엔진(현재의 브라우저 또는 Node.js)에서 실행할 수 있다.
 
 ## 설치
+
 npm install -g typescript
 tsc -v
 
 ## 트랜스파일링
+
 tsc person (person.tx)
 ==> person.js (ES3)
 
@@ -38,19 +43,21 @@ tsc person -t es6 (ES3, ES5, ES6(ES2015), ES2016, ES2017(ESNext))
 
 tsc person student
 
-tsc *.ts
+tsc \*.ts
 
 ## 실행
+
 node person
 node student
 
 ## 감지
-- --watch 또는 -w 옵션을 사용하면 트랜스파일링 대상 파일의 내용이 변경되었을 때 이를 감지하여 자동으로 트랜스파일링이 실행된다.
-tsc student --watch
 
+-   --watch 또는 -w 옵션을 사용하면 트랜스파일링 대상 파일의 내용이 변경되었을 때 이를 감지하여 자동으로 트랜스파일링이 실행된다.
+    tsc student --watch
 
 ## tsconfig.json
-- TypeScript를 위한 프로젝트 단위의 환경 파일로써 컴파일 옵션과 컴파일 대상에 대한 설정 등을 기술한 것
+
+-   TypeScript를 위한 프로젝트 단위의 환경 파일로써 컴파일 옵션과 컴파일 대상에 대한 설정 등을 기술한 것
 
 ```
 {
@@ -62,7 +69,8 @@ tsc student --watch
 }
 ```
 
-- files 프로퍼티에는 컴파일 대상 파일의 상대 경로 또는 절대 경로를 명시적으로 설정한다.
+-   files 프로퍼티에는 컴파일 대상 파일의 상대 경로 또는 절대 경로를 명시적으로 설정한다.
+
 ```
 {
   "files": [
@@ -72,7 +80,8 @@ tsc student --watch
 }
 ```
 
-- include 프로퍼티에는 컴파일 대상 파일 리스트를 설정한다. exclude 프로퍼티에는 컴파일 대상에서 제외할 파일 리스트를 설정한다.
+-   include 프로퍼티에는 컴파일 대상 파일 리스트를 설정한다. exclude 프로퍼티에는 컴파일 대상에서 제외할 파일 리스트를 설정한다.
+
 ```
 {
   "include": [
@@ -85,25 +94,28 @@ tsc student --watch
 }
 ```
 
-- src/\*\*/\*는 src 폴더 내에 있는 모든 서브 폴더 내의 모든 파일(.ts, .tsx)을 의미한다. 컴파일 옵션 "allowJs": true를 설정하면 .js와 .jsx 파일도 컴파일 대상이 된다.
-{
-  "compilerOptions": {
+-   src/\*\*/\*는 src 폴더 내에 있는 모든 서브 폴더 내의 모든 파일(.ts, .tsx)을 의미한다. 컴파일 옵션 "allowJs": true를 설정하면 .js와 .jsx 파일도 컴파일 대상이 된다.
+    {
+    "compilerOptions": {
     "target": "es5",
     "module": "commonjs",
     "sourceMap": true
-  }
-}
+    }
+    }
 
 ## 타입 선언 (Type Declaration)
+
 ### 정적 타이핑 (Static Typing)
-- C나 Java같은 C-family 언어는 변수를 선언할 때 변수에 할당할 값의 타입에 따라 사전에 타입을 명시적으로 선언(Type declaration)하여야 하며 선언한 타입에 맞는 값을 할당해야 한다. 이를 정적 타이핑(Static Typing)이라 한다.
+
+-   C나 Java같은 C-family 언어는 변수를 선언할 때 변수에 할당할 값의 타입에 따라 사전에 타입을 명시적으로 선언(Type declaration)하여야 하며 선언한 타입에 맞는 값을 할당해야 한다. 이를 정적 타이핑(Static Typing)이라 한다.
 
 ### 동적 타이핑 (Dynamic Typing)
-- 자바스크립트는 동적 타입(dynamic typed) 언어 혹은 느슨한 타입(loosely typed) 언어이다. 이것은 변수의 타입 선언 없이 값이 할당되는 과정에서 동적으로 타입을 추론(Type Inference)한다는 의미이다. 동적 타입 언어는 타입 추론에 의해 변수의 타입이 결정된 후에도 같은 변수에 여러 타입의 값을 교차하여 할당할 수 있다
+
+-   자바스크립트는 동적 타입(dynamic typed) 언어 혹은 느슨한 타입(loosely typed) 언어이다. 이것은 변수의 타입 선언 없이 값이 할당되는 과정에서 동적으로 타입을 추론(Type Inference)한다는 의미이다. 동적 타입 언어는 타입 추론에 의해 변수의 타입이 결정된 후에도 같은 변수에 여러 타입의 값을 교차하여 할당할 수 있다
 
 ### 타입 추론
-- 약 타입 선언을 생략하면 값이 할당되는 과정에서 동적으로 타입이 결정된다. 이를 타입 추론(Type Inference)이라 한다.
 
+-   약 타입 선언을 생략하면 값이 할당되는 과정에서 동적으로 타입이 결정된다. 이를 타입 추론(Type Inference)이라 한다.
 
 ```
     // 변수 foo는 string 타입이다.
@@ -195,12 +207,11 @@ tsc student --watch
     }
 ```
 
-
-
-
 ## 클래스
+
 ### 클래스 정의 (Class Definition)
-- ES6 클래스는 클래스 몸체에 메소드만을 포함할 수 있다. 클래스 몸체에 클래스 프로퍼티를 선언할 수 없고 반드시 생성자 내부에서 클래스 프로퍼티를 선언하고 초기화한다.
+
+-   ES6 클래스는 클래스 몸체에 메소드만을 포함할 수 있다. 클래스 몸체에 클래스 프로퍼티를 선언할 수 없고 반드시 생성자 내부에서 클래스 프로퍼티를 선언하고 초기화한다.
 
 Typescript 클래스는 클래스 몸체에 클래스 프로퍼티를 사전 선언하여야 한다.
 
@@ -244,12 +255,12 @@ class Foo {
   protected y: string;
   private z: string;
 
-  constructor(x: string, y: string, z: string) {
-    // public, protected, private 접근 제한자 모두 클래스 내부에서 참조 가능하다.
-    this.x = x;
-    this.y = y;
-    this.z = z;
-  }
+constructor(x: string, y: string, z: string) {
+// public, protected, private 접근 제한자 모두 클래스 내부에서 참조 가능하다.
+this.x = x;
+this.y = y;
+this.z = z;
+}
 }
 
 const foo = new Foo('x', 'y', 'z');
@@ -266,8 +277,8 @@ console.log(foo.z);
 // error TS2341: Property 'z' is private and only accessible within class 'Foo'.
 
 class Bar extends Foo {
-  constructor(x: string, y: string, z: string) {
-    super(x, y, z);
+constructor(x: string, y: string, z: string) {
+super(x, y, z);
 
     // public 접근 제한자는 자식 클래스 내부에서 참조 가능하다.
     console.log(this.x);
@@ -278,25 +289,27 @@ class Bar extends Foo {
     // private 접근 제한자는 자식 클래스 내부에서 참조할 수 없다.
     console.log(this.z);
     // error TS2341: Property 'z' is private and only accessible within class 'Foo'.
-  }
+
+}
 }
 
 class Foo {
-  /*
-  접근 제한자가 선언된 생성자 파라미터 x는 클래스 프로퍼티로 선언되고 지동으로 초기화된다.
-  public이 선언되었으므로 x는 클래스 외부에서도 참조가 가능하다.
-  */
-  constructor(public x: string) { }
+/_
+접근 제한자가 선언된 생성자 파라미터 x는 클래스 프로퍼티로 선언되고 지동으로 초기화된다.
+public이 선언되었으므로 x는 클래스 외부에서도 참조가 가능하다.
+_/
+constructor(public x: string) { }
 }
 
 const foo = new Foo('Hello');
-console.log(foo);   // Foo { x: 'Hello' }
+console.log(foo); // Foo { x: 'Hello' }
 console.log(foo.x); // Hello
+
 ```
 </code>
 
 
-### readonly 
+### readonly
 - Typescript는 readonly 키워드를 사용할 수 있다. readonly가 선언된 클래스 프로퍼티는 선언 시 또는 생성자 내부에서만 값을 할당할 수 있다. 그 외의 경우에는 값을 할당할 수 없고 오직 읽기만 가능한 상태가 된다. 이를 이용하여 상수의 선언에 사용한다.
 
 <code>
@@ -321,40 +334,43 @@ class Foo {
 new Foo().log();
 </code>
 
-### static  
+### static
 
 - ES6 클래스에서 static 키워드는 클래스의 정적(static) 메소드를 정의한다. 정적 메소드는 클래스의 인스턴스가 아닌 클래스 이름으로 호출한다. 따라서 클래스의 인스턴스를 생성하지 않아도 호출할 수 있다.
 Typescript에서는 static 키워드를 클래스 프로퍼티에도 사용할 수 있다. 정적 메소드와 마찬가지로 정적 클래스 프로퍼티는 인스턴스가 아닌 클래스 이름으로 호출하며 클래스의 인스턴스를 생성하지 않아도 호출할 수 있다.
 
 ```
+
 class Foo {
-  // 생성된 인스턴스의 갯수
-  static instanceCounter = 0;
-  constructor() {
-    // 생성자가 호출될 때마다 카운터를 1씩 증가시킨다.
-    Foo.instanceCounter++;
-  }
+// 생성된 인스턴스의 갯수
+static instanceCounter = 0;
+constructor() {
+// 생성자가 호출될 때마다 카운터를 1씩 증가시킨다.
+Foo.instanceCounter++;
+}
 }
 
 var foo1 = new Foo();
 var foo2 = new Foo();
 
-console.log(Foo.instanceCounter);  // 2
+console.log(Foo.instanceCounter); // 2
 console.log(foo2.instanceCounter); // error TS2339: Property 'instanceCounter' does not exist on type 'Foo'.
+
 ```
 
 
-### 추상 클래스  
+### 추상 클래스
 - 추상 클래스(abstract class)는 하나 이상의 추상 메소드를 포함하며 일반 메소드도 포함할 수 있다. 추상 메소드는 내용이 없이 메소드 이름과 타입만이 선언된 메소드를 말하며 선언할 때 abstract 키워드를 사용한다. 추상 클래스를 정의할 때는 abstract 키워드를 사용하며, 직접 인스턴스를 생성할 수 없고 상속만을 위해 사용된다. 추상 클래스를 상속한 클래스는 추상 클래스의 추상 메소드를 반드시 구현하여야 한다.
 
 ```
+
 abstract class Animal {
-  // 추상 메소드
-  abstract makeSound(): void;
-  // 일반 메소드
-  move(): void {
-    console.log('roaming the earth...');
-  }
+// 추상 메소드
+abstract makeSound(): void;
+// 일반 메소드
+move(): void {
+console.log('roaming the earth...');
+}
 }
 
 // 직접 인스턴스를 생성할 수 없다.
@@ -362,15 +378,16 @@ abstract class Animal {
 // error TS2511: Cannot create an instance of the abstract class 'Animal'.
 
 class Dog extends Animal {
-  // 추상 클래스를 상속한 클래스는 추상 클래스의 추상 메소드를 반드시 구현하여야 한다
-  makeSound() {
-    console.log('bowwow~~');
-  }
+// 추상 클래스를 상속한 클래스는 추상 클래스의 추상 메소드를 반드시 구현하여야 한다
+makeSound() {
+console.log('bowwow~~');
+}
 }
 
 const myDog = new Dog();
 myDog.makeSound();
 myDog.move();
+
 ```
 
 
@@ -378,11 +395,12 @@ myDog.move();
 ### 변수와 인터페이스
 
 ```
+
 // 인터페이스의 정의
 interface Todo {
-  id: number;
-  content: string;
-  completed: boolean;
+id: number;
+content: string;
+completed: boolean;
 }
 
 // 변수 todo의 타입으로 Todo 인터페이스를 선언하였다.
@@ -390,75 +408,81 @@ let todo: Todo;
 
 // 변수 todo는 Todo 인터페이스를 준수하여야 한다.
 todo = { id: 1, content: 'typescript', completed: false };
+
 ```
 
 ### 함수와 인터페이스
 
 ```
+
 // 함수 인터페이스의 정의
 interface SquareFunc {
-  (num: number): number;
+(num: number): number;
 }
 
 // 함수 인테페이스를 구현하는 함수는 인터페이스를 준수하여야 한다.
 const squareFunc: SquareFunc = function (num: number) {
-  return num * num;
+return num \* num;
 }
 
 console.log(squareFunc(10)); // 100
+
 ```
 
 ### 클래스와 인터페이스
 
 ```
+
 // 인터페이스의 정의
 interface IPerson {
-  name: string;
-  sayHello(): void;
+name: string;
+sayHello(): void;
 }
 
-/*
+/_
 인터페이스를 구현하는 클래스는 인터페이스에서 정의한 프로퍼티와 추상 메소드를 반드시 구현하여야 한다.
-*/
+_/
 class Person implements IPerson {
-  // 인터페이스에서 정의한 프로퍼티의 구현
-  constructor(public name: string) {}
+// 인터페이스에서 정의한 프로퍼티의 구현
+constructor(public name: string) {}
 
-  // 인터페이스에서 정의한 추상 메소드의 구현
-  sayHello() {
-    console.log(`Hello ${this.name}`);
-  }
+// 인터페이스에서 정의한 추상 메소드의 구현
+sayHello() {
+console.log(`Hello ${this.name}`);
+}
 }
 
 function greeter(person: IPerson): void {
-  person.sayHello();
+person.sayHello();
 }
 
 const me = new Person('Lee');
 greeter(me); // Hello Lee
+
 ```
 
 ### 덕 타이핑 (Duck typing)
 
 ```
+
 interface IDuck { // 1
-  quack(): void;
+quack(): void;
 }
 
 class MallardDuck implements IDuck { // 3
-  quack() {
-    console.log('Quack!');
-  }
+quack() {
+console.log('Quack!');
+}
 }
 
 class RedheadDuck { // 4
-  quack() {
-    console.log('q~uack!');
-  }
+quack() {
+console.log('q~uack!');
+}
 }
 
 function makeNoise(duck: IDuck): void { // 2
-  duck.quack();
+duck.quack();
 }
 
 makeNoise(new MallardDuck()); // Quack!
@@ -478,13 +502,12 @@ TypeScript는 해당 인터페이스에서 정의한 프로퍼티나 메소드�
 
 인터페이스를 변수에 사용할 경우에도 덕 타이핑은 적용된다.
 
-
 interface IPerson {
-  name: string;
+name: string;
 }
 
 function sayHello(person: IPerson): void {
-  console.log(`Hello ${person.name}`);
+console.log(`Hello ${person.name}`);
 }
 
 const me = { name: 'Lee', age: 18 };
@@ -498,19 +521,21 @@ sayHello(me); // He
 - 인터페이스의 프로퍼티는 반드시 구현되어야 한다. 하지만 인터페이스의 프로퍼티가 선택적으로 필요한 경우가 있을 수 있다. 선택적 프로퍼티(Optional Property)는 프로퍼티명 뒤에 ?를 붙이며 생략하여도 에러가 발생하지 않는다.
 
 ```
+
 interface UserInfo {
-  username: string;
-  password: string;
-  age?    : number;
-  address?: string;
+username: string;
+password: string;
+age? : number;
+address?: string;
 }
 
 const userInfo: UserInfo = {
-  username: 'ungmo2@gmail.com',
-  password: '123456'
+username: 'ungmo2@gmail.com',
+password: '123456'
 }
 
 console.log(userInfo);
+
 ```
 
 
@@ -524,8 +549,9 @@ T는 제네릭을 선언할 때 관용적으로 사용되는 식별자로 타입
 
 
 ```
+
 function reverse<T>(items: T[]): T[] {
-  return items.reverse();
+return items.reverse();
 }
 
 const arg = [1, 2, 3, 4, 5];
@@ -534,11 +560,14 @@ const reversed = reverse(arg);
 console.log(reversed); // [ 5, 4, 3, 2, 1 ]
 
 function reverse<T>(items: T[]): T[] {
-  return items.reverse();
+return items.reverse();
 }
 
 const arg = [{ name: 'Lee' }, { name: 'Kim' }];
 // 인수에 의해 타입 매개변수가 결정된다.
 const reversed = reverse(arg);
 console.log(reversed); // [ { name: 'Kim' }, { name: 'Lee' } ]
+
+```
+
 ```

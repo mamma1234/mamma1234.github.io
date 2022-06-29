@@ -1,14 +1,14 @@
 ---
 layout: post
-title: "Redirect"
-description: 
-headline: 
+title: 'Redirect'
+description:
+headline:
 modified: 2020-11-19
 category: webdevelopment
-imagefeature: cover3.jpg
+imagefeature:
 tags: [Redirect Forward]
-mathjax: 
-chart: 
+mathjax:
+chart:
 share: true
 comments: true
 featured: true
@@ -23,15 +23,7 @@ disqus:
 
 그리고 현재 실행중인 페이지와 Forwarding에 의해 호출될 페이지는 Request와 Response 객체를 공유한다. 객체를 요청에 담고 해당 요청을 사용할 다음 자원에 전송한다는 뜻이다.
 
-
-
 간단히 말하여 말 그대로 Forward(건내주기)한다는 것이다. 따라서 사용자가 최초로 요청한 요청정보는 다음 URL에서도 유효한 것이다.
-
-
-
-
-
-
 
 # 리다이렉트(Redirect)
 
@@ -39,10 +31,6 @@ disqus:
 
 리다이렉트는 추가적으로 발생한 처리 때문에 포워딩보다 느리다. 중요한 것은 마지막으로 수행하는 작업은 새로운 요청에 의한 것이고, 이것을 클라이언트가 알고있기 때문에 브라우저창의 주소가 처음 요청한 주소가 아닌 다시 요청을 보낼 새로운 주소값으로 변한다.
 
-
-
 간단히 말하여 최초 요청을 받은 첫 번째 URL에서 클라이언트에 Redirect할 두 번째 URL을 리턴하고, 클라이언트는 전혀 새로운 요청을 생성하여 두 번째 URL에 다시 요청을 보낸다. 따라서 처음 보냈던 요청정보는 더이상 유효하지 않는 것이다.
-
-
 
 출처: https://sdevstudy.tistory.com/26 [.]

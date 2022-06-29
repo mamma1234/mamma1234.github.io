@@ -1,23 +1,21 @@
 ---
 layout: post
-title: "node Express"
-description: 
-headline: 
+title: 'node Express'
+description:
+headline:
 modified: 2020-01-16
 category: webdevelopment
-imagefeature: cover3.jpg
+imagefeature:
 tags: [Express]
-mathjax: 
-chart: 
+mathjax:
+chart:
 share: true
 comments: true
 featured: true
 disqus:
 ---
 
-
 # Express
-
 
 ## install
 
@@ -47,6 +45,7 @@ $ yarn server
 ```
 
 ## express
+
 app.set
 app.use
 app.listen
@@ -54,6 +53,7 @@ app.get
 app.post
 
 ## 패키지
+
 morgan: 요청에 대한 정보를 콘솔에 기록
 cookie-parser: 요청에 동봉된 쿠키를 해석
 static: 정적인 파일을 제공, public 폴더에 정적 폴더를 넣는다.
@@ -65,7 +65,8 @@ Passport :
 
 body-parser : JSON과 URL-encoded 형식의 본문 외에도 Raw, Text형식의 본문을 추가로 해석할 수 있다.
 예를 들어 JSON 형식으로 { name: 'backback' , book: 'nodejs' }를 본문으로 보낸다면 req.body에 그대로 들어간다.
-- URL-encoded 형식으로 name=backback&book=node.js를 본문으로 보낸다면
-- req.body에 { name : 'backback' , book: 'nodejs' }가 들어간다.
-body-parser가 모든 본문을 해석해주는 것은 아니다.
-multipart/form-data 같은 폼을 통해 전송된 데이터는 해석하지 못한다.
+
+-   URL-encoded 형식으로 name=backback&book=node.js를 본문으로 보낸다면
+-   req.body에 { name : 'backback' , book: 'nodejs' }가 들어간다.
+    body-parser가 모든 본문을 해석해주는 것은 아니다.
+    multipart/form-data 같은 폼을 통해 전송된 데이터는 해석하지 못한다.

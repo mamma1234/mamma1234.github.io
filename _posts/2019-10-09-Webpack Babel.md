@@ -5,7 +5,7 @@ description:
 headline:
 modified: 2019-10-08
 category: Front-End
-imagefeature: cover3.jpg
+imagefeature:
 tags: [Webpack]
 mathjax:
 chart:

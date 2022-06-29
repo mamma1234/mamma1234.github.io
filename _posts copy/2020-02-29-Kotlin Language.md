@@ -1,33 +1,36 @@
 ---
 layout: post
-title: "Kotlin"
-description: 
-headline: 
+title: 'Kotlin'
+description:
+headline:
 modified: 2020-02-29
 category: webdevelopment
-imagefeature: cover3.jpg
+imagefeature:
 tags: [Kotlin]
-mathjax: 
-chart: 
+mathjax:
+chart:
 share: true
 comments: true
 featured: false
 disqus:
 ---
+
 # Kotlin
 
 ## 개요
+
 Kotlin언어란 IntelliJ IDEA 소프트웨어를 제작한 JetBrain사가 2011년 제작한 프로그래밍 언어
 [https://try.kotlinlang.org] (https://try.kotlinlang.org)
 
 ## 특징
+
 JVM에서 동작하는 Kotlin언어는 Java언어와 100% 호환이 가능
 Java언어로 작성된 스크립트를 Kotlin언어로 바꾸는 기능
 
-
 ## Nullable
+
 ```JavaScript
-    fun strlen (s: String?) = s.length() 
+    fun strlen (s: String?) = s.length()
 
     Nullable
 
@@ -37,7 +40,9 @@ Java언어로 작성된 스크립트를 Kotlin언어로 바꾸는 기능
 ```
 
 ## 함수와 변수
-- fun 함수
+
+-   fun 함수
+
 ```JavaScript
     fun sum(a: Int, b: Int) : Int {
         return a+b
@@ -46,12 +51,14 @@ Java언어로 작성된 스크립트를 Kotlin언어로 바꾸는 기능
     fun sum(a: Int, b: Int) : Int = a+b
 ```
 
-- 타입 추론 (Type Inference)
+-   타입 추론 (Type Inference)
+
 ```JavaScript
     fun sum(a: Int, b: Int) = a+b
 ```
 
-- 디폴트 값
+-   디폴트 값
+
 ```JavaScript
     fun sum(a: Int, b: Int = 10) = a+b
 
@@ -62,23 +69,27 @@ Java언어로 작성된 스크립트를 Kotlin언어로 바꾸는 기능
     $ 11
 ```
 
-- var, val 변수 선언
+-   var, val 변수 선언
+
 ```JavaScript
     변경 가능한 변수 var
     변경 불가능한 변수 val
 ```
+
 ```JavaScript
     var name: String
     var age: Int = 20
 ```
 
-- 변수 타입 추론
+-   변수 타입 추론
+
 ```JavaScript
     var name = "Mongue"
 ```
 
 ## 클래스
-- class
+
+-   class
 
 ```JavaScript
     class Button {
@@ -87,13 +98,13 @@ Java언어로 작성된 스크립트를 Kotlin언어로 바꾸는 기능
 
 ```
 
-- 객체 생성시 new 사용하지 않음
+-   객체 생성시 new 사용하지 않음
 
 ```JavaScript
     val button = Button()
 ```
 
-- 가시성 변경자 (Visibility Modifier)
+-   가시성 변경자 (Visibility Modifier)
 
 ```JavaScript
     public:     클래스 (모든곳),            최상위함수/변수 (모든곳)
@@ -103,10 +114,9 @@ Java언어로 작성된 스크립트를 Kotlin언어로 바꾸는 기능
 
 ```
 
-
 ## 클래스의 생성자 (Constructor)
 
-- 주생성자 (Primary Constructor)
+-   주생성자 (Primary Constructor)
 
 ```JavaScript
     // 주 생성자 생략
@@ -139,11 +149,11 @@ Java언어로 작성된 스크립트를 Kotlin언어로 바꾸는 기능
     println("button1: ${button1.id} (${button.x} ${button.y})")
 ```
 
-- 부생성자 (Secondary Constructor)
+-   부생성자 (Secondary Constructor)
     부생성자는 클래스명 대신 Constructor라는 키워드를 사용해 정의한다.
 
 ```JavaScript
-    
+
     class Button {
         var id: Int = 0
         contructor(id: Int){
@@ -170,9 +180,9 @@ Java언어로 작성된 스크립트를 Kotlin언어로 바꾸는 기능
 
 ```
 
-
 ## 클래스의 초기화 블록 (Initializer Block)
-- 초기화 블록은 주생성자 호출 직후 실행되며, 부생성자보다 먼저 실행된다.
+
+-   초기화 블록은 주생성자 호출 직후 실행되며, 부생성자보다 먼저 실행된다.
 
 ```JavaScript
     class Button(var id:Int){
@@ -201,14 +211,14 @@ class Button{
     }
     init {
         println("Initializer Block 2:$id, $text")
-    }    
+    }
     constructor(id:Int, text:String): this(id) {
         this.text = text
         println("constructor(id, text) : ${this.id}, ${this.text}")
     }
     init {
         println("Initializer Block 3:$id, $text")
-    }    
+    }
 }
 
 fun main(args: Array<String>) {
@@ -217,11 +227,11 @@ fun main(args: Array<String>) {
 }
 
 $ Hello, world!
-$ Initializer Block 1:0, 
-$ Initializer Block 2:0, 
-$ Initializer Block 3:0, 
-$ constructor(id) : 
-$ constructor(id, text) : 
+$ Initializer Block 1:0,
+$ Initializer Block 2:0,
+$ Initializer Block 3:0,
+$ constructor(id) :
+$ constructor(id, text) :
 
 
 
@@ -232,14 +242,14 @@ class Button(var id:Int){
     }
     init {
         println("Initializer Block 2:$id, $text")
-    }    
+    }
     constructor(id:Int, text:String): this(id) {
         this.text = text
         println("constructor(id, text) : ${this.id}, ${this.text}")
     }
     init {
         println("Initializer Block 3:$id, $text")
-    }    
+    }
 }
 
 fun main(args: Array<String>) {
@@ -248,13 +258,12 @@ fun main(args: Array<String>) {
 }
 
 $ Hello, world!
-$ Initializer Block 1:100, 
-$ Initializer Block 2:100, 
-$ Initializer Block 3:100, 
+$ Initializer Block 1:100,
+$ Initializer Block 2:100,
+$ Initializer Block 3:100,
 $ constructor(id, text) : 100, Button
 
 ```
-
 
 ## 클래스 상속
 
@@ -266,7 +275,7 @@ $ constructor(id, text) : 100, Button
 
 ```
 
-- 생성자와 오버라이드
+-   생성자와 오버라이드
 
 ```JavaScript
     open class Book(val title:String, var price:Int){
@@ -292,7 +301,7 @@ $ Title: bbb, Price:200
 $ Title:cccc, Price:1000, URL:aaaaa
 ```
 
-- 오버라이드 금지 final
+-   오버라이드 금지 final
 
 ```JavaScript
     open class EBook(title:String, price:Int, var url:String): Book(title, price){
@@ -303,7 +312,7 @@ $ Title:cccc, Price:1000, URL:aaaaa
 
 ```
 
-- 상속 클래스의 생성자를 사용 super
+-   상속 클래스의 생성자를 사용 super
 
 ```JavaScript
     open class Book(val title:String, var price:Int) {
@@ -316,9 +325,9 @@ $ Title:cccc, Price:1000, URL:aaaaa
 
 ```
 
-
 ## 인터페이스 선언
-- interface
+
+-   interface
 
 ```JavaScript
     interface Clickable {
@@ -347,11 +356,10 @@ $ Title:cccc, Price:1000, URL:aaaaa
     }
 
 $ click
-$ show off    
+$ show off
 ```
 
-
-- 다중 인터페이스 상속
+-   다중 인터페이스 상속
 
 ```JavaScript
     interface Clickable {
@@ -361,7 +369,7 @@ $ show off
     interface Focusable {
         fun setFocus(b:Boolean) = println("I ${if (b) "got" else "lost"} focus.")
         fun showOff() = println("focus off")
-    }    
+    }
 
     class Button:Clieckable, Focusable{
         override fun click() = println("clicked.")
@@ -384,8 +392,7 @@ $ click off
 $ focus off
 ```
 
-
-- 인터페이스 클래스의 프로퍼티
+-   인터페이스 클래스의 프로퍼티
 
 ```JavaScript
     interface User {
@@ -407,11 +414,11 @@ $ aaa
 $ bbbb
 ```
 
-
 ## 프로퍼티 (Property) getter, setter
-- 멤버 변수의 필드와 게터, 세터를 묶어 프로퍼티라고 한다.
+
+-   멤버 변수의 필드와 게터, 세터를 묶어 프로퍼티라고 한다.
     값을 저장할수 없는 필드(Backing Field)
-- 멤버 변수 선언시, 바로 뒤에 각 멤버에 대한 게터와 세터가 구현된다. 사용자가 직접 구현할때도 바로 뒤에 붙여서 구현해야 한다.
+-   멤버 변수 선언시, 바로 뒤에 각 멤버에 대한 게터와 세터가 구현된다. 사용자가 직접 구현할때도 바로 뒤에 붙여서 구현해야 한다.
 
 ```JavaScript
     class Rectangle {
@@ -420,7 +427,7 @@ $ bbbb
         set(value){
             field=value
         }
-        
+
         var width:Int=0
         get()=field
         set(value){
@@ -438,7 +445,7 @@ $ bbbb
 $ height:10, width:20
 ```
 
-- 커스텀 접근자
+-   커스텀 접근자
 
 ```JavaScript
     class Rectangle(var height:Int, var width:Int) {
@@ -458,8 +465,7 @@ $ height:10, width:10, isSquare:true
 $ height:20, width:10, isSquare:false
 ```
 
-
-- 접근자의 가시성 변경자
+-   접근자의 가시성 변경자
     counter 프로퍼티는 var 타입이지만, set 앞에 private 접근자를 붙여 변경할수 없도록 함
     게터로 접근은 가능하지만, 세터로 값을 변경할 수 없음
 
@@ -484,13 +490,14 @@ $ 3
 ```
 
 ## 데이터 클래스
-- 프로퍼티만 갖는 클래스 'data' 키워드 사용
+
+-   프로퍼티만 갖는 클래스 'data' 키워드 사용
 
 ```JavaScript
     data class Client(val name:String, val postalCode:Int)
 ```
 
-- toString()
+-   toString()
 
 ```JavaScript
     data Client(val name:String, val postalCode:Int) {
@@ -510,7 +517,7 @@ $ Client(name=aaa, postalCode=1234)
 
 ```
 
-- equals()
+-   equals()
 
 ```JavaScript
     class Client(val name:String, val postalCode:Int) {
@@ -536,7 +543,7 @@ $ true
 
 ```
 
-- hashCode()
+-   hashCode()
 
 ```JavaScript
     class Client(val name:String, val postalCode:Int) {
@@ -547,7 +554,7 @@ $ true
 
         override fun hashCode(): Int = name.hashCode() * 31 + postalCode
     }
-    
+
     data class Client(val name:String, val postalCode:Int)
 
     fun main(args:Array<String>) {
@@ -559,7 +566,7 @@ $ true
 $ true
 ```
 
-- copy()
+-   copy()
 
 ```JavaScript
     data class Client(val name:String, val postalCode:Int)
@@ -572,15 +579,15 @@ $ true
     }
 
 $ Client(name=aaa, postalCode=1234)
-$ Client(name=aaa, postalCode=1236)    
+$ Client(name=aaa, postalCode=1236)
 ```
 
-
 ## 클래스의 확장
-- 확장 함수(Extension Function) : 코틀린으로 변환할수 없는 자바코드를 처리해야 할 경우
-- 확장 함수로 오버라이드할 수 없다.
-- 확장 프로퍼티 : 반드시 커스텀 게터 get() 를 정의해 줘야 한다.
- 
+
+-   확장 함수(Extension Function) : 코틀린으로 변환할수 없는 자바코드를 처리해야 할 경우
+-   확장 함수로 오버라이드할 수 없다.
+-   확장 프로퍼티 : 반드시 커스텀 게터 get() 를 정의해 줘야 한다.
+
 ```JavaScript
     class Calculator {
         fun sum(a: Int, b: Int) = a+b
@@ -601,8 +608,9 @@ $ 1 = -1
 ```
 
 ## Null
-- Non-Null 타입 : 컴파일시 에러 발생, NullPointerException 이 발생하지 않는다.
-- Nullable 타입 : ? 문자를 사용하여 Null 값을 가질수 있도록 허용, Null Check 없이 바로 접근 불가능
+
+-   Non-Null 타입 : 컴파일시 에러 발생, NullPointerException 이 발생하지 않는다.
+-   Nullable 타입 : ? 문자를 사용하여 Null 값을 가질수 있도록 허용, Null Check 없이 바로 접근 불가능
 
 ```JavaScript
     class Bitmap(val width:Int, val height:Int) {
@@ -625,7 +633,8 @@ $ 100
 ```
 
 ## Null Check
-- Safe Calls : "?."
+
+-   Safe Calls : "?."
     왼쪽의 매개변수가 null이라면 null을 반환하며 구문을 종료하고, 아니라면 해당 변수를 Non-Null 타입으로 변환하여 프로퍼티에 접근한다.
 
 ```JavaScript
@@ -638,7 +647,7 @@ $ 100
     fun main(args:Array<String>) {
         val bitmap : Bitmap? = CreateBitmap(10,10)
         println(bitmap?.size)
-    }    
+    }
 
     fun Person.cityName(): String {
         val city = this.company?.addr?.city
@@ -646,7 +655,7 @@ $ 100
     }
 ```
 
-- Elvis(엘비스) 연산바:"?:"
+-   Elvis(엘비스) 연산바:"?:"
     시계 방향으로 90도 회전하면 엘비스 프레슬리의 헤어스타일을 닮았다?
     왼쪽에 있는 값이 null이 결우 오른쪽에 있는 값을 대입한다.
 
@@ -659,7 +668,7 @@ $ 100
     fun Person.cityName(): String = this.company?.addr?.city?:"Unkown"
 ```
 
-- !! Null 이 아님
+-   !! Null 이 아님
 
 ```JavaScript
 
@@ -671,7 +680,7 @@ $ 100
 
 ```
 
-- let 함수
+-   let 함수
     let 함수를 사용해 Nullable 타입변수를 Non-Null 타입에 대입할 수 있다.
 
 ```JavaScript
@@ -703,7 +712,8 @@ $ 100
     it 연산자는 매개 변수가 하나 뿐일 경우 매개 변수 이름 대신 사용할 수 있는 키워드
 
 ## 제어 함수
-- if
+
+-   if
 
 ```JavaScript
     fun GetMax(a:Int, b:Int): Int = if (a<b) b else a
@@ -720,7 +730,7 @@ $ 100
 
 ```
 
-- when
+-   when
 
 ```JavaScript
     fun printValue(a:Int) {
@@ -730,7 +740,7 @@ $ 100
             else -> println("value is neigher 1 nor 2")
         }
     }
-    
+
     fun printValue(a:Int, str:String) {
         when(a) {
             str.toInt() -> println("str is a")
@@ -741,7 +751,7 @@ $ 100
     fun printValue(a:Int, str:String) {
         when(a) {
             in 1..10 -> println("str is (1~10)")
-            in 10..20 -> println("str is (10~20)")            
+            in 10..20 -> println("str is (10~20)")
             else -> prinln("str is not a")
         }
     }
@@ -755,12 +765,13 @@ $ 100
     }
 ```
 
-- 스마트 캐스트 (Smart Cast)
+-   스마트 캐스트 (Smart Cast)
     is 또는 !is 연산자를 통해 타입을 검사하여 객체 타입이 일치할 경우 객체가 해당 타입으로 자동 캐스팅 되는 기능
 
-- while, do-while
+-   while, do-while
 
-- in
+-   in
+
 ```JavaScript
     val oneToTen = 1..10
 
@@ -775,7 +786,7 @@ $ 100
 
 ```
 
-- for
+-   for
 
 ```JavaScript
     for(i in 0..9) print("$i ")
@@ -786,17 +797,18 @@ $ 100
 
     var array: Array<int> = arrayOf(1,2,3)
     for(i in 0 until array.size) print(array[1])
-````
+```
 
 ## 고차 함수와 람다
-- 고차 함수 (High Order Function) : 매개변수 또는 반환 값으로 또 다른 함수가 사용되는 함수
+
+-   고차 함수 (High Order Function) : 매개변수 또는 반환 값으로 또 다른 함수가 사용되는 함수
 
 ```JavaScript
     button.setOnClickListener({ /* Click Event 함수 내용 */ })
 ```
 
-- 람다(Lambdas) 식의 문법
-{매개변수1: 타입, 매개변수2: 타입.. -> 반환형}
+-   람다(Lambdas) 식의 문법
+    {매개변수1: 타입, 매개변수2: 타입.. -> 반환형}
 
 ```JavaScript
     val sum = {x:Int, y:Int -> x+y }
@@ -804,7 +816,7 @@ $ 100
     val sum:(Int, Int) -> Int = {x,y -> x+y}
 ```
 
-- 익명함수 (Anonymous Function)
+-   익명함수 (Anonymous Function)
 
 ```JavaScript
     Calculator(2,1,{a:Int, b:Int -> a+b})
@@ -816,63 +828,62 @@ $ 100
 
 ## Collection
 
-- List ; listOf : mutableListOf, arrayListOf
-- Set ; set : mutableSetOf, hashSetOf, linkedSOf, sortedSetOf
-- Map ; mapOf : mutableMapOf, hashMapOf, linkedMapOf, sortedMapOf
+-   List ; listOf : mutableListOf, arrayListOf
+-   Set ; set : mutableSetOf, hashSetOf, linkedSOf, sortedSetOf
+-   Map ; mapOf : mutableMapOf, hashMapOf, linkedMapOf, sortedMapOf
 
-- 속성
-val size:Int
+-   속성
+    val size:Int
 
-- 함수
-fun contains(element:E):Boolean
-fun get(index:Int):E
-fun indexOf(element:E):Int
-fun isEmpty():Boolean
-fun subList(formIndex:Int, toIndex:Int):List<E>
+-   함수
+    fun contains(element:E):Boolean
+    fun get(index:Int):E
+    fun indexOf(element:E):Int
+    fun isEmpty():Boolean
+    fun subList(formIndex:Int, toIndex:Int):List<E>
 
-- 확장 기능
-- MutableCollection 메서드
-
-
+-   확장 기능
+-   MutableCollection 메서드
 
 ## 연산자 오버로딩 (operator)
-- 이항연산자
-a+b a.plus(b)
-a-b a.minus(b)
-a*b a.times(b)
-a/b a.div(b)
-a%b a.rem(b)
 
-- 단항연산자
-+a a.unaryPlus()
--a a.unaryMinus()
-!a a.not()
-++a, a++ a.inc()
---a, a-- a.dec()
+-   이항연산자
+    a+b a.plus(b)
+    a-b a.minus(b)
+    a\*b a.times(b)
+    a/b a.div(b)
+    a%b a.rem(b)
 
-- 복합 대입 연산자
-a+=b a.plusAssign(b)
-a-=b a.minusAssgin(b)
-a*=b a.timesAssign(b)
-a/=b a.divAssign(b)
-a%=b a.remAssign(b)
+-   단항연산자
+    +a a.unaryPlus()
+    -a a.unaryMinus()
+    !a a.not()
+    ++a, a++ a.inc()
+    --a, a-- a.dec()
 
-- 비교 연산자
-a==b a?.equals(b) ?: (b===null)
-a!=b !(a?.equals(b) ?: (b===null))
-a>b a.compareTo(b) > 0
-a<b a.comapreTo(b) < 0
-a>=b a.compareTo(b) >= 0
-a<=b a.compareTo(b) <= 0
+-   복합 대입 연산자
+    a+=b a.plusAssign(b)
+    a-=b a.minusAssgin(b)
+    a\*=b a.timesAssign(b)
+    a/=b a.divAssign(b)
+    a%=b a.remAssign(b)
 
-- 기타
-in a.contain(b)
-.. a.rangeTo(b)
-a() a.invoke()
+-   비교 연산자
+    a==b a?.equals(b) ?: (b===null)
+    a!=b !(a?.equals(b) ?: (b===null))
+    a>b a.compareTo(b) > 0
+    a<b a.comapreTo(b) < 0
+    a>=b a.compareTo(b) >= 0
+    a<=b a.compareTo(b) <= 0
 
+-   기타
+    in a.contain(b)
+    .. a.rangeTo(b)
+    a() a.invoke()
 
 ## 클래스 위임 (Class Delegation)
-- by : 상속의 단점을 보완하기 위해 사용되는 데코레이터 패턴(Decorator Pattern) 의 구현을 줄이기 위해 제공
+
+-   by : 상속의 단점을 보완하기 위해 사용되는 데코레이터 패턴(Decorator Pattern) 의 구현을 줄이기 위해 제공
 
 ```JavaScript
 
@@ -899,10 +910,11 @@ a() a.invoke()
 ```
 
 ## 위임 프로퍼티 (Delegated Property)
-- 위임 프로퍼티란, 프로퍼티의 접근자 게터(getter)와 세터(setter)를 다른 객체로 위임하는 방식
-- 위임 받는 클래스에는 getValue() 메서드가 반드시 구현되어야 하며, 수정 가능한 var 타입의 경우 setValue() 메서드 역시 구현되어 있어야 한다.
 
-- by
+-   위임 프로퍼티란, 프로퍼티의 접근자 게터(getter)와 세터(setter)를 다른 객체로 위임하는 방식
+-   위임 받는 클래스에는 getValue() 메서드가 반드시 구현되어야 하며, 수정 가능한 var 타입의 경우 setValue() 메서드 역시 구현되어 있어야 한다.
+
+-   by
 
 ```JavaScript
     class Delegator(var value: Int){
@@ -929,7 +941,7 @@ a() a.invoke()
     }
 ```
 
-- by Lazy()
+-   by Lazy()
     지연 초기화를 위해 lazy() 메서드로 프로퍼티 접근을 위임할 수 있다.
 
 ```JavaScript
@@ -951,24 +963,24 @@ a() a.invoke()
     }
 ```
 
-- Observable
+-   Observable
     프로퍼티 변경시 필요한 기능을 Delegates, observable() 메서드에 람다 식과 함께 위임할 수 있다.
 
-- Map
+-   Map
     Map, MutableMap 인터페이스에는 프로퍼티명 (property.name)을 이용한 getValue()와 setValue()가 구현되어 있어 위임 프로퍼티에 사용할 수 있다.
 
-
 ## 고차 함수와 람다의 활용
-- 고차함수란 다른 함수를 인자로 받거나 함수를 반환하는 함수
-- 람다 식의 정의에는 매개변수의 타입과 반환 타입이 명시되어야 하며, 매개 변수와 반환 타임은 Nullable이 될수 있다.
-- 고차 함수 정의시 매개변수 또는 반환 타입의 함수 타입을 명확하게 정의해야 하며, 디폴트 값을 지정할 수 있다.
-- 고차 함수와 람다를 이용해 소스 코드의 중복을 상당 부분 제거할 수 있다는 장점이 있다.
 
+-   고차함수란 다른 함수를 인자로 받거나 함수를 반환하는 함수
+-   람다 식의 정의에는 매개변수의 타입과 반환 타입이 명시되어야 하며, 매개 변수와 반환 타임은 Nullable이 될수 있다.
+-   고차 함수 정의시 매개변수 또는 반환 타입의 함수 타입을 명확하게 정의해야 하며, 디폴트 값을 지정할 수 있다.
+-   고차 함수와 람다를 이용해 소스 코드의 중복을 상당 부분 제거할 수 있다는 장점이 있다.
 
 ## 인라인 함수 (Inline Functions)
-- 인라인 함수는 컴파일 단계에서 호출 방식이 아닌 코드 자체가 복사되는 방식으로 변환되며, 함수 앞에 inline 키워드를 붙여 사용한다.
-- 람다 전달시 발생하는 메모리, 호출등의 오버 헤드를 감소시키기 위해 인라인 함수가 사용된다.
-- 특정 람다를 인라인 방식에서 제외하고 싶을때는 noinline 키워드를 사용한다.
+
+-   인라인 함수는 컴파일 단계에서 호출 방식이 아닌 코드 자체가 복사되는 방식으로 변환되며, 함수 앞에 inline 키워드를 붙여 사용한다.
+-   람다 전달시 발생하는 메모리, 호출등의 오버 헤드를 감소시키기 위해 인라인 함수가 사용된다.
+-   특정 람다를 인라인 방식에서 제외하고 싶을때는 noinline 키워드를 사용한다.
 
 ```JavaScript
     inline fun calculator(a: Int, b: Int, op: (Int, Int)->Int): Int {
@@ -988,12 +1000,11 @@ $ calculator body
 $ 3
 ```
 
-
-
 ## 람다에서의 리턴 (Return)
-- Non-local Return
-- 레이블을 이용한 Local Return
-- 코틀린에서 return은 Non-Local return 과 Local return 이 있으며, Non-local return은 람다 안에 있는 return 구문이 바깥족 함수를 반환시키는 것을 의미한다.
-- 람다 식에서는 return을 사용할 수 없지만, 인라인 함수에 사용되는 람다의 경우 Non-local return을 사용할 수 있다.
-- 람다 식에서 Local return을 사용하고 싶다면 레이블을 이용해 사용할 수 있다.
-- 일반적인 Local return을 사용할 수 있는 익명 함수를 람다 대신 사용할 수 있다.
+
+-   Non-local Return
+-   레이블을 이용한 Local Return
+-   코틀린에서 return은 Non-Local return 과 Local return 이 있으며, Non-local return은 람다 안에 있는 return 구문이 바깥족 함수를 반환시키는 것을 의미한다.
+-   람다 식에서는 return을 사용할 수 없지만, 인라인 함수에 사용되는 람다의 경우 Non-local return을 사용할 수 있다.
+-   람다 식에서 Local return을 사용하고 싶다면 레이블을 이용해 사용할 수 있다.
+-   일반적인 Local return을 사용할 수 있는 익명 함수를 람다 대신 사용할 수 있다.

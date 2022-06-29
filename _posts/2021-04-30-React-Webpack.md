@@ -1,14 +1,14 @@
 ---
 layout: post
-title: "React Webpack"
-description: 
-headline: 
+title: 'React Webpack'
+description:
+headline:
 modified: 2021-04-30
 category: webdevelopment
-imagefeature: cover3.jpg
+imagefeature:
 tags: [React Webpack]
-mathjax: 
-chart: 
+mathjax:
+chart:
 share: true
 comments: true
 featured: true
@@ -16,20 +16,25 @@ disqus:
 ---
 
 # Record
+
 ## React 개발 환경을 구축하면서 배우는 웹팩(Webpack) 기초
 
 ### 프로젝트 설정하기
-- webpack-react 디렉터리 생성
-- yarn init -y
-- yarn add -D @babel/core @babel/preset-env @babel/preset-react babel-loader clean-webpack-plugin css-loader html-loader html-webpack-plugin mini-css-extract-plugin node-sass react react-dom sass-loader style-loader webpack webpack-cli webpack-dev-server
+
+-   webpack-react 디렉터리 생성
+-   yarn init -y
+-   yarn add -D @babel/core @babel/preset-env @babel/preset-react babel-loader clean-webpack-plugin css-loader html-loader html-webpack-plugin mini-css-extract-plugin node-sass react react-dom sass-loader style-loader webpack webpack-cli webpack-dev-server
 
 ### 웹팩으로 자바스크립트 파일 빌드하기
-- src 디렉터리를 만드신 후 아래와 같이 test.js 파일을 작성
+
+-   src 디렉터리를 만드신 후 아래와 같이 test.js 파일을 작성
+
 ```JavaScript
   console.log("webpack test");
 ```
 
-- 최상위 디렉터리로 이동한 후 아래와 같이 webpack.config.js
+-   최상위 디렉터리로 이동한 후 아래와 같이 webpack.config.js
+
 ```JavaScript
   const path = require("path");
 
@@ -52,7 +57,8 @@ mode는 웹팩 빌드 옵션 입니다. production은 최적화되어 빌드되�
 
 ```
 
--  package.json 파일로 이동하신 후 다음과 같이 build: webpack 스크립트를 추가
+-   package.json 파일로 이동하신 후 다음과 같이 build: webpack 스크립트를 추가
+
 ```JavaScript
 {
   "name": "webpack-react",
@@ -85,17 +91,19 @@ mode는 웹팩 빌드 옵션 입니다. production은 최적화되어 빌드되�
 
 webpack 명령어가 실행되면 디폴트로 실행할 파일은 같은 경로에 있는 webpack.config.js에 내용을 가지고 빌드 됩니다.
 
-yarn build 
+yarn build
 
 그 후 빌드 디렉터리로 이동하면 bundle.js 파일을 볼 수 있습니다.
 ```
 
 ### 웹팩으로 HTML 파일 빌드하기
-- 이번에는 html 파일들을 웹팩으로 빌드해 보도록 하겠습니다.
-웹팩은 자바스크립트 파일뿐만 아니라 자바스크립트가 아닌 파일들도 모듈로 관리 할 수 있습니다.
-로더(loader) 라는 기능이 있습니다. 로더는 자바스크립트 파일이 아닌 파일을 웹팩이 이해할 수 있게 해줍니다.
 
-- public 디렉터리를 만들어 주신 후 public 디렉터리에 다음과 같이 index.html 파일 생성
+-   이번에는 html 파일들을 웹팩으로 빌드해 보도록 하겠습니다.
+    웹팩은 자바스크립트 파일뿐만 아니라 자바스크립트가 아닌 파일들도 모듈로 관리 할 수 있습니다.
+    로더(loader) 라는 기능이 있습니다. 로더는 자바스크립트 파일이 아닌 파일을 웹팩이 이해할 수 있게 해줍니다.
+
+-   public 디렉터리를 만들어 주신 후 public 디렉터리에 다음과 같이 index.html 파일 생성
+
 ```JavaScript
 <!DOCTYPE html>
 <html lang="kr">
@@ -110,7 +118,8 @@ yarn build
 </html>
 ```
 
-- webpack.config.js 파일에 아래와 같이 html 관련 코드를 추가
+-   webpack.config.js 파일에 아래와 같이 html 관련 코드를 추가
+
 ```JavaScript
 const path = require("path");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
@@ -155,9 +164,10 @@ index.html 을 웹브라우저에서 보시면 콘솔창에 webpack test 가 찍
 
 ```
 
-
 ### 웹팩으로 리액트 빌드하기
-- src/index.js
+
+-   src/index.js
+
 ```JavaScript
 import React from "react";
 import ReactDOM from "react-dom";
@@ -166,7 +176,8 @@ import Root from "./Root";
 ReactDOM.render(<Root />, document.getElementById("root"))
 ```
 
-- src/Root.js
+-   src/Root.js
+
 ```JavaScript
 import React from 'react';
 
@@ -179,15 +190,17 @@ const Root = () => {
 export default Root;
 ```
 
-- 최상위 디렉터리에서 .babelrc 파일 생성
-  - 바벨 (babel)은 ES6에서 ES5로 자바스크립트를 변환해주는 역할을 합니다. 아래 내용은 바벨이 ES6와 리액트를 ES5로 변환할 수 있게 해준다는 내용입니다.
+-   최상위 디렉터리에서 .babelrc 파일 생성
+    -   바벨 (babel)은 ES6에서 ES5로 자바스크립트를 변환해주는 역할을 합니다. 아래 내용은 바벨이 ES6와 리액트를 ES5로 변환할 수 있게 해준다는 내용입니다.
+
 ```JavaScript
 {
   "presets": ["@babel/preset-env", "@babel/preset-react"]
 }
 ```
 
-- webpack.config.js 파일에 entry와 rules에 babel-loader를 추가
+-   webpack.config.js 파일에 entry와 rules에 babel-loader를 추가
+
 ```JavaScript
 const path = require("path");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
@@ -226,11 +239,12 @@ module.exports = {
 };
 ```
 
-- yarn build 명령어를 실행해 웹팩으로 빌드한 후 index.html 파일을 열어보면 Hello, React가 보이는 모습을 확인
-
+-   yarn build 명령어를 실행해 웹팩으로 빌드한 후 index.html 파일을 열어보면 Hello, React가 보이는 모습을 확인
 
 ### 웹팩에서 CSS 사용하기
-- src/style.css 생성
+
+-   src/style.css 생성
+
 ```JavaScript
 .title {
 	color: #2196f3;
@@ -239,7 +253,8 @@ module.exports = {
 }
 ```
 
-- src/root.js에서 style.css
+-   src/root.js에서 style.css
+
 ```JavaScript
 import React from 'react';
 import './style.css';
@@ -253,7 +268,8 @@ const Root = () => {
 export default Root;
 ```
 
-- webpack.config.js에 css-loader를 추가
+-   webpack.config.js에 css-loader를 추가
+
 ```JavaScript
 const path = require("path");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
@@ -360,9 +376,10 @@ use에 있는 loader 순서는 오른쪽에서 왼쪽 순서로 실행이 됩니
 위에 있는 코드에 의미는 css-loader로 css 파일을 읽고 MniCssExtractPlugin.loader로 읽은 CSS를 파일로 추출해 냅니다.
 ```
 
-
 ### 웹팩에서 SCSS 사용하기
-- src/style.scss 생성
+
+-   src/style.scss 생성
+
 ```JavaScript
 $fontColor: #2196f3;
 $fontSize: 52px;
@@ -375,7 +392,8 @@ $fontSize: 52px;
 }
 ```
 
-- src/Root.js를 아래와 같이 scss를 import
+-   src/Root.js를 아래와 같이 scss를 import
+
 ```JavaScript
 import React from 'react';
 import './style.scss';
@@ -389,7 +407,8 @@ const Root = () => {
 export default Root;
 ```
 
-- webpack.config.js를 열어 아래와 같이 sass-loader를 적용
+-   webpack.config.js를 열어 아래와 같이 sass-loader를 적용
+
 ```JavaScript
 const path = require("path");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
@@ -445,18 +464,16 @@ use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"]
 위에 부분을 해석하면 먼저 sass-loader로 scss 파일을 읽고 css로 변환한 후 css-loader로 css 읽습니다. 그 후 MiniCssExtractPlugin으로 읽은 CSS를 파일로 추출합니다.
 ```
 
-
 ### 웹팩 개발 서버 적용하기
 
-- 지금까지 소스코드를 수정할 때마다 웹팩으로 직접 빌드를 했습니다.
-  수정할때 마다 직접 빌드하면 많이 불편할 것 같습니다.
+-   지금까지 소스코드를 수정할 때마다 웹팩으로 직접 빌드를 했습니다.
+    수정할때 마다 직접 빌드하면 많이 불편할 것 같습니다.
 
-  이런 불편한 점때문에 소스코드를 수정할때마다 알아서 웹팩이 빌드해주는 webpack-dev-server가 있습니다.
+    이런 불편한 점때문에 소스코드를 수정할때마다 알아서 웹팩이 빌드해주는 webpack-dev-server가 있습니다.
 
-  바로 webpack-dev-server를 적용해보도록 하겠습니다.
+    바로 webpack-dev-server를 적용해보도록 하겠습니다.
 
-  먼저, webpack.config.js 파일에 들어가 devServer를 추가해 줍시다.
-
+    먼저, webpack.config.js 파일에 들어가 devServer를 추가해 줍시다.
 
 ```JavaScript
 const path = require("path");
@@ -564,7 +581,6 @@ module.exports = {
 };
 그 후 yarn build를 하면 사용 안하는 파일이 삭제된 것을 볼 수 있습니다.
 ```
-
 
 ### 웹팩 빌드 모드 나누기
 

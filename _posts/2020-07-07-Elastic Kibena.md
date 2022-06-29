@@ -1,14 +1,14 @@
 ---
 layout: post
-title: "Elastic"
-description: 
-headline: 
+title: 'Elastic'
+description:
+headline:
 modified: 2020-07-07
 category: webdevelopment
-imagefeature: cover3.jpg
+imagefeature:
 tags: [Elastic Kibena]
-mathjax: 
-chart: 
+mathjax:
+chart:
 share: true
 comments: true
 featured: true
@@ -18,12 +18,9 @@ disqus:
 # Elastic
 
 https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.8.0-windows-x86_64.zip
-elasticsearch.yml 
+elasticsearch.yml
 network.host : localhost
 http.port : 9200
-
-
-
 
 # Kibena
 
@@ -33,16 +30,14 @@ server.port:5601 - 키바나의 연결 할 포트번호를 입력해줍니다.
 server.host:"localhost" - 키바나의 연결 할 주소를 입력해줍니다.
 elasticsearch.hosts:["http://localhost:9200"] - 엘라스틱 서치의 주소를 입력해줍니다.
 
-
 # docker
 
 docker run --name elastic7.0 -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:7.0.0
 
-
 docker run -d --rm --link elastic7.0:elastic-url -e "ELASTICSEARCH_HOSTS=http://elastic-url:9200" -p 5601:5601 --name kibana7.0 docker.elastic.co/kibana/kibana:7.0.0
 
-
 ## index
+
 Kibena -> dev -> tool
 
 ```JavaScript
@@ -103,11 +98,11 @@ DELETE /movie
 
 The standard similarity algorithm used in Elasticsearch
 
-- TF(Term Frequency)
+-   TF(Term Frequency)
 
 문서 내 발생한 term 빈도수가 클수록 weight가 높다. 문서내에서 같은 단어가 여러번 등장한다면 그 단어에 높은 가중치를 주는 알고리즘이다.
 
-- IDF(Inverse Document Frequency)
+-   IDF(Inverse Document Frequency)
 
 전체 문서에서 발생한 term 빈도수가 작을수록 weight가 높다. 문서에 자주 등장하는 단어일수록 낮은 가중치를 주는 알고리즘이다.
 

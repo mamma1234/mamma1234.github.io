@@ -1,14 +1,14 @@
 ---
 layout: post
-title: "React-Material-UI"
-description: 
-headline: 
+title: 'React-Material-UI'
+description:
+headline:
 modified: 2019-11-14
 category: webdevelopment
-imagefeature: cover3.jpg
+imagefeature:
 tags: [React, Next, Material]
-mathjax: 
-chart: 
+mathjax:
+chart:
 share: true
 comments: true
 featured: true
@@ -16,24 +16,29 @@ disqus:
 ---
 
 # Record
+
 ## 개념
-- 
+
+-
 
 ## 설치
+
 ### React.js
-- npx create-react-app react-material-ui
-- cd react-material-ui
-- npm install @material-ui/core
-- npm install contentful
-- npm start
-- http://localhost:3000/
-- npm install @material-ui/icons
+
+-   npx create-react-app react-material-ui
+-   cd react-material-ui
+-   npm install @material-ui/core
+-   npm install contentful
+-   npm start
+-   http://localhost:3000/
+-   npm install @material-ui/icons
 
 ### Next.js
-- npm init
-- npm install --save react react-dom next@7.0.2 express
-- npm install --save-dev @babel/node @babel/preset-env
-- npm install --save @material-ui/core @material-ui/icons @material-ui/styles
+
+-   npm init
+-   npm install --save react react-dom next@7.0.2 express
+-   npm install --save-dev @babel/node @babel/preset-env
+-   npm install --save @material-ui/core @material-ui/icons @material-ui/styles
 
 ```
 next // 내장되어 있는 webpack-dev-server로 기동
@@ -43,6 +48,7 @@ next export // html 파일들로 내보내기를 해준다.
 ```
 
 #### Next.js 기본 구조
+
 ```
 pages/ // HTML Document, Application Container, 각종 페이지 등을 작성한다.
     _document.js // HTML Document.
@@ -60,13 +66,13 @@ next.config.js  webpack plugin들과 Next.js의 라우팅 설정을 작성한다
 ```
 
 ## build 오류
-- 다른 경로에서 동일한 빌드 제공
-- build 후 Blank 페이지 
-- Blank page after running build on create-react-app
 
-    - I have solved the problem by setting homepage: "." according to this doc
+-   다른 경로에서 동일한 빌드 제공
+-   build 후 Blank 페이지
+-   Blank page after running build on create-react-app
 
-    - https://facebook.github.io/create-react-app/docs/deployment
+    -   I have solved the problem by setting homepage: "." according to this doc
 
+    -   https://facebook.github.io/create-react-app/docs/deployment
 
-    - "homepage" : "." , 
+    -   "homepage" : "." ,

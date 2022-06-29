@@ -1,14 +1,14 @@
 ---
 layout: post
-title: "React External JavaScript"
-description: 
-headline: 
+title: 'React External JavaScript'
+description:
+headline:
 modified: 2021-02-23
 category: webdevelopment
-imagefeature: cover3.jpg
+imagefeature:
 tags: [React External JavaScript]
-mathjax: 
-chart: 
+mathjax:
+chart:
 share: true
 comments: true
 featured: true
@@ -16,8 +16,10 @@ disqus:
 ---
 
 # Record
+
 ## 개념
-- 4 Ways to Add External JavaScript Files in React
+
+-   4 Ways to Add External JavaScript Files in React
 
 ## React-script-tag
 
@@ -39,7 +41,7 @@ disqus:
               </Helmet>
               ...
           </div>
-    
+
   );
 ```
 
@@ -56,10 +58,10 @@ disqus:
   export const removeScript = (scriptToremove) => {
       let allsuspects=document.getElementsByTagName("script");
       for (let i=allsuspects.length; i>=0; i--){
-  if (allsuspects[i] && allsuspects[i].getAttribute("src")!==null 
+  if (allsuspects[i] && allsuspects[i].getAttribute("src")!==null
     && allsuspects[i].getAttribute("src").indexOf(`${scriptToremove}`)                !== -1 ){
             allsuspects[i].parentNode.removeChild(allsuspects[i])
-          }    
+          }
       }
   }
 
