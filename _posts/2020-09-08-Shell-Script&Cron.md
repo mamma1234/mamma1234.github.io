@@ -4,7 +4,7 @@ title: 'Shell Script & Cron'
 description:
 headline:
 modified: 2020-09-08
-category: Shell Script
+category: Shell Script & Cron
 tags: [Shell Script Cron]
 mathjax:
 chart:
