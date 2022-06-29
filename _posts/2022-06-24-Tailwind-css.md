@@ -5,7 +5,6 @@ description:
 headline:
 modified: 2022-06-24
 category: webdevelopment
-imagefeature: cover3.jpg
 tags: [Tailwind]
 mathjax:
 chart:
