@@ -4,7 +4,7 @@ title: 'Tailwind'
 description:
 headline:
 modified: 2022-06-24
-category: webdevelopment
+category: Front-End
 tags: [Tailwind]
 mathjax:
 chart:

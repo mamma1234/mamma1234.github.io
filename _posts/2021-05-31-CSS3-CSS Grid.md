@@ -1,14 +1,13 @@
 ---
 layout: post
-title: "CSS3 Grid"
-description: 
-headline: 
+title: 'CSS3 Grid'
+description:
+headline:
 modified: 2021-05-31
-category: webdevelopment
-imagefeature: cover3.jpg
+category: Front-End
 tags: [CSS3 Grid]
-mathjax: 
-chart: 
+mathjax:
+chart:
 share: true
 comments: true
 featured: true
@@ -16,118 +15,118 @@ disqus:
 ---
 
 # Record
-## 개념
-- CSS Grid(그리드)는 2차원(행과 열)의 레이아웃 시스템을 제공합니다.
-Flexible Box도 훌륭하지만 비교적 단순한 1차원 레이아웃을 위하며, 좀 더 복잡한 레이아웃을 위해 우리는 CSS Grid를 사용할 수 있습니다.  
 
-- CSS Grid는 CSS Flex와 같이 Container(컨테이너)와 Item(아이템)이라는 두 가지 개념으로 구분되어 있습니다.
-Container는 Items를 감싸는 부모 요소이며, 그 안에서 각 Item을 배치할 수 있습니다.
+## 개념
+
+-   CSS Grid(그리드)는 2차원(행과 열)의 레이아웃 시스템을 제공합니다.
+    Flexible Box도 훌륭하지만 비교적 단순한 1차원 레이아웃을 위하며, 좀 더 복잡한 레이아웃을 위해 우리는 CSS Grid를 사용할 수 있습니다.
+
+-   CSS Grid는 CSS Flex와 같이 Container(컨테이너)와 Item(아이템)이라는 두 가지 개념으로 구분되어 있습니다.
+    Container는 Items를 감싸는 부모 요소이며, 그 안에서 각 Item을 배치할 수 있습니다.
 
 ## 참조
-- [https://cssgridgarden.com/#ko](https://cssgridgarden.com/#ko)
-- [https://heropy.blog/2019/08/17/css-grid/](https://heropy.blog/2019/08/17/css-grid/)
-- [https://developer.mozilla.org/ko/docs/Web/CSS/grid](https://developer.mozilla.org/ko/docs/Web/CSS/grid)
+
+-   [https://cssgridgarden.com/#ko](https://cssgridgarden.com/#ko)
+-   [https://heropy.blog/2019/08/17/css-grid/](https://heropy.blog/2019/08/17/css-grid/)
+-   [https://developer.mozilla.org/ko/docs/Web/CSS/grid](https://developer.mozilla.org/ko/docs/Web/CSS/grid)
 
 ## 목차
-- [Grid Container](#grid-Container)
-  - [display](#display)
-  - [grid-template-rows](#grid-template-rows)
-  - [grid-template-columns](#grid-template-columns)
-  - [grid-template-areas](#grid-template-areas)
-  - [grid-template](#grid-template)
-  - [row-gap(grid-row-gap)](#row-gap)
-  - [column-gap(grid-column-gap)](#column-gap)
-  - [gap(grid-gap)](#gap)
-  - [grid-auto-rows](#grid-auto-rows)
-  - [grid-auto-columns](#grid-auto-columns)
-  - [grid-auto-flow](#grid-auto-flow)
-  - [grid](#grid)
-  - [align-content](#align-content)
-  - [justify-content](#justify-content)
-  - [place-content](#place-content)
-  - [align-items](#align-items)
-  - [justify-items](#justify-items)
-  - [place-items](#place-items)
-- [Grid Items](#grid-Items)
-  - [grid-row-start](#grid-row-start)
-  - [grid-row-end](#grid-row-end)
-  - [grid-row](#grid-row)
-  - [grid-column-start](#grid-column-start)
-  - [grid-column-end](#grid-column-end)
-  - [grid-column](#grid-column)
-  - [grid-area](#grid-area)
-  - [align-self](#align-self)
-  - [justify-self](#justify-self)
-  - [place-self](#place-self)
-  - [order](#order)
-  - [z-index](#z-index)
-- [Grid Functions](#grid-functions)
-  - [repeat](#repeat)
-  - [minmax](#minmax)
-  - [fit-content](#fit-content)
-- [Grid Units](#grid-units)
-  - [fr](#fr)
-  - [min-content](#min-content)
-  - [max-content](#max-content)
-  - [auto-fill, auto-fit](#auto-fill,-auto-fit)
-- [용어 정리](#용어-정리)
-  - [Track](#Track)
-  - [Line](#Line)
-  - [Cell](#Cell)
-  - [Area](#Area)
 
-
+-   [Grid Container](#grid-Container)
+    -   [display](#display)
+    -   [grid-template-rows](#grid-template-rows)
+    -   [grid-template-columns](#grid-template-columns)
+    -   [grid-template-areas](#grid-template-areas)
+    -   [grid-template](#grid-template)
+    -   [row-gap(grid-row-gap)](#row-gap)
+    -   [column-gap(grid-column-gap)](#column-gap)
+    -   [gap(grid-gap)](#gap)
+    -   [grid-auto-rows](#grid-auto-rows)
+    -   [grid-auto-columns](#grid-auto-columns)
+    -   [grid-auto-flow](#grid-auto-flow)
+    -   [grid](#grid)
+    -   [align-content](#align-content)
+    -   [justify-content](#justify-content)
+    -   [place-content](#place-content)
+    -   [align-items](#align-items)
+    -   [justify-items](#justify-items)
+    -   [place-items](#place-items)
+-   [Grid Items](#grid-Items)
+    -   [grid-row-start](#grid-row-start)
+    -   [grid-row-end](#grid-row-end)
+    -   [grid-row](#grid-row)
+    -   [grid-column-start](#grid-column-start)
+    -   [grid-column-end](#grid-column-end)
+    -   [grid-column](#grid-column)
+    -   [grid-area](#grid-area)
+    -   [align-self](#align-self)
+    -   [justify-self](#justify-self)
+    -   [place-self](#place-self)
+    -   [order](#order)
+    -   [z-index](#z-index)
+-   [Grid Functions](#grid-functions)
+    -   [repeat](#repeat)
+    -   [minmax](#minmax)
+    -   [fit-content](#fit-content)
+-   [Grid Units](#grid-units)
+    -   [fr](#fr)
+    -   [min-content](#min-content)
+    -   [max-content](#max-content)
+    -   [auto-fill, auto-fit](#auto-fill,-auto-fit)
+-   [용어 정리](#용어-정리)
+    -   [Track](#Track)
+    -   [Line](#Line)
+    -   [Cell](#Cell)
+    -   [Area](#Area)
 
 ## Grid Container
 
 속성 || 의미
-display	|| 그리드 컨테이너(Container)를 정의
-grid-template-rows	|| 명시적 행(Track)의 크기를 정의
-grid-template-columns	|| 명시적 열(Track)의 크기를 정의
-grid-template-areas	|| 영역(Area) 이름을 참조해 템플릿 생성
-grid-template	|| grid-template-xxx의 단축 속성
-row-gap(grid-row-gap)	|| 행과 행 사이의 간격(Line)을 정의
-column-gap(grid-column-gap)	|| 열과 열 사이의 간격(Line)을 정의
-gap(grid-gap)	|| xxx-gap의 단축 속성
-grid-auto-rows	|| 암시적인 행(Track)의 크기를 정의
-grid-auto-columns	|| 암시적인 열(Track)의 크기를 정의
-grid-auto-flow	|| 자동 배치 알고리즘 방식을 정의
-grid	|| grid-template-xxx과 grid-auto-xxx의 단축 속성
-align-content	|| 그리드 콘텐츠(Grid Contents)를 수직(열 축) 정렬
-justify-content	|| 그리드 콘텐츠를 수평(행 축) 정렬
-place-content	|| align-content와 justify-content의 단축 속성
-align-items	|| 그리드 아이템(Items)들을 수직(열 축) 정렬
-justify-items	|| 그리드 아이템들을 수평(행 축) 정렬
-place-items	|| align-items와 justify-items의 단축 속성
-
+display || 그리드 컨테이너(Container)를 정의
+grid-template-rows || 명시적 행(Track)의 크기를 정의
+grid-template-columns || 명시적 열(Track)의 크기를 정의
+grid-template-areas || 영역(Area) 이름을 참조해 템플릿 생성
+grid-template || grid-template-xxx의 단축 속성
+row-gap(grid-row-gap) || 행과 행 사이의 간격(Line)을 정의
+column-gap(grid-column-gap) || 열과 열 사이의 간격(Line)을 정의
+gap(grid-gap) || xxx-gap의 단축 속성
+grid-auto-rows || 암시적인 행(Track)의 크기를 정의
+grid-auto-columns || 암시적인 열(Track)의 크기를 정의
+grid-auto-flow || 자동 배치 알고리즘 방식을 정의
+grid || grid-template-xxx과 grid-auto-xxx의 단축 속성
+align-content || 그리드 콘텐츠(Grid Contents)를 수직(열 축) 정렬
+justify-content || 그리드 콘텐츠를 수평(행 축) 정렬
+place-content || align-content와 justify-content의 단축 속성
+align-items || 그리드 아이템(Items)들을 수직(열 축) 정렬
+justify-items || 그리드 아이템들을 수평(행 축) 정렬
+place-items || align-items와 justify-items의 단축 속성
 
 ### display
 
-값	|| 의미
-grid	|| Block 특성의 Grid Container를 정의
-inline-grid	|| Inline 특성의 Grid Container를 정의
+값 || 의미
+grid || Block 특성의 Grid Container를 정의
+inline-grid || Inline 특성의 Grid Container를 정의
 
 ### grid-template-rows
 
-- 명시적 행(Track)의 크기를 정의합니다.
-- 동시에 라인(Line)의 이름도 정의할 수 있습니다.
-- fr(fraction, 공간 비율) 단위를 사용할 수 있습니다.    
-      grid-template-columns: repeat(12, 1fr);
-- repeat() 함수를 사용할 수 있습니다.                 
-      grid-template-columns: repeat(12, 100px);
+-   명시적 행(Track)의 크기를 정의합니다.
+-   동시에 라인(Line)의 이름도 정의할 수 있습니다.
+-   fr(fraction, 공간 비율) 단위를 사용할 수 있습니다.  
+     grid-template-columns: repeat(12, 1fr);
+-   repeat() 함수를 사용할 수 있습니다.  
+     grid-template-columns: repeat(12, 100px);
 
 ### grid-template-columns
 
-- 명시적 열(Track)의 크기를 정의합니다.
-- 동시에 라인(Line)의 이름도 정의할 수 있습니다.
-- fr(fraction, 공간 비율) 단위를 사용할 수 있습니다.
-- repeat() 함수를 사용할 수 있습니다.
-
+-   명시적 열(Track)의 크기를 정의합니다.
+-   동시에 라인(Line)의 이름도 정의할 수 있습니다.
+-   fr(fraction, 공간 비율) 단위를 사용할 수 있습니다.
+-   repeat() 함수를 사용할 수 있습니다.
 
 ### grid-template-areas
 
-- 지정된 그리드 영역 이름(grid-area)을 참조해 그리드 템플릿을 생성합니다.
-- (마침표)를 사용하거나 명시적으로 none을 입력해 빈 영역을 정의할 수 있습니다.
+-   지정된 그리드 영역 이름(grid-area)을 참조해 그리드 템플릿을 생성합니다.
+-   (마침표)를 사용하거나 명시적으로 none을 입력해 빈 영역을 정의할 수 있습니다.
 
 ```JavaScript
 
@@ -150,7 +149,7 @@ footer { grid-area: footer; }
 
 ### grid-template
 
-- grid-template-rows, grid-template-columns 그리고 grid-template-areas의 단축 속성입니다.
+-   grid-template-rows, grid-template-columns 그리고 grid-template-areas의 단축 속성입니다.
 
 ```JavaScript
 
@@ -182,39 +181,37 @@ footer { grid-area: footer; }
 
 #### flex-direction
 
-- Items의 주 축(main-axis)을 설정합니다.
+-   Items의 주 축(main-axis)을 설정합니다.
 
-값	|| 의미	|| 기본값
-row	|| Itmes를 수평축(왼쪽에서 오른쪽으로)으로 표시	|| row
-row-reverse	|| Items를 row의 반대 축으로 표시	||
-column	|| Items를 수직축(위에서 아래로)으로 표시	||
-column-reverse	|| Items를 column의 반대 축으로 표시 ||
+값 || 의미 || 기본값
+row || Itmes를 수평축(왼쪽에서 오른쪽으로)으로 표시 || row
+row-reverse || Items를 row의 반대 축으로 표시 ||
+column || Items를 수직축(위에서 아래로)으로 표시 ||
+column-reverse || Items를 column의 반대 축으로 표시 ||
 
-
-- 주 축(main-axis)과 교차 축(cross-axis) : 방향(수평, 수직)에 따라 주 축과 교차 축이 달라집니다.
-- 시작점(flex-start)과 끝점(flex-end) : 방향에 따라 시작점과 끝점이 달라집니다
+-   주 축(main-axis)과 교차 축(cross-axis) : 방향(수평, 수직)에 따라 주 축과 교차 축이 달라집니다.
+-   시작점(flex-start)과 끝점(flex-end) : 방향에 따라 시작점과 끝점이 달라집니다
 
 #### flex-wrap
 
-- Items의 여러 줄 묶음(줄 바꿈)을 설정합니다.
+-   Items의 여러 줄 묶음(줄 바꿈)을 설정합니다.
 
-값	|| 의미	|| 기본값
-nowrap	|| 모든 Itmes를 여러 줄로 묶지 않음(한 줄에 표시)	|| nowrap
-wrap	||Items를 여러 줄로 묶음	||
-wrap-reverse	|| Items를 wrap의 역 방향으로 여러 줄로 묶음 ||
-
+값 || 의미 || 기본값
+nowrap || 모든 Itmes를 여러 줄로 묶지 않음(한 줄에 표시) || nowrap
+wrap ||Items를 여러 줄로 묶음 ||
+wrap-reverse || Items를 wrap의 역 방향으로 여러 줄로 묶음 ||
 
 ### row-gap(grid-row-gap)
 
-- 각 행과 행 사이의 간격(Gutter)을 지정합니다.
+-   각 행과 행 사이의 간격(Gutter)을 지정합니다.
 
 ### column-gap (grid-column-gap)
 
-- 각 열과 열 사이의 간격(Gutter)을 지정합니다.
+-   각 열과 열 사이의 간격(Gutter)을 지정합니다.
 
 ### gap (grid-gap)
 
-- 각 행과 행, 열과 열 사이의 간격(Gutter)을 지정합니다.
+-   각 행과 행, 열과 열 사이의 간격(Gutter)을 지정합니다.
 
 ```JavaScript
 
@@ -226,8 +223,8 @@ wrap-reverse	|| Items를 wrap의 역 방향으로 여러 줄로 묶음 ||
 
 ### grid-auto-rows
 
-- 암시적 행(Track)의 크기를 정의합니다.
-아이템(Item)이 grid-template-rows로 정의한 명시적 행 외부에 배치되는 경우 암시적 행의 크기가 적용됩니다.
+-   암시적 행(Track)의 크기를 정의합니다.
+    아이템(Item)이 grid-template-rows로 정의한 명시적 행 외부에 배치되는 경우 암시적 행의 크기가 적용됩니다.
 
 ```JavaScript
 
@@ -247,9 +244,8 @@ wrap-reverse	|| Items를 wrap의 역 방향으로 여러 줄로 묶음 ||
 
 ### grid-auto-columns
 
-- 암시적 열(Track)의 크기를 정의합니다.
-아이템(Item)이 grid-template-columns로 정의한 명시적 열 외부에 배치되는 경우 암시적 열의 크기가 적용됩니다.
-
+-   암시적 열(Track)의 크기를 정의합니다.
+    아이템(Item)이 grid-template-columns로 정의한 명시적 열 외부에 배치되는 경우 암시적 열의 크기가 적용됩니다.
 
 ```JavaScript
 
@@ -272,13 +268,13 @@ wrap-reverse	|| Items를 wrap의 역 방향으로 여러 줄로 묶음 ||
 
 ### grid-auto-flow
 
-- 배치하지 않은 아이템(Item)을 어떤 방식의 ‘자동 배치 알고리즘’으로 처리할지 정의합니다.
+-   배치하지 않은 아이템(Item)을 어떤 방식의 ‘자동 배치 알고리즘’으로 처리할지 정의합니다.
 
-값	|| 의미	|| 기본값
-row	|| 각 행 축을 따라 차례로 배치	|| row
-column	|| 각 열 축을 따라 차례로 배치	
-row dense(dense)	|| 각 행 축을 따라 차례로 배치, 빈 영역 메움!	
-column dense	|| 각 열 축을 따라 차례로 배치, 빈 영역 메움!	
+값 || 의미 || 기본값
+row || 각 행 축을 따라 차례로 배치 || row
+column || 각 열 축을 따라 차례로 배치
+row dense(dense) || 각 행 축을 따라 차례로 배치, 빈 영역 메움!
+column dense || 각 열 축을 따라 차례로 배치, 빈 영역 메움!
 
 ```JavaScript
 
@@ -297,7 +293,7 @@ column dense	|| 각 열 축을 따라 차례로 배치, 빈 영역 메움!
 
 ### grid
 
-- grid-template-xxx과 grid-auto-xxx의 단축 속성입니다.
+-   grid-template-xxx과 grid-auto-xxx의 단축 속성입니다.
 
 ```JavaScript
 
@@ -330,20 +326,18 @@ column dense	|| 각 열 축을 따라 차례로 배치, 빈 영역 메움!
 
 ### align-content
 
-- 그리드 콘텐츠(Contents)를 수직(열 축) 정렬합니다.
-그리드 콘텐츠의 세로 너비가 그리드 컨테이너(Container)보다 작아야 합니다.
+-   그리드 콘텐츠(Contents)를 수직(열 축) 정렬합니다.
+    그리드 콘텐츠의 세로 너비가 그리드 컨테이너(Container)보다 작아야 합니다.
 
-
-값	|| 의미	|| 기본값
-normal	|| stretch와 같습니다.	|| normal
-start	|| 시작점(위쪽) 정렬	
-center	|| 수직 가운데 정렬	
-end	|| 끝점(아래쪽) 정렬	
-space-around	|| 각 행 위아래에 여백을 고르게 정렬	
-space-between	|| 첫 행은 시작점에, 끝 행은 끝점에 정렬되고 나머지 여백으로 고르게 정렬	
-space-evenly	|| 모든 여백을 고르게 정렬	
-stretch	|| 열 축을 채우기 위해 그리드 콘텐츠를 늘림
-
+값 || 의미 || 기본값
+normal || stretch와 같습니다. || normal
+start || 시작점(위쪽) 정렬
+center || 수직 가운데 정렬
+end || 끝점(아래쪽) 정렬
+space-around || 각 행 위아래에 여백을 고르게 정렬
+space-between || 첫 행은 시작점에, 끝 행은 끝점에 정렬되고 나머지 여백으로 고르게 정렬
+space-evenly || 모든 여백을 고르게 정렬
+stretch || 열 축을 채우기 위해 그리드 콘텐츠를 늘림
 
 ```JavaScript
 
@@ -360,21 +354,18 @@ stretch	|| 열 축을 채우기 위해 그리드 콘텐츠를 늘림
 
 ### justify-content
 
-- 그리드 콘텐츠(Contents)를 수평(행 축) 정렬합니다.
-그리드 콘텐츠의 가로 너비가 그리드 컨테이너(Container)보다 작아야 합니다.
+-   그리드 콘텐츠(Contents)를 수평(행 축) 정렬합니다.
+    그리드 콘텐츠의 가로 너비가 그리드 컨테이너(Container)보다 작아야 합니다.
 
-
-
-값	|| 의미	|| 기본값
-normal	|| stretch와 같습니다.	|| normal
-start	|| 시작점(왼쪽) 정렬	
-center	|| 수평 가운데 정렬	
-end	|| 끝점(오른쪽) 정렬	
-space-around	|| 각 열 좌우에 여백을 고르게 정렬	
-space-between	|| 첫 열은 시작점에, 끝 열은 끝점에 정렬되고 나머지 여백으로 고르게 정렬	
-space-evenly	|| 모든 여백을 고르게 정렬	
-stretch	|| 행 축을 채우기 위해 그리드 콘텐츠를 늘림
-
+값 || 의미 || 기본값
+normal || stretch와 같습니다. || normal
+start || 시작점(왼쪽) 정렬
+center || 수평 가운데 정렬
+end || 끝점(오른쪽) 정렬
+space-around || 각 열 좌우에 여백을 고르게 정렬
+space-between || 첫 열은 시작점에, 끝 열은 끝점에 정렬되고 나머지 여백으로 고르게 정렬
+space-evenly || 모든 여백을 고르게 정렬
+stretch || 행 축을 채우기 위해 그리드 콘텐츠를 늘림
 
 ```JavaScript
 
@@ -389,12 +380,10 @@ stretch	|| 행 축을 채우기 위해 그리드 콘텐츠를 늘림
 
 ```
 
-
 ### place-content
 
-- align-content와 justify-content의 단축 속성입니다.
-하나의 값만 입력하면 두 속성에 모두 적용됩니다.
-
+-   align-content와 justify-content의 단축 속성입니다.
+    하나의 값만 입력하면 두 속성에 모두 적용됩니다.
 
 ```JavaScript
 
@@ -406,16 +395,15 @@ stretch	|| 행 축을 채우기 위해 그리드 콘텐츠를 늘림
 
 ### align-items
 
-- 그리드 아이템(Items)들을 수직(열 축) 정렬합니다.
-그리드 아이템의 세로 너비가 자신이 속한 그리드 행(Track)의 크기보다 작아야 합니다.
+-   그리드 아이템(Items)들을 수직(열 축) 정렬합니다.
+    그리드 아이템의 세로 너비가 자신이 속한 그리드 행(Track)의 크기보다 작아야 합니다.
 
-값	|| 의미	|| 기본값
-normal	|| stretch와 같습니다.	|| normal
-start	|| 시작점(위쪽) 정렬	
-center	|| 수직 가운데 정렬	
-end	|| 끝점(아래쪽) 정렬	
-stretch	|| 열 축을 채우기 위해 그리드 아이템을 늘림	
-
+값 || 의미 || 기본값
+normal || stretch와 같습니다. || normal
+start || 시작점(위쪽) 정렬
+center || 수직 가운데 정렬
+end || 끝점(아래쪽) 정렬
+stretch || 열 축을 채우기 위해 그리드 아이템을 늘림
 
 ```JavaScript
 
@@ -432,17 +420,15 @@ stretch	|| 열 축을 채우기 위해 그리드 아이템을 늘림
 
 ### justify-items
 
-- 그리드 아이템(Items)들을 수평(행 축) 정렬합니다.
-그리드 아이템의 가로 너비가 자신이 속한 그리드 열(Track)의 크기보다 작아야 합니다.
+-   그리드 아이템(Items)들을 수평(행 축) 정렬합니다.
+    그리드 아이템의 가로 너비가 자신이 속한 그리드 열(Track)의 크기보다 작아야 합니다.
 
-
-값	|| 의미	|| 기본값
-normal	|| stretch와 같습니다.	|| normal
-start	|| 시작점(왼쪽) 정렬	
-center	|| 수평 가운데 정렬	
-end	|| 끝점(오른쪽) 정렬	
-stretch	|| 행 축을 채우기 위해 그리드 아이템을 늘림	
-
+값 || 의미 || 기본값
+normal || stretch와 같습니다. || normal
+start || 시작점(왼쪽) 정렬
+center || 수평 가운데 정렬
+end || 끝점(오른쪽) 정렬
+stretch || 행 축을 채우기 위해 그리드 아이템을 늘림
 
 ```JavaScript
 
@@ -459,10 +445,8 @@ stretch	|| 행 축을 채우기 위해 그리드 아이템을 늘림
 
 ### place-items
 
-- align-items와 justify-items의 단축 속성입니다.
-하나의 값만 입력하면 두 속성에 모두 적용됩니다.
-
-
+-   align-items와 justify-items의 단축 속성입니다.
+    하나의 값만 입력하면 두 속성에 모두 적용됩니다.
 
 ```JavaScript
 
@@ -472,41 +456,26 @@ stretch	|| 행 축을 채우기 위해 그리드 아이템을 늘림
 
 ```
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## Grid Items
 
-
-속성	|| 의미
-grid-row-start	|| 그리드 아이템(Item)의 행 시작 위치 지정
-grid-row-end	|| 그리드 아이템의 행 끝 위치 지정
-grid-row	|| grid-row-xxx의 단축 속성(행 시작/끝 위치)
-grid-column-start	|| 그리드 아이템의 열 시작 위치 지정
-grid-column-end	|| 그리드 아이템의 열 끝 위치 지정
-grid-column	|| grid-column-xxx의 단축 속성(열 시작/끝 위치)
-grid-area	|| 영역(Area) 이름을 설정하거나, grid-row와 grid-column의 단축 속성
-align-self	|| 단일 그리드 아이템을 수직(열 축) 정렬
-justify-self	|| 단일 그리드 아이템을 수평(행 축) 정렬
-place-self	|| align-self와 justify-self의 단축 속성
-order	|| 그리드 아이템의 배치 순서를 지정
-z-index	|| 그리드 아이템의 쌓이는 순서를 지정
-
+속성 || 의미
+grid-row-start || 그리드 아이템(Item)의 행 시작 위치 지정
+grid-row-end || 그리드 아이템의 행 끝 위치 지정
+grid-row || grid-row-xxx의 단축 속성(행 시작/끝 위치)
+grid-column-start || 그리드 아이템의 열 시작 위치 지정
+grid-column-end || 그리드 아이템의 열 끝 위치 지정
+grid-column || grid-column-xxx의 단축 속성(열 시작/끝 위치)
+grid-area || 영역(Area) 이름을 설정하거나, grid-row와 grid-column의 단축 속성
+align-self || 단일 그리드 아이템을 수직(열 축) 정렬
+justify-self || 단일 그리드 아이템을 수평(행 축) 정렬
+place-self || align-self와 justify-self의 단축 속성
+order || 그리드 아이템의 배치 순서를 지정
+z-index || 그리드 아이템의 쌓이는 순서를 지정
 
 ### grid-row-start
 
-- 그리드 아이템(Item)을 배치하기 위해 그리드 선(Line)의 ‘시작 위치’와 ‘끝 위치’를 지정합니다.
-‘숫자’를 지정하거나, ‘선 이름’을 지정하거나, span 키워드를 사용합니다.
+-   그리드 아이템(Item)을 배치하기 위해 그리드 선(Line)의 ‘시작 위치’와 ‘끝 위치’를 지정합니다.
+    ‘숫자’를 지정하거나, ‘선 이름’을 지정하거나, span 키워드를 사용합니다.
 
 ```JavaScript
 
@@ -526,16 +495,13 @@ z-index	|| 그리드 아이템의 쌓이는 순서를 지정
 
 ### grid-row-end
 
-- 그리드 아이템(Item)을 배치하기 위해 그리드 선(Line)의 ‘시작 위치’와 ‘끝 위치’를 지정합니다.
-‘숫자’를 지정하거나, ‘선 이름’을 지정하거나, span 키워드를 사용합니다.
-
-
+-   그리드 아이템(Item)을 배치하기 위해 그리드 선(Line)의 ‘시작 위치’와 ‘끝 위치’를 지정합니다.
+    ‘숫자’를 지정하거나, ‘선 이름’을 지정하거나, span 키워드를 사용합니다.
 
 ### grid-row
 
-- grid-row-start과 grid-row-end의 단축 속성입니다.
-각 속성을 /로 구분하는 것에 주의하세요.
-
+-   grid-row-start과 grid-row-end의 단축 속성입니다.
+    각 속성을 /로 구분하는 것에 주의하세요.
 
 ```JavaScript
 
@@ -547,20 +513,18 @@ z-index	|| 그리드 아이템의 쌓이는 순서를 지정
 
 ### grid-column-start
 
-- 그리드 아이템(Item)을 배치하기 위해 그리드 선(Line)의 ‘시작 위치’와 ‘끝 위치’를 지정합니다.
-‘숫자’를 지정하거나, ‘선 이름’을 지정하거나, span 키워드를 사용합니다.
-
+-   그리드 아이템(Item)을 배치하기 위해 그리드 선(Line)의 ‘시작 위치’와 ‘끝 위치’를 지정합니다.
+    ‘숫자’를 지정하거나, ‘선 이름’을 지정하거나, span 키워드를 사용합니다.
 
 ### grid-column-end
 
-- 그리드 아이템(Item)을 배치하기 위해 그리드 선(Line)의 ‘시작 위치’와 ‘끝 위치’를 지정합니다.
-‘숫자’를 지정하거나, ‘선 이름’을 지정하거나, span 키워드를 사용합니다.
+-   그리드 아이템(Item)을 배치하기 위해 그리드 선(Line)의 ‘시작 위치’와 ‘끝 위치’를 지정합니다.
+    ‘숫자’를 지정하거나, ‘선 이름’을 지정하거나, span 키워드를 사용합니다.
 
 ### grid-column
 
-- grid-column-start과 grid-column-end의 단축 속성입니다.
-각 속성을 /로 구분하는 것에 주의하세요.
-
+-   grid-column-start과 grid-column-end의 단축 속성입니다.
+    각 속성을 /로 구분하는 것에 주의하세요.
 
 ```JavaScript
 
@@ -572,9 +536,9 @@ z-index	|| 그리드 아이템의 쌓이는 순서를 지정
 
 ### grid-area
 
-- grid-row-start, grid-column-start, grid-row-end 그리고 grid-column-end의 단축 속성입니다.
-혹은 grid-template-areas가 참조할 영역(Area) 이름을 설정할 수도 있습니다.
-영역 이름을 설정할 경우 grid-row와 grid-column 개념은 무시됩니다.
+-   grid-row-start, grid-column-start, grid-row-end 그리고 grid-column-end의 단축 속성입니다.
+    혹은 grid-template-areas가 참조할 영역(Area) 이름을 설정할 수도 있습니다.
+    영역 이름을 설정할 경우 grid-row와 grid-column 개념은 무시됩니다.
 
 ```JavaScript
 
@@ -587,15 +551,15 @@ z-index	|| 그리드 아이템의 쌓이는 순서를 지정
 
 ### align-self
 
-- 단일 그리드 아이템(Item)을 수직(열 축) 정렬합니다.
-그리드 아이템의 세로 너비가 자신이 속한 그리드 행(Track)의 크기보다 작아야 합니다.
+-   단일 그리드 아이템(Item)을 수직(열 축) 정렬합니다.
+    그리드 아이템의 세로 너비가 자신이 속한 그리드 행(Track)의 크기보다 작아야 합니다.
 
-값	|| 의미	|| 기본값
-normal	|| stretch와 같습니다.	|| normal
-start	|| 시작점(위쪽) 정렬	
-center	|| 수직 가운데 정렬	
-end	|| 끝점(아래쪽) 정렬	
-stretch	|| 열 축을 채우기 위해 그리드 아이템을 늘림
+값 || 의미 || 기본값
+normal || stretch와 같습니다. || normal
+start || 시작점(위쪽) 정렬
+center || 수직 가운데 정렬
+end || 끝점(아래쪽) 정렬
+stretch || 열 축을 채우기 위해 그리드 아이템을 늘림
 
 ```JavaScript
 
@@ -613,16 +577,15 @@ stretch	|| 열 축을 채우기 위해 그리드 아이템을 늘림
 
 ### justify-self
 
-- 단일 그리드 아이템(Item)을 수평(행 축) 정렬합니다.
-그리드 아이템의 가로 너비가 자신이 속한 그리드 열(Track)의 크기보다 작아야 합니다.
+-   단일 그리드 아이템(Item)을 수평(행 축) 정렬합니다.
+    그리드 아이템의 가로 너비가 자신이 속한 그리드 열(Track)의 크기보다 작아야 합니다.
 
-
-값	|| 의미	|| 기본값
-normal	|| stretch와 같습니다.	|| normal
-start	|| 시작점(왼쪽) 정렬	
-center	|| 수평 가운데 정렬	
-end	|| 끝점(오른쪽) 정렬	
-stretch	|| 행 축을 채우기 위해 그리드 아이템을 늘림	
+값 || 의미 || 기본값
+normal || stretch와 같습니다. || normal
+start || 시작점(왼쪽) 정렬
+center || 수평 가운데 정렬
+end || 끝점(오른쪽) 정렬
+stretch || 행 축을 채우기 위해 그리드 아이템을 늘림
 
 ```JavaScript
 
@@ -640,8 +603,8 @@ stretch	|| 행 축을 채우기 위해 그리드 아이템을 늘림
 
 ### place-self
 
-- align-self와 justify-self의 단축 속성입니다.
-하나의 값만 입력하면 두 속성에 모두 적용됩니다.
+-   align-self와 justify-self의 단축 속성입니다.
+    하나의 값만 입력하면 두 속성에 모두 적용됩니다.
 
 ```JavaScript
 
@@ -653,9 +616,8 @@ stretch	|| 행 축을 채우기 위해 그리드 아이템을 늘림
 
 ### order
 
-- 그리드 아이템이 자동 배치되는 순서를 변경할 수 있습니다.
-숫자가 작을수록 앞서 배치됩니다.
-
+-   그리드 아이템이 자동 배치되는 순서를 변경할 수 있습니다.
+    숫자가 작을수록 앞서 배치됩니다.
 
 ```JavaScript
 
@@ -672,8 +634,7 @@ stretch	|| 행 축을 채우기 위해 그리드 아이템을 늘림
 
 ### z-index
 
-- z-index 속성을 이용해 아이템이 쌓이는 순서를 변경할 수 있습니다.
-
+-   z-index 속성을 이용해 아이템이 쌓이는 순서를 변경할 수 있습니다.
 
 ```JavaScript
 
@@ -690,14 +651,13 @@ stretch	|| 행 축을 채우기 위해 그리드 아이템을 늘림
 
 ```
 
-
-
 ## Grid Functions
 
 ### repeat
-- repeat() 함수는 행/열(Track)의 크기 정의를 반복합니다.
-    - ‘반복되는 횟수’와 ‘행/열의 크기 정의’를 인수로 사용합니다.
-    - grid-template-rows와 grid-template-columns에서 사용합니다.
+
+-   repeat() 함수는 행/열(Track)의 크기 정의를 반복합니다.
+    -   ‘반복되는 횟수’와 ‘행/열의 크기 정의’를 인수로 사용합니다.
+    -   grid-template-rows와 grid-template-columns에서 사용합니다.
 
 ```JavaScript
 
@@ -711,11 +671,11 @@ stretch	|| 행 축을 채우기 위해 그리드 아이템을 늘림
 
 ```
 
-
 ### minmax
-- minmax() 함수는 행/열(Track)의 ‘최소/최대 크기’를 정의합니다.
-    - 첫 번째 인수는 ‘최솟값’이고 두 번째 인수는 ‘최댓값’입니다.
-    - grid-template-rows, grid-template-columns, grid-auto-rows 그리고 grid-auto-columns에서 사용합니다.    
+
+-   minmax() 함수는 행/열(Track)의 ‘최소/최대 크기’를 정의합니다.
+    -   첫 번째 인수는 ‘최솟값’이고 두 번째 인수는 ‘최댓값’입니다.
+    -   grid-template-rows, grid-template-columns, grid-auto-rows 그리고 grid-auto-columns에서 사용합니다.
 
 ```JavaScript
 
@@ -725,11 +685,10 @@ stretch	|| 행 축을 채우기 위해 그리드 아이템을 늘림
 
 ```
 
-
-
 ### fit-content
-- fit-content() 함수는 행/열(Track)의 크기를 그리드 아이템(Item)이 포함하는 내용(Contents) 크기에 맞춥니다.
-    - ‘내용의 최대 크기’를 인수로 사용합니다.
+
+-   fit-content() 함수는 행/열(Track)의 크기를 그리드 아이템(Item)이 포함하는 내용(Contents) 크기에 맞춥니다.
+    -   ‘내용의 최대 크기’를 인수로 사용합니다.
 
 ```JavaScript
 
@@ -739,12 +698,13 @@ stretch	|| 행 축을 채우기 위해 그리드 아이템을 늘림
 
 ```
 
-
 ## Grid Units
-- 그리드에서 사용하는 주요 단위
+
+-   그리드에서 사용하는 주요 단위
 
 ### fr
-- fr(fractional unit)은 사용 가능한 공간에 대한 비율을 의미합니다.
+
+-   fr(fractional unit)은 사용 가능한 공간에 대한 비율을 의미합니다.
 
 ```JavaScript
 
@@ -757,11 +717,13 @@ stretch	|| 행 축을 채우기 위해 그리드 아이템을 늘림
 ```
 
 ### min-content
-- 그리드 아이템이 포함하는 내용(Contents)의 최소 크기를 의미합니다.
-    - 한글을 사용하는 경우 word-break: keep-all;를 설정하면 정상적으로 동작합니다.  
+
+-   그리드 아이템이 포함하는 내용(Contents)의 최소 크기를 의미합니다.
+    -   한글을 사용하는 경우 word-break: keep-all;를 설정하면 정상적으로 동작합니다.
 
 ### max-content
-- 그리드 아이템이 포함하는 내용(Contents)의 최대 크기를 의미합니다.
+
+-   그리드 아이템이 포함하는 내용(Contents)의 최대 크기를 의미합니다.
 
 ```JavaScript
 
@@ -774,19 +736,24 @@ stretch	|| 행 축을 채우기 위해 그리드 아이템을 늘림
 ```
 
 ### auto-fill, auto-fit
-- 행/열(Track)의 개수를 그리드 컨테이너(Container) 및 행/열 크기에 맞게 자동으로(암시적) 조정합니다.
-    - repeat() 함수와 같이 사용하며, 행/열과 아이템(Item) 개수가 명확할 필요가 없거나 명확하지 않은 경우 유용합니다.(반응형 그리드)
+
+-   행/열(Track)의 개수를 그리드 컨테이너(Container) 및 행/열 크기에 맞게 자동으로(암시적) 조정합니다.
+    -   repeat() 함수와 같이 사용하며, 행/열과 아이템(Item) 개수가 명확할 필요가 없거나 명확하지 않은 경우 유용합니다.(반응형 그리드)
 
 ## 용어 정리
 
 ### Track
-- 트랙(Track)은 하나의 행(Row) 혹은 열(Column)을 의미합니다.
+
+-   트랙(Track)은 하나의 행(Row) 혹은 열(Column)을 의미합니다.
 
 ### Line
-- 선(Line)은 일반적으로 거터(Gutter)라고 하는 트랙과 트랙 사이의 간격을 의미합니다.
+
+-   선(Line)은 일반적으로 거터(Gutter)라고 하는 트랙과 트랙 사이의 간격을 의미합니다.
 
 ### Cell
-- 셀(Cell)은 아이템(Item)이 배치되는 최소 단위의 영역(Area)입니다.
+
+-   셀(Cell)은 아이템(Item)이 배치되는 최소 단위의 영역(Area)입니다.
 
 ### Area
-- 영역(Area)은 아이템이 배치되는, 하나 이상의 셀(Cell)로 이루어진 영역입니다.
+
+-   영역(Area)은 아이템이 배치되는, 하나 이상의 셀(Cell)로 이루어진 영역입니다.
