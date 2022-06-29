@@ -1,22 +1,21 @@
 ---
 layout: post
-title: "Portainer Docker 관리툴"
-description: 
-headline: 
+title: 'Portainer Docker 관리툴'
+description:
+headline:
 modified: 2020-04-24
-category: webdevelopment
-imagefeature: cover3.jpg
+category: Infrastructure
 tags: [Portainer Docker 관리툴]
-mathjax: 
-chart: 
+mathjax:
+chart:
 share: true
 comments: true
 featured: true
 disqus:
 ---
 
-
 # Portainer
+
 ```JavaScript
 sudo usermod -aG docker $USER
 
