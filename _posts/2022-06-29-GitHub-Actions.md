@@ -49,7 +49,7 @@ disqus:
 -   Step
     -   Task들의 집합으로, 커맨드를 날리거나 action을 실행할 수 있음
 
-###
+### 설정
 
 -   .github/workflows/workflow.yml
 
