@@ -4,7 +4,7 @@ title: 'GitHub Actions'
 description:
 headline:
 modified: 2022-06-29
-category: webdevelopment
+category: CI/CD
 tags: [GitHub Actions]
 mathjax:
 chart:
