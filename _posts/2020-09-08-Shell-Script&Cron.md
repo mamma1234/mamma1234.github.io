@@ -1,14 +1,13 @@
 ---
 layout: post
-title: "Shell Script & Cron"
-description: 
-headline: 
+title: 'Shell Script & Cron'
+description:
+headline:
 modified: 2020-09-08
 category: Shell Script & Cron
-imagefeature: cover3.jpg
 tags: [Shell Script Cron]
-mathjax: 
-chart: 
+mathjax:
+chart:
 share: true
 comments: true
 featured: true
@@ -16,8 +15,8 @@ disqus:
 ---
 
 # ~/.vimrc
-- .vimrc 파일은 vim 에디터의 설정을 바꿀 수 있는 파일
 
+-   .vimrc 파일은 vim 에디터의 설정을 바꿀 수 있는 파일
 
 ```JavaScript
 set smartindent
@@ -39,7 +38,6 @@ echo "$str world"
 $ hello world
 $ hello  world
 ```
-
 
 # loop
 
@@ -75,8 +73,8 @@ $ abc
 $ i=100, ii=200
 ```
 
-
 # IF
+
 ```JavaScript
 문자: ==    !=
 숫자: -gt, eq, lt, ne, le, ge
@@ -157,7 +155,6 @@ $ 123
 $ 6666666
 ```
 
-
 # Function
 
 ```JavaScript
@@ -173,9 +170,9 @@ $> ./s9.sh aaa
 Hello ./s9.sh Jade Jeon by Jeon!! (2)
 ```
 
-
 # IFS & AWK
-- Internal Field Separator
+
+-   Internal Field Separator
 
 ```JavaScript
 echo "IFS=${IFS}."
@@ -191,7 +188,6 @@ IFS=$PRE_IFS
 
 
 ```
-
 
 ```JavaScript
 #!/bin/bash
@@ -214,7 +210,7 @@ for i in `ls -al /bin`; do
 
     if [ "$F" == "." ] || [ "$F" == ".." ] || [ "$F" == "" ]; then
         continue
-    # elif 
+    # elif
     fi
 
     #TOT=$(( $TOT + $S ))
@@ -229,7 +225,6 @@ IFS=$PRE_IFS
 
 ```
 
-
 # cron
 
 ```JavaScript
@@ -237,7 +232,7 @@ $> crontab -l
 $> crontab -e
 분 시 일 월 주
 * * * * * /test.sh >> /temp.log 2>&1
-(2: Standard Error, 1: Standard Out) 
+(2: Standard Error, 1: Standard Out)
 $> ps -ef | grep cron
 
 ```
