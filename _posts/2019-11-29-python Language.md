@@ -219,3 +219,7 @@ print(ceil(1.2))
   nohup python3 src/scheduleloader/main.py &
   tail -f nohup.out
 ```
+
+## pip 패키지 설치 프로그램을 사용하여 requirements.txt 생성
+
+pip3 freeze > requirements.txt
