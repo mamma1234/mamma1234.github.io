@@ -164,6 +164,16 @@ scrapy runspider testspider.py
 scrapy crawl test
 실행을 하면 로그가 나오는 화면을 볼 수 있다.
 
+로그를 나오게 하지 않으려면 실행 명령어 뒤에 --nolog 명령어를 사용한다.
+
+# runspider
+scrapy runspider testspider.py --nolog
+
+# crawl
+scrapy crawl test --nolog
+log가 없어진 것을 확인 할 수 있다.
+
+
 ```
 
 ## Exception
