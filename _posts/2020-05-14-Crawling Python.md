@@ -103,8 +103,8 @@ option.add_argument("window-size=1920x1080)
 
 ### why
 
-웹 크롤링 및 스크래핑을 위한 Python 라이브러리 : Scrapy
-파이썬 웹브라우저 자동화 라이브러리 : Selenium
+-   웹 크롤링 및 스크래핑을 위한 Python 라이브러리 : Scrapy
+-   파이썬 웹브라우저 자동화 라이브러리 : Selenium
 
 Scrapy 웹사이트를 크롤링 및 스크래핑을 통해 정보를 추출하고, 이를 데이터셋의 형태로 저장하는데 특화된 라이브러리
 
