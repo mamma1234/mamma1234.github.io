@@ -143,7 +143,26 @@ myscrapy1 - settings.py
 scrapy crawl mybots
 
 
+```
 
+-   실행
+
+```JavaScript
+실행하기 전에 명령어에는 Runspider 와 Crawl 가 있다.
+
+scrapy crawl [스파이더 name]
+scrapy runspider [스파이더]
+
+runspider는 spiders폴더에서 실행할 수 있고, crawl은 scrapy.cfg 파일이 존재하는 폴더에서 실행해야 한다.
+
+runspider은 spider bot을 실행시키는 것은 단위 테스트 방식을 할 때 유용하고 crawl은 구조를 다 만들어 놓은 후 테스트를 할 때나 실제로 크롤링을 할 경우 사용하는 것이 유용하다.
+
+# runspider : spiders 폴더에서 실행
+scrapy runspider testspider.py
+
+# crawl : scrapy.cfg파일이 존재하는 path에서 실행
+scrapy crawl test
+실행을 하면 로그가 나오는 화면을 볼 수 있다.
 
 ```
 
