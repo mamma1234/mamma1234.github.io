@@ -277,6 +277,7 @@ DB_PASSWORD_FOR_INFLUXDB=Wd3wAb4SK2SdpBKQ
 ssh logispot@13.125.23.155 -L 3101:logispot-prod.cnii1tftmuzr.ap-northeast-2.rds.amazonaws.com:3306
 ssh logispot@13.125.23.155 -L 3102:logispot-prod-readonly.cnii1tftmuzr.ap-northeast-2.rds.amazonaws.com:3306
 
+ssh ubuntu@13.209.22.247
 ## 운영 Vue webpack compile
 
 ~/www/releases/current$ npm run production
