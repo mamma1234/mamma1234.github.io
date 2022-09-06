@@ -278,6 +278,19 @@ ssh logispot@13.125.23.155 -L 3101:logispot-prod.cnii1tftmuzr.ap-northeast-2.rds
 ssh logispot@13.125.23.155 -L 3102:logispot-prod-readonly.cnii1tftmuzr.ap-northeast-2.rds.amazonaws.com:3306
 
 ssh ubuntu@13.209.22.247
+
 ## 운영 Vue webpack compile
 
 ~/www/releases/current$ npm run production
+
+## AWS
+
+QUEUE_CONNECTION=sqs
+AWS_SQS_ACCESS_KEY_ID=AKIAQTRJKWYSG34JTVU7
+AWS_SQS_SECRET_ACCESS_KEY=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
+AWS_SQS_QUEUE=logispot-local-mamma
+AWS_SQS_QUEUE_HIGH=logispot-local-mamma
+AWS_SQS_QUEUE_INSUNG=logispot-local-mamma
+AWS_SQS_QUEUE_INSUNG_SIGNATURE=logispot-local-mamma
+
+php artisan queue:work --once
