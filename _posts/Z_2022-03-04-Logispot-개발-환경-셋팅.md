@@ -246,6 +246,7 @@ delete from extensions where user_carrier_id = 7
 ## DB 커넥트
 
 ssh logispot@13.125.23.155 -L 3101:logispot-prod.cnii1tftmuzr.ap-northeast-2.rds.amazonaws.com:3306
+ssh logispot@13.125.23.155 -L 3102:logispot-prod-readonly.cnii1tftmuzr.ap-northeast-2.rds.amazonaws.com:3306
 
 foreground: logispot@13.125.23.155
 background: logispot@54.180.182.73
@@ -274,10 +275,12 @@ DB_HOST_FOR_INFLUXDB=ip-172-31-30-71.ap-northeast-2.compute.internal
 DB_USERNAME_FOR_INFLUXDB=logispot
 DB_PASSWORD_FOR_INFLUXDB=Wd3wAb4SK2SdpBKQ
 
-ssh logispot@13.125.23.155 -L 3101:logispot-prod.cnii1tftmuzr.ap-northeast-2.rds.amazonaws.com:3306
-ssh logispot@13.125.23.155 -L 3102:logispot-prod-readonly.cnii1tftmuzr.ap-northeast-2.rds.amazonaws.com:3306
-
 ssh ubuntu@13.209.22.247
+
+alias conreal="ssh logispot@13.125.23.155 -L 3101:logispot-prod.cnii1tftmuzr.ap-northeast-2.rds.amazonaws.com:3306"
+alias conrealbg="ssh logispot@54.180.182.73 -L 3101:logispot-prod.cnii1tftmuzr.ap-northeast-2.rds.amazonaws.com:3306"
+alias contest="ssh logispot@13.124.97.53"
+alias contestbg="ssh logispot@52.79.190.56"
 
 ## 운영 Vue webpack compile
 
@@ -294,3 +297,11 @@ AWS_SQS_QUEUE_INSUNG=logispot-local-mamma
 AWS_SQS_QUEUE_INSUNG_SIGNATURE=logispot-local-mamma
 
 php artisan queue:work --once
+
+## production 관련
+
+sudo service nginx restart
+sudo service nginx status
+sudo service php7.4-fpm restart
+
+npm run production
