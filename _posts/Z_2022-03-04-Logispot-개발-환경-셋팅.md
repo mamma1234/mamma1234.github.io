@@ -324,6 +324,7 @@ npm run production
             app/Lib/OpenApi/filter-for-carrier public/documents/open-api.json public/documents/open-api-carrier.json
 
 -   Production Server:
+
     -   선행
         -   mkdir -p public/documents
     -   개발자 용
@@ -335,3 +336,11 @@ npm run production
         -   ./vendor/bin/openapi -o public/documents/open-api-webhook.json --format json ./app/Events/Webhooks
     -   운송사용
         -   app/Lib/OpenApi/filter-for-carrier public/documents/open-api.json public/documents/open-api-carrier.json
+
+## redoc-cli
+
+-   화주 전달용 stati HTML 파일 생성
+    -   npx install redoc-cli 또는 npx redoc-cli
+    -   redoc-cli bundle public/documents/open-api-filtered.json (화주용)
+    -   redoc-cli bundle public/documents/open-api-carrier.json (운송사용)
+    -   redoc-cli bundle public/documents/open-api-webhook.json (WEB Hook)
