@@ -305,3 +305,33 @@ sudo service nginx status
 sudo service php7.4-fpm restart
 
 npm run production
+
+## zircote/swagger-php
+
+[https://zircote.github.io/swagger-php/guide/required-elements.html](https://zircote.github.io/swagger-php/guide/required-elements.html)
+
+-   ./vendor/bin/openapi app -o apenapi.yaml
+
+-   Test Server
+
+    -   선행
+        -   mkdir -p public/documents
+    -   개발자 용
+        -   ./vendor/bin/openapi -o public/documents/open-api.json --format json ./app/Http ./app/Model - 화주 웹
+            app/Lib/OpenApi/filter public/documents/open-api.json public/documents/open-api-filtered.json
+    -   화주 웹 (Webhook)
+        -   ./vendor/bin/openapi -o public/documents/open-api-webhook.json --format json ./app/Events/Webhooks - 운송사용
+            app/Lib/OpenApi/filter-for-carrier public/documents/open-api.json public/documents/open-api-carrier.json
+
+-   Production Server:
+    -   선행
+        -   mkdir -p public/documents
+    -   개발자 용
+        -   ./vendor/bin/openapi -o public/documents/open-api.json --format json ./app/Http ./app/Model
+    -   화주 웹
+        -   ./vendor/bin/openapi -o storage/logs/open-api.json --format json ./app/Http ./app/Model
+            app/Lib/OpenApi/filter storage/logs/open-api.json public/documents/open-api-filtered.json
+    -   화주 웹 (Webhook)
+        -   ./vendor/bin/openapi -o public/documents/open-api-webhook.json --format json ./app/Events/Webhooks
+    -   운송사용
+        -   app/Lib/OpenApi/filter-for-carrier public/documents/open-api.json public/documents/open-api-carrier.json
