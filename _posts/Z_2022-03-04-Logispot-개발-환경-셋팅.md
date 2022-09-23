@@ -344,3 +344,9 @@ npm run production
     -   redoc-cli bundle public/documents/open-api-filtered.json (화주용)
     -   redoc-cli bundle public/documents/open-api-carrier.json (운송사용)
     -   redoc-cli bundle public/documents/open-api-webhook.json (WEB Hook)
+
+## 로컬 api 개발
+
+./vendor/bin/openapi -o public/documents/open-api.json --format json ./app/Http ./app/Model
+app/Lib/OpenApi/filter public/documents/open-api.json public/documents/open-api-filtered.json
+redoc-cli bundle public/documents/open-api-filtered.json
