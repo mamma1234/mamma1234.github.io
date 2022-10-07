@@ -350,3 +350,10 @@ npm run production
 ./vendor/bin/openapi -o public/documents/open-api.json --format json ./app/Http ./app/Model
 app/Lib/OpenApi/filter public/documents/open-api.json public/documents/open-api-filtered.json
 redoc-cli bundle public/documents/open-api-filtered.json
+
+## 로컬파일 수정 git 제외
+
+.gitignore
+app/Providers/AppServiceProvider.php
+config/logging.php
+package.json
