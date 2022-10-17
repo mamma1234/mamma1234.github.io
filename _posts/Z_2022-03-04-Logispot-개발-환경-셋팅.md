@@ -357,3 +357,35 @@ redoc-cli bundle public/documents/open-api-filtered.json
 app/Providers/AppServiceProvider.php
 config/logging.php
 package.json
+
+## 배포환경 구성
+
+```JavaScript
+apt-get install ssh
+
+root@b9bf32081cb4:~# ssh-keygen -t rsa
+Generating public/private rsa key pair.
+Enter file in which to save the key (/root/.ssh/id_rsa):
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /root/.ssh/id_rsa.
+Your public key has been saved in /root/.ssh/id_rsa.pub.
+The key fingerprint is:
+SHA256:Z+XAaW/HVYijMXGfMd5MR4f9/NkCdj7B3j6Sa+IBTwU root@b9bf32081cb4
+The key's randomart image is:
++---[RSA 2048]----+
+| .E..o=\*|
+| .oo+ooB=|
+| =+.++.=|
+| ..=+.+.o|
+| S.oo+=oo+|
+| o+. .=.+|
+| o .+ |
+| ..+ ..|
+| ..o.o .|
++----[SHA256]-----+
+
+/root/.ssh/id_rsa.pub.
+
+ec2 서버 /home/logispot/.ssh > authorized_keys 에 붙여 넣기
+```
