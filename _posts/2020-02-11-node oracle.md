@@ -1,12 +1,12 @@
 ---
 layout: post
-title: 'Node Oracle'
+title: 'Node Oracle Client'
 description:
 headline:
 modified: 2020-02-11
-category: webdevelopment
+category: software platform
 imagefeature:
-tags: [node oracle]
+tags: [node oracle client]
 mathjax:
 chart:
 share: true
