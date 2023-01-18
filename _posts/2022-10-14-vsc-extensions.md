@@ -22,6 +22,31 @@ disqus:
 -   [](#)
 -   [개념](#개념)
 
+## laravel vscode setting
+
+Introduction
+Community Material Theme
+Laravel Artisan
+Laravel Blade Snippets
+Laravel Blade Spacer
+Laravel Extra Intellisense & PHP Intelephense
+Laravel goto view
+Laravel goto controller
+Laravel Snippets
+Laravel goto Components
+Additional PHP Extensions
+PHP DocBlocker
+PHPDoc Comment
+PHP Namespace Resolver
+Beautify
+DotENV
+Paste JSON as Code
+Tailwind CSS IntelliSense
+VSCode Great Icons
+Database Client
+
+[https://www.youtube.com/watch?v=KAUxgUvC514](https://www.youtube.com/watch?v=KAUxgUvC514)
+
 ## 개념
 
 ```javascript
