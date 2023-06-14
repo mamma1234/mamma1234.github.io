@@ -4,7 +4,7 @@ title: 'Javascript-배열-Array'
 description:
 headline:
 modified: 2021-07-09
-category: webdevelopment
+category: Laguage
 imagefeature:
 tags: [Javascript-배열-Array]
 mathjax:

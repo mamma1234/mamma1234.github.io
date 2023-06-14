@@ -4,7 +4,7 @@ title: 'javascirpt function'
 description:
 headline:
 modified: 2022-11-07
-category: webdevelopment
+category: Laguage
 imagefeature:
 tags: [javascript function]
 mathjax:
