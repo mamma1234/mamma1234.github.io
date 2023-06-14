@@ -4,7 +4,7 @@ title: 'Kotlin'
 description:
 headline:
 modified: 2020-02-29
-category: webdevelopment
+category: Laguage
 imagefeature:
 tags: [Kotlin]
 mathjax:

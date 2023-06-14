@@ -4,7 +4,7 @@ title: 'JavaScript Async'
 description:
 headline:
 modified: 2020-07-14
-category: webdevelopment
+category: Laguage
 imagefeature:
 tags: [JavaScript Async]
 mathjax:

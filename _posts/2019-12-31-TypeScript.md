@@ -4,7 +4,7 @@ title: 'TypeScript'
 description:
 headline:
 modified: 2019-12-31
-category: development
+category: Laguage
 imagefeature:
 tags: [TypeScript]
 mathjax:

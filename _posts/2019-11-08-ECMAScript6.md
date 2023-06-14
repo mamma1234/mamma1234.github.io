@@ -4,7 +4,7 @@ title: 'ES6'
 description:
 headline:
 modified: 2019-11-08
-category: webdevelopment
+category: Laguage
 imagefeature:
 tags: [ES6]
 mathjax:

@@ -4,7 +4,7 @@ title: 'Javascript Array Prototype'
 description:
 headline:
 modified: 2020-10-20
-category: webdevelopment
+category: Laguage
 imagefeature:
 tags: [Javascript Array Prototype]
 mathjax:

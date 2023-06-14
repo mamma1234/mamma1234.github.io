@@ -4,7 +4,7 @@ title: 'GO google develop language'
 description:
 headline:
 modified: 2019-11-26
-category: development
+category: Laguage
 imagefeature:
 tags: [Go]
 mathjax:

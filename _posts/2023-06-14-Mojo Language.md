@@ -4,7 +4,7 @@ title: 'Mojo develop language'
 description:
 headline:
 modified: 2023-06-14
-category: development
+category: Laguage
 imagefeature:
 tags: [Mojo]
 mathjax:

@@ -4,7 +4,7 @@ title: 'Python develop language'
 description:
 headline:
 modified: 2019-11-29
-category: development
+category: Laguage
 imagefeature:
 tags: [Python]
 mathjax:
