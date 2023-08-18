@@ -194,3 +194,9 @@ exclude:
         'package.json',
         'node_modules',
     ]
+
+external_links:
+  - name: Google
+    url: https://www.google.com/
+  - name: OpenAI
+    url: https://www.openai.com/
