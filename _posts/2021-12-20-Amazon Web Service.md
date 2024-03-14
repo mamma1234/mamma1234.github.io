@@ -32,6 +32,8 @@ disqus:
 -   [WAF](#WAF)
 -   [CloudFront](#CloudFront)
 -   [ELS](#ELS) 
+-   [ACL](#ACL) 
+-   [ELB](#ELB) 
 
 ## 개념
 
@@ -93,3 +95,10 @@ disqus:
             - IP 주소와 포트 번호를 기반으로 트래픽 분산
             - 간단하고 빠른 성능 제공
             - 낮은 비용
+
+## ACL
+    AWS ACL(Access Control List)은 네트워크 리소스에 대한 액세스 제어를 관리하는 데 사용되는 기능
+
+## ELB
+    ELB는 Elastic Load Balancing의 약자로, AWS에서 제공하는 관리형 로드 밸런서 서비스입니다. ELB는 여러 EC2 인스턴스나 컨테이너 등의 백엔드 리소스에 들어오는 트래픽을 분산하여 각 리소스에 대한 부하를 균등하게 분산시키는 역할을 합니다.
+    ALB, NLB, GLB
