@@ -34,6 +34,7 @@ disqus:
 -   [ELS](#ELS) 
 -   [ACL](#ACL) 
 -   [ELB](#ELB) 
+-   [EBS](#EBS) 
 
 ## 개념
 
@@ -102,3 +103,12 @@ disqus:
 ## ELB
     ELB는 Elastic Load Balancing의 약자로, AWS에서 제공하는 관리형 로드 밸런서 서비스입니다. ELB는 여러 EC2 인스턴스나 컨테이너 등의 백엔드 리소스에 들어오는 트래픽을 분산하여 각 리소스에 대한 부하를 균등하게 분산시키는 역할을 합니다.
     ALB, NLB, GLB
+
+## EBS
+### 볼륨 크기 조정 후 파일 시스템 확장
+    https://docs.aws.amazon.com/ko_kr/ebs/latest/userguide/recognize-expanded-volume-linux.html
+    Xen 계열
+        sudo lsblk
+        sudo growpart /dev/xvda 1
+        sudo lsblk
+        sudo resize2fs /dev/root
