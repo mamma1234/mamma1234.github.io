@@ -4,7 +4,7 @@ title: 'oracle client'
 description:
 headline:
 modified: 2023-05-15
-category: DataBase
+category: Database
 imagefeature:
 tags: [oracle client]
 mathjax:

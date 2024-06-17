@@ -4,7 +4,7 @@ title: 'Postgresql'
 description:
 headline:
 modified: 2020-03-26
-category: webdevelopment
+category: Database
 imagefeature:
 tags: [Postgresql]
 mathjax:
