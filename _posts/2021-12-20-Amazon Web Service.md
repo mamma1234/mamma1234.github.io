@@ -35,6 +35,8 @@ disqus:
 -   [ACL](#ACL) 
 -   [ELB](#ELB) 
 -   [EBS](#EBS) 
+-   [VPC](#VPC)
+-   [SUBNET](#SUBNET)
 
 ## 개념
 
@@ -112,3 +114,17 @@ disqus:
         sudo growpart /dev/xvda 1
         sudo lsblk
         sudo resize2fs /dev/root
+
+
+## VPC
+
+## Subnet
+    -- Public Subnet
+        Destination: 0.0.0.0/0
+        Target: igw-abc123 (Internet Gateway)
+    -- Private Subnet
+        Destination: 0.0.0.0/0
+        Target: nat-abc123 (NAT Gateway)    ← Private Subnet이지만 외부로 나갈 수 있음
+        또는
+        Destination: 0.0.0.0/0
+        Target: 없음 (VPC 내부 전용)
