@@ -71,11 +71,67 @@ Linux, CentOS, Ubuntu <br>
 
 ## [EXPERIENCE]
 ### 운송관리시스템
-
+- 기간
+  - 2022년 3월 ~ 현재
+- 배경
+  - 로지스팟 핵심 사업인 운송 관리 시스템의 안정화 및 지속적 성장 지원
+  - AI 기반 최적화 기술 도입을 통한 경쟁력 강화
+- 핵심 성과
+  - 최적화 라우팅 신규 서비스 런칭으로 배송 효율 30% 향상, 연간 물류비 5억 원 절감 (예상)
+  - 스크럼 및 맨투맨 관리로 프로젝트 일정 준수율 95% 달성
+  - DevOps, Microservices 아키텍처 도입으로 배포 빈도 주 1회 → 일 3회 증가
+- 서비스 설명
+  - 운송사, 화주, 기사 도메인 통합 운영
+  - 주문 → 최적화 → 배차 → 운행 → 정산 전 과정 자동화
+  - 화주 ERP, WMS, OMS 등 외부 시스템 연동
+  - 인성, 화물24시 등 화물망 유기적 통합
+- 역할
+  - PM, PO, TA, SA, DEV, OPS (다중 역할 수행)
+- 대표 기술
+  - PHP, Laravel,  Vue
+  - Google OR-Tools, OSRM (라우팅 엔진 내재화)
+  - AWS, GCP, Docker
+  - Jenkins, Circle-CI, GitHub
+  - Mysql, Rddis, Influx
+  - JIRA, Slack
+<figure>
+	<img height="500px" width="500px" src="{{ site.url }}/images/client.png" alt="portfolio">
+	<figcaption> [client.logi-spot.com](https://client.logi-spot.com)</figcaption>
+  <img height="500px" width="500px" src="{{ site.url }}/images/carrier.png" alt="portfolio">
+  <figcaption> [carrier.logi-spot.com](https://carrier.logi-spot.com)</figcaption>
+</figure>
 
 ### 창고관리시스템
-
-
+- 기간
+  - 2022년 3월 ~ 2023년 3월
+- 배경
+  - 외부 솔루션 의존도 탈피 및 자사 물류 특성에 맞는 시스템 필요
+  - 수기 관리 업무의 전산화를 통한 운영 효율 향상
+- 핵심 성과
+  - 외부 솔루션 → 자사 솔루션 전환으로 연간 라이선스 비용 3억 원 절감
+  - 수기 업무 전산화 및 자동화로 운영 효율 200% 향상
+  - 재고 정확도 95% → 99.8% 향상
+  - 커스터마이징 대응 시간 평균 2주 → 3일 단축
+- 서비스 설명
+  - 입고, 출고, 재고, 수불, 정산, 마스터 관리
+  - B2B, B2C 통합 운영
+  - 보세, 식품, 의약품, 수입 상품 등 다양한 상품 유형 지원
+  - 실시간 재고 추적 및 위치 관리
+- 역할
+  - PL, PO, DEV, TA
+- 대표 기술
+  - Python, JavaScript, React
+  - Spring Boot, Django
+  - Docker, Nginx
+  - PostgreSQL, Oracle
+  - MyBatis, Maven
+  - JIRA, Slack
+<figure>
+	<img height="500px" width="500px" src="{{ site.url }}/images/client.png" alt="portfolio">
+	<figcaption> [client.logi-spot.com](https://client.logi-spot.com)</figcaption>
+  <img height="500px" width="500px" src="{{ site.url }}/images/carrier.png" alt="portfolio">
+  <figcaption> [carrier.logi-spot.com](https://carrier.logi-spot.com)</figcaption>
+</figure>
 
 ### 화주통합서비스
 - 기간
