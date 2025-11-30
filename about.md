@@ -120,17 +120,13 @@ Linux, CentOS, Ubuntu <br>
 - 역할
   - PL, PO, DEV, TA
 - 대표 기술
-  - Python, JavaScript, React
-  - Spring Boot, Django
+  - Spring Boot, MyBatis, Maven
   - Docker, Nginx
-  - PostgreSQL, Oracle
-  - MyBatis, Maven
+  - Oracle
   - JIRA, Slack
 <figure>
-	<img height="500px" width="500px" src="{{ site.url }}/images/client.png" alt="portfolio">
-	<figcaption> [client.logi-spot.com](https://client.logi-spot.com)</figcaption>
-  <img height="500px" width="500px" src="{{ site.url }}/images/carrier.png" alt="portfolio">
-  <figcaption> [carrier.logi-spot.com](https://carrier.logi-spot.com)</figcaption>
+	<img height="500px" width="500px" src="{{ site.url }}/images/wms.png" alt="portfolio">
+	<figcaption> [wms.logi-spot.com](https://wms.logi-spot.com)</figcaption>
 </figure>
 
 ### 화주통합서비스
